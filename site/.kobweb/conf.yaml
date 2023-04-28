@@ -1,0 +1,14 @@
+site:
+  title: "LangingPage"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/developmentExecutable/webproject.js"
+      api: "build/libs/webproject.jar"
+    prod:
+      script: "build/distributions/webproject.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080
