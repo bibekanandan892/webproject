@@ -23,12 +23,12 @@ fun HomePage() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             MainSection(onMenuClicked = { menuOpened = true })
+            ExperienceSection()
             AboutSection()
             ServiceSection()
             PortfolioSection()
             AchievementsSection()
-            TestimonialSection()
-            ExperienceSection()
+//            TestimonialSection()
             FooterSection()
         }
         BackToTopButton()

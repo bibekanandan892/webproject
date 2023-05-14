@@ -6,12 +6,26 @@ object Constants {
     const val FONT_FAMILY = "Roboto"
 
     const val LOREM_IPSUM_LONG =
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "Developing scalable mobile banking Android Application from\n" +
+                "scratch\n" +
+                "Migrating all applications to new jetpack compose with\n" +
+                "Application\n" +
+                "Wrote clean, clear, Maintain High Performance, Reusable, efficient and maintainable code With Clean Architecture and\n" +
+                "S.O.L.I.D\n" +
+                "Working closely with Backend, Design, and Product Management\n" +
+                "teams to understand the details of features"
     const val LOREM_IPSUM_SHORTEST =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     const val LOREM_IPSUM_SHORT =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
+    const val ABOUT_ME  = "Developing scalable mobile banking Android Application from\n" +
+            "scratch.\n" +
+            "Migrating all applications to new jetpack compose with\n" +
+            "Application.\n" +
+            "Wrote clean, clear, Maintain High Performance, Reusable, efficient and maintainable code With Clean Architecture and\n" +
+            "S.O.L.I.D.\n" +
+            "Working closely with Backend, Design, and Product Management\n" +
+            "teams to understand the details of features."
 }
 object Res {
     object Icon {
@@ -34,7 +48,7 @@ object Res {
         const val logo = "logo.svg"
         const val main = "Profile_image.png"
         const val about = "about_image.png"
-        const val portfolio1 = "portfolio1.png"
+        const val boruto = "boruto.jpg  "
         const val portfolio2 = "portfolio2.png"
         const val portfolio3 = "portfolio3.png"
         const val portfolio4 = "portfolio4.jpg"

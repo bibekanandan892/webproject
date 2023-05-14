@@ -84,11 +84,9 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                         },
                     size = IconSize.LG
                 )
-                Image(
-                    modifier = Modifier.size(80.px),
-                    src = Res.Image.logo,
-                    desc = "Logo Image"
-                )
+                Column(){
+                    TitleContent(breakpoint = breakpoint)
+                }
             }
             Section.values().take(6).forEach { section ->
                 Link(

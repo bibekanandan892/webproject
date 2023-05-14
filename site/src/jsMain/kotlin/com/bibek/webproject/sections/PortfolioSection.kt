@@ -3,7 +3,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import com.bibek.webproject.components.PortfolioCard
 import com.bibek.webproject.components.SectionTitle
-import com.bibek.webproject.models.Portfolio
+import com.bibek.webproject.models.Projects
 import com.bibek.webproject.models.Section
 import com.bibek.webproject.styles.PortfolioArrowIconStyle
 import com.bibek.webproject.utils.Constants.SECTION_WIDTH
@@ -31,7 +31,7 @@ import org.jetbrains.compose.web.css.px
 fun PortfolioSection() {
     Box(
         modifier = Modifier
-            .id(Section.Portfolio.id)
+            .id(Section.Projects.id)
             .maxWidth(SECTION_WIDTH.px)
             .padding(topBottom = 100.px),
         contentAlignment = Alignment.Center
@@ -55,7 +55,7 @@ fun PortfolioContent() {
             modifier = Modifier
                 .fillMaxWidth()
                 .margin(bottom = 25.px),
-            section = Section.Portfolio
+            section = Section.Projects
         )
         PortfolioCards(breakpoint = breakpoint)
         PortfolioNavigation()
@@ -77,12 +77,12 @@ fun PortfolioCards(breakpoint: Breakpoint) {
             .overflow(Overflow.Hidden)
             .scrollBehavior(ScrollBehavior.Smooth)
     ) {
-        Portfolio.values().forEach { portfolio ->
+        Projects.values().forEach { portfolio ->
             PortfolioCard(
                 modifier = Modifier.margin(
-                    right = if (portfolio != Portfolio.Five) 25.px else 0.px
+                    right = if (portfolio != Projects.Five) 25.px else 0.px
                 ),
-                portfolio = portfolio
+                projects = portfolio
             )
         }
     }

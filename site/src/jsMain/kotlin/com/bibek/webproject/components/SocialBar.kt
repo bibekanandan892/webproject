@@ -50,10 +50,10 @@ fun SocialBar(row: Boolean = false) {
 @Composable
 private fun SocialLinks(row: Boolean = false) {
     Link(
-        path = WEBSITE,
+        path = "https://www.linkedin.com/in/bibekanandanayak-86aa74153/",
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ) {
-        FaFacebook(
+        FaLinkedin(
             modifier = SocialLinkStyle.toModifier()
                 .margin(
                     bottom = if (row) 0.px else 40.px,
@@ -63,10 +63,10 @@ private fun SocialLinks(row: Boolean = false) {
         )
     }
     Link(
-        path = WEBSITE,
+        path = "https://github.com/bibekanandan892",
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ) {
-        FaTwitter(
+        FaGithub(
             modifier = SocialLinkStyle.toModifier()
                 .margin(
                     bottom = if (row) 0.px else 40.px,
@@ -76,7 +76,7 @@ private fun SocialLinks(row: Boolean = false) {
         )
     }
     Link(
-        path = WEBSITE,
+        path = "https://www.instagram.com/vibek.exe/",
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ) {
         FaInstagram(
@@ -89,10 +89,10 @@ private fun SocialLinks(row: Boolean = false) {
         )
     }
     Link(
-        path = WEBSITE,
+        path = "",
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ) {
-        FaLinkedin(
+        FaTwitter(
             modifier = SocialLinkStyle.toModifier(),
             size = IconSize.LG
         )

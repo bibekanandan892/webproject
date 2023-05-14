@@ -1,15 +1,15 @@
 package com.bibek.webproject.models
 import com.bibek.webproject.utils.Res
 
-enum class Portfolio(
+enum class Projects(
     val image: String,
     val title: String,
     val description: String
 ) {
     One(
-        image = Res.Image.portfolio1,
-        title = "Kudoe",
-        description = "Web Design"
+        image = Res.Image.boruto,
+        title = "Boruto: Naruto Next Generations App",
+        description = "Compose UI Android"
     ),
     Two(
         image = Res.Image.portfolio2,

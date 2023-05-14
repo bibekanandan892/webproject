@@ -12,26 +12,27 @@ enum class Experience(
 ) {
     First(
         number = "01",
-        jobPosition = "Kotlin Multi-Platform Developer",
+        jobPosition = "Kotlin Android Developer",
         description = LOREM_IPSUM_LONG,
-        company = "Google",
-        from = "February 2022",
+        company = "iServeU Technology Pvt. Ltd.",
+        from = "January 2022",
         to = "NOW",
-    ),
-    Second(
-        number = "02",
-        jobPosition = "Mobile Developer",
-        description = LOREM_IPSUM_LONG,
-        company = "Facebook",
-        from = "January 2021",
-        to = "October 2021",
-    ),
-    Third(
-        number = "03",
-        jobPosition = "Freelancer",
-        description = LOREM_IPSUM_LONG,
-        company = "Netflix",
-        from = "March 2020",
-        to = "August 2020",
     )
+//    ,
+//    Second(
+//        number = "02",
+//        jobPosition = "Mobile Developer",
+//        description = LOREM_IPSUM_LONG,
+//        company = "Facebook",
+//        from = "January 2021",
+//        to = "October 2021",
+//    ),
+//    Third(
+//        number = "03",
+//        jobPosition = "Freelancer",
+//        description = LOREM_IPSUM_LONG,
+//        company = "Netflix",
+//        from = "March 2020",
+//        to = "August 2020",
+//    )
 }

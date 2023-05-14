@@ -8,6 +8,7 @@ import com.bibek.webproject.models.Section
 import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.MainButtonStyle
 import com.bibek.webproject.styles.MainImageStyle
+import com.bibek.webproject.utils.Constants.ABOUT_ME
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
 import com.bibek.webproject.utils.Constants.LOREM_IPSUM_SHORTEST
 import com.bibek.webproject.utils.Constants.SECTION_WIDTH
@@ -141,7 +142,7 @@ fun MainText(breakpoint: Breakpoint) {
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {
-                Text(LOREM_IPSUM_SHORTEST)
+                Text(ABOUT_ME)
             }
             Button(
                 attrs = MainButtonStyle.toModifier()
@@ -158,7 +159,7 @@ fun MainText(breakpoint: Breakpoint) {
                         .color(Colors.White)
                         .textDecorationLine(TextDecorationLine.None),
                     text = "About me",
-                    path = Section.Contact.path
+                    path = Section.About.path
                 )
             }
         }

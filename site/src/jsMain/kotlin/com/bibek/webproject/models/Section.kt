@@ -12,30 +12,31 @@ enum class Section(
         subtitle = "",
         path = "#home"
     ),
-    About(
-        id = "about",
-        title = "About me",
-        subtitle = "Why Hire Me?",
-        path = "#about"
-    ),
-    Service(
-        id = "service",
-        title = "Service",
-        subtitle = "I'm Good at",
-        path = "#service"
-    ),
-    Portfolio(
-        id = "portfolio",
-        title = "Portfolio",
-        subtitle = "My Work",
-        path = "#portfolio"
-    ),
     Experience(
         id = "experience",
         title = "Experience",
         subtitle = "Work Experience",
         path = "#experience"
     ),
+    About(
+        id = "about",
+        title = "About me",
+        subtitle = "Why Hire Me?",
+        path = "#about"
+    ),
+    Technology(
+        id = "Technology",
+        title = "Technology",
+        subtitle = "I'm Good at",
+        path = "#Technology"
+    ),
+    Projects(
+        id = "Projects",
+        title = "Projects",
+        subtitle = "My Work",
+        path = "#Projects"
+    ),
+
     Contact(
         id = "contact",
         title = "Contact me",

@@ -1,6 +1,6 @@
 package com.bibek.webproject.components
 import androidx.compose.runtime.Composable
-import com.bibek.webproject.models.Portfolio
+import com.bibek.webproject.models.Projects
 import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.PortfolioSectionStyle
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
@@ -29,7 +29,7 @@ import org.jetbrains.compose.web.dom.Text
 @Composable
 fun PortfolioCard(
     modifier: Modifier = Modifier,
-    portfolio: Portfolio,
+    projects: Projects,
     link: String = WEBSITE
 ) {
     Link(
@@ -54,7 +54,7 @@ fun PortfolioCard(
                     modifier = Modifier
                         .size(300.px)
                         .objectFit(ObjectFit.Cover),
-                    src = portfolio.image,
+                    src = projects.image,
                     desc = "Portfolio Image"
                 )
                 Box(
@@ -83,7 +83,7 @@ fun PortfolioCard(
                     .fontWeight(FontWeight.Bold)
                     .toAttrs()
             ) {
-                Text(portfolio.title)
+                Text(projects.title)
             }
             P(
                 attrs = Modifier
@@ -97,7 +97,7 @@ fun PortfolioCard(
                     .opacity(50.percent)
                     .toAttrs()
             ) {
-                Text(portfolio.description)
+                Text(projects.description)
             }
         }
     }

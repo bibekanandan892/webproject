@@ -23,7 +23,7 @@ import org.jetbrains.compose.web.css.px
 fun ServiceSection() {
     Box(
         modifier = Modifier
-            .id(Section.Service.id)
+            .id(Section.Technology.id)
             .maxWidth(SECTION_WIDTH.px)
             .padding(topBottom = 100.px),
         contentAlignment = Alignment.Center
@@ -48,7 +48,7 @@ fun ServiceContent() {
             modifier = Modifier
                 .fillMaxWidth()
                 .margin(bottom = 20.px),
-            section = Section.Service,
+            section = Section.Technology,
             alignment = Alignment.CenterHorizontally
         )
         SimpleGrid(numColumns = numColumns(base = 1, sm = 2, md = 3)) {
