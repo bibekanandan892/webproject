@@ -65,11 +65,11 @@ fun LeftSide(
                 size = IconSize.XL
             )
         }
-        if(breakpoint <= Breakpoint.MD){
-            Column(){
+        if (breakpoint <= Breakpoint.MD) {
+            Column() {
                 TitleContent(breakpoint = breakpoint)
             }
-        }else{
+        } else {
             TitleContent(breakpoint = breakpoint)
         }
 
@@ -100,13 +100,18 @@ fun RightSide() {
         }
     }
 }
+
 @Composable
-fun TitleContent(breakpoint :Breakpoint){
+fun TitleContent(breakpoint: Breakpoint) {
     P(
         attrs = Modifier
             .margin(top = 0.px, bottom = 0.px)
             .fontFamily(FONT_FAMILY)
-            .fontSize(if(breakpoint >= Breakpoint.LG) 40.px else if(breakpoint < Breakpoint.SM) 20.px else 30.px)
+            .fontSize(
+                if (breakpoint >= Breakpoint.LG) 35.px
+                else if (breakpoint < Breakpoint.SM) 20.px
+                else 26.px
+            )
             .fontWeight(FontWeight.Bolder)
             .color(Theme.Primary.rgb)
             .toAttrs()
@@ -118,7 +123,11 @@ fun TitleContent(breakpoint :Breakpoint){
             .margin(top = 0.px, bottom = 0.px, right = 0.px)
             .padding(right = 10.px)
             .fontFamily(FONT_FAMILY)
-            .fontSize(if(breakpoint >= Breakpoint.LG) 40.px else if(breakpoint < Breakpoint.SM) 20.px else 30.px)
+            .fontSize(
+                if (breakpoint >= Breakpoint.LG) 35.px
+                else if (breakpoint < Breakpoint.SM) 20.px
+                else 26.px
+            )
             .fontWeight(FontWeight.Bolder)
             .color(Theme.Secondary.rgb)
             .toAttrs()

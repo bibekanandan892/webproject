@@ -3,6 +3,7 @@ package com.bibek.webproject.sections
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import com.bibek.webproject.components.SocialBar
+import com.bibek.webproject.components.TitleContent
 import com.bibek.webproject.models.Section
 import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.NavigationItemStyle
@@ -51,11 +52,17 @@ fun FooterContent() {
             ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            modifier = Modifier.size(100.px),
-            src = Res.Image.logo,
-            desc = "Logo Image"
-        )
+        if (breakpoint <= Breakpoint.MD) {
+            Column(modifier = Modifier.padding(topBottom = 40.px)) {
+                TitleContent(breakpoint = breakpoint)
+
+            }
+        } else {
+            Row(modifier = Modifier
+                .padding(topBottom = 40.px)) {
+                TitleContent(breakpoint = breakpoint)
+            }
+        }
         if (breakpoint > Breakpoint.SM) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
