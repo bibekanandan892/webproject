@@ -5,7 +5,7 @@ import androidx.compose.runtime.getValue
 import com.bibek.webproject.components.SectionTitle
 import com.bibek.webproject.components.ServiceCard
 import com.bibek.webproject.models.Section
-import com.bibek.webproject.models.Service
+import com.bibek.webproject.models.Technologys
 import com.bibek.webproject.utils.Constants.SECTION_WIDTH
 
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -20,7 +20,7 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 @Composable
-fun ServiceSection() {
+fun TechnologySection() {
     Box(
         modifier = Modifier
             .id(Section.Technology.id)
@@ -28,13 +28,13 @@ fun ServiceSection() {
             .padding(topBottom = 100.px),
         contentAlignment = Alignment.Center
     ) {
-        ServiceContent()
+        TechnologyContent()
     }
 }
 
 
 @Composable
-fun ServiceContent() {
+fun TechnologyContent() {
     val breakpoint by rememberBreakpoint()
     Column(
         modifier = Modifier
@@ -52,8 +52,8 @@ fun ServiceContent() {
             alignment = Alignment.CenterHorizontally
         )
         SimpleGrid(numColumns = numColumns(base = 1, sm = 2, md = 3)) {
-            Service.values().forEach { service ->
-                ServiceCard(service = service)
+            Technologys.values().forEach { technology ->
+                ServiceCard(technologys = technology)
             }
         }
     }

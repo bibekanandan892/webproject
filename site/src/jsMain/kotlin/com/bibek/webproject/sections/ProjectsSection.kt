@@ -28,7 +28,7 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
 @Composable
-fun PortfolioSection() {
+fun ProjectsSection() {
     Box(
         modifier = Modifier
             .id(Section.Projects.id)
@@ -36,12 +36,12 @@ fun PortfolioSection() {
             .padding(topBottom = 100.px),
         contentAlignment = Alignment.Center
     ) {
-        PortfolioContent()
+        ProjectsContent()
     }
 }
 
 @Composable
-fun PortfolioContent() {
+fun ProjectsContent() {
     val breakpoint by rememberBreakpoint()
     Column(
         modifier = Modifier
@@ -57,13 +57,13 @@ fun PortfolioContent() {
                 .margin(bottom = 25.px),
             section = Section.Projects
         )
-        PortfolioCards(breakpoint = breakpoint)
-        PortfolioNavigation()
+        ProjectsCards(breakpoint = breakpoint)
+        ProjectsNavigation()
     }
 }
 
 @Composable
-fun PortfolioCards(breakpoint: Breakpoint) {
+fun ProjectsCards(breakpoint: Breakpoint) {
     Row(
         modifier = Modifier
             .id("scrollableContainer")
@@ -89,7 +89,7 @@ fun PortfolioCards(breakpoint: Breakpoint) {
 }
 
 @Composable
-fun PortfolioNavigation() {
+fun ProjectsNavigation() {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center

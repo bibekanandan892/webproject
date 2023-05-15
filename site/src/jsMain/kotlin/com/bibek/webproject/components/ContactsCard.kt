@@ -1,6 +1,6 @@
 package com.bibek.webproject.components
 import androidx.compose.runtime.Composable
-import com.bibek.webproject.models.Achievement
+import com.bibek.webproject.models.Contacts
 import com.bibek.webproject.models.Theme
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -17,10 +17,10 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
 @Composable
-fun AchievementCard(
+fun ContactsCard(
     modifier: Modifier = Modifier,
-    animatedNumber: Int,
-    achievement: Achievement
+    title: String,
+    contacts: Contacts
 ) {
     Row(
         modifier = modifier,
@@ -30,7 +30,7 @@ fun AchievementCard(
             modifier = Modifier
                 .size(70.px)
                 .margin(right = 20.px),
-            src = achievement.icon,
+            src = contacts.icon,
             desc = "Achievement Icon"
         )
         Column {
@@ -45,8 +45,7 @@ fun AchievementCard(
                     .toAttrs()
             ) {
                 Text(
-                    if (achievement == Achievement.Completed)
-                        "${animatedNumber}+" else "$animatedNumber"
+                    title
                 )
             }
             P(
@@ -60,7 +59,7 @@ fun AchievementCard(
                     .opacity(50.percent)
                     .toAttrs()
             ) {
-                Text(achievement.description)
+                Text(contacts.details)
             }
         }
     }

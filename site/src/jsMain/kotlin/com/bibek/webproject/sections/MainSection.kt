@@ -9,8 +9,8 @@ import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.MainButtonStyle
 import com.bibek.webproject.styles.MainImageStyle
 import com.bibek.webproject.utils.Constants.ABOUT_ME
+import com.bibek.webproject.utils.Constants.ABOUT_ME_SHORT
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
-import com.bibek.webproject.utils.Constants.LOREM_IPSUM_SHORTEST
 import com.bibek.webproject.utils.Constants.SECTION_WIDTH
 import com.bibek.webproject.utils.Res
 import com.varabyte.kobweb.compose.css.*
@@ -142,7 +142,7 @@ fun MainText(breakpoint: Breakpoint) {
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {
-                Text(ABOUT_ME)
+                Text(ABOUT_ME_SHORT)
             }
             Button(
                 attrs = MainButtonStyle.toModifier()
@@ -158,8 +158,8 @@ fun MainText(breakpoint: Breakpoint) {
                     modifier = Modifier
                         .color(Colors.White)
                         .textDecorationLine(TextDecorationLine.None),
-                    text = "About me",
-                    path = Section.About.path
+                    text = "Connect me",
+                    path = Section.Contact.path
                 )
             }
         }

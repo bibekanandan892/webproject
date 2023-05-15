@@ -3,10 +3,11 @@ import androidx.compose.runtime.*
 import com.bibek.webproject.components.SectionTitle
 import com.bibek.webproject.components.SkillBar
 import com.bibek.webproject.models.Section
-import com.bibek.webproject.models.Skill
+import com.bibek.webproject.models.Code
 import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.AboutImageStyle
 import com.bibek.webproject.styles.AboutTextStyle
+import com.bibek.webproject.utils.Constants.CODE_DES
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
 import com.bibek.webproject.utils.Constants.LOREM_IPSUM_SHORT
 import com.bibek.webproject.utils.Constants.SECTION_WIDTH
@@ -39,7 +40,7 @@ import org.jetbrains.compose.web.dom.Text
 fun AboutSection() {
     Box(
         modifier = Modifier
-            .id(Section.About.id)
+            .id(Section.Programming.id)
             .maxWidth(SECTION_WIDTH.px)
             .padding(topBottom = 150.px),
         contentAlignment = Alignment.Center
@@ -79,12 +80,12 @@ fun AboutContent() {
 fun AboutImage() {
     Box(
         modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.CenterStart
     ) {
         Image(
             modifier = AboutImageStyle.toModifier()
                 .fillMaxWidth(80.percent),
-            src = Res.Image.about,
+            src = Res.Image.coding,
             desc = "About Image"
         )
     }
@@ -97,11 +98,11 @@ fun AboutMe() {
     val animatedPercentage = remember { mutableStateListOf(0, 0, 0, 0, 0) }
 
     ObserveViewportEntered(
-        sectionId = Section.About.id,
+        sectionId = Section.Programming.id,
         distanceFromTop = 300.0,
         onViewportEntered = {
             viewportEntered = true
-            Skill.values().forEach { skill ->
+            Code.values().forEach { skill ->
                 scope.launch {
                     animateNumbers(
                         number = skill.percentage.value.toInt(),
@@ -118,9 +119,9 @@ fun AboutMe() {
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center
     ) {
-        SectionTitle(section = Section.About)
+        SectionTitle(section = Section.Programming)
         P(
-            attrs = AboutTextStyle.toModifier()
+            attrs = Modifier
                 .margin(topBottom = 25.px)
                 .maxWidth(500.px)
                 .fontFamily(FONT_FAMILY)
@@ -130,9 +131,9 @@ fun AboutMe() {
                 .color(Theme.Secondary.rgb)
                 .toAttrs()
         ) {
-            Text(LOREM_IPSUM_SHORT)
+            Text(CODE_DES)
         }
-        Skill.values().forEach { skill ->
+        Code.values().forEach { skill ->
             SkillBar(
                 title = skill.title,
                 index = skill.ordinal,

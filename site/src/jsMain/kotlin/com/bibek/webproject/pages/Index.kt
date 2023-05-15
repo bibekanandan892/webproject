@@ -25,9 +25,9 @@ fun HomePage() {
             MainSection(onMenuClicked = { menuOpened = true })
             ExperienceSection()
             AboutSection()
-            ServiceSection()
-            PortfolioSection()
-            AchievementsSection()
+            TechnologySection()
+            ProjectsSection()
+            ContactsSection()
 //            TestimonialSection()
             FooterSection()
         }

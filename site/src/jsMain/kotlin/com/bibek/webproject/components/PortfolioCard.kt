@@ -30,7 +30,7 @@ import org.jetbrains.compose.web.dom.Text
 fun PortfolioCard(
     modifier: Modifier = Modifier,
     projects: Projects,
-    link: String = WEBSITE
+    link: String = ""
 ) {
     Link(
         modifier = PortfolioSectionStyle.toModifier()

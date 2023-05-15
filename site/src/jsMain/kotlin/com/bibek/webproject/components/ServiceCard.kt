@@ -1,6 +1,6 @@
 package com.bibek.webproject.components
 import androidx.compose.runtime.Composable
-import com.bibek.webproject.models.Service
+import com.bibek.webproject.models.Technologys
 import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.ServiceCardStyle
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
@@ -18,7 +18,7 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
 @Composable
-fun ServiceCard(service: Service) {
+fun ServiceCard(technologys: Technologys) {
     Column(
         modifier = ServiceCardStyle.toModifier()
             .maxWidth(300.px)
@@ -44,8 +44,8 @@ fun ServiceCard(service: Service) {
         ) {
             Image(
                 modifier = Modifier.size(40.px),
-                src = service.icon,
-                desc = service.imageDesc
+                src = technologys.icon,
+                desc = technologys.imageDesc
             )
         }
         P(
@@ -57,7 +57,7 @@ fun ServiceCard(service: Service) {
                 .fontWeight(FontWeight.Bold)
                 .toAttrs()
         ) {
-            Text(service.title)
+            Text(technologys.title)
         }
         P(
             attrs = Modifier
@@ -68,7 +68,7 @@ fun ServiceCard(service: Service) {
                 .fontWeight(FontWeight.Normal)
                 .toAttrs()
         ) {
-            Text(service.description)
+            Text(technologys.description)
         }
     }
 }

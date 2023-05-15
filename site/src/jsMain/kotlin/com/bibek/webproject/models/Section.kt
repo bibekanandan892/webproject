@@ -18,11 +18,11 @@ enum class Section(
         subtitle = "Work Experience",
         path = "#experience"
     ),
-    About(
-        id = "about",
-        title = "About me",
-        subtitle = "Why Hire Me?",
-        path = "#about"
+    Programming(
+        id = "Programming",
+        title = "Programming Languages",
+        subtitle = "I can Code in",
+        path = "#Programming"
     ),
     Technology(
         id = "Technology",

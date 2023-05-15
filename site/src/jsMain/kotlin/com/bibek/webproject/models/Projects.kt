@@ -7,14 +7,15 @@ enum class Projects(
     val description: String
 ) {
     One(
+        image = Res.Image.heart,
+        title = "Where is my Heart",
+        description = "Android & Ktor"
+
+    ),
+    Two(
         image = Res.Image.boruto,
         title = "Boruto: Naruto Next Generations App",
         description = "Compose UI Android"
-    ),
-    Two(
-        image = Res.Image.portfolio2,
-        title = "Landing Page for NFT",
-        description = "Frontend"
     ),
     Three(
         image = Res.Image.portfolio3,
