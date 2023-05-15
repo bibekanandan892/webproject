@@ -54,7 +54,7 @@ object Constants {
 object Res {
     object Icon {
         const val web = "web_icon.svg"
-        const val linux = "seo_icon.svg"
+        const val linux = "linux.svg"
         const val compose = "compose.svg"
         const val aws = "aws.svg"
         const val Ktor = "ktor.svg"
