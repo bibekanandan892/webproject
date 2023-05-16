@@ -26,8 +26,8 @@ enum class Experience(
         jobPosition = "Machine Learning Intern",
         description = INEURON_DES,
         company = "Ineuron Technology Pvt. Ltd",
-        from = "January 2020",
-        to = "October 2020",
+        from = "February 2020",
+        to = "May 2020",
     ),
 //    Third(
 //        number = "03",
