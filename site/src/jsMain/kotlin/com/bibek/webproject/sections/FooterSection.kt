@@ -54,13 +54,13 @@ fun FooterContent() {
     ) {
         if (breakpoint <= Breakpoint.MD) {
             Column(modifier = Modifier.padding(topBottom = 40.px)) {
-                TitleContent(breakpoint = breakpoint)
+                TitleContent(breakpoint = breakpoint, firstTitle = "Software", secondTitle = "Engineer")
 
             }
         } else {
             Row(modifier = Modifier
                 .padding(topBottom = 40.px)) {
-                TitleContent(breakpoint = breakpoint)
+                TitleContent(breakpoint = breakpoint, firstTitle = "Software", secondTitle = "Engineer")
             }
         }
         if (breakpoint > Breakpoint.SM) {

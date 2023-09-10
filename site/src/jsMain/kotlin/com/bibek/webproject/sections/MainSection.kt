@@ -23,6 +23,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -102,7 +103,7 @@ fun MainText(breakpoint: Breakpoint) {
                 attrs = Modifier
                     .margin(topBottom = 0.px)
                     .fontFamily(FONT_FAMILY)
-                    .fontSize(if(breakpoint >= Breakpoint.LG) 45.px else 20.px)
+                    .fontSize(if (breakpoint >= Breakpoint.LG) 45.px else 20.px)
                     .fontWeight(FontWeight.Normal)
                     .color(Theme.Primary.rgb)
                     .toAttrs()
@@ -113,7 +114,7 @@ fun MainText(breakpoint: Breakpoint) {
                 attrs = Modifier
                     .margin(top = 20.px, bottom = 0.px)
                     .fontFamily(FONT_FAMILY)
-                    .fontSize(if(breakpoint >= Breakpoint.LG) 68.px else 40.px)
+                    .fontSize(if (breakpoint >= Breakpoint.LG) 68.px else 40.px)
                     .fontWeight(FontWeight.Bolder)
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
@@ -168,12 +169,19 @@ fun MainText(breakpoint: Breakpoint) {
 
 @Composable
 fun MainImage() {
+    val ctx = rememberPageContext()
+
     Column(
         modifier = Modifier.fillMaxSize(80.percent).fillMaxHeight(),
         verticalArrangement = Arrangement.Bottom
     ) {
         Image(
-            modifier = MainImageStyle.toModifier().fillMaxWidth(),
+            modifier = MainImageStyle
+                .toModifier()
+                .fillMaxWidth()
+                .onClick {
+                    ctx.router.navigateTo("blogs/allblogs")
+                },
             src = Res.Image.main,
             desc = "Main Image"
         )

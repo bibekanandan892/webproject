@@ -1,7 +1,6 @@
 package com.bibek.webproject.utils
 
 object Constants {
-    const val WEBSITE = "https://stevdza-san.com/"
     const val SECTION_WIDTH = 1920
     const val FONT_FAMILY = "Roboto"
 
@@ -68,9 +67,9 @@ object Res {
     }
 
     object Image {
-        const val background = "background.svg"
+        const val background = "https://firebasestorage.googleapis.com/v0/b/my-website-d20b1.appspot.com/o/background.svg?alt=media&token=b545ccfd-e07a-49bb-9c2d-35539c9f4f96"
         const val logo = "logo.svg"
-        const val main = "Profile_image.png"
+        const val main = "https://firebasestorage.googleapis.com/v0/b/my-website-d20b1.appspot.com/o/Profile_image.png?alt=media&token=693c3ee2-1ab3-47be-b72d-95e9d5295bdb"
         const val coding = "coding.png"
         const val boruto = "boruto.jpg  "
         const val heart = "heart.png"

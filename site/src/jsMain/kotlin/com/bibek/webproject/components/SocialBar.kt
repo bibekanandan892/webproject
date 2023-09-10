@@ -2,7 +2,6 @@ package com.bibek.webproject.components
 
 import androidx.compose.runtime.Composable
 import com.bibek.webproject.styles.SocialLinkStyle
-import com.bibek.webproject.utils.Constants.WEBSITE
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row

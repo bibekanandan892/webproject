@@ -52,7 +52,7 @@ fun Header(onMenuClicked: () -> Unit) {
 @Composable
 fun LeftSide(
     breakpoint: Breakpoint,
-    onMenuClicked: () -> Unit
+    onMenuClicked: () -> Unit = {}
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         if (breakpoint <= Breakpoint.MD) {
@@ -67,10 +67,10 @@ fun LeftSide(
         }
         if (breakpoint <= Breakpoint.MD) {
             Column() {
-                TitleContent(breakpoint = breakpoint)
+                TitleContent(breakpoint = breakpoint, firstTitle = "Software", secondTitle = "Engineer")
             }
         } else {
-            TitleContent(breakpoint = breakpoint)
+            TitleContent(breakpoint = breakpoint, firstTitle = "Software", secondTitle = "Engineer")
         }
 
     }
@@ -102,7 +102,7 @@ fun RightSide() {
 }
 
 @Composable
-fun TitleContent(breakpoint: Breakpoint) {
+fun TitleContent(breakpoint: Breakpoint , firstTitle : String, secondTitle : String) {
     P(
         attrs = Modifier
             .margin(top = 0.px, bottom = 0.px)
@@ -116,7 +116,7 @@ fun TitleContent(breakpoint: Breakpoint) {
             .color(Theme.Primary.rgb)
             .toAttrs()
     ) {
-        Text("Software")
+        Text(firstTitle)
     }
     P(
         attrs = Modifier
@@ -132,6 +132,6 @@ fun TitleContent(breakpoint: Breakpoint) {
             .color(Theme.Secondary.rgb)
             .toAttrs()
     ) {
-        Text("Engineer")
+        Text(secondTitle)
     }
 }

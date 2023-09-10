@@ -1,4 +1,7 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import kotlinx.html.link
+import kotlinx.html.script
+import org.gradle.internal.impldep.org.eclipse.jgit.transport.ReceiveCommand.link
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -14,6 +17,16 @@ kobweb {
     app {
         index {
             description.set("Powered by Bibek")
+            head.add {
+
+                link(rel = "preconnect", href = "https://fonts.googleapis.com")
+                link(rel = "preconnect", href = "https://fonts.gstatic.com") { attributes["crossorigin"] = "" }
+                link(
+                    href = "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
+                    rel = "stylesheet"
+                )
+            }
+
         }
     }
 }

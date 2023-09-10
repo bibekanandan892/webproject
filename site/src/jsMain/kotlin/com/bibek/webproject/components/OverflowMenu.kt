@@ -85,7 +85,7 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                     size = IconSize.LG
                 )
                 Column(){
-                    TitleContent(breakpoint = breakpoint)
+                    TitleContent(breakpoint = breakpoint, firstTitle = "Software", secondTitle = "Engineer")
                 }
             }
             Section.values().take(6).forEach { section ->
