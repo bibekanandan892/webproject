@@ -24,6 +24,7 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.rememberPageContext
+import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -159,8 +160,10 @@ fun MainText(breakpoint: Breakpoint) {
                     modifier = Modifier
                         .color(Colors.White)
                         .textDecorationLine(TextDecorationLine.None),
-                    text = "Connect me",
-                    path = Section.Contact.path
+                    text = "Blogs",
+                    path = "https://blog.bibekananda.com/",
+                    openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
+
                 )
             }
         }
