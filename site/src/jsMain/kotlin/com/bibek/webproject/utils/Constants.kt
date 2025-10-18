@@ -39,6 +39,7 @@ object Constants {
     const val INEURON_DES = "Developed a collaborative filtering-based machine learning algorithm to recommend products to customers on a grocery shopping website." +
             "Utilized Python, scikit-learn, and Pandas to develop and implement the algorithm." +
             "Increased customer satisfaction and sales by providing personalized product recommendations, leading to a 15% increase in revenue."
+    const val SWIGGY_DES = "Helping people satisfy their cravings"
     const val CODE_DES = "Experienced developer proficient in Kotlin, Java, and C++, with a track record of developing multiple applications using these programming languages. Strong ability to design and implement intuitive user interfaces and create efficient, optimized code.\n"
     const val ANDROID_DEV_DEC = "Experienced Android Developer with a proven track record of designing and developing high-quality mobile applications. "
 
