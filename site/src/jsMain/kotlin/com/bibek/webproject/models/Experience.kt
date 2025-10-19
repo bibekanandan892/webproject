@@ -1,9 +1,8 @@
 package com.bibek.webproject.models
 
-import com.bibek.webproject.utils.Constants.INEURON_DES
 import com.bibek.webproject.utils.Constants.I_SERVEU_DES
-import com.bibek.webproject.utils.Constants.LOREM_IPSUM_LONG
 import com.bibek.webproject.utils.Constants.SWIGGY_DES
+import com.bibek.webproject.utils.Res
 
 enum class Experience(
     val number: String,
@@ -11,17 +10,18 @@ enum class Experience(
     val description: String,
     val company: String,
     val from: String,
-    val to: String
+    val to: String,
+    val companyLogo: String
 ) {
     First(
         number = "01",
-        jobPosition = "SDE 1",
+        jobPosition = "SDE I",
         description = SWIGGY_DES,
         company = "Swiggy Limited",
         from = "February 2025",
         to = "Now",
-    )
-    ,
+        companyLogo = Res.Image.swiggyLogo
+    ),
     Second(
         number = "02",
         jobPosition = "Kotlin Android Developer",
@@ -29,13 +29,6 @@ enum class Experience(
         company = "iServeU Technology Pvt. Ltd.",
         from = "January 2022",
         to = "February 2025",
-    ),
-    Third(
-        number = "03",
-        jobPosition = "Machine Learning Intern",
-        description = INEURON_DES,
-        company = "Ineuron Technology Pvt. Ltd",
-        from = "February 2020",
-        to = "May 2020",
+        companyLogo = Res.Image.iserveuLogo
     )
 }

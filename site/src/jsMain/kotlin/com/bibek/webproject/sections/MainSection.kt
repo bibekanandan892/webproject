@@ -8,7 +8,6 @@ import com.bibek.webproject.models.Section
 import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.MainButtonStyle
 import com.bibek.webproject.styles.MainImageStyle
-import com.bibek.webproject.utils.Constants.ABOUT_ME
 import com.bibek.webproject.utils.Constants.ABOUT_ME_SHORT
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
 import com.bibek.webproject.utils.Constants.SECTION_WIDTH

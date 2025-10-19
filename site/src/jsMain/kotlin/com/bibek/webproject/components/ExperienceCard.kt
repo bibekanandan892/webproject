@@ -6,6 +6,7 @@ import com.bibek.webproject.models.Theme
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
 import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
@@ -94,52 +96,64 @@ fun ExperienceDetails(
         if (breakpoint >= Breakpoint.MD) {
             ExperienceNumber(active = active, experience = experience)
         }
-        Column(
+        Row(
             modifier = Modifier
                 .fillMaxSize()
-                .margin(left = if(breakpoint <= Breakpoint.SM) 0.px else animatedMargin)
+                .margin(left = if (breakpoint <= Breakpoint.SM) 0.px else animatedMargin)
                 .transition(
                     CSSTransition(
                         property = "margin",
                         duration = 500.ms,
                         delay = experience.ordinal * 100.ms
                     )
-                )
-            ,
-            verticalArrangement = Arrangement.Center
+                ),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start
         ) {
-            P(
-                attrs = Modifier
-                    .margin(topBottom = 0.px)
-                    .fontFamily(FONT_FAMILY)
-                    .fontSize(20.px)
-                    .fontWeight(FontWeight.Bold)
-                    .color(Theme.Secondary.rgb)
-                    .toAttrs()
-            ) {
-                Text(experience.jobPosition)
-            }
-            P(
-                attrs = Modifier
-                    .margin(topBottom = 0.px)
-                    .fontFamily(FONT_FAMILY)
-                    .fontSize(14.px)
-                    .fontWeight(FontWeight.Normal)
-                    .color(Theme.Secondary.rgb)
-                    .toAttrs()
-            ) {
-                Text("${experience.from} - ${experience.to}")
-            }
-            P(
-                attrs = Modifier
-                    .margin(topBottom = 0.px)
-                    .fontFamily(FONT_FAMILY)
-                    .fontSize(14.px)
-                    .fontWeight(FontWeight.Normal)
-                    .color(Theme.Primary.rgb)
-                    .toAttrs()
-            ) {
-                Text(experience.company)
+            Image(
+                modifier = Modifier
+                    .size(60.px)
+                    .objectFit(ObjectFit.Cover)
+                    .margin(right = 15.px)
+                    .borderRadius(30.percent),
+                src = experience.companyLogo,
+                desc = "Portfolio Image"
+            )
+            Column {
+                P(
+                    attrs = Modifier
+                        .margin(topBottom = 0.px)
+                        .fontFamily(FONT_FAMILY)
+                        .fontSize(20.px)
+                        .fontWeight(FontWeight.Bold)
+                        .color(Theme.Secondary.rgb)
+                        .toAttrs()
+                ) {
+                    Text(experience.jobPosition)
+                }
+                P(
+                    attrs = Modifier
+                        .margin(topBottom = 0.px)
+                        .fontFamily(FONT_FAMILY)
+                        .fontSize(14.px)
+                        .fontWeight(FontWeight.Normal)
+                        .color(Theme.Secondary.rgb)
+                        .toAttrs()
+                ) {
+                    Text("${experience.from} - ${experience.to}")
+                }
+                P(
+                    attrs = Modifier
+                        .margin(topBottom = 0.px)
+                        .fontFamily(FONT_FAMILY)
+                        .fontSize(14.px)
+                        .fontWeight(FontWeight.Normal)
+                        .color(Theme.Primary.rgb)
+                        .toAttrs()
+                ) {
+                    Text(experience.company)
+                }
+
             }
         }
     }

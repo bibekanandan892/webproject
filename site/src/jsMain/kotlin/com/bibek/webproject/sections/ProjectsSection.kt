@@ -82,7 +82,8 @@ fun ProjectsCards(breakpoint: Breakpoint) {
                 modifier = Modifier.margin(
                     right = if (portfolio != Projects.Five) 25.px else 0.px
                 ),
-                projects = portfolio
+                projects = portfolio,
+                link = portfolio.link
             )
         }
     }
