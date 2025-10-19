@@ -7,7 +7,6 @@ import com.bibek.webproject.utils.Constants.FONT_FAMILY
 import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
-import com.varabyte.kobweb.compose.css.functions.RadialGradient
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -18,15 +17,9 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
-import com.varabyte.kobweb.silk.components.icons.fa.FaCircle
-import com.varabyte.kobweb.silk.components.icons.fa.FaShapes
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
-import com.varabyte.kobweb.silk.theme.shapes.Circle
-import com.varabyte.kobweb.silk.theme.shapes.CirclePath
-import com.varabyte.kobweb.silk.theme.shapes.Shape
-import com.varabyte.kobweb.silk.theme.shapes.clip
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text

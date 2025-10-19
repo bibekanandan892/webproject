@@ -13,18 +13,8 @@ object Constants {
                 "S.O.L.I.D\n" +
                 "Working closely with Backend, Design, and Product Management\n" +
                 "teams to understand the details of features"
-    const val LOREM_IPSUM_SHORTEST =
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     const val LOREM_IPSUM_SHORT =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    const val ABOUT_ME  = "Developing scalable mobile banking Android Application from\n" +
-            "scratch.\n" +
-            "Migrating all applications to new jetpack compose with\n" +
-            "Application.\n" +
-            "Wrote clean, clear, Maintain High Performance, Reusable, efficient and maintainable code With Clean Architecture and\n" +
-            "S.O.L.I.D.\n" +
-            "Working closely with Backend, Design, and Product Management\n" +
-            "teams to understand the details of features."
     const val ABOUT_ME_SHORT = "Designed and developed multiple Android applications using Kotlin. " +
             "Implemented user-friendly and intuitive UI/UX design, resulting in positive feedback from users" +
             " Developed back-end functionality using Ktor, enabling seamless communication between the front-end and back-end of the applications"
@@ -66,14 +56,12 @@ object Res {
 
     object Image {
         const val background = "https://firebasestorage.googleapis.com/v0/b/my-website-d20b1.appspot.com/o/background.svg?alt=media&token=b545ccfd-e07a-49bb-9c2d-35539c9f4f96"
-        const val logo = "logo.svg"
         const val main = "https://firebasestorage.googleapis.com/v0/b/my-website-d20b1.appspot.com/o/Profile_image.png?alt=media&token=693c3ee2-1ab3-47be-b72d-95e9d5295bdb"
         const val coding = "coding.png"
         const val recipe_database = "recipe_database.png"
         const val byteStream = "byte_stream.png"
         const val heart = "heart.jpeg"
         const val portfolio3 = "portfolio3.png"
-        const val portfolio4 = "portfolio4.jpg"
         const val portfolio5 = "portfolio5.png"
         const val avatar1 = "avatar1.png"
         const val avatar2 = "avatar2.png"
