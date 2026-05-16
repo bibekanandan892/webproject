@@ -1,6 +1,8 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
 import kotlinx.html.link
 import kotlinx.html.script
+import kotlinx.html.style
+import kotlinx.html.unsafe
 import org.gradle.internal.impldep.org.eclipse.jgit.transport.ReceiveCommand.link
 
 plugins {
@@ -25,6 +27,23 @@ kobweb {
                     href = "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
                     rel = "stylesheet"
                 )
+                style {
+                    unsafe {
+                        raw(
+                            """
+                            html, body {
+                                margin: 0;
+                                min-height: 100vh;
+                                background: radial-gradient(circle at 20% 0%, #14213D 0%, #0B0F1A 45%, #06080F 100%);
+                                background-attachment: fixed;
+                                color: #EAEAF2;
+                            }
+                            ::selection { background: rgba(125, 249, 255, 0.30); }
+                            * { box-sizing: border-box; }
+                            """.trimIndent()
+                        )
+                    }
+                }
             }
 
         }

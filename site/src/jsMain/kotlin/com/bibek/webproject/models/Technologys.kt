@@ -4,7 +4,6 @@ import com.bibek.webproject.utils.Constants.AWS_DEV_DES
 import com.bibek.webproject.utils.Constants.COMPOSE_MULT_DEV_DEC
 import com.bibek.webproject.utils.Constants.KTOR_DEV_DEC
 import com.bibek.webproject.utils.Constants.LINUX_DEV_DES
-import com.bibek.webproject.utils.Constants.LOREM_IPSUM_SHORTEST
 import com.bibek.webproject.utils.Constants.WEB_DEV_DEC
 import com.bibek.webproject.utils.Res
 
