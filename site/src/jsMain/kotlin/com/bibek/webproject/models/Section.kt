@@ -12,6 +12,18 @@ enum class Section(
         subtitle = "",
         path = "#home"
     ),
+    Now(
+        id = "now",
+        title = "Now",
+        subtitle = "What I'm Building",
+        path = "#now"
+    ),
+    LookingFor(
+        id = "lookingFor",
+        title = "Looking For",
+        subtitle = "What I Want Next",
+        path = "#lookingFor"
+    ),
     Experience(
         id = "experience",
         title = "Experience",
@@ -20,7 +32,7 @@ enum class Section(
     ),
     Programming(
         id = "Programming",
-        title = "Programming Languages",
+        title = "Programming",
         subtitle = "I can Code in",
         path = "#Programming"
     ),
@@ -36,10 +48,9 @@ enum class Section(
         subtitle = "My Work",
         path = "#Projects"
     ),
-
     Contact(
         id = "contact",
-        title = "Contact me",
+        title = "Contact",
         subtitle = "Get in Touch",
         path = "#contact"
     ),
@@ -56,3 +67,21 @@ enum class Section(
         path = "#achievements"
     )
 }
+
+data class ExternalNavItem(val title: String, val path: String)
+
+object ExternalNav {
+    val Blog = ExternalNavItem(title = "Blog", path = "/blogs/")
+}
+
+// Sections that should appear as scroll-anchor links in the top nav.
+// Order in this list = order in the nav bar.
+val NavSections: List<Section> = listOf(
+    Section.Home,
+    Section.Now,
+    Section.Experience,
+    Section.Programming,
+    Section.Technology,
+    Section.Projects,
+    Section.Contact
+)

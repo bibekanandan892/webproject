@@ -23,6 +23,8 @@ fun HomePage() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             MainSection(onMenuClicked = { menuOpened = true })
+            CurrentlyWorkingSection()
+            LookingForSection()
             ExperienceSection()
             AboutSection()
             TechnologySection()

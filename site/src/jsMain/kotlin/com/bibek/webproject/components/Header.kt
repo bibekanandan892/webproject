@@ -2,7 +2,9 @@ package com.bibek.webproject.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import com.bibek.webproject.models.Section
+import com.bibek.webproject.models.ExternalNav
+import com.bibek.webproject.models.Glass
+import com.bibek.webproject.models.NavSections
 import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.LogoStyle
 import com.bibek.webproject.styles.NavigationItemStyle
@@ -82,22 +84,38 @@ fun RightSide() {
         modifier = Modifier
             .fillMaxWidth()
             .borderRadius(r = 50.px)
-            .backgroundColor(Theme.LighterGray.rgb)
+            .styleModifier {
+                property("background-color", "rgba(255, 255, 255, 0.06)")
+                property("backdrop-filter", Glass.NavBlur)
+                property("-webkit-backdrop-filter", Glass.NavBlur)
+                property("border", "1px solid ${Glass.Border}")
+            }
             .padding(all = 20.px),
         horizontalArrangement = Arrangement.End
     ) {
-        Section.values().take(6).forEach { section ->
+        NavSections.forEach { section ->
             Link(
                 modifier = NavigationItemStyle.toModifier()
-                    .padding(right = 30.px)
+                    .padding(right = 24.px)
                     .fontFamily(FONT_FAMILY)
-                    .fontSize(18.px)
+                    .fontSize(16.px)
                     .fontWeight(FontWeight.Normal)
                     .textDecorationLine(TextDecorationLine.None),
                 path = section.path,
                 text = section.title
             )
         }
+        Link(
+            modifier = NavigationItemStyle.toModifier()
+                .padding(right = 8.px)
+                .fontFamily(FONT_FAMILY)
+                .fontSize(16.px)
+                .fontWeight(FontWeight.Bold)
+                .color(Theme.Accent.rgb)
+                .textDecorationLine(TextDecorationLine.None),
+            path = ExternalNav.Blog.path,
+            text = ExternalNav.Blog.title
+        )
     }
 }
 

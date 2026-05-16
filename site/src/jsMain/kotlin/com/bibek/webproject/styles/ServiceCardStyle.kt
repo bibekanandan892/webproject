@@ -1,41 +1,39 @@
 package com.bibek.webproject.styles
 
+import com.bibek.webproject.models.Glass
 import com.bibek.webproject.models.Theme
 import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
-import com.varabyte.kobweb.compose.ui.modifiers.border
+import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.styleModifier
 import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import com.varabyte.kobweb.silk.components.style.hover
-import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.px
 
 val ServiceCardStyle by ComponentStyle {
     base {
         Modifier
-            .border(
-                width = 2.px,
-                style = LineStyle.Solid,
-                color = Theme.LighterGray.rgb
-            )
-            .backgroundColor(Colors.White)
-            .transition(
-                CSSTransition(property = "border", duration = 200.ms),
-                CSSTransition(property = "background", duration = 200.ms)
-            )
+            .borderRadius(20.px)
+            .styleModifier {
+                property("background-color", Glass.White)
+                property("backdrop-filter", Glass.Blur)
+                property("-webkit-backdrop-filter", Glass.Blur)
+                property("border", "1px solid ${Glass.Border}")
+                property("box-shadow", "${Glass.Shadow}, ${Glass.InsetHighlight}")
+            }
+            .transition(CSSTransition(property = "all", duration = 250.ms))
     }
     hover {
-        Modifier
-            .border(
-                width = 2.px,
-                style = LineStyle.Solid,
-                color = Theme.Primary.rgb
-            )
-            .backgroundColor(Theme.Primary.rgb)
+        Modifier.styleModifier {
+            property("background-color", Glass.AccentMuted)
+            property("border", "1px solid rgba(125, 249, 255, 0.55)")
+            property("transform", "translateY(-4px)")
+        }
     }
 
     cssRule(" > #iconBox") {
@@ -45,16 +43,18 @@ val ServiceCardStyle by ComponentStyle {
     }
 
     cssRule(":hover > #iconBox") {
-        Modifier.backgroundColor(Colors.White)
+        Modifier.styleModifier {
+            property("background-color", "rgba(125, 249, 255, 0.20)")
+        }
     }
 
     cssRule(" > p") {
         Modifier
-            .color(Theme.Secondary.rgb)
+            .color(Theme.TextPrimary.rgb)
             .transition(CSSTransition(property = "color", duration = 200.ms))
     }
 
     cssRule(":hover > p") {
-        Modifier.color(Colors.White)
+        Modifier.color(Theme.Accent.rgb)
     }
 }

@@ -1,7 +1,10 @@
 package com.bibek.webproject.components
 
 import androidx.compose.runtime.*
-import com.bibek.webproject.models.Section
+import com.bibek.webproject.models.ExternalNav
+import com.bibek.webproject.models.Glass
+import com.bibek.webproject.models.NavSections
+import com.bibek.webproject.models.Theme
 import com.bibek.webproject.styles.NavigationItemStyle
 import com.bibek.webproject.utils.Constants.FONT_FAMILY
 import com.bibek.webproject.utils.Res
@@ -59,10 +62,15 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
             modifier = Modifier
                 .fillMaxHeight()
                 .padding(all = 25.px)
-                .width(if (breakpoint < Breakpoint.MD) 50.percent else 25.percent)
+                .width(if (breakpoint < Breakpoint.MD) 70.percent else 25.percent)
                 .overflow(Overflow.Auto)
                 .scrollBehavior(ScrollBehavior.Smooth)
-                .backgroundColor(Colors.White)
+                .styleModifier {
+                    property("background-color", "rgba(11, 15, 26, 0.92)")
+                    property("backdrop-filter", Glass.NavBlur)
+                    property("-webkit-backdrop-filter", Glass.NavBlur)
+                    property("border-right", "1px solid ${Glass.Border}")
+                }
                 .translateX(tx = translateX)
                 .transition(CSSTransition(property = "translate", duration = 500.ms))
         ) {
@@ -88,7 +96,7 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                     TitleContent(breakpoint = breakpoint, firstTitle = "Software", secondTitle = "Engineer")
                 }
             }
-            Section.values().take(6).forEach { section ->
+            NavSections.forEach { section ->
                 Link(
                     modifier = NavigationItemStyle.toModifier()
                         .margin(bottom = 10.px)
@@ -109,6 +117,17 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                     openInternalLinksStrategy = OpenLinkStrategy.IN_PLACE
                 )
             }
+            Link(
+                modifier = NavigationItemStyle.toModifier()
+                    .margin(top = 10.px, bottom = 10.px)
+                    .fontFamily(FONT_FAMILY)
+                    .fontSize(16.px)
+                    .fontWeight(FontWeight.Bold)
+                    .color(Theme.Accent.rgb)
+                    .textDecorationLine(TextDecorationLine.None),
+                path = ExternalNav.Blog.path,
+                text = ExternalNav.Blog.title
+            )
         }
     }
 }
