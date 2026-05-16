@@ -55,8 +55,8 @@ object Res {
     }
 
     object Image {
-        const val background = "https://firebasestorage.googleapis.com/v0/b/my-website-d20b1.appspot.com/o/background.svg?alt=media&token=b545ccfd-e07a-49bb-9c2d-35539c9f4f96"
-        const val main = "https://firebasestorage.googleapis.com/v0/b/my-website-d20b1.appspot.com/o/Profile_image.png?alt=media&token=693c3ee2-1ab3-47be-b72d-95e9d5295bdb"
+        const val background = "/background.svg"
+        const val main = "/Profile_image.png"
         const val coding = "coding.png"
         const val recipe_database = "recipe_database.png"
         const val byteStream = "byte_stream.png"
