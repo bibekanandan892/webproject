@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Spotlight } from "@/components/spotlight";
 import { ArrowDown } from "lucide-react";
+import { usePhotoClickEgg } from "@/lib/photo-egg";
 
 export function Hero() {
+  const onPhotoClick = usePhotoClickEgg();
   return (
     <section
       id="home"
@@ -48,7 +52,10 @@ export function Hero() {
 
         <div className="relative w-full md:col-span-5">
           <div className="absolute -inset-3 rounded-2xl bg-primary/20 blur-3xl" />
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl border-2 border-primary/40 md:max-w-none">
+          <div
+            className="relative mx-auto aspect-[4/5] w-full max-w-sm cursor-pointer overflow-hidden rounded-2xl border-2 border-primary/40 md:max-w-none"
+            onClick={onPhotoClick}
+          >
             <Image
               src="/profile.png"
               alt="Portrait of Bibekananda Nayak"

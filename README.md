@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# bibekananda.in — portfolio (consolidated)
 
-## Getting Started
+Multi-variant Next.js 16 portfolio with a built-in voting dashboard. All 6
+design variants live in one repo; one is picked as the live "home" via a
+Supabase-backed admin toggle.
 
-First, run the development server:
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local       # then fill in your Supabase URL + anon key + admin password
+pnpm dev                          # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Routes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Route                          | Purpose                                                  |
+| ------------------------------ | -------------------------------------------------------- |
+| `/`                            | Renders whichever variant is currently the "main" site   |
+| `/vote`                        | Shareable voting dashboard (thumbnails + thumbs-up)      |
+| `/preview/<variant>/`          | Full-screen preview of any single variant                |
+| `/blog`                        | Blog landing (placeholder)                               |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Variants: `terminal-dark`, `kobweb-classic`, `bento-ios`, `editorial-serif`,
+`liquid-glass`, `spatial-3d`.
 
-## Learn More
+## Supabase setup (one-time, ~10 min, free tier)
 
-To learn more about Next.js, take a look at the following resources:
+1. Create a free project at https://supabase.com
+2. Open the SQL editor and paste `supabase/schema.sql`, run it
+3. Project Settings → API: copy the URL + `anon` key into `.env.local`
+4. Pick an admin password and set `NEXT_PUBLIC_ADMIN_PASSWORD`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Without Supabase, votes don't persist and `/` always renders the default
+(`terminal-dark`). Everything else still works locally.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## The voting flow
 
-## Deploy on Vercel
+- Anyone can click any card on `/vote` to open the full variant in a new tab
+- Thumbs-up: one toggleable vote per browser per variant (tracked in localStorage)
+- Counts live-update in Supabase via the `bump_vote` RPC (RLS-locked)
+- "Email my picks" generates a mailto link encoding the user's choices
+- **5-click easter egg**: 5 rapid clicks (within 3s) on the profile photo of
+  any variant's hero navigates to `/vote`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Admin: switching the live site
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Visit `/vote`
+2. Click the gear icon (top right)
+3. Enter `NEXT_PUBLIC_ADMIN_PASSWORD`
+4. "Make main" buttons appear on each card
+5. Click one → updates Supabase `site_config.main_variant_id` → `/` now renders
+   that variant for everyone (no redeploy needed)
+
+The admin password is hardcoded into the bundled JS — security through
+obscurity only. Fine for a portfolio voting toy; do not reuse this pattern for
+real auth.
+
+## Regenerating thumbnails
+
+If you change a variant's look, refresh its thumbnail:
+
+```bash
+pnpm dev -p 3000                       # in one terminal
+pnpm tsx scripts/snap-thumbnails.ts    # in another
+```
+
+Output: `public/thumbs/<variant>.png` (1280×800).
+
+## Project layout
+
+```
+src/
+├── app/
+│   ├── layout.tsx           # loads all 5 fonts (Geist, Geist_Mono, Inter, Roboto, Fraunces)
+│   ├── page.tsx             # home — reads main variant from Supabase
+│   ├── globals.css          # shared base + per-variant scoped palettes/utilities
+│   ├── vote/page.tsx        # voting dashboard
+│   ├── preview/[variant]/   # full-screen variant previews
+│   └── blog/page.tsx
+├── variants/
+│   ├── registry.ts          # VARIANTS metadata + lookup
+│   ├── VariantHost.tsx      # wraps a variant with [data-variant="X"]
+│   └── <id>/Variant.tsx     # one folder per variant
+├── components/
+│   ├── vote/                # VariantCard, AdminGate
+│   └── *.tsx                # shared hero/now/experience/... (used by some variants)
+├── lib/
+│   ├── supabase.ts          # browser client singleton
+│   ├── votes.ts             # toggleVote / fetchCounts / getMyVotes
+│   ├── main-variant.ts      # fetchMainVariant / setMainVariant
+│   └── photo-egg.ts         # usePhotoClickEgg() — the 5-click hook
+└── data/                    # static content shared across all variants
+```
+
+## Deploy
+
+Static export, deploys to Render as a free Static Site. `pnpm build` writes
+`out/`. Render auto-deploys on push to `master`. Supabase is called from the
+browser; no Render compute needed.
+
+Set the three `NEXT_PUBLIC_*` env vars in the Render dashboard
+(Environment → Add Environment Variable) so they're baked into the build.

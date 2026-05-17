@@ -48,9 +48,11 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Terminal-dark palette. Dark only — no light variant at launch. */
-:root,
-.dark {
+/* ============================================================================
+   DEFAULT (unscoped) — used by /vote, /blog, and the root layout before a
+   variant wrapper is rendered. Identical to terminal-dark.
+   ============================================================================ */
+:root {
   --background: #0A0F1C;
   --foreground: #E6EDF3;
   --card: #0F1626;
@@ -73,7 +75,6 @@
   --input: rgba(230, 237, 243, 0.12);
   --ring: #64FFDA;
 
-  --dim: #5B6478;
   --surface: #0F1626;
   --surface-elevated: #141C30;
 
@@ -106,11 +107,6 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    background-image:
-      radial-gradient(60% 50% at 15% 0%, rgba(100, 255, 218, 0.06) 0%, transparent 60%),
-      radial-gradient(50% 40% at 85% 10%, rgba(125, 211, 252, 0.05) 0%, transparent 60%),
-      radial-gradient(80% 60% at 50% 100%, rgba(167, 139, 250, 0.04) 0%, transparent 60%);
-    background-attachment: fixed;
     background-color: var(--background);
   }
   ::selection {
@@ -127,10 +123,371 @@
   ::-webkit-scrollbar-thumb:hover { background: var(--muted-foreground); }
 }
 
+/* ============================================================================
+   VARIANT: terminal-dark — adds the aurora body gradient over the default palette.
+   ============================================================================ */
+[data-variant="terminal-dark"] {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  background-image:
+    radial-gradient(60% 50% at 15% 0%, rgba(100, 255, 218, 0.06) 0%, transparent 60%),
+    radial-gradient(50% 40% at 85% 10%, rgba(125, 211, 252, 0.05) 0%, transparent 60%),
+    radial-gradient(80% 60% at 50% 100%, rgba(167, 139, 250, 0.04) 0%, transparent 60%);
+  background-attachment: fixed;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* ============================================================================
+   VARIANT: kobweb-classic — light cream + teal + Roboto.
+   ============================================================================ */
+[data-variant="kobweb-classic"] {
+  --background: #F9F9F9;
+  --foreground: #121D34;
+  --card: #FFFFFF;
+  --card-foreground: #121D34;
+  --popover: #FFFFFF;
+  --popover-foreground: #121D34;
+
+  --primary: #00A78E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EDEDED;
+  --secondary-foreground: #121D34;
+
+  --muted: #EDEDED;
+  --muted-foreground: #5B6478;
+  --accent: #EDEDED;
+  --accent-foreground: #00A78E;
+  --destructive: #E5484D;
+
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #00A78E;
+
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+
+  --chart-1: #00A78E;
+  --chart-2: #121D34;
+  --chart-3: #5B6478;
+  --chart-4: #CFCFCF;
+  --chart-5: #EDEDED;
+
+  --radius: 0.375rem;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #121D34;
+  --sidebar-primary: #00A78E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EDEDED;
+  --sidebar-accent-foreground: #00A78E;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #00A78E;
+
+  font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  color-scheme: light;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(70% 50% at 0% 100%, rgba(0, 167, 142, 0.05) 0%, transparent 60%),
+    radial-gradient(60% 50% at 100% 0%, rgba(18, 29, 52, 0.04) 0%, transparent 60%);
+  color: var(--foreground);
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+[data-variant="kobweb-classic"] .fade-up {
+  animation: fade-up 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ============================================================================
+   VARIANT: bento-ios — dark ink + amber, chunky rounded.
+   ============================================================================ */
+[data-variant="bento-ios"] {
+  --background: #0B0E12;
+  --foreground: #F4F4F5;
+  --card: #161A22;
+  --card-foreground: #F4F4F5;
+  --popover: #161A22;
+  --popover-foreground: #F4F4F5;
+
+  --primary: #F5A524;
+  --primary-foreground: #0B0E12;
+  --secondary: #1E2330;
+  --secondary-foreground: #F4F4F5;
+
+  --muted: #161A22;
+  --muted-foreground: #A1A1AA;
+  --accent: #1E2330;
+  --accent-foreground: #F5A524;
+  --destructive: #FF6B6B;
+
+  --border: rgba(255, 255, 255, 0.06);
+  --input: rgba(255, 255, 255, 0.10);
+  --ring: #F5A524;
+
+  --surface: #161A22;
+  --surface-elevated: #1E2330;
+
+  --chart-1: #F5A524;
+  --chart-2: #7DD3FC;
+  --chart-3: #C084FC;
+  --chart-4: #4ADE80;
+  --chart-5: #FB7185;
+
+  --radius: 1.5rem;
+
+  --sidebar: #161A22;
+  --sidebar-foreground: #F4F4F5;
+  --sidebar-primary: #F5A524;
+  --sidebar-primary-foreground: #0B0E12;
+  --sidebar-accent: #1E2330;
+  --sidebar-accent-foreground: #F5A524;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: #F5A524;
+
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* ============================================================================
+   VARIANT: editorial-serif — cream + burnt orange + Fraunces.
+   ============================================================================ */
+[data-variant="editorial-serif"] {
+  --background: #FAF7F2;
+  --foreground: #1A1612;
+  --card: #F2EEE7;
+  --card-foreground: #1A1612;
+  --popover: #F2EEE7;
+  --popover-foreground: #1A1612;
+
+  --primary: #C04A2B;
+  --primary-foreground: #FAF7F2;
+  --secondary: #ECE6DC;
+  --secondary-foreground: #1A1612;
+
+  --muted: #ECE6DC;
+  --muted-foreground: #5B544D;
+  --accent: #ECE6DC;
+  --accent-foreground: #C04A2B;
+  --destructive: #B91C1C;
+
+  --border: rgba(26, 22, 18, 0.10);
+  --input: rgba(26, 22, 18, 0.14);
+  --ring: #C04A2B;
+
+  --surface: #F2EEE7;
+  --surface-elevated: #ECE6DC;
+
+  --chart-1: #C04A2B;
+  --chart-2: #8A6E3F;
+  --chart-3: #5B544D;
+  --chart-4: #B89968;
+  --chart-5: #4D4036;
+
+  --radius: 0.25rem;
+
+  --sidebar: #F2EEE7;
+  --sidebar-foreground: #1A1612;
+  --sidebar-primary: #C04A2B;
+  --sidebar-primary-foreground: #FAF7F2;
+  --sidebar-accent: #ECE6DC;
+  --sidebar-accent-foreground: #C04A2B;
+  --sidebar-border: rgba(26, 22, 18, 0.10);
+  --sidebar-ring: #C04A2B;
+
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  color-scheme: light;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+[data-variant="editorial-serif"] h1,
+[data-variant="editorial-serif"] h2,
+[data-variant="editorial-serif"] h3,
+[data-variant="editorial-serif"] .font-display {
+  font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================================
+   VARIANT: liquid-glass — deep purple + frosted glass utilities.
+   ============================================================================ */
+[data-variant="liquid-glass"] {
+  --background: #0A0518;
+  --foreground: #F4F1FF;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-foreground: #F4F1FF;
+  --popover: rgba(20, 12, 40, 0.85);
+  --popover-foreground: #F4F1FF;
+
+  --primary: #C7B9FF;
+  --primary-foreground: #0A0518;
+  --secondary: rgba(255, 255, 255, 0.08);
+  --secondary-foreground: #F4F1FF;
+
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #B8B0D8;
+  --accent: #FF7BD5;
+  --accent-foreground: #0A0518;
+  --destructive: #FF6B8A;
+
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.10);
+  --ring: #C7B9FF;
+
+  --chart-1: #C7B9FF;
+  --chart-2: #7DE2FF;
+  --chart-3: #FF7BD5;
+  --chart-4: #FFD479;
+  --chart-5: #95F5C9;
+
+  --radius: 1.5rem;
+
+  --sidebar: rgba(255, 255, 255, 0.04);
+  --sidebar-foreground: #F4F1FF;
+  --sidebar-primary: #C7B9FF;
+  --sidebar-primary-foreground: #0A0518;
+  --sidebar-accent: rgba(255, 255, 255, 0.06);
+  --sidebar-accent-foreground: #F4F1FF;
+  --sidebar-border: rgba(255, 255, 255, 0.10);
+  --sidebar-ring: #C7B9FF;
+
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+[data-variant="liquid-glass"] .glass-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.85;
+  pointer-events: none;
+  will-change: transform;
+}
+
+@keyframes drift-a { 0%,100% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(8vw, 12vh, 0) scale(1.15);} }
+@keyframes drift-b { 0%,100% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(-10vw, -8vh, 0) scale(1.1);} }
+@keyframes drift-c { 0%,100% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(6vw, -10vh, 0) scale(0.95);} }
+@keyframes drift-d { 0%,100% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(-8vw, 10vh, 0) scale(1.2);} }
+[data-variant="liquid-glass"] .drift-a { animation: drift-a 22s ease-in-out infinite; }
+[data-variant="liquid-glass"] .drift-b { animation: drift-b 28s ease-in-out infinite; }
+[data-variant="liquid-glass"] .drift-c { animation: drift-c 26s ease-in-out infinite; }
+[data-variant="liquid-glass"] .drift-d { animation: drift-d 32s ease-in-out infinite; }
+
+[data-variant="liquid-glass"] .glass {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 0 rgba(255,255,255,0.05),
+    0 30px 60px -30px rgba(0,0,0,0.5),
+    0 18px 36px -18px rgba(120,70,200,0.25);
+  transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 400ms;
+}
+[data-variant="liquid-glass"] .glass-hover:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255,255,255,0.25),
+    inset 0 -1px 0 0 rgba(255,255,255,0.05),
+    0 40px 80px -30px rgba(0,0,0,0.6),
+    0 24px 48px -16px rgba(199,185,255,0.35);
+}
+[data-variant="liquid-glass"] .glass-shine::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgba(255,255,255,0.22), transparent 60%),
+    radial-gradient(120% 80% at 50% 100%, rgba(199,185,255,0.10), transparent 60%);
+  pointer-events: none;
+}
+
+@keyframes float-y { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-6px);} }
+[data-variant="liquid-glass"] .float-y { animation: float-y 6s ease-in-out infinite; }
+
+@keyframes shimmer { 0% { background-position: -200% 0;} 100% { background-position: 200% 0;} }
+[data-variant="liquid-glass"] .text-shimmer {
+  background: linear-gradient(90deg, #C7B9FF 0%, #FF7BD5 30%, #7DE2FF 60%, #C7B9FF 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 8s linear infinite;
+}
+
+/* ============================================================================
+   VARIANT: spatial-3d — deep space + WebGL panel chrome.
+   ============================================================================ */
+[data-variant="spatial-3d"] {
+  --background: #02030A;
+  --foreground: #ECECF8;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-foreground: #ECECF8;
+  --popover: rgba(8, 8, 20, 0.9);
+  --popover-foreground: #ECECF8;
+
+  --primary: #5CC9FF;
+  --primary-foreground: #02030A;
+  --secondary: rgba(255, 255, 255, 0.06);
+  --secondary-foreground: #ECECF8;
+
+  --muted: rgba(255, 255, 255, 0.04);
+  --muted-foreground: #8A8FA8;
+  --accent: #FF6BD1;
+  --accent-foreground: #02030A;
+  --destructive: #FF5470;
+
+  --border: rgba(255, 255, 255, 0.10);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #5CC9FF;
+
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-elevated: rgba(255, 255, 255, 0.08);
+
+  --chart-1: #5CC9FF;
+  --chart-2: #FF6BD1;
+  --chart-3: #B49DFF;
+  --chart-4: #FFD479;
+  --chart-5: #5CE3A1;
+
+  --radius: 1rem;
+
+  --sidebar: rgba(255, 255, 255, 0.04);
+  --sidebar-foreground: #ECECF8;
+  --sidebar-primary: #5CC9FF;
+  --sidebar-primary-foreground: #02030A;
+  --sidebar-accent: rgba(255, 255, 255, 0.06);
+  --sidebar-accent-foreground: #5CC9FF;
+  --sidebar-border: rgba(255, 255, 255, 0.10);
+  --sidebar-ring: #5CC9FF;
+
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+[data-variant="spatial-3d"] .r3f-panel {
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 60px -30px rgba(92,201,255,0.35);
+}
+@keyframes r3f-fade-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+[data-variant="spatial-3d"] .r3f-fade-in { animation: r3f-fade-in 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+/* ============================================================================
+   Accessibility — reduce motion globally.
+   ============================================================================ */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
