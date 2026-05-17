@@ -118,7 +118,7 @@ export function KobwebClassicVariant() {
               "radial-gradient(60% 80% at 100% 100%, rgba(0,167,142,0.06), transparent 60%), radial-gradient(60% 80% at 0% 0%, rgba(18,29,52,0.04), transparent 60%)",
           }}
         >
-          <div className="mx-auto grid min-h-[calc(100vh-72px)] max-w-6xl items-end gap-12 px-6 pb-16 pt-10 md:grid-cols-12 md:gap-10 md:pb-24">
+          <div className="mx-auto grid min-h-[calc(100vh-72px)] max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-12 md:gap-10 md:py-20">
             <div className="md:col-span-7 fade-up">
               <div className="flex flex-col gap-6 md:flex-row md:gap-8">
                 <SocialRail />
