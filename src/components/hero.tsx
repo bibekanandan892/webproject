@@ -47,8 +47,8 @@ export function Hero() {
         </div>
 
         <div className="relative shrink-0">
-          <div className="absolute -inset-2 rounded-full bg-primary/20 blur-2xl" />
-          <div className="relative h-44 w-44 overflow-hidden rounded-full border-2 border-primary/40 md:h-56 md:w-56 lg:h-64 lg:w-64">
+          <div className="absolute -inset-2 rounded-2xl bg-primary/20 blur-2xl" />
+          <div className="relative h-44 w-44 overflow-hidden rounded-2xl border-2 border-primary/40 md:h-56 md:w-56 lg:h-64 lg:w-64">
             <Image
               src="/profile.png"
               alt="Portrait of Bibekananda Nayak"
