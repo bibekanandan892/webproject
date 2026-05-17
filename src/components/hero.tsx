@@ -10,8 +10,8 @@ export function Hero() {
       className="relative isolate overflow-hidden border-b border-border"
     >
       <Spotlight />
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col-reverse items-center gap-12 px-6 py-16 md:flex-row md:gap-16 md:py-24">
-        <div className="flex w-full flex-1 flex-col gap-6 md:items-start">
+      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-4rem)] max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-12 md:gap-12 md:py-24">
+        <div className="flex w-full flex-col gap-6 md:col-span-7 md:items-start">
           <p className="font-mono text-sm text-primary">
             <span className="text-primary/60">::</span> 00{" "}
             <span className="text-primary/60">/</span> hi, my name is
@@ -46,15 +46,15 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative shrink-0">
-          <div className="absolute -inset-2 rounded-2xl bg-primary/20 blur-2xl" />
-          <div className="relative h-44 w-44 overflow-hidden rounded-2xl border-2 border-primary/40 md:h-56 md:w-56 lg:h-64 lg:w-64">
+        <div className="relative w-full md:col-span-5">
+          <div className="absolute -inset-3 rounded-2xl bg-primary/20 blur-3xl" />
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl border-2 border-primary/40 md:max-w-none">
             <Image
               src="/profile.png"
               alt="Portrait of Bibekananda Nayak"
               fill
               priority
-              sizes="(min-width: 1024px) 16rem, (min-width: 768px) 14rem, 11rem"
+              sizes="(min-width: 768px) 40vw, 80vw"
               className="object-cover grayscale transition-all duration-500 hover:grayscale-0"
             />
           </div>
