@@ -23,9 +23,25 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: "ChatApplication",
+    description:
+      "Realtime Android stranger-chat over Ktor WebSockets — ACK-based delivery, offline message queue, random pairing, Clean Architecture with Compose + Hilt + Room.",
+    cover: "https://opengraph.githubassets.com/1/bibekanandan892/ChatApplication",
+    tags: ["Kotlin", "Compose", "Ktor", "WebSockets", "Hilt"],
+    links: { github: "https://github.com/bibekanandan892/ChatApplication" },
+  },
+  {
+    title: "Pokemon App",
+    description:
+      "Compose Pokédex built on Clean Architecture — Hilt, Ktor, Room offline-first cache, Paging 3, Coil, Lottie. Portrait + landscape support.",
+    cover: "https://opengraph.githubassets.com/1/bibekanandan892/Pokemon_App",
+    tags: ["Kotlin", "Compose", "Clean Architecture", "Paging"],
+    links: { github: "https://github.com/bibekanandan892/Pokemon_App" },
+  },
+  {
     title: "Recipe Database",
     description:
-      "Recipe discovery and meal-planning app with shopping list generation, smart reminders, and offline-first storage.",
+      "Recipe discovery and meal-planning app with shopping list generation, smart reminders, and offline-first Room storage backed by the Spoonacular API.",
     cover: "/projects/recipe-database.png",
     tags: ["Android", "Jetpack", "MVVM", "Room"],
     links: { github: "https://github.com/bibekanandan892/Recipe-Database" },
@@ -33,25 +49,17 @@ export const projects: Project[] = [
   {
     title: "Where Is My Heart",
     description:
-      "Location-sharing companion app with real-time map sync and a Ktor backend. Built as a personal-stack exploration.",
+      "Two-person Android location-sharing companion app — Firebase Realtime DB for live position sync, FCM geofence pushes, Compose UI, Hilt DI.",
     cover: "/projects/where-is-my-heart.jpeg",
-    tags: ["Android", "Ktor", "Realtime"],
+    tags: ["Android", "Firebase", "Compose", "Realtime"],
     links: { github: "https://github.com/bibekanandan892/Where_is_my_heart" },
   },
   {
-    title: "NFT Application",
+    title: "Task Manager CLI · LRU Cache",
     description:
-      "Concept Android app for browsing, bidding, and collecting NFTs with wallet integration and an animated detail view.",
-    cover: "/projects/nft-application.png",
-    tags: ["Android", "Compose", "Web3"],
-    links: {},
-  },
-  {
-    title: "Online Courses Platform",
-    description:
-      "Course catalog + learning experience prototype with Android consumer and Ktor backend feeding lesson + progress data.",
-    cover: "/projects/online-courses.png",
-    tags: ["Android", "Ktor", "Education"],
-    links: {},
+      "Kotlin command-line task manager backed by a hand-rolled LRU cache (doubly-linked list + hashmap) — least-recently-used tasks evict when the user-defined capacity is exceeded.",
+    cover: "https://opengraph.githubassets.com/1/bibekanandan892/Task-Manager-CLI-with-LRU-Cache",
+    tags: ["Kotlin", "CLI", "Data Structures"],
+    links: { github: "https://github.com/bibekanandan892/Task-Manager-CLI-with-LRU-Cache" },
   },
 ];
