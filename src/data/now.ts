@@ -32,10 +32,11 @@ export const nowEntries: NowEntry[] = [
     link: "https://github.com/bibekanandan892/webproject",
   },
   {
-    title: "On-device LLM experiments",
+    title: "VyaparPay Voice Support Agent",
     description:
-      "Exploring Foundation Models on Android and Compose Multiplatform — quantized inference, prompt caching strategies, and latency budgets for mobile-first AI features.",
-    status: "research",
-    techStack: ["Kotlin", "Compose", "ML Kit"],
+      "Asha — a screen-aware voice AI support agent for Android merchants. Real-time WebRTC voice with Deepgram STT, Claude via OpenRouter, and streamed TTS, ingesting live screen context to open support calls with full context before the user speaks.",
+    status: "in-progress",
+    techStack: ["Kotlin", "Python", "WebRTC", "FastAPI", "pgvector"],
+    link: "https://github.com/bibekanandan892/vyaparpay-voice-agent",
   },
 ];
