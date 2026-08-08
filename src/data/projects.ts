@@ -14,6 +14,15 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "VyaparPay Voice Support Agent",
+    description:
+      "Asha — a screen-aware voice AI support agent for Android merchants. Real-time WebRTC voice with Deepgram STT, Claude LLM via OpenRouter, and streamed TTS. The agent ingests live screen context (semantic ≤300-token IR from Compose tree), failed API details, and action history — then opens support calls with full context before the user speaks. Backend: FastAPI + aiortc + pgvector for semantic memory. Confirmed live on real Android device with two-way voice, tool calling (get_wallet_balance, get_payment_status, request_limit_increase), and rolling conversation summaries.",
+    cover: "https://opengraph.githubassets.com/1/bibekanandan892/vyaparpay-voice-agent",
+    tags: ["Kotlin", "Python", "WebRTC", "FastAPI", "LLM", "VoiceAI", "pgvector"],
+    links: { github: "https://github.com/bibekanandan892/vyaparpay-voice-agent" },
+    featured: true,
+  },
+  {
     title: "Byte-Stream",
     description:
       "Feature-rich Android file downloading library in Kotlin with parallel downloads, pause/resume, retry policies, and persistent state.",
