@@ -32,11 +32,10 @@ export const nowEntries: NowEntry[] = [
     link: "https://github.com/bibekanandan892/ai-job-application-agent",
   },
   {
-    title: "This portfolio (you're on it)",
+    title: "Memory in LLMs",
     description:
-      "Rebuilt from scratch in Next.js 16 with a terminal-dark aesthetic, static-exported and deployed to Render. Replaced an experimental Kotlin/Kobweb version.",
-    status: "shipping-soon",
-    techStack: ["Next.js 16", "TypeScript", "Tailwind v4", "Framer Motion"],
-    link: "https://github.com/bibekanandan892/webproject",
+      "Digging into how agents remember across sessions instead of forgetting at the edge of the context window. Comparing vector-similarity recall, rolling summarization, and structured episodic stores — and measuring where each one quietly loses information the others would have kept.",
+    status: "research",
+    techStack: ["pgvector", "Embeddings", "RAG", "LangGraph"],
   },
 ];
