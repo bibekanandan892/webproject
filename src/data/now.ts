@@ -16,6 +16,14 @@ export const STATUS_LABELS: Record<WorkStatus, string> = {
 
 export const nowEntries: NowEntry[] = [
   {
+    title: "VyaparPay Voice Support Agent",
+    description:
+      "Asha — a screen-aware voice AI support agent for Android merchants. Real-time WebRTC voice with Deepgram STT, Claude via OpenRouter, and streamed TTS, ingesting live screen context to open support calls with full context before the user speaks.",
+    status: "in-progress",
+    techStack: ["Kotlin", "Python", "WebRTC", "FastAPI", "pgvector"],
+    link: "https://github.com/bibekanandan892/vyaparpay-voice-agent",
+  },
+  {
     title: "AI Job Application Agent",
     description:
       "Autonomous LangGraph + Playwright agent that searches, ranks, and auto-applies to roles end-to-end. Local-first with a Next.js dashboard for human-in-the-loop oversight.",
@@ -30,13 +38,5 @@ export const nowEntries: NowEntry[] = [
     status: "shipping-soon",
     techStack: ["Next.js 16", "TypeScript", "Tailwind v4", "Framer Motion"],
     link: "https://github.com/bibekanandan892/webproject",
-  },
-  {
-    title: "VyaparPay Voice Support Agent",
-    description:
-      "Asha — a screen-aware voice AI support agent for Android merchants. Real-time WebRTC voice with Deepgram STT, Claude via OpenRouter, and streamed TTS, ingesting live screen context to open support calls with full context before the user speaks.",
-    status: "in-progress",
-    techStack: ["Kotlin", "Python", "WebRTC", "FastAPI", "pgvector"],
-    link: "https://github.com/bibekanandan892/vyaparpay-voice-agent",
   },
 ];
