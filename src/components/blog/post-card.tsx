@@ -3,11 +3,19 @@ import { ArrowUpRight } from "lucide-react";
 import { PostMetaRow } from "./post-meta-row";
 import type { PostMeta } from "@/lib/blog/types";
 
-/** One post in the index list. */
+/**
+ * One post in the index list.
+ *
+ * The trailing slash on `href` is required, not cosmetic. This site is a static
+ * export with `trailingSlash: true`; without it, client-side navigation into a
+ * dynamic route fails with "Connection closed." and the reader sees "This page
+ * couldn't load" until they reload. Direct loads are unaffected, so it only
+ * shows up when following a link. Keep the slash on every internal link.
+ */
 export function PostCard({ post }: { post: PostMeta }) {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/blog/${post.slug}/`}
       className="group flex flex-col gap-3 rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/40 hover:bg-secondary"
     >
       <PostMetaRow

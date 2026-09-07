@@ -88,6 +88,14 @@ The category filter on `/blog` only appears once two or more categories have
 published posts. To add a category, edit `POST_CATEGORIES` in
 `src/lib/blog/types.ts`.
 
+### Internal links need a trailing slash
+
+`next.config.ts` sets `trailingSlash: true`. Link to `/blog/<slug>/`, not
+`/blog/<slug>`. Without the slash, client-side navigation into a dynamic route
+dies with `Connection closed.` and the visitor gets Next's "This page couldn't
+load" screen until they reload — direct URL loads still work, so it only shows
+up when following a link from inside the site.
+
 ## Regenerating thumbnails
 
 If you change a variant's look, refresh its thumbnail:

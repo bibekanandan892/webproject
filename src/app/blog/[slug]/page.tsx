@@ -48,7 +48,7 @@ function AdjacentLink({ post, direction }: { post: PostMeta; direction: "prev" |
   const isPrev = direction === "prev";
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/blog/${post.slug}/`}
       className={`group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary ${
         isPrev ? "items-start text-left" : "items-end text-right"
       }`}
@@ -73,7 +73,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <Link
-        href="/blog"
+        href="/blog/"
         className="inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary"
       >
         <ArrowLeft className="h-4 w-4" /> all posts
