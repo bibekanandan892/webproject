@@ -60,7 +60,8 @@ real auth.
 ## The blog
 
 Posts are markdown files in `content/blog/`. There is no CMS and no database —
-git is the store. Add a file, push to `master`, Render rebuilds, post is live.
+git is the store. Add a file, commit it to `master`, then run the deploy flow
+below to publish it.
 
 The filename is the URL slug. Frontmatter:
 
@@ -132,9 +133,28 @@ src/
 
 ## Deploy
 
-Static export, deploys to Render as a free Static Site. `pnpm build` writes
-`out/`. Render auto-deploys on push to `master`. Supabase is called from the
-browser; no Render compute needed.
+Static export, served by Render as a free Static Site. Supabase is called from
+the browser; no Render compute needed.
+
+**Render builds the `deploy` branch, not `master`**, and it serves the
+pre-built `out/` directory that is committed there. Pushing to `master` alone
+changes nothing on the live site.
+
+Source lands on `master`; `deploy` carries that source plus a committed `out/`.
+To publish:
+
+```bash
+git checkout master && git push origin master     # source first
+
+git checkout deploy
+git merge master -m "merge: bring master's latest source (<what>) into deploy"
+pnpm build                                        # regenerates out/
+git add -f out/                                   # out/ is gitignored, force it
+git commit -m "deploy: rebuild with <what>"
+git push origin deploy                            # this is what goes live
+```
+
+Render picks it up on commit and the site updates in about a minute.
 
 Set the three `NEXT_PUBLIC_*` env vars in the Render dashboard
 (Environment → Add Environment Variable) so they're baked into the build.
