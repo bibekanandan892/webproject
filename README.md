@@ -19,7 +19,8 @@ pnpm dev                          # http://localhost:3000
 | `/`                            | Renders whichever variant is currently the "main" site   |
 | `/vote`                        | Shareable voting dashboard (thumbnails + thumbs-up)      |
 | `/preview/<variant>/`          | Full-screen preview of any single variant                |
-| `/blog`                        | Blog landing (placeholder)                               |
+| `/blog`                        | Blog index — markdown posts, filterable by category      |
+| `/blog/<slug>`                 | A post, statically generated from `content/blog/<slug>.md` |
 
 Variants: `terminal-dark`, `kobweb-classic`, `bento-ios`, `editorial-serif`,
 `liquid-glass`, `spatial-3d`.
@@ -56,6 +57,36 @@ The admin password is hardcoded into the bundled JS — security through
 obscurity only. Fine for a portfolio voting toy; do not reuse this pattern for
 real auth.
 
+## The blog
+
+Posts are markdown files in `content/blog/`. There is no CMS and no database —
+git is the store. Add a file, push to `master`, Render rebuilds, post is live.
+
+The filename is the URL slug. Frontmatter:
+
+```yaml
+---
+title: "Causal masking: how a transformer is stopped from reading ahead"
+date: "2026-09-05"        # YYYY-MM-DD
+category: "AI"            # AI | Android — see POST_CATEGORIES
+tags: ["llm", "attention"]
+summary: "Shown on the card and used as the meta description."
+draft: false              # true = visible in `pnpm dev`, excluded from the build
+---
+```
+
+Frontmatter is validated at build time; a bad field fails `pnpm build` with the
+offending filename in the error.
+
+Bodies are rendered at build time (zero client JS) with GFM, KaTeX math
+(`$…$` / `$$…$$`), Shiki syntax highlighting, heading anchors, and **raw HTML**
+— inline `<svg>` is how diagrams get into a post. Reading time is computed;
+don't author it.
+
+The category filter on `/blog` only appears once two or more categories have
+published posts. To add a category, edit `POST_CATEGORIES` in
+`src/lib/blog/types.ts`.
+
 ## Regenerating thumbnails
 
 If you change a variant's look, refresh its thumbnail:
@@ -70,6 +101,9 @@ Output: `public/thumbs/<variant>.png` (1280×800).
 ## Project layout
 
 ```
+content/
+└── blog/<slug>.md           # the posts — git is the CMS
+
 src/
 ├── app/
 │   ├── layout.tsx           # loads all 5 fonts (Geist, Geist_Mono, Inter, Roboto, Fraunces)
@@ -77,15 +111,18 @@ src/
 │   ├── globals.css          # shared base + per-variant scoped palettes/utilities
 │   ├── vote/page.tsx        # voting dashboard
 │   ├── preview/[variant]/   # full-screen variant previews
-│   └── blog/page.tsx
+│   ├── blog/page.tsx        # post index
+│   └── blog/[slug]/page.tsx # article page (generateStaticParams)
 ├── variants/
 │   ├── registry.ts          # VARIANTS metadata + lookup
 │   ├── VariantHost.tsx      # wraps a variant with [data-variant="X"]
 │   └── <id>/Variant.tsx     # one folder per variant
 ├── components/
+│   ├── blog/                # PostCard, PostList (filter), TableOfContents
 │   ├── vote/                # VariantCard, AdminGate
 │   └── *.tsx                # shared hero/now/experience/... (used by some variants)
 ├── lib/
+│   ├── blog/                # posts.ts (fs + frontmatter), markdown.ts (remark/rehype)
 │   ├── supabase.ts          # browser client singleton
 │   ├── votes.ts             # toggleVote / fetchCounts / getMyVotes
 │   ├── main-variant.ts      # fetchMainVariant / setMainVariant
