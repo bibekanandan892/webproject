@@ -1,0 +1,11 @@
+# Build output is committed to the `deploy` branch and served as-is. Next's RSC
+# payloads under out/ contain literal CR bytes, and their internal length
+# prefixes count them. Letting Git normalise line endings there silently drops
+# those bytes, the stream then ends early, and client-side navigation dies with
+# "Connection closed." — the visitor sees "This page couldn't load".
+out/** -text
+
+# Author markdown with LF regardless of platform. On a CRLF checkout the CRs
+# inside fenced code blocks are preserved verbatim through the renderer and end
+# up in the payload, which is how they reached out/ in the first place.
+*.md text eol=lf
