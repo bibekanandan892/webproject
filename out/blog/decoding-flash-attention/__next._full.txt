@@ -1,0 +1,216 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/0fgie0keq4156.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","decoding-flash-attention",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","decoding-flash-attention","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0fgie0keq4156.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0fgie0keq4156.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"NndLaI-SGT0HkljIa3cbG"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+11:T732c,<p>Flash attention computes the same thing ordinary attention computes. Same inputs, same outputs, to the last bit. It is not an approximation.</p>
+<p>What changes is where the intermediate work happens. Ordinary attention writes a large matrix out to GPU memory and reads it back; flash attention never writes it at all. That single difference is worth several times the speed.</p>
+<h2 id="what-ordinary-attention-does"><a class="heading-anchor" href="#what-ordinary-attention-does">What ordinary attention does</a></h2>
+<p>Attention scores every token against every other token. For a sequence of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span> tokens that is an <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span> matrix — one score per pair. Softmax turns each row into weights, and those weights multiply the value vectors.</p>
+<p>The matrix is the problem. It is produced, stored, read back for the softmax, stored again, and read back once more for the final multiply. Each of those trips crosses the slowest link the GPU has.</p>
+<p>Put a number on it. For 8,192 tokens with a head dimension of 128, in fp16:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>entries</th><th>size</th></tr></thead><tbody><tr><td>the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span> score matrix</td><td>67,108,864</td><td><strong>128 MB</strong></td></tr><tr><td>Q, K, V and the output together</td><td>4,194,304</td><td>8 MB</td></tr></tbody></table>
+<p>The scratch space is <strong>16 times larger than all the real data combined</strong>. And it grows quadratically — double the sequence length and it quadruples.</p>
+<h2 id="two-kinds-of-gpu-memory"><a class="heading-anchor" href="#two-kinds-of-gpu-memory">Two kinds of GPU memory</a></h2>
+<p>The reason this matters is that a GPU has two very different places to put things.</p>
+<p><strong>HBM</strong> is the big pool, tens of gigabytes. It is what people mean by "GPU memory". It is also comparatively slow.</p>
+<p><strong>SRAM</strong> is on-chip, right next to the compute units. It is roughly an order of magnitude faster to read, and there is very little of it — on the order of a hundred kilobytes per streaming multiprocessor.</p>
+<p>A 128 MB matrix has no chance of fitting in SRAM. So the standard implementation parks it in HBM and shuttles it back and forth. The arithmetic is not the bottleneck; the shuttling is.</p>
+<h2 id="the-idea-never-build-the-matrix"><a class="heading-anchor" href="#the-idea-never-build-the-matrix">The idea: never build the matrix</a></h2>
+<p>Flash attention breaks the computation into tiles small enough to live in SRAM while they are being worked on.</p>
+<figure>
+<svg viewBox="0 0 531 345" width="531" role="img" aria-label="An eight by eight grid standing for the full attention score matrix, drawn faintly, with a single tile highlighted. The full matrix is 128 megabytes and is never built; one tile is 32 kilobytes and fits in fast on-chip memory." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.m{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.k{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<text class="hd" x="4" y="18">THE N×N SCORE MATRIX</text>
+<rect x="4" y="34" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="39" y="34" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="74" y="34" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="109" y="34" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="144" y="34" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="179" y="34" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="214" y="34" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="249" y="34" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="4" y="69" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="39" y="69" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="74" y="69" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="109" y="69" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="144" y="69" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="179" y="69" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="214" y="69" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="249" y="69" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="4" y="104" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="39" y="104" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="74" y="104" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="109" y="104" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="144" y="104" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="179" y="104" width="32" height="32" rx="4" fill="color-mix(in srgb, var(--primary) 30%, transparent)" stroke="color-mix(in srgb, var(--primary) 75%, transparent)" stroke-width="1.6"></rect>
+<rect x="214" y="104" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="249" y="104" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="4" y="139" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="39" y="139" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="74" y="139" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="109" y="139" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="144" y="139" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="179" y="139" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="214" y="139" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="249" y="139" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="4" y="174" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="39" y="174" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="74" y="174" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="109" y="174" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="144" y="174" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="179" y="174" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="214" y="174" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="249" y="174" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="4" y="209" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="39" y="209" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="74" y="209" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="109" y="209" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="144" y="209" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="179" y="209" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="214" y="209" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="249" y="209" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="4" y="244" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="39" y="244" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="74" y="244" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="109" y="244" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="144" y="244" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="179" y="244" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="214" y="244" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="249" y="244" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="4" y="279" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="39" y="279" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="74" y="279" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="109" y="279" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="144" y="279" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="179" y="279" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="214" y="279" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<rect x="249" y="279" width="32" height="32" rx="4" fill="var(--secondary)" fill-opacity="0.5" stroke="var(--border)"></rect>
+<path d="M215 120 H299" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#ar)"></path>
+<text class="k" x="307" y="114">one tile · 32 KB</text>
+<text class="m" x="307" y="132">fits in on-chip SRAM</text>
+<text class="m" x="307" y="190">whole matrix · 128 MB</text>
+<text class="m" x="307" y="208">never built at all</text>
+<text class="m" x="4" y="333">4,096 tiles cover it, one at a time</text>
+</svg>
+<figcaption>Only the bright tile is ever real. The rest is computed and discarded, one tile at a time.</figcaption>
+</figure>
+<p>A 128×128 tile of scores is 32 KB in fp16. That fits comfortably. So instead of computing all 67 million scores and storing them, the GPU loads a block of queries and a block of keys, computes just that tile of scores in SRAM, uses it immediately, and discards it.</p>
+<p>The full matrix is never assembled anywhere. It exists only one tile at a time, in fast memory, and is gone before the next tile arrives.</p>
+<h2 id="the-problem-with-doing-softmax-in-pieces"><a class="heading-anchor" href="#the-problem-with-doing-softmax-in-pieces">The problem with doing softmax in pieces</a></h2>
+<p>There is an obstacle. Softmax is not computed per element — it needs a whole row.</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>softmax</mtext><mo stretchy="false">(</mo><mi>s</mi><msub><mo stretchy="false">)</mo><mi>i</mi></msub><mo>=</mo><mfrac><msup><mi>e</mi><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>−</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></msup><mrow><munder><mo>∑</mo><mi>j</mi></munder><msup><mi>e</mi><mrow><msub><mi>s</mi><mi>j</mi></msub><mo>−</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{softmax}(s)_i = \frac{e^{s_i - \max(s)}}{\sum_j e^{s_j - \max(s)}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">softmax</span></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.7209em;vertical-align:-1.1559em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.565em;"><span style="top:-2.2799em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.162em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0572em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4358em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8301em;"><span style="top:-3.0051em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0572em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">s</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">s</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.1559em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>
+<p>Both the maximum and the sum are over the entire row. But a tile only holds part of a row. You cannot normalise until you have seen everything, and the whole point is to avoid holding everything.</p>
+<h2 id="online-softmax"><a class="heading-anchor" href="#online-softmax">Online softmax</a></h2>
+<p>The fix is to keep a running maximum and a running sum, and correct them as new blocks arrive.</p>
+<p>Process a block, note its maximum and its exponential sum. When the next block turns out to contain a larger maximum, the earlier numbers were computed against the wrong reference — so scale them by <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><msub><mi>m</mi><mtext>old</mtext></msub><mo>−</mo><msub><mi>m</mi><mtext>new</mtext></msub></mrow></msup></mrow><annotation encoding="application/x-tex">e^{m_{\text{old}} - m_{\text{new}}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">old</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">new</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> to bring them onto the new one. The same correction applies to the accumulated output.</p>
+<p>Take a row of eight scores, in two blocks of four:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>block</th><th>scores</th><th>running max</th><th>running sum</th></tr></thead><tbody><tr><td>1</td><td>1.4, 3.9, 0.7, 2.2</td><td>3.9</td><td>1.3055</td></tr><tr><td>2</td><td>4.6, 1.1, 3.1, 0.3</td><td>4.6</td><td>1.9152</td></tr></tbody></table>
+<p>The second block raises the maximum from 3.9 to 4.6, so everything carried from block 1 gets rescaled before the new numbers are folded in.</p>
+<p>Comparing the streamed result against a plain softmax over the whole row:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>output</th></tr></thead><tbody><tr><td>plain softmax over the full row</td><td>(1.765581, 3.078123)</td></tr><tr><td>streamed, block by block</td><td>(1.765581, 3.078123)</td></tr><tr><td>difference</td><td>0</td></tr></tbody></table>
+<p>Not close — identical. That is what makes this an optimisation rather than a trade-off.</p>
+<h2 id="the-backward-pass"><a class="heading-anchor" href="#the-backward-pass">The backward pass</a></h2>
+<p>Training needs the attention scores again to compute gradients, and flash attention threw them away.</p>
+<p>Rather than store the matrix, it stores only the per-row statistics — the max and the sum, which are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span> numbers rather than <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>N</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">N^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> — and recomputes the tiles on the way back.</p>
+<p>That trades extra arithmetic for less memory traffic. On modern GPUs, where compute has grown far faster than memory bandwidth, that trade is worth taking.</p>
+<h2 id="later-versions"><a class="heading-anchor" href="#later-versions">Later versions</a></h2>
+<p><strong>Flash attention 2</strong> reorganises the work: fewer rescaling operations, parallelism over query blocks as well as batch and heads, and a better split of work between threads.</p>
+<p><strong>Flash attention 3</strong> targets newer hardware specifically, overlapping data movement with computation so the transfers happen while the arithmetic is still running.</p>
+<p>Both are engineering on the same idea. The output stays identical.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Flash attention returns exactly the same numbers as standard attention.</li>
+<li>Standard attention builds an <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span> score matrix — 128 MB at 8,192 tokens, against 8 MB for all the actual data.</li>
+<li>That matrix lives in slow HBM and gets shuttled back and forth; the memory traffic, not the arithmetic, is the bottleneck.</li>
+<li>Flash attention computes it in tiles small enough for fast on-chip SRAM, and never assembles the whole thing.</li>
+<li>Softmax is made block-friendly by carrying a running max and sum, rescaling when a bigger max appears.</li>
+<li>The backward pass stores <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span> statistics instead of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>N</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">N^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> scores and recomputes what it needs.</li>
+</ul>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-08","children":"Sep 8, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Decoding flash attention"}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Flash attention produces exactly the same numbers as ordinary attention. It is faster because it never writes the score matrix to memory at all."}]]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Decoding flash attention · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Flash attention produces exactly the same numbers as ordinary attention. It is faster because it never writes the score matrix to memory at all."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"attention,gpu,flash-attention,memory,softmax"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/decoding-flash-attention/"}],["$","meta","6",{"property":"og:title","content":"Decoding flash attention"}],["$","meta","7",{"property":"og:description","content":"Flash attention produces exactly the same numbers as ordinary attention. It is faster because it never writes the score matrix to memory at all."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/decoding-flash-attention/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-08"}],["$","meta","11",{"property":"article:tag","content":"attention"}],["$","meta","12",{"property":"article:tag","content":"gpu"}],["$","meta","13",{"property":"article:tag","content":"flash-attention"}],["$","meta","14",{"property":"article:tag","content":"memory"}],["$","meta","15",{"property":"article:tag","content":"softmax"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Decoding flash attention"}],["$","meta","18",{"name":"twitter:description","content":"Flash attention produces exactly the same numbers as ordinary attention. It is faster because it never writes the score matrix to memory at all."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/decoding-transformer-architecture/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Decoding the transformer architecture"}]]}],null]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"what-ordinary-attention-does","text":"What ordinary attention does","level":2},{"id":"two-kinds-of-gpu-memory","text":"Two kinds of GPU memory","level":2},{"id":"the-idea-never-build-the-matrix","text":"The idea: never build the matrix","level":2},{"id":"the-problem-with-doing-softmax-in-pieces","text":"The problem with doing softmax in pieces","level":2},{"id":"online-softmax","text":"Online softmax","level":2},{"id":"the-backward-pass","text":"The backward pass","level":2},{"id":"later-versions","text":"Later versions","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
