@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="A narrow block, a much taller block, then a narrow block again, with arrows between them.">
+<defs><radialGradient id="glow" cx="12%" cy="0%" r="85%">
+<stop offset="0%" stop-color="#64FFDA" stop-opacity="0.14"/>
+<stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/></radialGradient>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8B98A9"/></marker></defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="86" y="165" width="132" height="62" rx="14" fill="#64FFDA" fill-opacity="0.16" stroke="#64FFDA" stroke-opacity="0.5" stroke-width="2"/>
+<rect x="334" y="72" width="132" height="248" rx="14" fill="#64FFDA" fill-opacity="0.26" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="2"/>
+<rect x="582" y="165" width="132" height="62" rx="14" fill="#64FFDA" fill-opacity="0.16" stroke="#64FFDA" stroke-opacity="0.5" stroke-width="2"/>
+<path d="M232 196 H316" stroke="#8B98A9" stroke-opacity="0.65" stroke-width="3" marker-end="url(#a)"/>
+<path d="M480 196 H564" stroke="#8B98A9" stroke-opacity="0.65" stroke-width="3" marker-end="url(#a)"/>
+<text x="400" y="50" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26" font-weight="600" fill="#64FFDA" fill-opacity="0.9">4&#215; wider</text>
+<text x="52" y="410" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">feed-forward</text>
+</svg>
