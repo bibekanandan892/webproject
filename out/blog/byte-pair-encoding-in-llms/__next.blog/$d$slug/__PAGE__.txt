@@ -1,0 +1,213 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T3619,<p>A language model does not read text. It reads numbers. So before anything else happens, the text has to be cut into pieces, and each piece looked up as a number. Those pieces are tokens, and deciding where to cut is the job of the tokenizer.</p>
+<p>Byte pair encoding, or BPE, is how most modern models decide. It is worth understanding because the cuts it makes shape everything downstream.</p>
+<h2 id="the-two-obvious-approaches-and-why-both-fail"><a class="heading-anchor" href="#the-two-obvious-approaches-and-why-both-fail">The two obvious approaches, and why both fail</a></h2>
+<p><strong>Cut on words.</strong> Give every word in your training text its own number. This reads nicely, but it breaks the moment a word shows up that was not in the training text. A brand name, a typo, a new bit of slang — the model has no number for it, and the whole word becomes a single "unknown" placeholder. Every meaning it carried is gone.</p>
+<p><strong>Cut on characters.</strong> Give every character its own number. Now nothing is ever unknown, because any word can be spelled out. But the sequences become enormous — a short sentence turns into hundreds of tokens, and each one carries almost no meaning on its own. That is slow, and it makes the model work harder to learn anything.</p>
+<p>One approach can't handle new words. The other drowns in tiny pieces. BPE lands in between.</p>
+<h2 id="what-bpe-does"><a class="heading-anchor" href="#what-bpe-does">What BPE does</a></h2>
+<p>Start with every word split into individual characters. Then repeat one simple move: find the pair of neighbouring symbols that occurs most often across the whole text, and glue that pair into a single new symbol.</p>
+<p>Do it once and you might learn <code>in</code>. Do it again and you might learn <code>ing</code>. Keep going and you build a vocabulary of pieces that are bigger than characters but smaller than words — and crucially, the common pieces get learned first, because they are the ones that occur most.</p>
+<p>You stop when the vocabulary reaches whatever size you decided on. Real models use somewhere between about 32,000 and 256,000.</p>
+<h2 id="a-worked-example"><a class="heading-anchor" href="#a-worked-example">A worked example</a></h2>
+<p>Take a small training text of five words, with how many times each appears:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>word</th><th>count</th></tr></thead><tbody><tr><td><code>walk</code></td><td>11</td></tr><tr><td><code>singing</code></td><td>10</td></tr><tr><td><code>salt</code></td><td>8</td></tr><tr><td><code>paint</code></td><td>6</td></tr><tr><td><code>talking</code></td><td>2</td></tr></tbody></table>
+<p>Split each into characters, with a marker <code>&#x3C;/w></code> on the end so the tokenizer knows where a word finishes:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>word</th><th></th><th>symbols</th></tr></thead><tbody><tr><td><code>walk</code></td><td>×11</td><td><code>w</code> <code>a</code> <code>l</code> <code>k</code> <code>&#x3C;/w></code></td></tr><tr><td><code>singing</code></td><td>×10</td><td><code>s</code> <code>i</code> <code>n</code> <code>g</code> <code>i</code> <code>n</code> <code>g</code> <code>&#x3C;/w></code></td></tr><tr><td><code>salt</code></td><td>×8</td><td><code>s</code> <code>a</code> <code>l</code> <code>t</code> <code>&#x3C;/w></code></td></tr><tr><td><code>paint</code></td><td>×6</td><td><code>p</code> <code>a</code> <code>i</code> <code>n</code> <code>t</code> <code>&#x3C;/w></code></td></tr><tr><td><code>talking</code></td><td>×2</td><td><code>t</code> <code>a</code> <code>l</code> <code>k</code> <code>i</code> <code>n</code> <code>g</code> <code>&#x3C;/w></code></td></tr></tbody></table>
+<p>That is 11 distinct symbols to start with.</p>
+<p>Now count every neighbouring pair across the whole text, weighting each word by how often it appears. The winner is <code>i</code> followed by <code>n</code>, seen 28 times — 10 from <code>singing</code> twice over, 6 from <code>paint</code>, 2 from <code>talking</code>. Merge it.</p>
+<p>Then count again, and merge again. The first three rounds:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>round</th><th>most common pair</th><th>seen</th><th>becomes</th></tr></thead><tbody><tr><td>1</td><td><code>i</code> + <code>n</code></td><td>28</td><td><code>in</code></td></tr><tr><td>2</td><td><code>in</code> + <code>g</code></td><td>22</td><td><code>ing</code></td></tr><tr><td>3</td><td><code>a</code> + <code>l</code></td><td>21</td><td><code>al</code></td></tr></tbody></table>
+<p>Carrying on the same way gives <code>t&#x3C;/w></code> (14), then <code>alk</code> (13), then <code>ing&#x3C;/w></code> (12).</p>
+<p>Watching one word collapse as its merges land makes the shape of it clear:</p>
+<figure>
+<svg viewBox="0 0 690 212" width="690" role="img" aria-label="The word singing collapsing from eight character tokens to three, as each merge rule is applied in turn." xmlns="http://www.w3.org/2000/svg">
+<style>.l{font:500 12px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.s{font:600 13px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.c{font:500 12px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="l" x="0" y="21">characters</text>
+<rect x="132" y="0" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="149" y="22" text-anchor="middle">s</text>
+<rect x="172" y="0" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="189" y="22" text-anchor="middle">i</text>
+<rect x="212" y="0" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="229" y="22" text-anchor="middle">n</text>
+<rect x="252" y="0" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="269" y="22" text-anchor="middle">g</text>
+<rect x="292" y="0" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="309" y="22" text-anchor="middle">i</text>
+<rect x="332" y="0" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="349" y="22" text-anchor="middle">n</text>
+<rect x="372" y="0" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="389" y="22" text-anchor="middle">g</text>
+<rect x="412" y="0" width="52" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="438" y="22" text-anchor="middle">&#x3C;/w></text>
+<text class="c" x="476" y="21">8 tokens</text>
+<text class="l" x="0" y="71">after i + n</text>
+<rect x="132" y="50" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="149" y="72" text-anchor="middle">s</text>
+<rect x="172" y="50" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 18%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<text class="s" x="189" y="72" text-anchor="middle">in</text>
+<rect x="212" y="50" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="229" y="72" text-anchor="middle">g</text>
+<rect x="252" y="50" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 18%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<text class="s" x="269" y="72" text-anchor="middle">in</text>
+<rect x="292" y="50" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="309" y="72" text-anchor="middle">g</text>
+<rect x="332" y="50" width="52" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="358" y="72" text-anchor="middle">&#x3C;/w></text>
+<text class="c" x="396" y="71">6 tokens</text>
+<text class="l" x="0" y="121">after in + g</text>
+<rect x="132" y="100" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="149" y="122" text-anchor="middle">s</text>
+<rect x="172" y="100" width="43" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 18%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<text class="s" x="194" y="122" text-anchor="middle">ing</text>
+<rect x="221" y="100" width="43" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 18%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<text class="s" x="242" y="122" text-anchor="middle">ing</text>
+<rect x="270" y="100" width="52" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="296" y="122" text-anchor="middle">&#x3C;/w></text>
+<text class="c" x="334" y="121">4 tokens</text>
+<text class="l" x="0" y="171">after ing + &#x3C;/w></text>
+<rect x="132" y="150" width="34" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 9%, transparent)" stroke="color-mix(in srgb, var(--primary) 28%, transparent)"></rect>
+<text class="s" x="149" y="172" text-anchor="middle">s</text>
+<rect x="172" y="150" width="43" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 18%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<text class="s" x="194" y="172" text-anchor="middle">ing</text>
+<rect x="221" y="150" width="79" height="34" rx="5" fill="color-mix(in srgb, var(--primary) 18%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<text class="s" x="260" y="172" text-anchor="middle">ing&#x3C;/w></text>
+<text class="c" x="312" y="171">3 tokens</text>
+</svg>
+<figcaption>The word <code>singing</code> as each merge that touches it lands.</figcaption>
+</figure>
+<p>Eight tokens down to three, and the pieces it ended up with — <code>ing</code>, and <code>ing&#x3C;/w></code> for a word actually ending in <em>ing</em> — are exactly the ones that earned their place by being common.</p>
+<h2 id="tokenizing-text-it-has-never-seen"><a class="heading-anchor" href="#tokenizing-text-it-has-never-seen">Tokenizing text it has never seen</a></h2>
+<p>Here is the part that matters. The merges are saved, <strong>in the order they were learned</strong>. That ordered list is the tokenizer.</p>
+<p>To tokenize new text, split it into characters and replay the list from the top. Not "find the longest matching piece" — replay, in order.</p>
+<p>So take <code>walking</code>, a word that never appeared in the training text at all:</p>
+<pre><code>w a l k i n g &#x3C;/w>      split into characters
+w a l k in g &#x3C;/w>       rule 1:  i + n
+w a l k ing &#x3C;/w>        rule 2:  in + g
+w al k ing &#x3C;/w>         rule 3:  a + l
+w alk ing &#x3C;/w>          rule 5:  al + k
+w alk ing&#x3C;/w>           rule 6:  ing + &#x3C;/w>
+</code></pre>
+<p>Result: <code>w</code> <code>alk</code> <code>ing&#x3C;/w></code> — three tokens. No unknown placeholder anywhere. The model has never seen this word, but it recognises the <code>alk</code> it learned from <code>walk</code> and <code>talking</code>, and the <code>ing&#x3C;/w></code> ending it learned from <code>singing</code> and <code>talking</code>.</p>
+<p>That is the whole trick. New words are not a special case; they are just words that need more pieces.</p>
+<h2 id="why-this-won"><a class="heading-anchor" href="#why-this-won">Why this won</a></h2>
+<ul>
+<li><strong>Nothing is ever unknown.</strong> In the worst case a word falls back to characters, which are always in the vocabulary. There is no cliff.</li>
+<li><strong>The vocabulary stays small.</strong> Tens of thousands of entries covers essentially any input, instead of one entry per word and still missing some.</li>
+<li><strong>Common things stay whole.</strong> Frequent words end up as single tokens because their pairs merged early. Only rare words get broken up, which is the right trade.</li>
+<li><strong>It does not care about language.</strong> The algorithm counts pairs of symbols. It has no notion of English, or of spaces, so it works on any script.</li>
+</ul>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Models read numbers, so text has to be cut into tokens first.</li>
+<li>Word-level cutting cannot handle unseen words; character-level cutting makes sequences far too long.</li>
+<li>BPE starts from characters and repeatedly merges the most common neighbouring pair.</li>
+<li>It stops once the vocabulary hits a target size, typically 32k–256k.</li>
+<li>The saved merges are replayed <strong>in learning order</strong> to tokenize new text.</li>
+<li>Unseen words simply decompose into known pieces, so nothing is ever unknown.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-07","children":"Sep 7, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Byte pair encoding in LLMs"}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A model cannot read text, only numbers, so text has to be cut into pieces first. Byte pair encoding decides where to cut by repeatedly merging the most common pair of neighbours."}]]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pbfClsQUI2cwyKweoQeES"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/kv-cache-llm-inference/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"KV cache in LLMs"}]]}],null]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-two-obvious-approaches-and-why-both-fail","text":"The two obvious approaches, and why both fail","level":2},{"id":"what-bpe-does","text":"What BPE does","level":2},{"id":"a-worked-example","text":"A worked example","level":2},{"id":"tokenizing-text-it-has-never-seen","text":"Tokenizing text it has never seen","level":2},{"id":"why-this-won","text":"Why this won","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
