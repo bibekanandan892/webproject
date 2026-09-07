@@ -73,6 +73,7 @@ category: "AI"            # AI | Android — see POST_CATEGORIES
 tags: ["llm", "attention"]
 summary: "Shown on the card and used as the meta description."
 draft: false              # true = visible in `pnpm dev`, excluded from the build
+cover: "/blog/thing.png"  # optional; omit for a generated thumbnail
 ---
 ```
 
@@ -84,9 +85,18 @@ Bodies are rendered at build time (zero client JS) with GFM, KaTeX math
 — inline `<svg>` is how diagrams get into a post. Reading time is computed;
 don't author it.
 
-The category filter on `/blog` only appears once two or more categories have
-published posts. To add a category, edit `POST_CATEGORIES` in
-`src/lib/blog/types.ts`.
+`/blog` renders a card grid — one column on mobile, two at `sm`, three at `lg`
+— with a search box above it. Search matches title, summary, category and tags,
+is case-insensitive, and ANDs multiple words. It runs client-side over the posts
+already embedded in the page, so there is no index to build or keep in sync.
+
+Cards show a thumbnail. Set `cover` to an image under `public/` to use a real
+one; otherwise the card generates a panel tinted by category (AI teal, Android
+amber) and textured from a hash of the slug, so no post needs an image asset.
+
+The category filter appears once two or more categories have published posts.
+To add a category, edit `POST_CATEGORIES` in `src/lib/blog/types.ts` and give it
+a tint in `src/components/blog/post-thumbnail.tsx`.
 
 ### Internal links need a trailing slash
 

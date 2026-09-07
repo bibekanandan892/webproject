@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { PostMetaRow } from "./post-meta-row";
+import { PostThumbnail } from "./post-thumbnail";
 import type { PostMeta } from "@/lib/blog/types";
 
 /**
- * One post in the index list.
+ * One post in the index grid: thumbnail, meta line, title, summary.
  *
  * The trailing slash on `href` is required, not cosmetic. This site is a static
  * export with `trailingSlash: true`; without it, client-side navigation into a
@@ -16,33 +16,40 @@ export function PostCard({ post }: { post: PostMeta }) {
   return (
     <Link
       href={`/blog/${post.slug}/`}
-      className="group flex flex-col gap-3 rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/40 hover:bg-secondary"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-primary/40 hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
-      <PostMetaRow
-        date={post.date}
-        category={post.category}
-        readingMinutes={post.readingMinutes}
-      />
+      <div className="aspect-[16/9] w-full shrink-0 overflow-hidden border-b border-border">
+        <PostThumbnail post={post} />
+      </div>
 
-      <h2 className="flex items-start gap-2 text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary md:text-2xl">
-        <span>{post.title}</span>
-        <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
-      </h2>
+      <div className="flex flex-1 flex-col gap-3 p-5">
+        <PostMetaRow
+          date={post.date}
+          category={post.category}
+          readingMinutes={post.readingMinutes}
+        />
 
-      <p className="text-sm leading-relaxed text-muted-foreground">{post.summary}</p>
+        <h2 className="text-lg font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-primary">
+          {post.title}
+        </h2>
 
-      {post.tags.length > 0 && (
-        <ul className="mt-1 flex flex-wrap gap-2">
-          {post.tags.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-md border border-border px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
-      )}
+        <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+          {post.summary}
+        </p>
+
+        {post.tags.length > 0 && (
+          <ul className="mt-auto flex flex-wrap gap-2 pt-2">
+            {post.tags.slice(0, 3).map((tag) => (
+              <li
+                key={tag}
+                className="rounded-md border border-border px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </Link>
   );
 }
