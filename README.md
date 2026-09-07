@@ -90,9 +90,15 @@ don't author it.
 is case-insensitive, and ANDs multiple words. It runs client-side over the posts
 already embedded in the page, so there is no index to build or keep in sync.
 
-Cards show a thumbnail. Set `cover` to an image under `public/` to use a real
-one; otherwise the card generates a panel tinted by category (AI teal, Android
-amber) and textured from a hash of the slug, so no post needs an image asset.
+Cards show a thumbnail. Each post has a hand-drawn SVG cover at
+`public/blog/<slug>.svg`, pointed at by `cover` in the frontmatter. Covers load
+through `<img>`, so they are isolated documents — the site's CSS variables do
+**not** reach them and the palette must be hardcoded (`#0F1626` ground,
+`#64FFDA` accent, `#8B98A9` muted). Draw them 800×450 to match the card.
+
+Omit `cover` and the card generates a panel instead, tinted by category
+(AI teal, Android amber) and textured from a hash of the slug — so a post never
+needs an image asset.
 
 The category filter appears once two or more categories have published posts.
 To add a category, edit `POST_CATEGORIES` in `src/lib/blog/types.ts` and give it
