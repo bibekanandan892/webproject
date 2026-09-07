@@ -11,6 +11,12 @@ export interface PostFrontmatter {
   tags: readonly string[];
   summary: string;
   draft: boolean;
+  /**
+   * Optional path to a cover image under `public/`, e.g. `/blog/kv-cache.png`.
+   * When absent the card renders a generated thumbnail derived from the slug,
+   * so a post never needs an image to look finished.
+   */
+  cover?: string;
 }
 
 /** Everything needed to render a post card, without parsing the body. */

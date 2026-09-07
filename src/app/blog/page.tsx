@@ -33,7 +33,7 @@ export default function BlogPage() {
   const categories = getUsedCategories();
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
+    <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
       <SectionHeading
         index={99}
         label="blog"
@@ -49,7 +49,7 @@ export default function BlogPage() {
         <PostList posts={posts} categories={categories} />
       )}
 
-      <div className="mt-20">
+      <div className="mt-20 max-w-3xl">
         <p className="font-mono text-xs uppercase tracking-wider text-primary">writing next</p>
         <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2">
           {upcomingTopics.map((t) => (

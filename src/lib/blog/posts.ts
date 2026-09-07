@@ -21,7 +21,7 @@ function fail(slug: string, problem: string): never {
 
 /** Validates authored frontmatter at the boundary so a bad post fails the build loudly. */
 function parseFrontmatter(slug: string, data: Record<string, unknown>): PostFrontmatter {
-  const { title, date, category, summary, tags, draft } = data;
+  const { title, date, category, summary, tags, draft, cover } = data;
 
   if (typeof title !== "string" || !title.trim()) fail(slug, "`title` is required");
   if (typeof summary !== "string" || !summary.trim()) fail(slug, "`summary` is required");
@@ -32,6 +32,9 @@ function parseFrontmatter(slug: string, data: Record<string, unknown>): PostFron
     fail(slug, `\`category\` must be one of ${POST_CATEGORIES.join(", ")}`);
   }
   if (tags !== undefined && !Array.isArray(tags)) fail(slug, "`tags` must be a list");
+  if (cover !== undefined && (typeof cover !== "string" || !cover.startsWith("/"))) {
+    fail(slug, "`cover` must be a path under public/, starting with `/`");
+  }
 
   return {
     title: title.trim(),
@@ -40,6 +43,7 @@ function parseFrontmatter(slug: string, data: Record<string, unknown>): PostFron
     summary: summary.trim(),
     tags: Array.isArray(tags) ? tags.map(String) : [],
     draft: draft === true,
+    ...(cover ? { cover } : {}),
   };
 }
 
