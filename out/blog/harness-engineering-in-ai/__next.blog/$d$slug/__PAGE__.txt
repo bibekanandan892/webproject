@@ -1,0 +1,130 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2528,<p>A language model does one thing: text in, text out. It cannot look anything up, cannot remember yesterday, cannot check whether it was right, and cannot do anything at all in the outside world.</p>
+<p>Harness engineering is everything you build around the model to close that gap. The model is one component. The harness is the system that makes it useful.</p>
+<h2 id="why-the-model-is-not-the-product"><a class="heading-anchor" href="#why-the-model-is-not-the-product">Why the model is not the product</a></h2>
+<p>Picture hiring someone genuinely brilliant, then giving them no logins, no access to your systems, no notebook, and no colleague to check their work. On day two they remember nothing about day one. They would still be brilliant, and still unable to do the job.</p>
+<p>That is a raw model. Everything that turns it into something a user can rely on lives outside it:</p>
+<ul>
+<li>reaching real data and real systems</li>
+<li>remembering what was said earlier</li>
+<li>coping when something fails</li>
+<li>following instructions the same way every time</li>
+<li>knowing whether the output was any good</li>
+<li>seeing what is happening once real users arrive</li>
+</ul>
+<p>A better model raises the ceiling. The harness decides how much of that ceiling you actually reach.</p>
+<h2 id="the-parts-of-a-harness"><a class="heading-anchor" href="#the-parts-of-a-harness">The parts of a harness</a></h2>
+<p>Most harnesses end up with the same seven pieces.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>part</th><th>what it does</th></tr></thead><tbody><tr><td><strong>Prompts</strong></td><td>Assembles the system instructions, templates and context sent on each call</td></tr><tr><td><strong>Tools</strong></td><td>Declares what the model may call, and actually runs it when it asks</td></tr><tr><td><strong>Memory</strong></td><td>Keeps conversation history, and compresses it before it overruns the context</td></tr><tr><td><strong>Errors</strong></td><td>Handles a failed tool, a malformed response, a timeout, a rate limit</td></tr><tr><td><strong>Input and output</strong></td><td>Validates what goes in, and parses and checks what comes back</td></tr><tr><td><strong>Guardrails</strong></td><td>Blocks unsafe or out-of-scope requests and responses</td></tr><tr><td><strong>Observability</strong></td><td>Logs, traces and metrics, so a production problem is diagnosable</td></tr></tbody></table>
+<p>None of this is model work. All of it is engineering.</p>
+<h2 id="the-loop-that-makes-an-agent"><a class="heading-anchor" href="#the-loop-that-makes-an-agent">The loop that makes an agent</a></h2>
+<p>An agent is a harness running a loop.</p>
+<p>The model never executes anything itself. It reads what it has been given and says what it would like to happen next. Everything else is the harness's job:</p>
+<figure>
+<svg viewBox="0 0 700 208" width="700" role="img" aria-label="The agent loop: build the prompt, send it to the model, and if the model asks for a tool, run it, append the result and go back to the model. When it stops asking for tools, return the answer." xmlns="http://www.w3.org/2000/svg">
+<style>.b{font:600 12px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.m{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<rect x="0" y="24" width="150" height="46" rx="8" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="b" x="75" y="51" text-anchor="middle">build prompt</text>
+<rect x="196" y="24" width="130" height="46" rx="8" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="b" x="261" y="51" text-anchor="middle">model</text>
+<rect x="372" y="24" width="170" height="46" rx="8" fill="var(--secondary)" stroke="var(--border)"></rect>
+<text class="b" x="457" y="51" text-anchor="middle">tool call?</text>
+<path d="M150 47 L192 47" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.5" fill="none" marker-end="url(#ah)"></path>
+<path d="M326 47 L368 47" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.5" fill="none" marker-end="url(#ah)"></path>
+<rect x="372" y="148" width="170" height="46" rx="8" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="b" x="457" y="175" text-anchor="middle">run the tool</text>
+<rect x="150" y="148" width="170" height="46" rx="8" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="b" x="235" y="175" text-anchor="middle">append result</text>
+<path d="M457 70 L457 144" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.5" fill="none" marker-end="url(#ah)"></path>
+<text class="m" x="466" y="112">yes</text>
+<path d="M372 171 L324 171" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.5" fill="none" marker-end="url(#ah)"></path>
+<path d="M235 148 L235 74" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.5" fill="none" marker-end="url(#ah)"></path>
+<text class="m" x="243" y="112">next turn</text>
+<rect x="560" y="24" width="140" height="46" rx="8" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="b" x="630" y="51" text-anchor="middle">answer</text>
+<path d="M542 47 L556 47" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.5" fill="none" marker-end="url(#ah)"></path>
+<text class="m" x="548" y="18">no</text>
+</svg>
+<figcaption>The model only ever answers. Every other step is code you write.</figcaption>
+</figure>
+<p>Take a support agent asked: <em>has order 4172 shipped, and if not, tell the customer when it will?</em></p>
+<p>The harness assembles the prompt — the instructions, the available tools, the question — and sends it. The model replies asking for a tool:</p>
+<pre><code>lookup_order(id=4172)
+</code></pre>
+<p>The harness runs that against the real system, gets back <code>status: packing, ships: 9 September</code>, appends it to the conversation, and calls the model again. Now the model asks for the second tool:</p>
+<pre><code>send_message(to="customer", text="Your order is packed and ships on 9 September.")
+</code></pre>
+<p>The harness runs that too, appends the result, and calls the model once more. This time the model asks for nothing, so the loop ends and its final text is returned.</p>
+<p>Three model calls, two tool executions, one answer. The model decided <em>what</em> to do. The harness did all of it.</p>
+<h2 id="knowing-whether-it-works"><a class="heading-anchor" href="#knowing-whether-it-works">Knowing whether it works</a></h2>
+<p>You cannot improve what you cannot measure, and "it seemed fine when I tried it" does not survive contact with real users.</p>
+<p>An evaluation harness is a second harness whose job is grading the first. It holds a fixed set of test inputs, runs them through the system, and scores the results.</p>
+<p>How you score depends on the task. When there is a right answer — a lookup, a classification, an extraction — compare against it directly and count. When there isn't — a summary, an explanation, a reply to a customer — the usual approach is to have another model grade the output against written criteria.</p>
+<p>The point of fixing the test set is that you can change a prompt, swap a model, or rewrite a tool, and see whether things got better or worse instead of guessing.</p>
+<h2 id="what-keeps-it-manageable"><a class="heading-anchor" href="#what-keeps-it-manageable">What keeps it manageable</a></h2>
+<ul>
+<li><strong>Keep the parts separate.</strong> Prompt assembly, tool execution, and memory should be independently replaceable. They change at different rates.</li>
+<li><strong>Log everything.</strong> Every prompt, every tool call, every response. When something goes wrong in production, the log is all you have.</li>
+<li><strong>Add guardrails early.</strong> Retrofitting safety onto a system that already has users is far harder than building it in.</li>
+<li><strong>Assume tools fail.</strong> Timeouts, bad input, rate limits. Decide what happens on each, rather than letting an exception escape.</li>
+<li><strong>Test the harness itself.</strong> It is ordinary code with ordinary bugs, and most production incidents come from it rather than from the model.</li>
+<li><strong>Watch it after launch.</strong> Real traffic finds inputs your test set never had.</li>
+</ul>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>A model only maps text to text. Everything else is the harness.</li>
+<li>The harness handles prompts, tools, memory, errors, I/O, guardrails and observability.</li>
+<li>An agent is the harness looping: call the model, run whatever tool it asks for, feed the result back, repeat until it stops asking.</li>
+<li>An evaluation harness with a fixed test set is how you tell whether a change helped.</li>
+<li>The harness is ordinary software, and it is usually most of the code.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-07","children":"Sep 7, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Harness engineering in AI"}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A model on its own can only turn text into more text. The harness is everything you build around it — tools, memory, guardrails, retries — and it is usually where most of the work lives."}]]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"S6lAfnOKvFhOg0Vm9Ev9M"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/kv-cache-llm-inference/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"KV cache in LLMs"}]]}],["$","$L2",null,{"href":"/blog/byte-pair-encoding-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Byte pair encoding in LLMs"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"why-the-model-is-not-the-product","text":"Why the model is not the product","level":2},{"id":"the-parts-of-a-harness","text":"The parts of a harness","level":2},{"id":"the-loop-that-makes-an-agent","text":"The loop that makes an agent","level":2},{"id":"knowing-whether-it-works","text":"Knowing whether it works","level":2},{"id":"what-keeps-it-manageable","text":"What keeps it manageable","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
