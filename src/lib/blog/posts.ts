@@ -47,8 +47,18 @@ function parseFrontmatter(slug: string, data: Record<string, unknown>): PostFron
   };
 }
 
+/**
+ * Estimates reading time from prose only.
+ *
+ * Posts embed diagrams as inline SVG, and counting that markup as words
+ * inflated every estimate badly — a 1,000-word post was reporting eight
+ * minutes. Strip embedded styles and tags before counting.
+ */
 function readingMinutes(body: string): number {
-  const words = body.split(/\s+/).filter(Boolean).length;
+  const prose = body
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]*>/g, " ");
+  const words = prose.split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
 }
 
