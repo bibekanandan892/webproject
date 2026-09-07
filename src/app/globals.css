@@ -7,7 +7,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  /* Must not be `var(--font-sans)` — a self-reference is invalid at
+     computed-value time, so `@apply font-sans` on <html> silently fell back to
+     the browser default serif on every unscoped page (/blog, /vote). */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -493,4 +496,179 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================================================
+   Blog article body — .prose-post
+   Applied to build-time markdown HTML on /blog/<slug>. Styled against the
+   default (unscoped) palette so posts read identically no matter which
+   portfolio variant is currently live.
+   ============================================================================ */
+.prose-post {
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.prose-post > * + * { margin-top: 1.25rem; }
+
+.prose-post h2,
+.prose-post h3 {
+  scroll-margin-top: 6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+.prose-post h2 { margin-top: 3rem; font-size: 1.5rem; line-height: 1.3; }
+.prose-post h3 { margin-top: 2.25rem; font-size: 1.185rem; line-height: 1.4; }
+
+.prose-post h2 .heading-anchor,
+.prose-post h3 .heading-anchor {
+  color: inherit;
+  text-decoration: none;
+}
+.prose-post .heading-anchor::after {
+  content: " #";
+  color: var(--primary);
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+.prose-post .heading-anchor:hover::after { opacity: 1; }
+
+.prose-post p { color: var(--foreground); }
+
+.prose-post a:not(.heading-anchor) {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--primary) 40%, transparent);
+  transition: text-decoration-color 150ms ease;
+}
+.prose-post a:not(.heading-anchor):hover { text-decoration-color: var(--primary); }
+
+.prose-post strong { font-weight: 650; color: var(--foreground); }
+
+.prose-post ul,
+.prose-post ol { padding-left: 1.35rem; }
+.prose-post ul { list-style: disc; }
+.prose-post ol { list-style: decimal; }
+.prose-post li::marker { color: var(--primary); }
+.prose-post li + li { margin-top: 0.5rem; }
+.prose-post li > ul,
+.prose-post li > ol { margin-top: 0.5rem; }
+
+.prose-post blockquote {
+  border-left: 2px solid var(--primary);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+.prose-post blockquote p { color: inherit; }
+
+.prose-post hr {
+  border: 0;
+  height: 1px;
+  margin: 3rem 0;
+  background: linear-gradient(to right, color-mix(in srgb, var(--primary) 40%, transparent), var(--border), transparent);
+}
+
+/* Inline code — excludes code inside highlighted blocks. */
+.prose-post :not(pre) > code {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.86em;
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--secondary);
+  color: var(--accent-foreground);
+  overflow-wrap: break-word;
+}
+
+/* Shiki output from rehype-pretty-code (keepBackground: false). */
+.prose-post figure[data-rehype-pretty-code-figure] { margin-top: 1.5rem; }
+
+.prose-post figcaption[data-rehype-pretty-code-title] {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: var(--secondary);
+}
+.prose-post figcaption[data-rehype-pretty-code-title] + pre { border-radius: 0 0 var(--radius-md) var(--radius-md); }
+
+.prose-post pre {
+  overflow-x: auto;
+  padding: 1rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface, var(--card));
+  font-size: 0.85rem;
+  line-height: 1.7;
+  tab-size: 2;
+}
+.prose-post pre code {
+  display: grid;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.prose-post pre code [data-line] { padding: 0 1.15rem; }
+.prose-post pre code [data-highlighted-line] {
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  box-shadow: inset 2px 0 0 var(--primary);
+}
+
+.prose-post .table-wrap { overflow-x: auto; }
+.prose-post table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose-post th,
+.prose-post td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+.prose-post th {
+  background: var(--secondary);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.prose-post img,
+.prose-post svg { max-width: 100%; height: auto; }
+
+.prose-post figure > svg {
+  display: block;
+  margin-inline: auto;
+}
+.prose-post figure > figcaption:not([data-rehype-pretty-code-title]) {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+/* KaTeX — keep display math from overflowing narrow screens. */
+.prose-post .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+}
+.prose-post .katex { font-size: 1.02em; }
+
+@media (max-width: 640px) {
+  .prose-post { font-size: 0.95rem; }
+  .prose-post h2 { font-size: 1.35rem; }
 }
