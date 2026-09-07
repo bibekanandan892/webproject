@@ -5,6 +5,7 @@ category: "AI"
 tags: ["llm", "inference", "kv-cache"]
 summary: "An LLM generates one token at a time, and each new token needs the keys and values of every token before it. The KV cache stores them instead of recomputing them."
 draft: false
+cover: "/blog/kv-cache-llm-inference.svg"
 ---
 
 A large language model does not produce a sentence in one go. It generates **one token at a time**, and each new token is predicted by looking at everything generated so far:

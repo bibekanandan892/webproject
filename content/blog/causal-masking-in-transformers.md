@@ -5,6 +5,7 @@ category: "AI"
 tags: ["llm", "attention", "transformers"]
 summary: "Causal masking is what stops a token from attending to the tokens that come after it. Without it, a language model can see the answer it is being asked to predict."
 draft: false
+cover: "/blog/causal-masking-in-transformers.svg"
 ---
 
 In a Transformer's attention layer, a token can attend to every other token in the sequence — including the ones that come after it. Causal masking removes that. It makes each token attend only to itself and the tokens before it, **never to future tokens**.
