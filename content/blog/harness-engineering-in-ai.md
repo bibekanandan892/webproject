@@ -1,6 +1,6 @@
 ---
 title: "Harness engineering in AI"
-date: "2026-09-07"
+date: "2026-09-07T21:23"
 category: "AI"
 tags: ["llm", "agents", "harness", "production", "evaluation"]
 summary: "A model on its own can only turn text into more text. The harness is everything you build around it — tools, memory, guardrails, retries — and it is usually where most of the work lives."

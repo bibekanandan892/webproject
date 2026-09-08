@@ -1,6 +1,6 @@
 ---
 title: "KV cache in LLMs"
-date: "2026-09-07"
+date: "2026-09-07T16:08"
 category: "AI"
 tags: ["llm", "inference", "kv-cache"]
 summary: "An LLM generates one token at a time, and each new token needs the keys and values of every token before it. The KV cache stores them instead of recomputing them."

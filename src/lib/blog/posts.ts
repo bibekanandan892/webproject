@@ -7,7 +7,15 @@ import type { Post, PostCategory, PostFrontmatter, PostMeta } from "./types";
 
 const POSTS_DIR = path.join(process.cwd(), "content", "blog");
 const WORDS_PER_MINUTE = 220;
-const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+/**
+ * `YYYY-MM-DD`, optionally followed by `THH:mm` (and seconds).
+ *
+ * The time is optional and never displayed. It exists so posts published on
+ * the same day still order correctly — without one, same-day posts tie and the
+ * grid falls back to whatever order the filesystem hands back, which is
+ * alphabetical by filename rather than newest-first.
+ */
+const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?)?$/;
 
 /**
  * Drafts are visible while writing locally and dropped from the deployed
@@ -26,7 +34,7 @@ function parseFrontmatter(slug: string, data: Record<string, unknown>): PostFron
   if (typeof title !== "string" || !title.trim()) fail(slug, "`title` is required");
   if (typeof summary !== "string" || !summary.trim()) fail(slug, "`summary` is required");
   if (typeof date !== "string" || !DATE_PATTERN.test(date)) {
-    fail(slug, "`date` must be a YYYY-MM-DD string");
+    fail(slug, "`date` must be YYYY-MM-DD, optionally with THH:mm");
   }
   if (typeof category !== "string" || !POST_CATEGORIES.includes(category as PostCategory)) {
     fail(slug, `\`category\` must be one of ${POST_CATEGORIES.join(", ")}`);
@@ -80,12 +88,29 @@ function listSlugs(): string[] {
     .map((name) => name.replace(/\.md$/, ""));
 }
 
+/**
+ * Sort key for a post date.
+ *
+ * Both accepted shapes are lexicographically ordered already, so a plain
+ * string comparison is enough — but a date-only post must not outrank a timed
+ * post on the same day, so pad it to midnight first.
+ */
+function dateKey(date: string): string {
+  return date.includes("T") ? date : `${date}T00:00`;
+}
+
 /** Every published post, newest first. */
 export function getAllPosts(): PostMeta[] {
   return listSlugs()
     .map((slug) => readPostFile(slug).meta)
     .filter((post) => includeDrafts || !post.draft)
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .sort(
+      (a, b) =>
+        dateKey(b.date).localeCompare(dateKey(a.date)) ||
+        // Never let the order depend on the filesystem: two posts stamped with
+        // the identical time still need a deterministic, build-stable order.
+        a.slug.localeCompare(b.slug),
+    );
 }
 
 /** Slugs that should be pre-rendered at build time. */

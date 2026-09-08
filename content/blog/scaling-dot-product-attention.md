@@ -1,6 +1,6 @@
 ---
 title: "Why attention divides by √dₖ"
-date: "2026-09-07"
+date: "2026-09-07T21:46"
 category: "AI"
 tags: ["llm", "attention", "softmax", "variance", "scaling"]
 summary: "The scaling factor in scaled dot-product attention is not a tuning knob. It is the one number that keeps the attention scores at a usable size no matter how wide the vectors are."

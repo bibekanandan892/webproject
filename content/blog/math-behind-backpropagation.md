@@ -1,6 +1,6 @@
 ---
 title: "The math behind backpropagation"
-date: "2026-09-07"
+date: "2026-09-07T22:41"
 category: "AI"
 tags: ["neural-networks", "backpropagation", "chain-rule", "gradients", "training"]
 summary: "Training a network means working out how much each weight contributed to the error. Backpropagation does it with one rule from calculus, applied backwards through the network."

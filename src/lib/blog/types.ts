@@ -6,7 +6,11 @@ export type PostCategory = (typeof POST_CATEGORIES)[number];
 /** The fields an author writes at the top of a markdown file. */
 export interface PostFrontmatter {
   title: string;
-  date: string; // YYYY-MM-DD
+  /**
+   * `YYYY-MM-DD`, optionally with `THH:mm`. Only the date is ever shown; the
+   * time is what orders posts published on the same day.
+   */
+  date: string;
   category: PostCategory;
   tags: readonly string[];
   summary: string;

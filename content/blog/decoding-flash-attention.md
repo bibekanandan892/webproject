@@ -1,6 +1,6 @@
 ---
 title: "Decoding flash attention"
-date: "2026-09-08"
+date: "2026-09-08T01:25"
 category: "AI"
 tags: ["attention", "gpu", "flash-attention", "memory", "softmax"]
 summary: "Flash attention produces exactly the same numbers as ordinary attention. It is faster because it never writes the score matrix to memory at all."

@@ -1,6 +1,6 @@
 ---
 title: "Paged attention in LLMs"
-date: "2026-09-07"
+date: "2026-09-07T21:03"
 category: "AI"
 tags: ["llm", "inference", "paged-attention", "memory"]
 summary: "Serving an LLM means reserving memory for a reply before you know how long it will be. Paged attention stops that reservation from wasting most of the GPU."

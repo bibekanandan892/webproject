@@ -1,6 +1,6 @@
 ---
 title: "The math behind attention: Q, K and V"
-date: "2026-09-07"
+date: "2026-09-07T21:33"
 category: "AI"
 tags: ["llm", "attention", "transformers", "matrices"]
 summary: "Attention is one formula built from three matrices. Working it end to end on a three-word sentence shows exactly what Q, K and V are doing."
