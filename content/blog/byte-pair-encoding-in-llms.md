@@ -1,6 +1,6 @@
 ---
 title: "Byte pair encoding in LLMs"
-date: "2026-09-07"
+date: "2026-09-07T21:15"
 category: "AI"
 tags: ["llm", "tokenization", "bpe", "vocabulary"]
 summary: "A model cannot read text, only numbers, so text has to be cut into pieces first. Byte pair encoding decides where to cut by repeatedly merging the most common pair of neighbours."

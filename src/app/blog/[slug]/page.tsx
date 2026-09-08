@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { PostMetaRow } from "@/components/blog/post-meta-row";
+import { PostThumbnail } from "@/components/blog/post-thumbnail";
 import { TableOfContents } from "@/components/blog/table-of-contents";
 import { getAdjacentPosts, getPostBySlug, getPublishedSlugs } from "@/lib/blog";
 import type { PostMeta } from "@/lib/blog/types";
@@ -82,16 +83,26 @@ export default async function PostPage({ params }: PostPageProps) {
       <div className="mt-10 gap-12 xl:flex xl:items-start">
         <article className="min-w-0 flex-1 xl:max-w-3xl">
           <header className="flex flex-col gap-4 border-b border-border pb-8">
+            <h1 className="text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl">
+              {post.title}
+            </h1>
             <PostMetaRow
               date={post.date}
               category={post.category}
               readingMinutes={post.readingMinutes}
             />
-            <h1 className="text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl">
-              {post.title}
-            </h1>
             <p className="text-base leading-relaxed text-muted-foreground">{post.summary}</p>
           </header>
+
+          {/*
+            Title first, then the banner — the order readers expect from a blog
+            post. The cover doubles as the card thumbnail, so a post is
+            recognisable from the grid and from its own page. PostThumbnail
+            falls back to a generated panel when a post has no authored cover.
+          */}
+          <div className="mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card">
+            <PostThumbnail post={post} />
+          </div>
 
           <div
             className="prose-post mt-10"

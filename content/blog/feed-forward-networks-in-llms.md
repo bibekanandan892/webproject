@@ -1,6 +1,6 @@
 ---
 title: "Feed-forward networks in LLMs"
-date: "2026-09-08"
+date: "2026-09-08T01:26"
 category: "AI"
 tags: ["llm", "transformers", "feed-forward", "activation", "parameters"]
 summary: "Attention gets the attention, but two thirds of a transformer layer's parameters sit in the feed-forward network. It is where the model keeps what it knows."

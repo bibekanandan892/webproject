@@ -1,6 +1,6 @@
 ---
 title: "Causal masking in attention"
-date: "2026-09-05"
+date: "2026-09-05T16:07"
 category: "AI"
 tags: ["llm", "attention", "transformers"]
 summary: "Causal masking is what stops a token from attending to the tokens that come after it. Without it, a language model can see the answer it is being asked to predict."

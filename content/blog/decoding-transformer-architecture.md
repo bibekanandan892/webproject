@@ -1,6 +1,6 @@
 ---
 title: "Decoding the transformer architecture"
-date: "2026-09-08"
+date: "2026-09-08T00:56"
 category: "AI"
 tags: ["transformers", "architecture", "encoder", "decoder", "llm"]
 summary: "A transformer takes tokens in and gives tokens out. Between those two ends sits a short list of components, each with one job — and the same list underpins BERT, GPT and everything since."
