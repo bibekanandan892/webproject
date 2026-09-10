@@ -1,0 +1,134 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/ai-agent-observability.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2139,<p>When an ordinary service fails, it usually says so. There is an exception, a stack trace, a non-200.</p>
+<p>When an agent fails it typically returns a fluent, confident, wrong answer, and nothing anywhere reports a problem. The failure happened three steps earlier — a tool called with a bad argument, a result misread — and none of that is in the output.</p>
+<p>Observability is recording those steps so that the question "why did it do that?" has an answer.</p>
+<h2 id="spans-and-traces"><a class="heading-anchor" href="#spans-and-traces">Spans and traces</a></h2>
+<p>A <strong>span</strong> is one operation: a model call, a tool call, a retrieval. It records what went in, what came out, how long it took, and what it cost.</p>
+<p>A <strong>trace</strong> is one complete run, made of many spans. Spans nest, so a trace is a tree rather than a list — a subagent's spans sit inside the parent span that invoked it.</p>
+<p>Above traces sits the <strong>session</strong>: everything one user did across several requests.</p>
+<p>That hierarchy is what makes the difference between "the agent gave a bad answer" and "at span 4 the search tool was called with the date in the wrong format, returned nothing, and the model treated an empty result as no availability."</p>
+<h2 id="what-has-to-be-in-a-span"><a class="heading-anchor" href="#what-has-to-be-in-a-span">What has to be in a span</a></h2>
+<p>The temptation is to log that something happened. That is not enough — you need what it said.</p>
+<p>For a <strong>model call</strong>: the full prompt, the full response, which model, the token counts, the cost. The prompt in particular, because when a model behaves oddly the reason is usually visible in what it was actually sent, and reconstructing that later from application code is guesswork.</p>
+<p>For a <strong>tool call</strong>: which tool, the exact arguments, the exact result, and whether it errored.</p>
+<p>Plus retries, anything read from or written to memory, and the final output.</p>
+<h2 id="which-is-why-the-volume-is-a-problem"><a class="heading-anchor" href="#which-is-why-the-volume-is-a-problem">Which is why the volume is a problem</a></h2>
+<p>A twelve-step run logging prompts and responses is roughly 6.4 KB a step — about 77 KB for the run.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>volume</th></tr></thead><tbody><tr><td>one agent run, fully traced</td><td>77 KB</td></tr><tr><td>50,000 runs a day</td><td>3.66 GB/day</td></tr><tr><td>a year of that</td><td><strong>1.31 TB</strong></td></tr><tr><td>the same traffic logged conventionally</td><td>0.048 GB/day</td></tr></tbody></table>
+<figure>
+<svg viewBox="0 0 560 200" width="560" role="img" aria-label="Two bars comparing daily log volume. Conventional request logging is a thin sliver; full agent tracing is about seventy-seven times larger. A third bar shows sampled tracing at about an eighth of the full volume." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.v{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}</style>
+<text class="hd" x="20" y="18">SAME TRAFFIC, THREE LOGGING CHOICES</text>
+<text class="l" x="140" y="56" text-anchor="end">conventional</text>
+<rect x="150" y="42" width="5" height="20" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 45%, transparent)"></rect>
+<text class="l" x="163" y="57">0.05 GB</text>
+<text class="l" x="140" y="98" text-anchor="end">full traces</text>
+<rect x="150" y="84" width="385" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="v" x="150" y="122">3.66 GB/day · 1.31 TB/year</text>
+<text class="l" x="140" y="160" text-anchor="end">sampled</text>
+<rect x="150" y="146" width="48" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 75%, transparent)"></rect>
+<text class="v" x="206" y="161">0.46 GB/day · every failure kept</text>
+</svg>
+<figcaption>Seventy-seven times the data per request, because a span carries the text and not just the event.</figcaption>
+</figure>
+<p>That is <strong>77 times</strong> the data per request, and it is not padding — it is the prompts and responses, which are the parts you actually need.</p>
+<h2 id="keeping-the-useful-eighth"><a class="heading-anchor" href="#keeping-the-useful-eighth">Keeping the useful eighth</a></h2>
+<p>The answer is not to log less per span. It is to keep fewer runs, chosen deliberately.</p>
+<p>Decide <em>after</em> a run completes whether to store it. Keep every failure, every run that was unusually slow or expensive, every one a user complained about — and a small random sample of the ordinary successes.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>failure rate</th><th>5% of successes kept</th><th>volume retained</th><th>failures kept</th></tr></thead><tbody><tr><td>2%</td><td>✓</td><td>6.9%</td><td>100%</td></tr><tr><td>5%</td><td>✓</td><td>9.8%</td><td>100%</td></tr><tr><td><strong>8%</strong></td><td>✓</td><td><strong>12.6%</strong></td><td><strong>100%</strong></td></tr><tr><td>15%</td><td>✓</td><td>19.3%</td><td>100%</td></tr></tbody></table>
+<p>At an 8% failure rate that is 3.66 GB a day down to 0.46, with <strong>every failure still on disk</strong>. The sample of successes is what tells you what normal looks like, which you need in order to recognise abnormal.</p>
+<p>Sampling before the run — the cheaper thing to implement — throws away failures at the same rate as successes, which defeats the point.</p>
+<h2 id="why-this-is-not-ordinary-monitoring"><a class="heading-anchor" href="#why-this-is-not-ordinary-monitoring">Why this is not ordinary monitoring</a></h2>
+<p><strong>Nothing crashes.</strong> Conventional monitoring watches for errors. An agent's characteristic failure produces no error at all, so error rate is close to useless as a health signal. Task success rate is the metric, and it cannot be computed from the trace alone — something has to judge whether the answer was right.</p>
+<p><strong>The path changes every run.</strong> The same request twice produces different traces. Two runs cannot be diffed the way two identical code paths can, so comparison has to be statistical rather than per-run.</p>
+<p><strong>Cost is a first-class signal.</strong> A run that succeeds but takes forty steps and two dollars is a problem that no traditional metric surfaces. Tokens, cost and step count belong on the dashboard beside latency.</p>
+<h2 id="the-practical-bits"><a class="heading-anchor" href="#the-practical-bits">The practical bits</a></h2>
+<p><strong>Instrument first.</strong> Adding tracing after something has gone wrong means the run you needed to see was not recorded.</p>
+<p><strong>Mask before storing.</strong> Prompts contain whatever the user typed, and tool arguments contain whatever was looked up. Both routinely include personal data, and a trace store is a copy of all of it.</p>
+<p><strong>Alert on drift, not just errors.</strong> Cost per task rising, step count rising, tool success rate falling — these move before anyone files a complaint.</p>
+<p><strong>Keep old traces.</strong> Answering "when did this start?" needs history, and by the time the question is asked it is too late to begin collecting.</p>
+<p>And note the boundary: this tells you <em>what the agent did</em>. Whether what it did was any good is a separate judgement, made on top of this data. Traces without that judgement are a very detailed record of unknown quality.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Agents fail silently, so the answer alone cannot explain a failure.</li>
+<li>A span is one operation; a trace is a full run; spans nest into a tree.</li>
+<li>Spans must carry the actual prompts, responses, arguments and results — not just event names.</li>
+<li>That makes agent tracing about 77× the volume of conventional request logging.</li>
+<li>Sample after the fact: keep all failures plus a few percent of successes, and 12.6% of the data retains every failure.</li>
+<li>Error rate is a weak signal because nothing errors; task success rate is the real one.</li>
+<li>Traces change every run, so comparison is statistical.</li>
+<li>Mask personal data before storing, and instrument before you need it.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"AI agent observability"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T21:40","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"An agent's answer is the smallest part of what it did. Recording the rest produces far more data than ordinary logging — around seventy times more — which makes what you keep a real decision."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/ai-agent-observability.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"WB1EwWkKpCEoE5AH3paWH"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/how-ai-agents-communicate/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"How AI agents communicate"}]]}],["$","$L2",null,{"href":"/blog/self-attention/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Self attention"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"spans-and-traces","text":"Spans and traces","level":2},{"id":"what-has-to-be-in-a-span","text":"What has to be in a span","level":2},{"id":"which-is-why-the-volume-is-a-problem","text":"Which is why the volume is a problem","level":2},{"id":"keeping-the-useful-eighth","text":"Keeping the useful eighth","level":2},{"id":"why-this-is-not-ordinary-monitoring","text":"Why this is not ordinary monitoring","level":2},{"id":"the-practical-bits","text":"The practical bits","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
