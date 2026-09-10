@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Diffusion: a sequence of panels going from clear structure on the left to pure noise on the right, with an arrow showing generation running the other way.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64FFDA"/></marker>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="120" width="120" height="120" rx="8" fill="#64FFDA" fill-opacity="0.34" stroke="#64FFDA" stroke-width="2"/>
+<rect x="86" y="150" width="68" height="60" rx="6" fill="#0F1626" fill-opacity="0.55"/>
+<rect x="200" y="120" width="120" height="120" rx="8" fill="#64FFDA" fill-opacity="0.26" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="2"/>
+<rect x="226" y="152" width="68" height="56" rx="6" fill="#0F1626" fill-opacity="0.4"/>
+<g fill="#64FFDA" fill-opacity="0.35"><rect x="212" y="132" width="10" height="10"/><rect x="290" y="212" width="10" height="10"/><rect x="248" y="128" width="10" height="10"/></g>
+<rect x="340" y="120" width="120" height="120" rx="8" fill="#64FFDA" fill-opacity="0.2" stroke="#64FFDA" stroke-opacity="0.5" stroke-width="2"/>
+<g fill="#64FFDA" fill-opacity="0.3"><rect x="352" y="132" width="12" height="12"/><rect x="392" y="160" width="12" height="12"/><rect x="424" y="196" width="12" height="12"/><rect x="368" y="212" width="12" height="12"/><rect x="420" y="132" width="12" height="12"/><rect x="384" y="188" width="12" height="12"/></g>
+<rect x="480" y="120" width="120" height="120" rx="8" fill="#141C30" stroke="rgba(230,237,243,0.14)" stroke-width="2"/>
+<g fill="#8B98A9" fill-opacity="0.3"><rect x="490" y="130" width="11" height="11"/><rect x="516" y="148" width="11" height="11"/><rect x="548" y="132" width="11" height="11"/><rect x="574" y="164" width="11" height="11"/><rect x="498" y="180" width="11" height="11"/><rect x="530" y="196" width="11" height="11"/><rect x="562" y="212" width="11" height="11"/><rect x="504" y="216" width="11" height="11"/><rect x="580" y="192" width="11" height="11"/><rect x="536" y="164" width="11" height="11"/></g>
+<rect x="620" y="120" width="120" height="120" rx="8" fill="#141C30" stroke="rgba(230,237,243,0.14)" stroke-width="2"/>
+<g fill="#8B98A9" fill-opacity="0.34"><rect x="628" y="128" width="11" height="11"/><rect x="652" y="140" width="11" height="11"/><rect x="676" y="126" width="11" height="11"/><rect x="702" y="148" width="11" height="11"/><rect x="632" y="164" width="11" height="11"/><rect x="660" y="176" width="11" height="11"/><rect x="690" y="188" width="11" height="11"/><rect x="716" y="168" width="11" height="11"/><rect x="640" y="204" width="11" height="11"/><rect x="668" y="216" width="11" height="11"/><rect x="700" y="212" width="11" height="11"/><rect x="724" y="196" width="11" height="11"/><rect x="612" y="188" width="11" height="11"/></g>
+<path d="M720 276 H80" stroke="#64FFDA" stroke-opacity="0.75" stroke-width="3" marker-end="url(#a)"/>
+<text x="400" y="308" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle">generation runs this way</text>
+<text x="52" y="414" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">diffusion models</text>
+</svg>
