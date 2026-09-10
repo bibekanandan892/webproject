@@ -1,0 +1,136 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/17w3~ac2nlmc0.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","large-reasoning-models",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","large-reasoning-models","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/17w3~ac2nlmc0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/17w3~ac2nlmc0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"FhVI5h53tMvotweWf6CO_"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+:HL["/blog/large-reasoning-models.svg","image"]
+11:T2686,<p>An ordinary language model answers immediately. The first token of its reply is produced straight after the question, and everything follows from there.</p>
+<p>A reasoning model does not. It first generates a long stretch of working — laying the problem out, computing, checking itself, sometimes going back — and only then writes the answer.</p>
+<p>That working is made of ordinary tokens. It is generated exactly the way the answer is, and it is billed exactly the way the answer is.</p>
+<h2 id="what-the-working-looks-like"><a class="heading-anchor" href="#what-the-working-looks-like">What the working looks like</a></h2>
+<p><em>A van leaves at 08:20 averaging 54 km/h. A second leaves the same place at 09:05 averaging 72 km/h. When does the second catch the first?</em></p>
+<p>The trace runs something like this:</p>
+<blockquote>
+<p>The second leaves 45 minutes later, so the first has a head start. Head start = 45 × 54 = 2,430 km.</p>
+<p>That cannot be right — 2,430 km in 45 minutes. The 45 is in minutes and the speed is per hour. 45 minutes is 0.75 h, so the head start is 0.75 × 54 = <strong>40.5 km</strong>.</p>
+<p>The second gains at 72 − 54 = 18 km/h. Closing 40.5 km takes 40.5 ÷ 18 = <strong>2.25 h</strong>.</p>
+<p>2.25 h after 09:05 is <strong>11:20</strong>.</p>
+<p>Check: the second travels 72 × 2.25 = 162 km. The first has been going from 08:20 to 11:20, which is 3 h, so 54 × 3 = 162 km. Same. ✓</p>
+</blockquote>
+<p>Three behaviours in there, and they are the point.</p>
+<p>It <strong>broke the problem down</strong> rather than reaching for the answer. It <strong>caught its own mistake</strong> — the units slip in the first line is exactly the error a model answering directly would have carried through to a confident wrong answer. And it <strong>checked the result by a different route</strong>, computing the same distance two ways.</p>
+<p>None of that is reasoning in any deep sense. It is a learned habit of producing text that has those shapes, and the habit is worth a great deal on problems where a single slip ruins the answer.</p>
+<h2 id="where-the-ability-comes-from"><a class="heading-anchor" href="#where-the-ability-comes-from">Where the ability comes from</a></h2>
+<p>Not from the pre-training, and not from instruction tuning. From a third stage that only works on problems whose answers can be <strong>checked automatically</strong>.</p>
+<p>Take a hard problem with a known answer. Have the model produce many attempts in parallel — a few dozen. Run each one's final answer through a checker: is the number right, do the unit tests pass, does the proof hold. Score each attempt against how the rest of the group did, then reinforce the patterns in the ones that worked.</p>
+<p>The checker is what makes this possible and what limits it. Nobody has to grade the reasoning — only the final answer, and only in domains where correctness is mechanically decidable. Which is why reasoning models are strongest at maths, code and formal logic, and much less transformed on questions where nothing can be automatically verified.</p>
+<p>What gets learned is not the answers. It is the habits: decompose, check units, verify by a second method, notice when a number is absurd.</p>
+<h2 id="thinking-longer-works-and-it-is-not-free"><a class="heading-anchor" href="#thinking-longer-works-and-it-is-not-free">Thinking longer works, and it is not free</a></h2>
+<figure>
+<svg viewBox="0 0 560 200" width="560" role="img" aria-label="Two paths drawn to scale. A direct model goes from question to a short answer. A reasoning model goes from question through a very long thinking block before reaching an answer of the same size." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.g{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<defs><marker id="lr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<text class="hd" x="30" y="20">DRAWN TO SCALE</text>
+<text class="g" x="30" y="44">direct</text>
+<rect x="30" y="52" width="80" height="30" rx="5" fill="color-mix(in srgb, var(--muted-foreground) 14%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 32%, transparent)"></rect>
+<text class="g" x="70" y="71" text-anchor="middle">question</text>
+<path d="M114 67 H126" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.3" marker-end="url(#lr)"></path>
+<rect x="132" y="52" width="80" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<text class="b" x="172" y="71" text-anchor="middle">answer</text>
+<text class="g" x="222" y="71">200 tokens</text>
+<text class="g" x="30" y="116">reasoning</text>
+<rect x="30" y="124" width="80" height="30" rx="5" fill="color-mix(in srgb, var(--muted-foreground) 14%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 32%, transparent)"></rect>
+<text class="g" x="70" y="143" text-anchor="middle">question</text>
+<path d="M114 139 H126" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.3" marker-end="url(#lr)"></path>
+<rect x="132" y="124" width="298" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 42%, transparent)" stroke-dasharray="5 4"></rect>
+<text class="b" x="281" y="143" text-anchor="middle">thinking · 8,192 tokens</text>
+<path d="M434 139 H446" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.3" marker-end="url(#lr)"></path>
+<rect x="452" y="124" width="80" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<text class="b" x="492" y="143" text-anchor="middle">answer</text>
+<text class="g" x="30" y="184">the dashed block is billed and timed exactly like the solid one</text>
+</svg>
+<figcaption>The user sees the same short answer in both cases. The bill does not.</figcaption>
+</figure>
+<p>Accuracy on hard problems rises with the amount of working — more attempts, longer traces, or both. That is a real and repeatable effect, and it is what makes these models worth having.</p>
+<p>The cost is straightforwardly proportional. At $12 per million output tokens and around 80 tokens a second:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>thinking tokens</th><th>billed</th><th>cost</th><th>vs direct</th><th>latency</th></tr></thead><tbody><tr><td>0</td><td>200</td><td>$0.0024</td><td>1×</td><td>2.5 s</td></tr><tr><td>1,024</td><td>1,224</td><td>$0.0147</td><td>6×</td><td>15 s</td></tr><tr><td>8,192</td><td>8,392</td><td>$0.1007</td><td><strong>42×</strong></td><td>105 s</td></tr><tr><td>32,768</td><td>32,968</td><td>$0.3956</td><td><strong>165×</strong></td><td>412 s</td></tr></tbody></table>
+<p>Two things follow.</p>
+<p>The user sees a 200-token answer in every row. Nothing on screen indicates whether it cost <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.0024</mn><mi>o</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">0.0024 or </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.0024</span><span class="mord mathnormal" style="margin-right:0.0278em;">or</span></span></span></span>0.40, which makes reasoning spend easy to lose track of — it is invisible in the output and only appears on the bill.</p>
+<p>And the latency is not a queue or a slow server. Generating 32,000 tokens takes as long as generating 32,000 tokens.</p>
+<h2 id="using-them-well"><a class="heading-anchor" href="#using-them-well">Using them well</a></h2>
+<p><strong>Do not use one for easy work.</strong> A summary or a reformat gains nothing from a thinking trace and pays the full multiple for it. The gap only appears on problems with enough steps for a slip to matter.</p>
+<p><strong>Set a budget.</strong> Uncapped thinking on production traffic makes costs unpredictable, because the model decides how long to think. A fixed ceiling — a few thousand tokens normally, more for known-hard requests — makes the bill bounded.</p>
+<p><strong>Do not tell it to think step by step.</strong> That instruction exists to induce working in models that were not trained to produce it. A model already trained to think does it anyway, and being told again mostly disrupts the pattern it learned.</p>
+<p><strong>Never show the trace as the answer.</strong> It contains abandoned approaches and corrected mistakes — the 2,430 km line above is in there. It is working, not output.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>A reasoning model generates a long trace of working before its answer.</li>
+<li>The trace is made of ordinary tokens: generated, billed and timed like any others.</li>
+<li>Its useful habits are decomposition, self-correction, and verifying by a second method.</li>
+<li>It is trained by generating many attempts to problems with checkable answers and reinforcing the ones that come out right.</li>
+<li>That is why the gains concentrate in maths, code and logic — the domains a checker can grade.</li>
+<li>Accuracy rises with thinking, and so does cost: 8,192 thinking tokens is 42× a direct answer.</li>
+<li>The user sees the same short answer either way, which is what makes the spend easy to miss.</li>
+</ul>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Large reasoning models"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T17:00","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A reasoning model spends thousands of tokens working before it answers. Those tokens are billed, they set the latency, and they are the reason it gets harder problems right."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/large-reasoning-models.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Large reasoning models · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"A reasoning model spends thousands of tokens working before it answers. Those tokens are billed, they set the latency, and they are the reason it gets harder problems right."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"reasoning,test-time-compute,rlvr,thinking-tokens,cost"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/large-reasoning-models/"}],["$","meta","6",{"property":"og:title","content":"Large reasoning models"}],["$","meta","7",{"property":"og:description","content":"A reasoning model spends thousands of tokens working before it answers. Those tokens are billed, they set the latency, and they are the reason it gets harder problems right."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/large-reasoning-models/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-10T17:00"}],["$","meta","11",{"property":"article:tag","content":"reasoning"}],["$","meta","12",{"property":"article:tag","content":"test-time-compute"}],["$","meta","13",{"property":"article:tag","content":"rlvr"}],["$","meta","14",{"property":"article:tag","content":"thinking-tokens"}],["$","meta","15",{"property":"article:tag","content":"cost"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Large reasoning models"}],["$","meta","18",{"name":"twitter:description","content":"A reasoning model spends thousands of tokens working before it answers. Those tokens are billed, they set the latency, and they are the reason it gets harder problems right."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/rlhf/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"RLHF"}]]}],null]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"what-the-working-looks-like","text":"What the working looks like","level":2},{"id":"where-the-ability-comes-from","text":"Where the ability comes from","level":2},{"id":"thinking-longer-works-and-it-is-not-free","text":"Thinking longer works, and it is not free","level":2},{"id":"using-them-well","text":"Using them well","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]

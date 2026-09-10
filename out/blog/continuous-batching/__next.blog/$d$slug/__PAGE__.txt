@@ -1,0 +1,150 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/continuous-batching.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2547,<p>A GPU serving one request at a time is mostly idle. The arithmetic for a single token uses a fraction of what the hardware can do, so requests are processed in batches — several at once, at almost the same cost as one.</p>
+<p>The question is when a batch begins and ends, and the obvious answer is the expensive one.</p>
+<h2 id="the-problem-with-fixed-batches"><a class="heading-anchor" href="#the-problem-with-fixed-batches">The problem with fixed batches</a></h2>
+<p>Take a batch of four. Run all four together, one decode step at a time, until every one of them is done. Then start the next four.</p>
+<p>The trouble is that requests are not the same length. One reply runs to fifteen tokens and another to two hundred and forty. The short one finishes at step fifteen and its slot then sits empty for two hundred and twenty-five steps, because the batch does not end until the longest request does.</p>
+<p>Meanwhile new requests wait in a queue for a slot that is empty and unusable.</p>
+<h2 id="refilling-as-you-go"><a class="heading-anchor" href="#refilling-as-you-go">Refilling as you go</a></h2>
+<p>Continuous batching changes one thing: when a request finishes, its slot is given to the next queued request immediately, in the middle of the batch.</p>
+<p>Nothing about the model changes. It is purely a decision about scheduling — the batch stops being a group of requests that start and end together, and becomes a set of slots that are kept full.</p>
+<h2 id="what-that-is-worth"><a class="heading-anchor" href="#what-that-is-worth">What that is worth</a></h2>
+<p>Twelve requests, four slots, and reply lengths of 240, 30, 90, 15, 60, 45, 20, 180, 25, 35, 120 and 40 decode steps. That is 900 steps of actual work.</p>
+<figure>
+<svg viewBox="0 0 580 252" width="580" role="img" aria-label="Two timelines on the same scale. Under static batching the four slots have large empty gaps and the run takes 540 steps. Under continuous batching the slots are kept full and the run finishes in 255 steps." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.v{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}</style>
+<text class="hd" x="20" y="18">SAME WORK, SAME SCALE</text>
+<text class="l" x="80" y="80" text-anchor="end">static</text>
+<rect x="90" y="36" width="195.6" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="90" y="57" width="24.4" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="90" y="78" width="73.3" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="90" y="99" width="12.2" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="285.6" y="36" width="48.9" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="285.6" y="57" width="36.7" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="285.6" y="78" width="16.3" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="285.6" y="99" width="146.7" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="432.2" y="36" width="20.4" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="432.2" y="57" width="28.5" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="432.2" y="78" width="97.8" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="432.2" y="99" width="32.6" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<path d="M530 30 V120" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.2" stroke-dasharray="4 3"></path>
+<text class="v" x="527" y="27" text-anchor="end">540 steps</text>
+<text class="l" x="80" y="176" text-anchor="end">continuous</text>
+<rect x="90" y="132" width="195.6" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="90" y="153" width="24.4" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="90" y="174" width="73.3" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="90" y="195" width="12.2" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="102.2" y="195" width="48.9" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="114.4" y="153" width="36.7" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="151.1" y="153" width="16.3" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="151.1" y="195" width="146.7" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="163.3" y="174" width="20.4" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="167.4" y="153" width="28.5" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="183.7" y="174" width="97.8" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<rect x="195.9" y="153" width="32.6" height="16" rx="2" fill="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<path d="M297.8 126 V216" stroke="var(--primary)" stroke-opacity="0.75" stroke-width="1.4" stroke-dasharray="4 3"></path>
+<text class="v" x="302" y="226">255 steps</text>
+<text class="l" x="20" y="234">four slot rows in each panel; gaps are idle slots</text>
+</svg>
+<figcaption>Both panels are drawn to the same scale. The white space in the top one is the entire argument.</figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>static</th><th>continuous</th></tr></thead><tbody><tr><td>steps to clear everything</td><td>540</td><td><strong>255</strong></td></tr><tr><td>at 50 ms a step</td><td>27.0 s</td><td><strong>12.8 s</strong></td></tr><tr><td>slot utilisation</td><td>41.7%</td><td><strong>88.2%</strong></td></tr><tr><td>throughput</td><td>33 tokens/s</td><td><strong>71 tokens/s</strong></td></tr></tbody></table>
+<p>Same requests, same model, same hardware. <strong>2.12× the throughput</strong>, from changing when a slot is refilled.</p>
+<p>The utilisation figure is the honest way to see it. Under fixed batching the slots do useful work 42% of the time; the rest is waiting for stragglers. Continuous batching takes that to 88%, and the remaining gap is the tail — near the end there is not enough queued work left to keep four slots busy.</p>
+<h2 id="what-it-does-to-individual-requests"><a class="heading-anchor" href="#what-it-does-to-individual-requests">What it does to individual requests</a></h2>
+<p>Throughput is the headline, but the effect on waiting is larger and less obvious:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>reply length</th><th>finishes at, static</th><th>finishes at, continuous</th></tr></thead><tbody><tr><td>20 steps</td><td>260</td><td><strong>95</strong></td></tr><tr><td>45 steps</td><td>285</td><td><strong>75</strong></td></tr><tr><td>60 steps</td><td>300</td><td><strong>75</strong></td></tr><tr><td>25 steps</td><td>445</td><td><strong>115</strong></td></tr><tr><td>240 steps</td><td>240</td><td>240</td></tr></tbody></table>
+<p>The short requests gain most. A twenty-step reply that was queued behind a batch finished at step 260 under fixed batching and at 95 under continuous — and almost all of that wait was queuing, not generating.</p>
+<p>The longest request is unchanged. Nothing sped it up; it was never the one waiting.</p>
+<h2 id="what-it-does-not-fix"><a class="heading-anchor" href="#what-it-does-not-fix">What it does not fix</a></h2>
+<p>It is scheduling only. The model, the attention, the arithmetic per token are all identical — this is a change to when work is admitted, nothing more.</p>
+<p>The batch size is still capped by memory. Every request in flight holds a KV cache proportional to its length, so the number of slots is limited by how much cache fits, and keeping slots full means holding more caches at once. Continuous batching increases memory pressure precisely because it succeeds at keeping the machine busy.</p>
+<p>Which is why it is normally paired with a scheme that stops the cache being allocated in wasteful contiguous blocks. Better scheduling exposes the memory limit; the memory work is what raises it.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Requests are batched because a GPU running one at a time is mostly idle.</li>
+<li>With fixed batches, a slot stays empty from when its request finishes until the longest one in the batch does.</li>
+<li>Continuous batching refills each slot the moment it empties.</li>
+<li>On twelve mixed-length requests across four slots: 540 steps to 255, and 42% slot utilisation to 88%.</li>
+<li>Short requests benefit most; the longest request is unaffected.</li>
+<li>It changes scheduling only — no change to the model.</li>
+<li>Keeping slots full raises memory pressure, which is why it pairs with better KV cache allocation.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Continuous batching"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T16:00","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Waiting for every request in a batch to finish leaves most of the GPU's slots idle most of the time. Refilling each slot the moment it empties is a scheduling change, and it roughly doubles what the same hardware serves."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/continuous-batching.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"FhVI5h53tMvotweWf6CO_"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/small-language-models/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Small language models"}]]}],["$","$L2",null,{"href":"/blog/autoregressive-models/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Autoregressive models"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-problem-with-fixed-batches","text":"The problem with fixed batches","level":2},{"id":"refilling-as-you-go","text":"Refilling as you go","level":2},{"id":"what-that-is-worth","text":"What that is worth","level":2},{"id":"what-it-does-to-individual-requests","text":"What it does to individual requests","level":2},{"id":"what-it-does-not-fix","text":"What it does not fix","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
