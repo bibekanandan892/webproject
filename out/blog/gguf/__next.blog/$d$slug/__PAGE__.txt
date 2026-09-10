@@ -1,0 +1,111 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/gguf.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2438,<p>GGUF is a file format for a trained model. One file contains the weights, the tokenizer, and the metadata describing how to run the thing — architecture, layer counts, context length, special token ids.</p>
+<p>That "one file" is the whole design goal, and the two decisions that follow from it are the interesting part.</p>
+<h2 id="what-running-a-model-locally-needs"><a class="heading-anchor" href="#what-running-a-model-locally-needs">What running a model locally needs</a></h2>
+<p>A model is a large collection of numbers arranged into named tensors. To run it you also need to know how those tensors connect, how text becomes token ids, and which ids mean <em>stop</em>.</p>
+<p>Split that across a weights file, a tokenizer file and a couple of config files and every one of them can drift out of step with the others. A tokenizer from a slightly different revision produces ids the weights were never trained on — and nothing crashes. The model just answers slightly wrong, forever.</p>
+<p>GGUF keeps them together because they are not separable in practice. The file starts with the four bytes <code>GGUF</code>, then a table of key–value metadata, then the tensor data. A reader can learn everything about the model from the header before touching a single weight.</p>
+<h2 id="why-4-bit-is-really-45-bit"><a class="heading-anchor" href="#why-4-bit-is-really-45-bit">Why 4-bit is really 4.5-bit</a></h2>
+<p>Weights are trained at 16 bits each. A 7-billion-weight model is therefore 14 GB, which is more memory than most laptops will give a single process.</p>
+<p>Quantization stores each weight in fewer bits. The naive version — pick one scale for the whole tensor, divide, round to the nearest of 16 levels — does not work, and it is worth seeing how badly.</p>
+<p>Taking 32,768 weights drawn to look like a real tensor, mostly small with a scattering of large values:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>error, as a share of the weights' own size</th></tr></thead><tbody><tr><td>one scale for the whole tensor</td><td>55.3%</td></tr><tr><td>one scale per block of 32</td><td>9.9%</td></tr></tbody></table>
+<p>A single outlier stretches the scale to cover its own magnitude, and every ordinary weight then rounds to the same couple of levels. Almost all the information is gone.</p>
+<p>The fix is to quantize in small <strong>blocks</strong>. Thirty-two weights share one scale, so an outlier only ruins its own block. The error drops 5.6×.</p>
+<p>That scale has to be stored. A block of 32 costs 16 bytes of 4-bit values plus a 2-byte scale — 18 bytes, or <strong>4.5 bits per weight</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>bits/weight</th><th>7B model</th></tr></thead><tbody><tr><td>fp16</td><td>16.00</td><td>14.00 GB</td></tr><tr><td>Q8_0</td><td>8.50</td><td>7.44 GB</td></tr><tr><td>Q4_0</td><td>4.50</td><td>3.94 GB</td></tr></tbody></table>
+<p>So a "4-bit" model is 3.56× smaller than fp16, not 4×. The missing half-bit is the scale, and it is the reason the format works at all.</p>
+<figure>
+<svg viewBox="0 0 560 248" width="560" role="img" aria-label="One block of thirty-two weights drawn as nibbles followed by a two-byte shared scale, with a comparison of quantization error under one scale versus per-block scales." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ONE BLOCK: 32 SMALL NUMBERS AND THE SCALE THEY SHARE</text>
+<g fill="color-mix(in srgb, var(--primary) 22%, transparent)" stroke="var(--primary)" stroke-opacity="0.55">
+<rect x="20" y="40" width="11" height="24" rx="2"></rect><rect x="33" y="40" width="11" height="24" rx="2"></rect><rect x="46" y="40" width="11" height="24" rx="2"></rect><rect x="59" y="40" width="11" height="24" rx="2"></rect><rect x="72" y="40" width="11" height="24" rx="2"></rect><rect x="85" y="40" width="11" height="24" rx="2"></rect><rect x="98" y="40" width="11" height="24" rx="2"></rect><rect x="111" y="40" width="11" height="24" rx="2"></rect><rect x="124" y="40" width="11" height="24" rx="2"></rect><rect x="137" y="40" width="11" height="24" rx="2"></rect><rect x="150" y="40" width="11" height="24" rx="2"></rect><rect x="163" y="40" width="11" height="24" rx="2"></rect><rect x="176" y="40" width="11" height="24" rx="2"></rect><rect x="189" y="40" width="11" height="24" rx="2"></rect><rect x="202" y="40" width="11" height="24" rx="2"></rect><rect x="215" y="40" width="11" height="24" rx="2"></rect><rect x="228" y="40" width="11" height="24" rx="2"></rect><rect x="241" y="40" width="11" height="24" rx="2"></rect><rect x="254" y="40" width="11" height="24" rx="2"></rect><rect x="267" y="40" width="11" height="24" rx="2"></rect><rect x="280" y="40" width="11" height="24" rx="2"></rect><rect x="293" y="40" width="11" height="24" rx="2"></rect><rect x="306" y="40" width="11" height="24" rx="2"></rect><rect x="319" y="40" width="11" height="24" rx="2"></rect><rect x="332" y="40" width="11" height="24" rx="2"></rect><rect x="345" y="40" width="11" height="24" rx="2"></rect><rect x="358" y="40" width="11" height="24" rx="2"></rect><rect x="371" y="40" width="11" height="24" rx="2"></rect><rect x="384" y="40" width="11" height="24" rx="2"></rect><rect x="397" y="40" width="11" height="24" rx="2"></rect><rect x="410" y="40" width="11" height="24" rx="2"></rect><rect x="423" y="40" width="11" height="24" rx="2"></rect>
+</g>
+<rect x="440" y="40" width="52" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="l" x="466" y="57" text-anchor="middle">scale</text>
+<text class="l" x="20" y="82">32 × 4 bits = 16 bytes</text>
+<text class="l" x="440" y="82">+ 2 bytes</text>
+<text class="b" x="20" y="104">= 18 bytes per 32 weights = 4.50 bits each</text>
+<path d="M20 122 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="146">rounding error, relative to the weights themselves</text>
+<rect x="20" y="158" width="200" height="20" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="l" x="228" y="173">55.3% — one scale for the whole tensor</text>
+<rect x="20" y="186" width="36" height="20" rx="3" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="64" y="201">9.9% — one scale per block of 32</text>
+<text class="l" x="20" y="228">the extra half-bit is what buys the other 45 points</text>
+</svg>
+<figcaption>An outlier can only wreck the block it lives in.</figcaption>
+</figure>
+<h2 id="reading-the-names"><a class="heading-anchor" href="#reading-the-names">Reading the names</a></h2>
+<p>A file marked <code>Q4_K_M</code> decodes as four separate choices:</p>
+<ul>
+<li><strong>Q</strong> — quantized, as opposed to full precision</li>
+<li><strong>4</strong> — the nominal bits per weight</li>
+<li><strong>K</strong> — the k-quant family, which stores scales in a smarter two-level arrangement rather than one flat scale per block</li>
+<li><strong>M</strong> — the medium variant, meaning some tensors are kept at higher precision than others</li>
+</ul>
+<p>That last letter matters more than it looks. Not all tensors tolerate quantization equally — attention projections and embeddings are more sensitive than the bulk feed-forward weights. The S/M/L variants are different answers to which tensors get spent on.</p>
+<h2 id="why-loading-is-instant"><a class="heading-anchor" href="#why-loading-is-instant">Why loading is instant</a></h2>
+<p>A GGUF file stores tensor data in exactly the layout the runtime uses, aligned, with no per-tensor decoding step.</p>
+<p>So the runtime does not read the file. It calls <code>mmap</code> and asks the operating system to make the file <em>appear</em> at an address. Nothing is copied. The header is parsed, the tensor pointers are computed as offsets into that mapping, and the model is ready.</p>
+<p>The pages arrive from disk when they are first touched, which is why a 4 GB model can start answering before 4 GB has been read. It also means the memory is file-backed and clean: under pressure the OS can drop those pages and re-read them later, rather than swapping. And two processes running the same model share one copy of the pages, because they are mapping the same file.</p>
+<p>None of this is possible if the weights need to be decompressed or rearranged on load. The layout <em>is</em> the feature.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>GGUF is unglamorous on purpose. A header, some key–value metadata, and tensor bytes arranged the way the runtime wants them.</p>
+<p>What it gets right is that a model is not just weights — and that a "4-bit" model only works because it is not really 4 bits.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"GGUF"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T13:20","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"GGUF is one file holding the weights, the tokenizer and everything needed to run a model — laid out so the runtime can map it into memory instead of parsing it, and quantized in small blocks so 4 bits per weight is actually usable."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/gguf.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GvebC_80-5mV5Cl7pHQ5a"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/knowledge-distillation/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Knowledge Distillation"}]]}],["$","$L2",null,{"href":"/blog/function-calling/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Function Calling in LLMs"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-running-a-model-locally-needs","text":"What running a model locally needs","level":2},{"id":"why-4-bit-is-really-45-bit","text":"Why 4-bit is really 4.5-bit","level":2},{"id":"reading-the-names","text":"Reading the names","level":2},{"id":"why-loading-is-instant","text":"Why loading is instant","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

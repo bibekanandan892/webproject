@@ -1,0 +1,140 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/knowledge-distillation.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2305,<p>Knowledge distillation trains a small model to copy a large one. The small model is the student, the large one the teacher, and what passes between them is not weights or architecture. It is the teacher's output on each training example.</p>
+<p>The point is what "output" means here.</p>
+<h2 id="the-target-is-thin"><a class="heading-anchor" href="#the-target-is-thin">The target is thin</a></h2>
+<p>Train a classifier the ordinary way and the target for each example is the correct class. Nothing else. A document sorter with five categories gets told <code>contract</code>, and that is the entire supervision signal for that example — one choice out of five, at most 2.32 bits.</p>
+<p>Every training example is one of five answers. Whatever else could have been said about that document is not said.</p>
+<h2 id="the-teacher-says-more"><a class="heading-anchor" href="#the-teacher-says-more">The teacher says more</a></h2>
+<p>A trained teacher does not output a class. It outputs a score for every class, and turning those into probabilities gives something like:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>probability</th></tr></thead><tbody><tr><td>invoice</td><td>0.941</td></tr><tr><td>receipt</td><td>0.042</td></tr><tr><td>contract</td><td>0.012</td></tr><tr><td>warranty</td><td>0.003</td></tr><tr><td>résumé</td><td>0.001</td></tr></tbody></table>
+<p>The top entry agrees with the label, so on the face of it nothing new has been said. But look at the rest. The teacher rates <code>receipt</code> about 3.7 times more likely than <code>contract</code>, and <code>résumé</code> at basically nothing.</p>
+<p>That ordering is a real claim about the world: this document resembles a receipt far more than it resembles a contract. Nobody wrote that down in the training data. The teacher worked it out from millions of examples, and it is sitting in the numbers the hard label throws away.</p>
+<p>Training on the full distribution replaces a one-out-of-five choice with four free numbers per example. With a thousand classes the target goes from a 10-bit index to a point in a 999-dimensional space. Each example teaches much more, which is why distillation often needs less data than training the student from scratch.</p>
+<h2 id="temperature"><a class="heading-anchor" href="#temperature">Temperature</a></h2>
+<p>There is a problem with using those numbers directly. The teacher is confident, so the informative part is crushed into the last few decimal places. Everything below the top class sums to 0.059.</p>
+<p>Temperature fixes this. Divide the scores by a constant <em>T</em> before the softmax:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>T = 1</th><th>T = 4</th></tr></thead><tbody><tr><td>invoice</td><td>0.941</td><td>0.448</td></tr><tr><td>receipt</td><td>0.042</td><td>0.206</td></tr><tr><td>contract</td><td>0.012</td><td>0.149</td></tr><tr><td>warranty</td><td>0.003</td><td>0.110</td></tr><tr><td>résumé</td><td>0.001</td><td>0.086</td></tr><tr><td><strong>entropy</strong></td><td><strong>0.391 bits</strong></td><td><strong>2.054 bits</strong></td></tr></tbody></table>
+<p>At T = 4 the non-top classes hold 55% of the mass instead of 6%. The comparisons the student needs to learn are now large enough to produce a meaningful gradient.</p>
+<p>Two things worth noticing. First, temperature does not change the ranking — it never turns a wrong class into the top one. Second, it <em>compresses</em> the ratios: <code>receipt</code> over <code>contract</code> falls from 3.67 to 1.38. Raising the temperature makes the small classes visible but flattens the distinctions between them, which is why sensible values are around 2–5 rather than 50.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="Two bar charts of the same five class probabilities, sharp at temperature one and spread out at temperature four." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 9px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE SAME TEACHER, READ AT TWO TEMPERATURES</text>
+<text class="b" x="20" y="44">T = 1</text>
+<rect x="20" y="54" width="216" height="26" rx="3" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="20" y="84" width="10" height="26" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 45%, transparent)"></rect>
+<rect x="20" y="114" width="3" height="26" rx="1.5" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)"></rect>
+<rect x="20" y="144" width="1" height="26" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)"></rect>
+<text class="l" x="246" y="72">invoice .941</text>
+<text class="l" x="246" y="102">receipt .042</text>
+<text class="l" x="246" y="132">contract .012</text>
+<text class="l" x="246" y="162">rest .004</text>
+<text class="b" x="330" y="44">T = 4</text>
+<rect x="330" y="54" width="103" height="26" rx="3" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="330" y="84" width="47" height="26" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 45%, transparent)"></rect>
+<rect x="330" y="114" width="34" height="26" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 45%, transparent)"></rect>
+<rect x="330" y="144" width="45" height="26" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 45%, transparent)"></rect>
+<text class="l" x="443" y="72">.448</text>
+<text class="l" x="443" y="102">.206</text>
+<text class="l" x="443" y="132">.149</text>
+<text class="l" x="443" y="162">.196</text>
+<text class="l" x="20" y="200">the order never changes — only how visible the lower classes are</text>
+<text class="l" x="20" y="220">0.391 bits of entropy becomes 2.054 bits</text>
+<text class="l" x="20" y="240">that is what the student is asked to reproduce</text>
+</svg>
+<figcaption>Temperature does not add information. It moves information out of the decimals where a gradient can reach it.</figcaption>
+</figure>
+<h2 id="the-correction-people-forget"><a class="heading-anchor" href="#the-correction-people-forget">The correction people forget</a></h2>
+<p>Softening the teacher also softens the gradient. Flatter targets produce smaller updates, so raising the temperature quietly turns down the learning rate on the distillation term.</p>
+<p>The standard fix is to multiply that term by <em>T²</em>, which is exactly right when the score differences are small compared with <em>T</em>. In practice it over- or under-corrects: with the scores above, moving from T = 1 to T = 4 shrank the gradient by 4.6× rather than the full 16×. The correction is a good default, not an identity — worth knowing if a distillation run mysteriously trains slower after the temperature is raised.</p>
+<h2 id="both-losses-at-once"><a class="heading-anchor" href="#both-losses-at-once">Both losses at once</a></h2>
+<p>The student is trained on two things added together: matching the teacher's softened distribution, and getting the true label right.</p>
+<p>Keeping the true label matters because the teacher is not perfect. Where it is wrong, the hard label is the only thing pulling the student back toward correct. Where it is right, the soft distribution supplies everything the label leaves out. The weighting between them is a normal hyperparameter, usually leaning on the soft term.</p>
+<p>Note that the student's own output is softened by the same <em>T</em> while learning, and then run at T = 1 in production. The temperature is a training-time lens, not part of the deployed model.</p>
+<h2 id="what-it-buys"><a class="heading-anchor" href="#what-it-buys">What it buys</a></h2>
+<p>Distilled models are routinely 40% smaller and 60% faster while keeping around 97% of the original's accuracy on standard benchmarks. That trade is what makes on-device work possible at all — no network round trip, no per-request cost, no data leaving the device.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The compression is not the interesting part. Any small model is small.</p>
+<p>What distillation adds is a much richer target. Instead of learning "this is a contract" five million times, the student learns what the teacher thinks everything <em>nearly</em> was — and that is where the structure the teacher discovered actually lives.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Knowledge Distillation"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T13:00","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A trained model knows more than the answer it gives — it knows how close the wrong answers were. Distillation trains a small model on that whole distribution instead of the single correct label, which is a far richer target."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/knowledge-distillation.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GvebC_80-5mV5Cl7pHQ5a"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/token-streaming/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Token Streaming"}]]}],["$","$L2",null,{"href":"/blog/gguf/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"GGUF"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-target-is-thin","text":"The target is thin","level":2},{"id":"the-teacher-says-more","text":"The teacher says more","level":2},{"id":"temperature","text":"Temperature","level":2},{"id":"the-correction-people-forget","text":"The correction people forget","level":2},{"id":"both-losses-at-once","text":"Both losses at once","level":2},{"id":"what-it-buys","text":"What it buys","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

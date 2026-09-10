@@ -1,0 +1,84 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/function-calling.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2c82,<p>A language model predicts text. It has no network, no filesystem, no clock. Ask it how many units of a part are left in a warehouse and the best it can do is produce a plausible-looking number, because producing plausible text is the only thing it does.</p>
+<p>Function calling closes that gap without changing what the model is.</p>
+<h2 id="what-actually-happens"><a class="heading-anchor" href="#what-actually-happens">What actually happens</a></h2>
+<p>You send the model a list of functions it may request. Each one is a name, a sentence describing when to use it, and a JSON Schema for its arguments:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="json" data-theme="github-dark-default"><code data-language="json" data-theme="github-dark-default" style="display: grid;"><span data-line=""><span style="color:#E6EDF3">{</span></span>
+<span data-line=""><span style="color:#7EE787">  "name"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"check_stock"</span><span style="color:#E6EDF3">,</span></span>
+<span data-line=""><span style="color:#7EE787">  "description"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"Current on-hand quantity for one part in one warehouse."</span><span style="color:#E6EDF3">,</span></span>
+<span data-line=""><span style="color:#7EE787">  "parameters"</span><span style="color:#E6EDF3">: {</span></span>
+<span data-line=""><span style="color:#7EE787">    "type"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"object"</span><span style="color:#E6EDF3">,</span></span>
+<span data-line=""><span style="color:#7EE787">    "properties"</span><span style="color:#E6EDF3">: {</span></span>
+<span data-line=""><span style="color:#7EE787">      "sku"</span><span style="color:#E6EDF3">: { </span><span style="color:#7EE787">"type"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"string"</span><span style="color:#E6EDF3"> },</span></span>
+<span data-line=""><span style="color:#7EE787">      "warehouse"</span><span style="color:#E6EDF3">: { </span><span style="color:#7EE787">"type"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"string"</span><span style="color:#E6EDF3">, </span><span style="color:#7EE787">"enum"</span><span style="color:#E6EDF3">: [</span><span style="color:#A5D6FF">"north"</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">"south"</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">"central"</span><span style="color:#E6EDF3">] }</span></span>
+<span data-line=""><span style="color:#E6EDF3">    },</span></span>
+<span data-line=""><span style="color:#7EE787">    "required"</span><span style="color:#E6EDF3">: [</span><span style="color:#A5D6FF">"sku"</span><span style="color:#E6EDF3">, </span><span style="color:#A5D6FF">"warehouse"</span><span style="color:#E6EDF3">]</span></span>
+<span data-line=""><span style="color:#E6EDF3">  }</span></span>
+<span data-line=""><span style="color:#E6EDF3">}</span></span></code></pre></figure>
+<p>The user asks how many of part <code>BR-4471</code> are left in the southern warehouse. Instead of answering, the model emits:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="json" data-theme="github-dark-default"><code data-language="json" data-theme="github-dark-default" style="display: grid;"><span data-line=""><span style="color:#E6EDF3">{ </span><span style="color:#7EE787">"name"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"check_stock"</span><span style="color:#E6EDF3">, </span><span style="color:#7EE787">"arguments"</span><span style="color:#E6EDF3">: { </span><span style="color:#7EE787">"sku"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"BR-4471"</span><span style="color:#E6EDF3">, </span><span style="color:#7EE787">"warehouse"</span><span style="color:#E6EDF3">: </span><span style="color:#A5D6FF">"south"</span><span style="color:#E6EDF3"> } }</span></span></code></pre></figure>
+<p>and stops.</p>
+<p><strong>That is the whole trick.</strong> The model did not check anything. It produced text in a shape your code recognises. Your code runs the real lookup, gets <code>{"quantity": 62}</code>, appends that to the conversation, and asks the model to continue. Now it can answer, because the fact is in its context — the same as any other text you put there.</p>
+<h2 id="the-line-this-draws"><a class="heading-anchor" href="#the-line-this-draws">The line this draws</a></h2>
+<p>The model proposes; the application disposes. Nothing the model emits reaches the outside world unless code you wrote decides to run it.</p>
+<p>This is not a courtesy. It is the only reason function calling is usable in a system that touches real data. The model's output is <em>a request from an untrusted party</em>, and it deserves the treatment any such request gets:</p>
+<ul>
+<li><strong>Validate the shape.</strong> Does it match the schema? Is <code>warehouse</code> one of the three allowed values?</li>
+<li><strong>Authorise separately.</strong> A well-formed <code>issue_refund</code> call is still not permission to issue a refund. The schema proves the request is well-typed, never that it is allowed.</li>
+<li><strong>Assume it can be steered.</strong> If the model read a document earlier in the conversation, the text of that document influenced what it proposes now. A tool call is downstream of everything the model has read.</li>
+</ul>
+<p>The most common mistake is treating a schema-valid call as an approved one. Those are different questions, and only one of them the model can answer.</p>
+<figure>
+<svg viewBox="0 0 560 240" width="560" role="img" aria-label="A loop: the model emits a structured request, the application validates and runs it, the result is appended to the conversation, and the model answers." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<defs><marker id="fc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<text class="hd" x="20" y="18">THE MODEL WRITES THE REQUEST — YOUR CODE DECIDES</text>
+<rect x="20" y="60" width="120" height="56" rx="7" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.7"></rect>
+<text class="b" x="80" y="86" text-anchor="middle">model</text>
+<text class="l" x="80" y="102" text-anchor="middle">proposes</text>
+<path d="M146 88 H206" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#fc)"></path>
+<text class="l" x="176" y="80" text-anchor="middle">json</text>
+<rect x="212" y="60" width="130" height="56" rx="7" fill="color-mix(in srgb, var(--muted-foreground) 16%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 40%, transparent)"></rect>
+<text class="b" x="277" y="86" text-anchor="middle">your code</text>
+<text class="l" x="277" y="102" text-anchor="middle">validate · authorise</text>
+<path d="M348 88 H408" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#fc)"></path>
+<rect x="414" y="60" width="126" height="56" rx="7" fill="color-mix(in srgb, var(--muted-foreground) 16%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 40%, transparent)"></rect>
+<text class="b" x="477" y="86" text-anchor="middle">the real system</text>
+<text class="l" x="477" y="102" text-anchor="middle">db · api · disk</text>
+<path d="M477 122 V152 H80 V122" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-width="1.4" fill="none" marker-end="url(#fc)"></path>
+<text class="l" x="277" y="146" text-anchor="middle">the result goes back in as ordinary text</text>
+<path d="M20 178 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="200">nothing crosses the middle box that the middle box did not allow</text>
+<text class="l" x="20" y="220">a schema-valid call is not an authorised call</text>
+</svg>
+<figcaption>Two separate checks live in the middle box: is this well-formed, and is this permitted.</figcaption>
+</figure>
+<h2 id="loops-and-rounds"><a class="heading-anchor" href="#loops-and-rounds">Loops and rounds</a></h2>
+<p>Some work needs several calls. Look up an order, then look up the customer on that order, then check their refund history. Each step needs the previous step's answer, so each one is a full round trip: model, tool, model again.</p>
+<p>At roughly 1.2 s per model turn and 0.3 s per tool, four dependent calls take about 7.2 seconds.</p>
+<p>Other work does not have that dependency. Checking the same part across four warehouses needs four lookups that know nothing about each other. Here the model can emit all four requests in one response, your code runs them together, and all four results come back in one message — about 2.7 seconds, or 2.7× faster.</p>
+<p>Being able to tell these apart is most of the performance work in a tool-using system. The question is always: does this call need an earlier call's <em>answer</em>, or just its own arguments?</p>
+<h2 id="what-the-tools-cost-you"><a class="heading-anchor" href="#what-the-tools-cost-you">What the tools cost you</a></h2>
+<p>The schemas are part of the prompt. Twelve tools at roughly 180 tokens of schema each is a 2,160-token block sitting in front of every request in the conversation — 10,800 tokens across a five-turn loop.</p>
+<p>That is the direct cost, and it is the smaller one. The real cost is that choosing correctly gets harder as the list grows. Twelve tools with overlapping descriptions produce wrong choices in a way four crisp ones do not.</p>
+<p>Description quality matters more than tool count. <code>Current on-hand quantity for one part in one warehouse</code> tells the model when <em>not</em> to use it. <code>Gets stock info</code> does not.</p>
+<h2 id="the-relationship-to-structured-output"><a class="heading-anchor" href="#the-relationship-to-structured-output">The relationship to structured output</a></h2>
+<p>Function calling and plain JSON output are the same mechanism used for different purposes.</p>
+<p>Both constrain the model to emit text matching a schema. The difference is what happens next: structured output is the answer, and you parse it. A function call is a <em>request</em>, and you act on it and come back.</p>
+<p>Which is why the same reliability tricks apply to both — keep schemas small, use enums instead of free strings wherever the set is known, and mark required fields required. Every constraint you express in the schema is one the model cannot violate, rather than one you have to catch afterwards.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Function calling does not give the model abilities. It gives it a vocabulary for asking.</p>
+<p>Everything that makes it safe follows from that: the request is text, the text is untrusted, and the code in the middle is where the decision actually gets made.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Function Calling in LLMs"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T13:40","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"The model never runs anything. It writes a structured request and stops, and your code decides whether to honour it — which is both why function calling is safe and where every mistake with it comes from."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/function-calling.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GvebC_80-5mV5Cl7pHQ5a"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/gguf/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"GGUF"}]]}],null]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-actually-happens","text":"What actually happens","level":2},{"id":"the-line-this-draws","text":"The line this draws","level":2},{"id":"loops-and-rounds","text":"Loops and rounds","level":2},{"id":"what-the-tools-cost-you","text":"What the tools cost you","level":2},{"id":"the-relationship-to-structured-output","text":"The relationship to structured output","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
