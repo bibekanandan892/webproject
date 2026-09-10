@@ -1,0 +1,84 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/ai-agent-memory.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2177,<p>A language model has no memory. Each call is complete on its own: you send text, it returns text, and nothing carries over.</p>
+<p>Anything that looks like memory is machinery built around it — something deciding what to write down, and what to place back in front of the model next time.</p>
+<h2 id="what-it-buys-you"><a class="heading-anchor" href="#what-it-buys-you">What it buys you</a></h2>
+<p>Without it, an agent cannot resolve a reference to anything that happened earlier.</p>
+<p>A customer writes: <em>"I'm on the Studio plan and our exports keep failing at 4K."</em> The agent helps, and the session ends.</p>
+<p>Three weeks later the same customer writes: <em>"It's happening again."</em></p>
+<p>With no memory that sentence is unanswerable. There is no <em>it</em>. The agent has to ask what is happening again, which is exactly the question that makes a support tool feel broken.</p>
+<p>With memory, two facts were kept — the plan tier and the recurring fault — and they are retrieved and placed in the prompt before the model ever sees the new message. The pronoun resolves.</p>
+<h2 id="four-layers"><a class="heading-anchor" href="#four-layers">Four layers</a></h2>
+<p>Memory is not one store. It is four, with different lifespans, and most confusion comes from putting something in the wrong one.</p>
+<figure>
+<svg viewBox="0 0 620 250" width="620" role="img" aria-label="Four stacked layers of increasing width. The context window lasts one model call, short-term memory lasts one session, long-term memory persists per user, and external knowledge is not the agent&#x27;s own store." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:600 12px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="40" y="16">SMALLER AND HOTTER AT THE TOP</text>
+<rect x="40" y="30" width="170" height="42" rx="6" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="color-mix(in srgb, var(--primary) 60%, transparent)"></rect>
+<text class="b" x="56" y="56">context window</text>
+<text class="l" x="232" y="56">one model call</text>
+<rect x="40" y="80" width="240" height="42" rx="6" fill="color-mix(in srgb, var(--primary) 21%, transparent)" stroke="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="b" x="56" y="106">short-term</text>
+<text class="l" x="302" y="106">one session</text>
+<rect x="40" y="130" width="310" height="42" rx="6" fill="color-mix(in srgb, var(--primary) 14%, transparent)" stroke="color-mix(in srgb, var(--primary) 42%, transparent)"></rect>
+<text class="b" x="56" y="156">long-term</text>
+<text class="l" x="372" y="156">kept, scoped to a user</text>
+<rect x="40" y="180" width="380" height="42" rx="6" fill="color-mix(in srgb, var(--muted-foreground) 12%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 34%, transparent)"></rect>
+<text class="b" x="56" y="206">external knowledge</text>
+<text class="l" x="442" y="206">not the agent's own</text>
+</svg>
+<figcaption>Only the top layer is actually visible to the model. Everything below it has to be fetched and placed there.</figcaption>
+</figure>
+<p>The <strong>context window</strong> is the only thing the model ever sees. Everything else exists to decide what goes into it.</p>
+<p><strong>Short-term memory</strong> is the current session: the plan, the steps taken so far, intermediate results. It is thrown away when the session ends, and that is correct — almost none of it matters tomorrow.</p>
+<p><strong>Long-term memory</strong> survives across sessions and is tied to a particular user. Stable facts, strong preferences, outcomes worth not repeating.</p>
+<p><strong>External knowledge</strong> — documents, databases, APIs — is not memory at all. The agent reads it but does not own it, and it is the same for every user. Worth naming as a separate layer precisely because it is so often confused with the third one.</p>
+<h2 id="four-operations"><a class="heading-anchor" href="#four-operations">Four operations</a></h2>
+<p><strong>Write</strong> when something happens that will matter later. <strong>Read</strong> the small subset that is relevant to the message in hand, not everything stored. <strong>Update</strong> when a new fact contradicts an old one. <strong>Forget</strong> what has gone stale.</p>
+<p>Update and forget are the two that get skipped, and skipping them is what makes a memory system get worse over time rather than better. A store that only ever appends will eventually hold two contradictory facts and retrieve whichever one the search happens to rank higher.</p>
+<h2 id="what-one-turn-looks-like"><a class="heading-anchor" href="#what-one-turn-looks-like">What one turn looks like</a></h2>
+<ol>
+<li>The message arrives.</li>
+<li>Search long-term memory for anything relevant to it.</li>
+<li>Read the session state from short-term memory.</li>
+<li>Build the prompt: instructions, retrieved facts, session state, message.</li>
+<li>Run the model, letting it call tools as needed.</li>
+<li>Write the session state back. If anything is worth keeping, write that to long-term memory too.</li>
+<li>Reply.</li>
+</ol>
+<p>Steps 2 and 6 are the whole system. Everything else is the ordinary agent loop.</p>
+<p>Notice that step 2 is a search. Once there are more stored facts than fit in a prompt, the question stops being "what do we know?" and becomes "what is worth including this time?" — and a memory system's quality is mostly the quality of that judgement.</p>
+<h2 id="what-to-keep"><a class="heading-anchor" href="#what-to-keep">What to keep</a></h2>
+<p>Keep stable facts: who the user is, what they work in, settled preferences. Keep decisions that constrain future work. Keep outcomes, particularly failures, so the same approach is not tried twice.</p>
+<p>Drop the rest. Not every message needs storing — the conversation is already in the context window while it is happening. Acknowledgements and small talk carry nothing. Session scaffolding belongs in short-term memory and should die with the session.</p>
+<p>The test is one question: will this be useful in a conversation next week? If not, it is noise, and noise in a memory store is not neutral — it competes with the useful entries at retrieval time.</p>
+<h2 id="how-it-fails-quietly"><a class="heading-anchor" href="#how-it-fails-quietly">How it fails quietly</a></h2>
+<p>Almost nothing here fails loudly. The agent does not crash; it just answers slightly wrong, and it is easy not to notice.</p>
+<p><strong>The prompt overflows.</strong> Retrieved memories, session state and history together exceed the window, and something gets silently truncated — often the part that mattered.</p>
+<p><strong>Retrieval misses.</strong> The fact is stored and simply is not found, because the search matched words rather than meaning. From the outside this is indistinguishable from never having stored it.</p>
+<p><strong>A memory goes stale.</strong> The user changed roles a year ago and the agent still addresses the old one. Nothing contradicts it because nothing checked.</p>
+<p><strong>The store bloats.</strong> Everything was kept, so retrieval returns plausible-looking irrelevant entries, and the useful ones rank below them.</p>
+<p><strong>Memories cross users.</strong> The worst one, and the reason every entry should be scoped to a user ID at write time rather than filtered at read time.</p>
+<p>Since none of these announce themselves, the only defence is to look: log what was retrieved on each turn, and read that log occasionally against what the agent actually said.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Models are stateless; memory is entirely machinery built around them.</li>
+<li>Four layers: context window, short-term session state, long-term per-user facts, and external knowledge that is not really memory.</li>
+<li>Only the context window is visible to the model — everything else has to be fetched into it.</li>
+<li>The operations are write, read, update and forget; skipping the last two makes the system decay.</li>
+<li>Each turn retrieves relevant facts before the call and writes new ones after it.</li>
+<li>Store what will matter next week, not what matters for the next minute.</li>
+<li>The failures are silent, so retrieval has to be logged and checked.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"AI agent memory"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T11:40","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A language model remembers nothing between calls. Everything that looks like memory is machinery around it deciding what to write down and what to put back in front of the model."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/ai-agent-memory.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"YTRqhqY5DFW6ygHGJHWR-"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/ai-agents/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"AI agents"}]]}],["$","$L2",null,{"href":"/blog/decoding-deepseek-v4/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Decoding DeepSeek-V4"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-it-buys-you","text":"What it buys you","level":2},{"id":"four-layers","text":"Four layers","level":2},{"id":"four-operations","text":"Four operations","level":2},{"id":"what-one-turn-looks-like","text":"What one turn looks like","level":2},{"id":"what-to-keep","text":"What to keep","level":2},{"id":"how-it-fails-quietly","text":"How it fails quietly","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

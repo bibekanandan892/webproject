@@ -1,0 +1,129 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/ai-agents.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2d55,<p>A language model on its own reads text and writes text. Ask it something it cannot know and it will guess.</p>
+<p>An agent is that same model wrapped in a loop that lets it call tools, see what came back, and decide what to do next. It keeps going until the job is done.</p>
+<h2 id="what-actually-changes"><a class="heading-anchor" href="#what-actually-changes">What actually changes</a></h2>
+<p>Three things get called AI, and it is worth separating them.</p>
+<p>A <strong>plain model call</strong> takes a prompt and returns a completion. One in, one out, nothing else happens.</p>
+<p>A <strong>chatbot</strong> is the same thing with the conversation kept and replayed each turn. It remembers, but it still only produces text.</p>
+<p>An <strong>agent</strong> can act. It is given a set of tools it may call, and something outside the model actually runs them and hands back the results.</p>
+<p>The loop is what makes it an agent. Without it the model could ask for a tool once and never learn what the tool returned.</p>
+<h2 id="the-parts"><a class="heading-anchor" href="#the-parts">The parts</a></h2>
+<p><strong>The model.</strong> It decides what to do next. Worth being precise: it never runs anything itself. It emits a request — this tool, these arguments — and something else carries it out.</p>
+<p><strong>Instructions.</strong> The system prompt: what the job is, which tools exist, what the rules are, and what counts as finished.</p>
+<p><strong>Tools.</strong> Each one is a name, a description of when to use it, and a schema for its arguments. The description matters more than it looks — it is the only thing the model has to go on when choosing.</p>
+<p><strong>Memory.</strong> Short-term is the running history replayed each turn. Long-term is anything kept outside the conversation and looked up when needed.</p>
+<p><strong>The loop.</strong> Ordinary code. It calls the model, executes whatever tool the model asked for, appends the result, and calls the model again.</p>
+<h2 id="the-loop"><a class="heading-anchor" href="#the-loop">The loop</a></h2>
+<figure>
+<svg viewBox="0 0 620 260" width="620" role="img" aria-label="A cycle: goal and history feed into the model, which chooses an action, the tool runs, its observation is appended to the history, and the cycle repeats. A separate arrow leaves the model when it decides the task is done, producing the answer." xmlns="http://www.w3.org/2000/svg">
+<style>.b{font:500 12px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}</style>
+<defs><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<text class="hd" x="40" y="20">UNTIL IT SAYS IT IS FINISHED</text>
+<rect x="40" y="40" width="150" height="52" rx="8" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<text class="b" x="115" y="71" text-anchor="middle">goal + history</text>
+<rect x="250" y="40" width="150" height="52" rx="8" fill="color-mix(in srgb, var(--primary) 22%, transparent)" stroke="color-mix(in srgb, var(--primary) 58%, transparent)"></rect>
+<text class="b" x="325" y="71" text-anchor="middle">model chooses</text>
+<rect x="250" y="160" width="150" height="52" rx="8" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<text class="b" x="325" y="191" text-anchor="middle">tool runs</text>
+<rect x="40" y="160" width="150" height="52" rx="8" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<text class="b" x="115" y="191" text-anchor="middle">observation</text>
+<rect x="460" y="40" width="120" height="52" rx="8" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)" stroke-dasharray="5 4"></rect>
+<text class="b" x="520" y="71" text-anchor="middle">answer</text>
+<path d="M198 66 H242" stroke="var(--muted-foreground)" stroke-opacity="0.65" stroke-width="1.5" marker-end="url(#ag)"></path>
+<path d="M325 100 V152" stroke="var(--muted-foreground)" stroke-opacity="0.65" stroke-width="1.5" marker-end="url(#ag)"></path>
+<path d="M242 186 H198" stroke="var(--muted-foreground)" stroke-opacity="0.65" stroke-width="1.5" marker-end="url(#ag)"></path>
+<path d="M115 152 V100" stroke="var(--muted-foreground)" stroke-opacity="0.65" stroke-width="1.5" marker-end="url(#ag)"></path>
+<path d="M408 66 H452" stroke="var(--muted-foreground)" stroke-opacity="0.65" stroke-width="1.5" marker-end="url(#ag)"></path>
+<text class="l" x="430" y="56" text-anchor="middle">done</text>
+<text class="l" x="325" y="132" text-anchor="middle">one tool call</text>
+<text class="l" x="115" y="132" text-anchor="middle">appended</text>
+<text class="l" x="40" y="244">The model never runs anything. It asks; the loop executes.</text>
+</svg>
+<figcaption>Four steps, repeated. Everything an agent does comes out of going round this.</figcaption>
+</figure>
+<p>Written out, the runtime is unremarkable:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="python" data-theme="github-dark-default"><code data-language="python" data-theme="github-dark-default" style="display: grid;"><span data-line=""><span style="color:#E6EDF3">history </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [system_prompt, goal]</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#FF7B72">for</span><span style="color:#E6EDF3"> step </span><span style="color:#FF7B72">in</span><span style="color:#79C0FF"> range</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">MAX_STEPS</span><span style="color:#E6EDF3">):</span></span>
+<span data-line=""><span style="color:#E6EDF3">    reply </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> model(history, </span><span style="color:#FFA657">tools</span><span style="color:#FF7B72">=</span><span style="color:#79C0FF">TOOLS</span><span style="color:#E6EDF3">)</span></span>
+<span data-line=""><span style="color:#E6EDF3">    history.append(reply)</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#FF7B72">    if</span><span style="color:#E6EDF3"> reply.is_final:</span></span>
+<span data-line=""><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> reply.text</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#FF7B72">    for</span><span style="color:#E6EDF3"> call </span><span style="color:#FF7B72">in</span><span style="color:#E6EDF3"> reply.tool_calls:</span></span>
+<span data-line=""><span style="color:#E6EDF3">        result </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> TOOLS</span><span style="color:#E6EDF3">[call.name](</span><span style="color:#FF7B72">**</span><span style="color:#E6EDF3">call.arguments)</span></span>
+<span data-line=""><span style="color:#E6EDF3">        history.append(result)</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#FF7B72">raise</span><span style="color:#E6EDF3"> StepLimitReached()</span></span></code></pre></figure>
+<p>That is the entire idea. The intelligence is in the model's choices; the loop is plumbing.</p>
+<h2 id="watching-one-run"><a class="heading-anchor" href="#watching-one-run">Watching one run</a></h2>
+<p>Give an agent three tools — <code>list_orders</code>, <code>get_delivery</code>, <code>calculate</code> — and this goal: <em>which suppliers delivered late last month, and by how many days?</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>step</th><th>what the model asks for</th><th>what comes back</th></tr></thead><tbody><tr><td>1</td><td><code>list_orders(month="August")</code></td><td>A-104, A-107, A-111, A-118, A-125</td></tr><tr><td>2</td><td><code>get_delivery</code> on all five at once</td><td>promised and actual dates for each</td></tr><tr><td>3</td><td><code>calculate</code> on the five date differences</td><td>0, +3, 0, +9, −1</td></tr><tr><td>4</td><td><em>finished</em></td><td>Verrell 3 days late, Casswell 9 days late</td></tr></tbody></table>
+<p>Two things in there are worth noticing.</p>
+<p>At step 2 it issued five calls together rather than one at a time. Nothing in the loop forbids that, and when calls do not depend on each other it is simply faster.</p>
+<p>And at no point did it decide in advance that there would be four steps. It asked for the orders, and what came back determined what it asked for next. That is the part a fixed script cannot do.</p>
+<h2 id="when-not-to-use-one"><a class="heading-anchor" href="#when-not-to-use-one">When not to use one</a></h2>
+<p>An agent is the right shape when later steps depend on earlier results and the path cannot be known up front.</p>
+<p>If the sequence is always the same, write the sequence. A fixed pipeline is faster, cheaper, and does the same thing every time — none of which an agent can promise. Paying a model to rediscover a path you already know is a bad trade, and it will occasionally rediscover a different one.</p>
+<p>The same goes for anything a single call answers. Wrapping it in a loop adds latency and failure modes and buys nothing.</p>
+<h2 id="what-goes-wrong"><a class="heading-anchor" href="#what-goes-wrong">What goes wrong</a></h2>
+<p>The happy path is easy. Nearly all the engineering is in the rest.</p>
+<p><strong>It loops.</strong> The same tool, the same arguments, forever — usually because the result never satisfies whatever it is waiting for. A hard step limit is not optional; it is the only guaranteed exit.</p>
+<p><strong>It picks the wrong tool.</strong> The model chooses from descriptions alone, so two tools described similarly will be confused with each other. Fixing this is writing better descriptions, not prompting harder.</p>
+<p><strong>It invents a tool, or invalid arguments.</strong> Validate arguments before executing and hand the error back as an observation. A well-phrased error is something the model can recover from; a crash is not.</p>
+<p><strong>It runs out of context.</strong> Every step appends to the history, so a long run eventually exceeds the window. Older steps have to be summarised while the goal and the recent steps are kept intact.</p>
+<p><strong>It stops early.</strong> It reports success on something half done, because nothing told it precisely what finished means. That belongs in the instructions, stated as a checkable condition.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>An agent is a model, instructions, tools, memory, and a loop.</li>
+<li>The loop is what separates it from a chatbot: it can act and then see the result.</li>
+<li>The model never executes anything — it requests a tool call and the runtime carries it out.</li>
+<li>Independent calls can be issued together; dependent ones force another turn.</li>
+<li>The path is decided as it goes, which is the reason to use one and the reason it is unpredictable.</li>
+<li>If the steps are always the same, write a script instead.</li>
+<li>Step limits, argument validation, context trimming and a clear finish condition are the actual work.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"AI agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T11:20","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"An agent is a language model wrapped in a loop that lets it call tools and see what happened. The loop is the whole difference between answering a question and doing a job."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/ai-agents.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"YTRqhqY5DFW6ygHGJHWR-"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/rmsnorm/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"RMSNorm"}]]}],["$","$L2",null,{"href":"/blog/ai-agent-memory/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"AI agent memory"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-actually-changes","text":"What actually changes","level":2},{"id":"the-parts","text":"The parts","level":2},{"id":"the-loop","text":"The loop","level":2},{"id":"watching-one-run","text":"Watching one run","level":2},{"id":"when-not-to-use-one","text":"When not to use one","level":2},{"id":"what-goes-wrong","text":"What goes wrong","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
