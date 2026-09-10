@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="GANs: a generator and a discriminator facing each other, with a balance point between them.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8B98A9"/></marker>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="140" width="220" height="76" rx="10" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="2.5"/>
+<text x="170" y="186" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" text-anchor="middle" font-weight="600">generator</text>
+<rect x="520" y="140" width="220" height="76" rx="10" fill="#141C30" stroke="rgba(230,237,243,0.2)" stroke-width="2.5"/>
+<text x="630" y="186" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9" text-anchor="middle">discriminator</text>
+<path d="M280 166 H510" stroke="#8B98A9" stroke-opacity="0.6" stroke-width="2.5" marker-end="url(#a)"/>
+<path d="M520 194 H290" stroke="#8B98A9" stroke-opacity="0.45" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="400" y="152" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9" text-anchor="middle">fakes</text>
+<text x="400" y="222" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9" text-anchor="middle">verdict</text>
+<path d="M140 300 H660" stroke="rgba(230,237,243,0.14)" stroke-width="2"/>
+<path d="M400 288 V312" stroke="#64FFDA" stroke-width="3"/>
+<circle cx="400" cy="300" r="11" fill="#64FFDA"/>
+<text x="140" y="332" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9">0.0</text>
+<text x="400" y="342" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle">0.5 — nobody wins</text>
+<text x="660" y="332" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9" text-anchor="end">1.0</text>
+<text x="52" y="414" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">gans</text>
+</svg>
