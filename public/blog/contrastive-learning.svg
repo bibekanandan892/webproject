@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Contrastive learning: two matching points pulled together in an embedding space while unrelated points are pushed away.">
+<defs>
+  <radialGradient id="glow" cx="40%" cy="14%" r="82%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64FFDA"/></marker>
+  <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8B98A9"/></marker>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="70" width="680" height="260" rx="14" fill="none" stroke="rgba(230,237,243,0.09)" stroke-width="2" stroke-dasharray="8 6"/>
+<circle cx="330" cy="180" r="16" fill="#64FFDA" fill-opacity="0.9"/>
+<circle cx="420" cy="212" r="16" fill="#64FFDA" fill-opacity="0.9"/>
+<path d="M352 190 L396 204" stroke="#64FFDA" stroke-width="3" marker-end="url(#a)"/>
+<path d="M398 202 L354 188" stroke="#64FFDA" stroke-width="3" marker-end="url(#a)"/>
+<circle cx="160" cy="122" r="13" fill="#8B98A9" fill-opacity="0.4"/>
+<circle cx="640" cy="140" r="13" fill="#8B98A9" fill-opacity="0.4"/>
+<circle cx="200" cy="282" r="13" fill="#8B98A9" fill-opacity="0.4"/>
+<circle cx="600" cy="286" r="13" fill="#8B98A9" fill-opacity="0.4"/>
+<path d="M300 160 L196 132" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2.5" marker-end="url(#b)"/>
+<path d="M450 200 L604 152" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2.5" marker-end="url(#b)"/>
+<path d="M310 202 L228 272" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2.5" marker-end="url(#b)"/>
+<path d="M440 234 L572 278" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2.5" marker-end="url(#b)"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">same meaning together, everything else apart</text>
+<text x="52" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">contrastive learning</text>
+</svg>
