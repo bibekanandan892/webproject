@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="LLM inference optimization: a long memory-transfer bar dwarfing a tiny compute bar for decoding one token.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="60" y="126" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">reading 14 GB of weights</text>
+<rect x="60" y="144" width="680" height="52" rx="8" fill="#64FFDA" fill-opacity="0.28" stroke="#64FFDA" stroke-width="2.5"/>
+<text x="400" y="178" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" text-anchor="middle" font-weight="600">7.00 ms</text>
+<text x="60" y="248" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">the arithmetic done with them</text>
+<rect x="60" y="266" width="4" height="52" rx="2" fill="#8B98A9" fill-opacity="0.6"/>
+<text x="86" y="300" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9">0.035 ms</text>
+<text x="60" y="366" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">the GPU is waiting 99.5% of the time</text>
+<text x="52" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">llm inference optimization</text>
+</svg>
