@@ -1,0 +1,147 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/diffusion-models.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T4135,<p>Generating an image directly is hard: millions of pixel values that all have to be right together. Diffusion sidesteps that by never generating an image in one go.</p>
+<p>Instead there are two processes. One destroys an image by gradually adding noise, which requires no learning at all. The other undoes a single step of that destruction, which is what gets learned.</p>
+<h2 id="the-forward-process-erases-everything"><a class="heading-anchor" href="#the-forward-process-erases-everything">The forward process erases everything</a></h2>
+<p>Start with a real image and add a small amount of noise. Add a bit more. Keep going for a thousand steps.</p>
+<p>The mixture at any step is fixed by a schedule:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub><mo>=</mo><msqrt><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></msqrt><mtext> </mtext><msub><mi>x</mi><mn>0</mn></msub><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></mrow></msqrt><mtext>  </mtext><mi>ε</mi></mrow><annotation encoding="application/x-tex">x_t = \sqrt{\bar{\alpha}_t}\,x_0 + \sqrt{1 - \bar{\alpha}_t}\;\varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8428em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1972em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1589em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8811em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8411em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1589em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">ε</span></span></span></span></span>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\bar{\alpha}_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7178em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is what fraction of the original survives. Under a standard linear schedule:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></th><th>how much original is left</th><th>how much noise</th><th>signal-to-noise</th></tr></thead><tbody><tr><td>0</td><td>0.9999</td><td>0.0100</td><td>1.0e+4</td></tr><tr><td>100</td><td>0.9461</td><td>0.3238</td><td>8.5</td></tr><tr><td>200</td><td>0.8102</td><td>0.5862</td><td>1.9</td></tr><tr><td>400</td><td>0.4400</td><td>0.8980</td><td>0.24</td></tr><tr><td>600</td><td>0.1599</td><td>0.9871</td><td>0.026</td></tr><tr><td>999</td><td><strong>0.0064</strong></td><td>1.0000</td><td>4.0e−5</td></tr></tbody></table>
+<figure>
+<svg viewBox="0 0 560 240" width="560" role="img" aria-label="Bars showing how much of the original image survives at each timestep, falling from nearly all of it at step zero to almost nothing by step 999." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.v{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}</style>
+<text class="hd" x="20" y="18">HOW MUCH OF THE IMAGE SURVIVES</text>
+<path d="M62 170 H540" stroke="var(--border)" stroke-width="1"></path>
+<rect x="70" y="50" width="58" height="120" rx="3" fill="color-mix(in srgb, var(--primary) 55%, transparent)"></rect>
+<rect x="140" y="56.5" width="58" height="113.5" rx="3" fill="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<rect x="210" y="72.8" width="58" height="97.2" rx="3" fill="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="280" y="117.2" width="58" height="52.8" rx="3" fill="color-mix(in srgb, var(--primary) 38%, transparent)"></rect>
+<rect x="350" y="150.8" width="58" height="19.2" rx="3" fill="color-mix(in srgb, var(--primary) 30%, transparent)"></rect>
+<rect x="420" y="165.3" width="58" height="4.7" rx="2" fill="color-mix(in srgb, var(--primary) 24%, transparent)"></rect>
+<rect x="490" y="168.5" width="58" height="1.5" rx="1" fill="color-mix(in srgb, var(--primary) 24%, transparent)"></rect>
+<text class="l" x="99" y="186" text-anchor="middle">0</text>
+<text class="l" x="169" y="186" text-anchor="middle">100</text>
+<text class="l" x="239" y="186" text-anchor="middle">200</text>
+<text class="l" x="309" y="186" text-anchor="middle">400</text>
+<text class="l" x="379" y="186" text-anchor="middle">600</text>
+<text class="l" x="449" y="186" text-anchor="middle">800</text>
+<text class="l" x="519" y="186" text-anchor="middle">999</text>
+<text class="l" x="300" y="206" text-anchor="middle">timestep</text>
+<text class="v" x="519" y="222" text-anchor="end">0.6% left at the end</text>
+</svg>
+<figcaption>The forward process is arithmetic, not a model. Nothing is learned here.</figcaption>
+</figure>
+<p>By the last step the original contributes <strong>0.6%</strong> of the signal — nothing recognisable. That matters more than it looks: it means the endpoint of destruction is indistinguishable from random noise, which is why generation can <em>start</em> from random noise. If the schedule stopped early, samples would begin from something that is not quite noise and not quite anything else.</p>
+<h2 id="the-reverse-process-learns-one-step"><a class="heading-anchor" href="#the-reverse-process-learns-one-step">The reverse process learns one step</a></h2>
+<p>Undoing all of that at once would be the hard problem again. Undoing <em>one</em> step is not.</p>
+<p>Give the network a noisy image and the timestep, and ask it for one thing: <strong>which part of this is noise?</strong> Subtract a portion of what it predicts, and you have a slightly cleaner image. Repeat a thousand times.</p>
+<p>Training is correspondingly simple, and it is why this trains stably where earlier generative methods did not:</p>
+<ol>
+<li>Take a real image.</li>
+<li>Pick a random timestep.</li>
+<li>Add exactly the noise that timestep calls for — noise you generated, so you know it exactly.</li>
+<li>Ask the network to predict it.</li>
+<li>Score the prediction against the noise you actually added.</li>
+</ol>
+<p>There is a known correct answer at every step, because you created the corruption yourself. No adversary, no competing objective, nothing to balance.</p>
+<h2 id="why-so-many-steps"><a class="heading-anchor" href="#why-so-many-steps">Why so many steps</a></h2>
+<p>The schedule is designed so consecutive steps are nearly identical. Signal-to-noise falls by more than eight orders of magnitude from start to finish, but per step that is a factor of about <strong>1.02</strong>.</p>
+<p>Each individual denoising is therefore a small, local correction — the kind of thing a network can learn reliably. The difficulty of generation has been spread across a thousand easy problems rather than concentrated in one hard one.</p>
+<p>That is also the method's main cost. Generating one image means a thousand forward passes through the network, which is why diffusion is slow compared to models that produce output in a single pass, and why much of the practical work in the area is about getting acceptable results in fifty steps instead of a thousand.</p>
+<h2 id="steering-it"><a class="heading-anchor" href="#steering-it">Steering it</a></h2>
+<p>Left alone, this generates <em>something</em> — a plausible sample from whatever it was trained on, but not anything in particular.</p>
+<p>To ask for something specific, the condition is encoded and fed into the network alongside the noisy image at every step. Now the question is not "which part of this is noise?" but "which part of this is noise, given that it is supposed to be a harbour at dusk?" — and the prediction differs accordingly.</p>
+<p>The condition does not have to be text. A low-resolution image conditions super-resolution. A masked region conditions inpainting. A pose, a depth map, a sketch — anything encodable can steer the same reverse process, which is why one mechanism covers so many apparently different tasks.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Two processes: a fixed one that adds noise, and a learned one that removes it.</li>
+<li>The forward process needs no model — it is a scheduled mixture of image and noise.</li>
+<li>After the full schedule only 0.6% of the original survives, so the endpoint really is noise.</li>
+<li>That is what makes it valid to start generation from random noise.</li>
+<li>The network is only ever asked to predict the noise in one slightly-noisy image.</li>
+<li>Training always has an exact correct answer, because the corruption was applied deliberately.</li>
+<li>Consecutive steps differ by about 2%, so every individual step is easy — and there are a thousand of them.</li>
+<li>Conditioning on text, a sketch or a low-resolution image steers the same reverse process.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Diffusion models"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T09:40","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Destroy an image with noise in a thousand small steps, then train a network to undo one step at a time. Each individual step is easy, which is the entire reason the method works."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/diffusion-models.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"5YCJRnnfiFv1RzHLjIUNr"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/multi-head-attention/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Multi-head attention"}]]}],["$","$L2",null,{"href":"/blog/variational-autoencoders/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Variational autoencoders"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-forward-process-erases-everything","text":"The forward process erases everything","level":2},{"id":"the-reverse-process-learns-one-step","text":"The reverse process learns one step","level":2},{"id":"why-so-many-steps","text":"Why so many steps","level":2},{"id":"steering-it","text":"Steering it","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

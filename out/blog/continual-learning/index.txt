@@ -1,0 +1,146 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/17w3~ac2nlmc0.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","continual-learning",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","continual-learning","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/17w3~ac2nlmc0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/17w3~ac2nlmc0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"5YCJRnnfiFv1RzHLjIUNr"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+:HL["/blog/continual-learning.svg","image"]
+11:T2bf9,<p>A model's knowledge is its weights. There is no separate place where facts are stored — the same numbers that let it write a sentence also encode what it knows.</p>
+<p>Which creates a problem the moment you want to teach it something new. Training updates weights, and the weights being updated are the ones already holding everything else.</p>
+<h2 id="catastrophic-forgetting"><a class="heading-anchor" href="#catastrophic-forgetting">Catastrophic forgetting</a></h2>
+<p>Take a model that handles maths, history and science, and fine-tune it on nothing but sports. It becomes good at sports. It also becomes noticeably worse at the other three, and not gradually — the loss can be severe and fast.</p>
+<p>The reason is that gradient descent has no notion of <em>preserving</em> anything. It moves whichever weights reduce the current loss, and the current loss only measures sports. Weights that were doing important work for history are, as far as this training run is concerned, just numbers in the wrong place.</p>
+<p>Nothing is deleted deliberately. The old capability is simply not being scored, so nothing defends it.</p>
+<p>Every approach below is a different answer to the same question: <strong>which weights are allowed to move, and by how much?</strong></p>
+<h2 id="mix-the-old-data-back-in"><a class="heading-anchor" href="#mix-the-old-data-back-in">Mix the old data back in</a></h2>
+<p>The obvious fix. Keep some of the original data and include it in every batch, so the loss measures both the new material and the old.</p>
+<p>It works well, and it has a cost that is easy to underrate. To keep a fraction <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span></span></span></span> of each batch as old data while learning <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span> tokens of new material, you have to process <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>r</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">N/(1-r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mord">/</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mclose">)</span></span></span></span> tokens:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>replay share</th><th>total processed</th><th>vs no replay</th></tr></thead><tbody><tr><td>20%</td><td>1.25 N</td><td>1.25×</td></tr><tr><td>50%</td><td>2.00 N</td><td>2.00×</td></tr><tr><td>80%</td><td>5.00 N</td><td>5.00×</td></tr><tr><td>90%</td><td><strong>10.00 N</strong></td><td><strong>10×</strong></td></tr></tbody></table>
+<p>At a high replay ratio you are processing ten times the new material in order to learn it — most of the way back to the retraining cost that fine-tuning was meant to avoid. And it assumes you still have the original data, which for a pre-trained model you usually do not.</p>
+<h2 id="protect-the-weights-that-matter"><a class="heading-anchor" href="#protect-the-weights-that-matter">Protect the weights that matter</a></h2>
+<p>The second approach keeps all the weights trainable but not equally.</p>
+<p>Work out which weights were important to the old capability, and add a penalty for moving <em>those</em> specifically. Unimportant weights stay free; important ones become stiff.</p>
+<p>No old data needs storing, which is the main appeal. The difficulty is the premise — deciding which weights matter is an estimate, and knowledge in a network is distributed rather than filed. Get it wrong and you either protect the wrong things or leave the right ones exposed.</p>
+<p>There is also a ceiling built in. Every weight you stiffen is capacity removed from learning the new task. Protect enough to prevent forgetting and you may have protected enough to prevent learning.</p>
+<h2 id="freeze-everything-and-add"><a class="heading-anchor" href="#freeze-everything-and-add">Freeze everything and add</a></h2>
+<p>The third approach sidesteps the question. Freeze the original weights entirely and add a small set of new ones alongside, training only those.</p>
+<p>The old capability cannot degrade because nothing that encodes it changed — this is a guarantee rather than a tendency. And the new parameters are small enough to train cheaply.</p>
+<figure>
+<svg viewBox="0 0 560 220" width="560" role="img" aria-label="Three strategies shown as bars: replay retrains the whole model with mixed data, regularisation locks part of the model, and isolation freezes all of it and adds a small trainable strip." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.t{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">WHICH WEIGHTS ARE ALLOWED TO MOVE</text>
+<text class="l" x="130" y="56" text-anchor="end">replay</text>
+<rect x="140" y="40" width="380" height="26" rx="4" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="color-mix(in srgb, var(--primary) 60%, transparent)"></rect>
+<text class="t" x="330" y="58" text-anchor="middle">all of it, on old and new data together</text>
+<text class="l" x="130" y="112" text-anchor="end">protect</text>
+<rect x="140" y="96" width="150" height="26" rx="4" fill="color-mix(in srgb, var(--muted-foreground) 22%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 40%, transparent)"></rect>
+<text class="t" x="215" y="114" text-anchor="middle">stiffened</text>
+<rect x="292" y="96" width="228" height="26" rx="4" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="color-mix(in srgb, var(--primary) 60%, transparent)"></rect>
+<text class="t" x="406" y="114" text-anchor="middle">free to move</text>
+<text class="l" x="130" y="168" text-anchor="end">isolate</text>
+<rect x="140" y="152" width="340" height="26" rx="4" fill="color-mix(in srgb, var(--muted-foreground) 22%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 40%, transparent)"></rect>
+<text class="t" x="310" y="170" text-anchor="middle">frozen</text>
+<rect x="484" y="152" width="36" height="26" rx="4" fill="color-mix(in srgb, var(--primary) 60%, transparent)" stroke="color-mix(in srgb, var(--primary) 75%, transparent)"></rect>
+<text class="t" x="20" y="202">tinted = trainable · grey = held in place</text>
+</svg>
+<figcaption>Three strategies, one question. The bar is the model's weights.</figcaption>
+</figure>
+<p>The cost arrives later, as accumulation. One adapter per task:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>tasks</th><th>adapters</th><th>full copies instead</th></tr></thead><tbody><tr><td>5</td><td>60 MB</td><td>33.8 GB</td></tr><tr><td>20</td><td>240 MB</td><td>135.0 GB</td></tr><tr><td>50</td><td><strong>600 MB</strong></td><td>337.5 GB</td></tr></tbody></table>
+<p>Storage is clearly not the problem — fifty adapters is under a gigabyte against three hundred for fifty full copies. The problem is that it is fifty <em>things</em>: something has to decide which one a given request needs, they do not compose with each other, and knowledge learned in one is unavailable to the others.</p>
+<p>Strictly, this is not one model that has learned fifty things. It is one model and fifty attachments.</p>
+<h2 id="not-learning-at-all"><a class="heading-anchor" href="#not-learning-at-all">Not learning at all</a></h2>
+<p>There is a fourth option that avoids the question entirely: leave the weights alone and supply new knowledge at request time, retrieved from a store that can be edited freely.</p>
+<p>Updating means writing to a database. Nothing can be forgotten because nothing is being overwritten. Corrections are immediate and reversible.</p>
+<p>What it does not do is teach the model anything. The knowledge is available to it, not part of it — so it cannot reason from it as fluently as from what it actually learned, and every answer depends on the retrieval finding the right thing.</p>
+<p>For facts that change — prices, events, documentation — that trade is usually correct, and it is why most systems that need current information use this rather than continual training. For a new <em>skill</em> rather than a new fact, it does not help.</p>
+<h2 id="what-makes-this-hard"><a class="heading-anchor" href="#what-makes-this-hard">What makes this hard</a></h2>
+<p>The tension has a name: <strong>stability against plasticity</strong>. Total stability is a model that cannot learn. Total plasticity is a model that forgets. Every method above picks a point between them, and no method removes the trade.</p>
+<p>Evaluation is the other difficulty, and it is underrated. Measuring the new capability is easy. Detecting what quietly got worse means re-testing everything the model could previously do, which means having kept a way to test all of it — and if you had that coverage, you would probably have noticed the problem before shipping.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Knowledge lives in the weights, so training on new data overwrites it.</li>
+<li>Nothing defends the old capability because the current loss does not measure it.</li>
+<li>Replay mixes old data back in — effective, and at 90% replay you process 10× the tokens.</li>
+<li>Regularisation stiffens the weights judged important, needing no old data but resting on a hard estimate.</li>
+<li>Isolation freezes everything and trains a small addition — a guarantee, but the additions accumulate and do not compose.</li>
+<li>Retrieval avoids the problem by never updating weights, at the cost of the model never actually knowing the thing.</li>
+<li>Stability against plasticity is a trade, not a bug, and no method removes it.</li>
+<li>The hard part in practice is noticing what got worse.</li>
+</ul>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Continual learning in LLMs"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T10:20","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Teaching a trained model something new tends to erase what it already knew. Every fix for that is a different way of deciding which weights are allowed to move."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/continual-learning.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Continual learning in LLMs · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Teaching a trained model something new tends to erase what it already knew. Every fix for that is a different way of deciding which weights are allowed to move."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"continual-learning,forgetting,fine-tuning,adapters,replay"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/continual-learning/"}],["$","meta","6",{"property":"og:title","content":"Continual learning in LLMs"}],["$","meta","7",{"property":"og:description","content":"Teaching a trained model something new tends to erase what it already knew. Every fix for that is a different way of deciding which weights are allowed to move."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/continual-learning/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-11T10:20"}],["$","meta","11",{"property":"article:tag","content":"continual-learning"}],["$","meta","12",{"property":"article:tag","content":"forgetting"}],["$","meta","13",{"property":"article:tag","content":"fine-tuning"}],["$","meta","14",{"property":"article:tag","content":"adapters"}],["$","meta","15",{"property":"article:tag","content":"replay"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Continual learning in LLMs"}],["$","meta","18",{"name":"twitter:description","content":"Teaching a trained model something new tends to erase what it already knew. Every fix for that is a different way of deciding which weights are allowed to move."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/variational-autoencoders/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Variational autoencoders"}]]}],null]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"catastrophic-forgetting","text":"Catastrophic forgetting","level":2},{"id":"mix-the-old-data-back-in","text":"Mix the old data back in","level":2},{"id":"protect-the-weights-that-matter","text":"Protect the weights that matter","level":2},{"id":"freeze-everything-and-add","text":"Freeze everything and add","level":2},{"id":"not-learning-at-all","text":"Not learning at all","level":2},{"id":"what-makes-this-hard","text":"What makes this hard","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
