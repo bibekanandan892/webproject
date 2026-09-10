@@ -1,0 +1,147 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/grpo.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T3bb2,<p>Reinforcement learning on a language model needs to know not just whether an answer scored well, but whether it scored well <em>compared to what was expected</em>. Otherwise every answer that earns a positive reward gets encouraged, including the mediocre ones.</p>
+<p>The usual way to get that expectation is a second network — a critic, trained alongside the model, predicting how good things are about to be. It is roughly the size of the model itself.</p>
+<p>GRPO gets the same expectation for free. Generate several answers to the same question, and use their average as the yardstick.</p>
+<h2 id="what-the-baseline-changes"><a class="heading-anchor" href="#what-the-baseline-changes">What the baseline changes</a></h2>
+<p>Take one question, generate eight answers, and score them. Say five are right and three are wrong, with a reward of 1 for correct and 0 for wrong. The group mean is 0.625.</p>
+<figure>
+<svg viewBox="0 0 600 210" width="600" role="img" aria-label="Eight answers to the same question shown as bars, five scoring one and three scoring zero, with a dashed line at the group mean of 0.625. Advantages below each bar are positive for the correct answers and negative for the wrong ones." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.p{font:600 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.n{font:600 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">EIGHT ANSWERS, ONE QUESTION</text>
+<path d="M82 140 H502" stroke="var(--border)" stroke-width="1"></path>
+<rect x="90" y="90" width="40" height="50" rx="3" fill="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="142" y="137" width="40" height="3" rx="1" fill="color-mix(in srgb, var(--muted-foreground) 40%, transparent)"></rect>
+<rect x="194" y="90" width="40" height="50" rx="3" fill="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="246" y="90" width="40" height="50" rx="3" fill="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="298" y="137" width="40" height="3" rx="1" fill="color-mix(in srgb, var(--muted-foreground) 40%, transparent)"></rect>
+<rect x="350" y="90" width="40" height="50" rx="3" fill="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="402" y="137" width="40" height="3" rx="1" fill="color-mix(in srgb, var(--muted-foreground) 40%, transparent)"></rect>
+<rect x="454" y="90" width="40" height="50" rx="3" fill="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<path d="M82 108.8 H502" stroke="var(--primary)" stroke-opacity="0.8" stroke-width="1.4" stroke-dasharray="5 4"></path>
+<text class="p" x="508" y="112">mean 0.625</text>
+<text class="p" x="110" y="164" text-anchor="middle">+0.38</text>
+<text class="n" x="162" y="164" text-anchor="middle">−0.63</text>
+<text class="p" x="214" y="164" text-anchor="middle">+0.38</text>
+<text class="p" x="266" y="164" text-anchor="middle">+0.38</text>
+<text class="n" x="318" y="164" text-anchor="middle">−0.63</text>
+<text class="p" x="370" y="164" text-anchor="middle">+0.38</text>
+<text class="n" x="422" y="164" text-anchor="middle">−0.63</text>
+<text class="p" x="474" y="164" text-anchor="middle">+0.38</text>
+<text class="l" x="82" y="192">advantages always sum to zero — the group grades itself</text>
+</svg>
+<figcaption>The dashed line is the only thing a critic network would otherwise have been for.</figcaption>
+</figure>
+<p>Now compare what the model is told, with and without that line:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>reward alone</th><th>reward − group mean</th></tr></thead><tbody><tr><td>the five correct answers</td><td>+1.00</td><td>+0.375</td></tr><tr><td>the three wrong answers</td><td>0.00</td><td><strong>−0.625</strong></td></tr></tbody></table>
+<p>Without the baseline, five answers get pushed up and three are left completely alone. Nothing is ever discouraged, because a reward of zero produces no gradient — being wrong is indistinguishable from not being considered.</p>
+<p>With it, the wrong answers get a <strong>negative</strong> weight and are actively pushed down. That sign flip is what a baseline buys, and it is why a baseline of some kind is not optional.</p>
+<p>The advantages also sum to exactly zero, always. The group grades itself on a curve.</p>
+<h2 id="what-replaces-what"><a class="heading-anchor" href="#what-replaces-what">What replaces what</a></h2>
+<p>Everything else looks much like the clipped policy update it descends from: a ratio between the new and old policy, clipping to stop any single step going too far, and a penalty for drifting away from the model you started with.</p>
+<p>The one substitution is the advantage. Instead of a learned per-step prediction of expected value, it is:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>r</mi><mi>i</mi></msub><mo>−</mo><mtext>mean</mtext><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow><mrow><mtext>std</mtext><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">A_i = \frac{r_i - \text{mean}(r)}{\text{std}(r)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">std</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord">mean</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>
+<p>computed across the group. Dividing by the group's standard deviation keeps the update size stable whether the group was tightly clustered or spread out.</p>
+<p>That removes an entire network from memory and from the training loop — no critic to size, initialise, tune, or debug.</p>
+<p>The cost is that credit is assigned to a <strong>whole answer</strong>, not to individual tokens within it. A critic can say which step of a long chain went wrong; a group mean can only say that this answer was better than average. For tasks where the final answer is what matters, that is enough. For tasks where partial credit within a response matters, it is a real loss of resolution.</p>
+<h2 id="the-failure-you-can-compute"><a class="heading-anchor" href="#the-failure-you-can-compute">The failure you can compute</a></h2>
+<p>The baseline comes from the group. If every answer in the group scores the same, the mean equals every reward, every advantage is zero, and the update is zero. The question was generated, sampled eight times, and scored, for no gradient at all.</p>
+<p>With binary rewards and a per-answer success rate <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, a group of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> is uniform with probability <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>p</mi><mi>G</mi></msup><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><msup><mo stretchy="false">)</mo><mi>G</mi></msup></mrow><annotation encoding="application/x-tex">p^G + (1-p)^G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0358em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">G</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0913em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">G</span></span></span></span></span></span></span></span></span></span></span>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>success rate</th><th>G = 4</th><th>G = 8</th><th>G = 16</th><th>G = 32</th></tr></thead><tbody><tr><td>0.50</td><td>12.5%</td><td>0.8%</td><td>0.0%</td><td>0.0%</td></tr><tr><td>0.70</td><td>24.8%</td><td>5.8%</td><td>0.3%</td><td>0.0%</td></tr><tr><td>0.90</td><td>65.6%</td><td><strong>43.0%</strong></td><td>18.5%</td><td>3.4%</td></tr><tr><td>0.95</td><td>81.5%</td><td>66.3%</td><td>44.0%</td><td>19.4%</td></tr><tr><td>0.99</td><td>96.1%</td><td>92.3%</td><td>85.1%</td><td><strong>72.5%</strong></td></tr></tbody></table>
+<p>Two things fall out of that table.</p>
+<p><strong>Problems the model has already learned are nearly worthless.</strong> At a 90% success rate, 43% of groups of eight produce no gradient. At 99%, even groups of 32 are wasted almost three quarters of the time. The same holds at the other end — a problem the model never solves gives all-zero rewards and is equally silent.</p>
+<p><strong>The signal is strongest in the middle.</strong> Around a 50% success rate almost every group is informative. So the compute goes where the model is genuinely uncertain, and filtering training problems by difficulty is not a refinement — it is most of the efficiency.</p>
+<p>Larger groups help, but they cost linearly: a group of 32 is four times the generation of a group of 8. Past a point it is cheaper to pick better questions than to sample more answers to bad ones.</p>
+<h2 id="where-it-fits"><a class="heading-anchor" href="#where-it-fits">Where it fits</a></h2>
+<p>It suits tasks with a checkable answer — maths with a known result, code with tests to run, logic with a verifiable conclusion. There the reward is a function you can write, the group scores itself honestly, and no reward model is needed either.</p>
+<p>It suits them for a second reason too: those are the tasks where whole-answer credit is sufficient, because the answer is either right or it is not.</p>
+<p>On open-ended work — was this helpful, was the tone right — a reward model is still needed to produce a score at all, and the loss of per-step credit hurts more.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Reinforcement learning needs a baseline, or nothing is ever discouraged — a zero reward produces no gradient.</li>
+<li>GRPO generates several answers to one question and uses their mean as that baseline.</li>
+<li>Wrong answers then get a negative advantage rather than merely a small one.</li>
+<li>That removes the critic network entirely, at the cost of per-token credit assignment.</li>
+<li>Advantages are normalised by the group's spread and always sum to zero.</li>
+<li>If a whole group scores identically there is no gradient at all.</li>
+<li>At a 90% success rate that wastes 43% of groups of eight, so choosing problems the model finds genuinely uncertain matters more than sampling more of them.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"GRPO"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T18:20","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Generate several answers to the same question, and score each one against how the others did. The group's own average replaces a whole second network — and it fails in a way that is easy to measure."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/grpo.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"8UCqTP9tb3b7NxaZG43Lh"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/dpo/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"DPO"}]]}],["$","$L2",null,{"href":"/blog/recursive-language-models/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Recursive language models"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-the-baseline-changes","text":"What the baseline changes","level":2},{"id":"what-replaces-what","text":"What replaces what","level":2},{"id":"the-failure-you-can-compute","text":"The failure you can compute","level":2},{"id":"where-it-fits","text":"Where it fits","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
