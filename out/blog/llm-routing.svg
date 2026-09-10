@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="LLM routing: a router in front of three model tiers, sending most requests to the small one and only a few to the frontier model.">
+<defs>
+  <radialGradient id="glow" cx="35%" cy="14%" r="82%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8B98A9"/></marker>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<polygon points="180,140 262,190 180,240 98,190" fill="#141C30" stroke="#64FFDA" stroke-width="2.5"/>
+<text x="180" y="198" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle" font-weight="600">router</text>
+<rect x="380" y="76" width="290" height="58" rx="9" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="2.5"/>
+<text x="404" y="113" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" font-weight="600">small</text>
+<text x="646" y="113" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" text-anchor="end">70%</text>
+<rect x="380" y="160" width="290" height="58" rx="9" fill="#64FFDA" fill-opacity="0.18" stroke="#64FFDA" stroke-opacity="0.6" stroke-width="2"/>
+<text x="404" y="197" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" fill-opacity="0.85">mid</text>
+<text x="646" y="197" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9" text-anchor="end">22%</text>
+<rect x="380" y="244" width="290" height="58" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.18)" stroke-width="2"/>
+<text x="404" y="281" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9">frontier</text>
+<text x="646" y="281" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9" text-anchor="end">8%</text>
+<path d="M262 178 L372 110" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="3" marker-end="url(#a)"/>
+<path d="M262 190 H372" stroke="#8B98A9" stroke-opacity="0.45" stroke-width="2" marker-end="url(#a)"/>
+<path d="M262 202 L372 268" stroke="#8B98A9" stroke-opacity="0.3" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="60" y="360" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">cheapest model that will do</text>
+<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">llm routing</text>
+</svg>

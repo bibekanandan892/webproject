@@ -1,0 +1,116 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/multimodal-ai.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T26e9,<p>A photograph is a grid of pixel values. The sentence describing that photograph is a sequence of token ids. There is nothing in either representation that resembles the other.</p>
+<p>A multimodal model is one that handles more than one of these at once. The whole trick is getting them into a form where they can be compared.</p>
+<h2 id="modalities"><a class="heading-anchor" href="#modalities">Modalities</a></h2>
+<p>A modality is a kind of data: text, images, audio, video, and less common ones like sensor readings or 3D geometry.</p>
+<p>One thing worth pinning down, because it causes confusion. A model that reads an image and outputs a label — cat, not-cat — is not multimodal. Its output is a choice from a fixed set, not a modality. Multimodal means more than one modality in play as actual input or actual output.</p>
+<h2 id="the-problem"><a class="heading-anchor" href="#the-problem">The problem</a></h2>
+<p>Suppose you want to answer a question about a photograph. You have pixels and you have words, and no way to relate them, because they have no common representation.</p>
+<p>The solution is to build one. Each modality gets its own encoder — a network that turns its kind of input into a vector — and the encoders are trained <em>together</em> so that their outputs land in the same space.</p>
+<p>Same space means something precise: a photograph of a bicycle and the words "a bicycle" should produce vectors that point in nearly the same direction, even though one came from pixels and the other from text.</p>
+<h2 id="what-alignment-looks-like"><a class="heading-anchor" href="#what-alignment-looks-like">What alignment looks like</a></h2>
+<p>Take three photographs and three captions, encoded into a shared space, and measure the cosine similarity of every image against every caption:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>"bicycle"</th><th>"kitchen"</th><th>"harbour"</th></tr></thead><tbody><tr><td>photo of a bicycle</td><td><strong>0.990</strong></td><td>0.424</td><td>0.441</td></tr><tr><td>photo of a kitchen</td><td>0.411</td><td><strong>0.993</strong></td><td>0.365</td></tr><tr><td>photo of a harbour</td><td>0.403</td><td>0.408</td><td><strong>0.997</strong></td></tr></tbody></table>
+<figure>
+<svg viewBox="0 0 480 280" width="480" role="img" aria-label="A three by three grid of similarity scores between photographs and captions. The diagonal, where each photograph meets its own caption, is around 0.99, while every other cell is around 0.4." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.hi{font:600 13px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.lo{font:500 13px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE DIAGONAL IS THE WHOLE POINT</text>
+<text class="l" x="212" y="46" text-anchor="middle">bicycle</text>
+<text class="l" x="274" y="46" text-anchor="middle">kitchen</text>
+<text class="l" x="336" y="46" text-anchor="middle">harbour</text>
+<text class="l" x="172" y="96" text-anchor="end">bicycle</text>
+<text class="l" x="172" y="158" text-anchor="end">kitchen</text>
+<text class="l" x="172" y="220" text-anchor="end">harbour</text>
+<rect x="182" y="60" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 55%, transparent)" stroke="color-mix(in srgb, var(--primary) 70%, transparent)"></rect>
+<text class="hi" x="212" y="96" text-anchor="middle">0.99</text>
+<rect x="244" y="60" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 8%, transparent)" stroke="color-mix(in srgb, var(--border) 90%, transparent)"></rect>
+<text class="lo" x="274" y="96" text-anchor="middle">0.42</text>
+<rect x="306" y="60" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 8%, transparent)" stroke="color-mix(in srgb, var(--border) 90%, transparent)"></rect>
+<text class="lo" x="336" y="96" text-anchor="middle">0.44</text>
+<rect x="182" y="122" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 8%, transparent)" stroke="color-mix(in srgb, var(--border) 90%, transparent)"></rect>
+<text class="lo" x="212" y="158" text-anchor="middle">0.41</text>
+<rect x="244" y="122" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 55%, transparent)" stroke="color-mix(in srgb, var(--primary) 70%, transparent)"></rect>
+<text class="hi" x="274" y="158" text-anchor="middle">0.99</text>
+<rect x="306" y="122" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 8%, transparent)" stroke="color-mix(in srgb, var(--border) 90%, transparent)"></rect>
+<text class="lo" x="336" y="158" text-anchor="middle">0.37</text>
+<rect x="182" y="184" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 8%, transparent)" stroke="color-mix(in srgb, var(--border) 90%, transparent)"></rect>
+<text class="lo" x="212" y="220" text-anchor="middle">0.40</text>
+<rect x="244" y="184" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 8%, transparent)" stroke="color-mix(in srgb, var(--border) 90%, transparent)"></rect>
+<text class="lo" x="274" y="220" text-anchor="middle">0.41</text>
+<rect x="306" y="184" width="60" height="60" rx="4" fill="color-mix(in srgb, var(--primary) 55%, transparent)" stroke="color-mix(in srgb, var(--primary) 70%, transparent)"></rect>
+<text class="hi" x="336" y="220" text-anchor="middle">1.00</text>
+<text class="l" x="20" y="262">photos down the side, captions across the top</text>
+</svg>
+<figcaption>Matched pairs average 0.99, mismatched 0.41. That gap is what training produces.</figcaption>
+</figure>
+<p>The diagonal averages 0.993 and everything else averages 0.409 — a gap of 0.58 between "this caption describes this photo" and "it does not".</p>
+<p>That gap is the entire achievement. It is not a property of pixels or of words; it is what the two encoders were trained to produce, by being shown matched pairs and pushed to make them agree while pushing mismatched pairs apart.</p>
+<p>Once it exists, comparing an image to a sentence is just a dot product.</p>
+<h2 id="the-pipeline"><a class="heading-anchor" href="#the-pipeline">The pipeline</a></h2>
+<p><strong>Encode.</strong> Each input goes through the encoder for its modality. Images are typically cut into patches and run through a transformer; text goes through a text encoder; audio through an audio one.</p>
+<p><strong>Align.</strong> All of those land in the shared space. This is what joint training bought.</p>
+<p><strong>Reason.</strong> The combined vectors go into a model that attends across all of them at once. At this point it does not particularly matter which vector came from which modality — they are all just vectors in the same space, and attention relates them the same way it relates words to words.</p>
+<p><strong>Generate.</strong> Out comes text, or an image, or audio, depending on what the model is for.</p>
+<p>So: <em>photo of a workbench + "which tool is missing from the rack?"</em> — the image encoder produces vectors for the patches, the text encoder produces vectors for the question, both sets go into the same stack, and attention lets the question's tokens attend to the image's patches.</p>
+<h2 id="three-shapes-it-takes"><a class="heading-anchor" href="#three-shapes-it-takes">Three shapes it takes</a></h2>
+<p><strong>Several modalities in, text out.</strong> The common one — show it an image, a document, a chart, and ask about it.</p>
+<p><strong>One modality in, a different one out.</strong> Text to image, text to video, audio to text. The encoder and the generator are for different modalities, joined through the shared space.</p>
+<p><strong>Alignment as the product.</strong> No generation at all: encode both kinds of thing and compare them. This is what makes it possible to search a photo library with a sentence, or check whether an image matches a description.</p>
+<h2 id="where-it-goes-wrong"><a class="heading-anchor" href="#where-it-goes-wrong">Where it goes wrong</a></h2>
+<p><strong>Alignment is only as good as the pairs.</strong> The whole thing rests on training data where the caption really describes the image. Loosely matched pairs teach a loosely aligned space, and nothing downstream can recover from that.</p>
+<p><strong>It is not free.</strong> An image becomes hundreds of vectors. A modality that seemed cheap to add can dominate the context and the cost.</p>
+<p><strong>More modalities is not automatically better.</strong> Each one added has to earn its place; if it carries no information the task needs, it is noise competing for attention.</p>
+<p><strong>Every modality needs its own evaluation.</strong> A model that reads text well and images poorly can look fine on an average score. The failure hides in whichever modality was tested least.</p>
+<p><strong>Bias arrives through every channel.</strong> Each modality's training data brings its own, and aligning them can compound rather than cancel.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>A modality is a kind of data; multimodal means more than one as real input or output.</li>
+<li>Classifying an image into a label is not multimodal — the output is not a modality.</li>
+<li>Each modality has its own encoder, and the encoders are trained together.</li>
+<li>Training makes matched pairs land close together — 0.99 against 0.41 for mismatches in the example above.</li>
+<li>Once they share a space, attention treats them uniformly and comparison is a dot product.</li>
+<li>Three shapes: many modalities in and text out, one in and another out, or alignment itself as the product.</li>
+<li>Quality of the paired training data sets the ceiling for everything else.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Multimodal AI"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T15:20","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A picture and the sentence describing it are completely different kinds of data. Multimodal models work by turning both into vectors that land in the same place."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/multimodal-ai.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"TuFcr5JiIPbUBa7UqwPsq"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/llm-routing/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LLM routing"}]]}],null]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"modalities","text":"Modalities","level":2},{"id":"the-problem","text":"The problem","level":2},{"id":"what-alignment-looks-like","text":"What alignment looks like","level":2},{"id":"the-pipeline","text":"The pipeline","level":2},{"id":"three-shapes-it-takes","text":"Three shapes it takes","level":2},{"id":"where-it-goes-wrong","text":"Where it goes wrong","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

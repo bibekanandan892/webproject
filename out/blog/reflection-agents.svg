@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Reflection agent: a draft is criticised and rewritten, each version replacing the last until it is accepted.">
+<defs>
+  <radialGradient id="glow" cx="40%" cy="14%" r="82%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8B98A9"/></marker>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="70" y="76" width="250" height="62" rx="9" fill="#64FFDA" fill-opacity="0.12" stroke="#64FFDA" stroke-opacity="0.4" stroke-width="2"/>
+<text x="195" y="115" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9" text-anchor="middle">draft 1</text>
+<rect x="70" y="168" width="250" height="62" rx="9" fill="#64FFDA" fill-opacity="0.2" stroke="#64FFDA" stroke-opacity="0.6" stroke-width="2"/>
+<text x="195" y="207" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" text-anchor="middle">draft 2</text>
+<rect x="70" y="260" width="250" height="62" rx="9" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="2.5"/>
+<text x="195" y="299" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" text-anchor="middle" font-weight="600">draft 3</text>
+<rect x="470" y="122" width="230" height="62" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2"/>
+<text x="585" y="161" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9" text-anchor="middle">critic</text>
+<rect x="470" y="214" width="230" height="62" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2"/>
+<text x="585" y="253" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9" text-anchor="middle">critic</text>
+<path d="M320 110 L462 140" stroke="#8B98A9" stroke-opacity="0.5" stroke-width="2" marker-end="url(#a)"/>
+<path d="M470 172 L328 196" stroke="#8B98A9" stroke-opacity="0.5" stroke-width="2" marker-end="url(#a)"/>
+<path d="M320 202 L462 232" stroke="#8B98A9" stroke-opacity="0.5" stroke-width="2" marker-end="url(#a)"/>
+<path d="M470 264 L328 288" stroke="#8B98A9" stroke-opacity="0.5" stroke-width="2" marker-end="url(#a)"/>
+<text x="352" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA">accepted</text>
+<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">reflection agents</text>
+</svg>
