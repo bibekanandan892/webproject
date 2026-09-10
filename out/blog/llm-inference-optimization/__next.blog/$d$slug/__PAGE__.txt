@@ -1,0 +1,136 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/llm-inference-optimization.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T216f,<p>There is a long list of tricks for making a served model faster, and read one at a time they look unrelated. They are not. Almost all of them attack one of three bottlenecks, and which bottleneck you are hitting is decided by arithmetic you can do on paper.</p>
+<h2 id="the-number-that-explains-everything"><a class="heading-anchor" href="#the-number-that-explains-everything">The number that explains everything</a></h2>
+<p>Take a 7-billion-weight model at 16 bits, so 14 GB of weights, on a card with 2 TB/s of memory bandwidth and 400 TFLOP/s of fp16 throughput.</p>
+<p>To generate <strong>one</strong> token the GPU must read every weight once — 14 GB — which takes 7 ms. The arithmetic it does with those weights is about 2 × 7 billion = 14 GFLOP, which takes 0.035 ms.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>per generated token</th></tr></thead><tbody><tr><td>reading the weights</td><td>7.00 ms</td></tr><tr><td>doing the arithmetic</td><td>0.035 ms</td></tr></tbody></table>
+<p>The GPU is computing for <strong>0.5% of the time</strong>. The other 99.5% it is waiting for memory.</p>
+<p>This is the single most important fact about serving a model, and it is counter-intuitive: the expensive-looking part is free, and the boring part is the whole cost. It also sets a hard ceiling — 143 tokens per second, no matter what you do, as long as one token per pass is all you ask for.</p>
+<h2 id="batching-is-not-a-scheduling-convenience"><a class="heading-anchor" href="#batching-is-not-a-scheduling-convenience">Batching is not a scheduling convenience</a></h2>
+<p>Read the 14 GB once and you can multiply it against 64 different sequences for almost nothing extra. Every one of those gets a token.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>batch</th><th>compute time</th><th>memory time</th><th>tokens/sec</th></tr></thead><tbody><tr><td>1</td><td>0.03 ms</td><td>7.00 ms</td><td>143</td></tr><tr><td>16</td><td>0.56 ms</td><td>7.00 ms</td><td>2,286</td></tr><tr><td>64</td><td>2.24 ms</td><td>7.00 ms</td><td>9,143</td></tr><tr><td>200</td><td>7.00 ms</td><td>7.00 ms</td><td>28,571</td></tr></tbody></table>
+<p>Throughput rises 64× and each user's latency does not move, because the memory read was going to happen regardless. That free ride continues until batch 200, where compute finally takes as long as the memory read. Past that point you are paying for real work and throughput stops being free.</p>
+<p>So the goal of a serving system is to keep the batch full — which is exactly why requests are admitted and retired continuously rather than in fixed groups. A batch slot sitting idle because one sequence in the group finished early is throughput thrown away.</p>
+<h2 id="why-prefill-is-a-different-problem"><a class="heading-anchor" href="#why-prefill-is-a-different-problem">Why prefill is a different problem</a></h2>
+<p>Reading the prompt inverts the ratio. A 2,000-token prompt is 2,000 tokens' worth of arithmetic against the <em>same</em> single pass over the weights:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>2,000-token prefill</th></tr></thead><tbody><tr><td>reading the weights</td><td>7 ms</td></tr><tr><td>doing the arithmetic</td><td>70 ms</td></tr></tbody></table>
+<p>Prefill is 10× compute-bound. Decode is 200× memory-bound. They are opposite workloads that happen to share a model, and treating them as one thing is why naive servers behave badly — a long prompt arriving mid-batch stalls everyone's decoding behind 70 ms of arithmetic.</p>
+<figure>
+<svg viewBox="0 0 560 262" width="560" role="img" aria-label="Two bars showing that decode spends 7ms on memory and 0.035ms computing, while a 2000-token prefill spends 70ms computing against the same 7ms of memory." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">OPPOSITE WORKLOADS, SAME MODEL</text>
+<text class="b" x="20" y="46">decode — one token</text>
+<text class="l" x="20" y="70">memory</text>
+<rect x="86" y="56" width="42" height="20" rx="3" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="l" x="136" y="70">7.00 ms</text>
+<text class="l" x="20" y="98">compute</text>
+<rect x="86" y="84" width="1" height="20" fill="color-mix(in srgb, var(--muted-foreground) 40%, transparent)"></rect>
+<text class="l" x="136" y="98">0.035 ms — the GPU is idle 99.5% of the time</text>
+<path d="M20 120 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="146">prefill — 2,000 tokens</text>
+<text class="l" x="20" y="170">memory</text>
+<rect x="86" y="156" width="42" height="20" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="l" x="136" y="170">7.00 ms</text>
+<text class="l" x="20" y="198">compute</text>
+<rect x="86" y="184" width="420" height="20" rx="3" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="86" y="222">70 ms — now the arithmetic is the cost</text>
+<text class="l" x="20" y="242">a long prompt arriving mid-batch stalls everyone else's decoding</text>
+</svg>
+<figcaption>Same weights, same card. The ratio flips because prefill does 2,000 tokens of work per pass and decode does one.</figcaption>
+</figure>
+<h2 id="the-third-bottleneck-capacity"><a class="heading-anchor" href="#the-third-bottleneck-capacity">The third bottleneck: capacity</a></h2>
+<p>Batching is limited by how much memory is left after the weights, because each sequence carries its own attention cache.</p>
+<p>For this model — 32 layers, 4,096 hidden dimensions, 16-bit — that cache costs 512 KB per token, so a 4,000-token conversation holds 2.10 GB. On an 80 GB card with 14 GB spent on weights, 66 GB remains, which is <strong>31 concurrent sequences</strong>. Not 200. The batch that would have made compute and memory break even is out of reach.</p>
+<p>This is why cutting the cache matters so much. Sharing key and value projections across groups of query heads — say 8 sets instead of 32 — drops the per-token cost to 128 KB and the same card holds <strong>125 sequences</strong>, a 4× increase in how many people it can serve at once.</p>
+<p>It is also why the cache is allocated in small fixed pages rather than one contiguous reservation per sequence. Reserving for the longest possible conversation strands memory that a shorter one could have used, and that stranded memory converts directly into batch slots you do not get.</p>
+<h2 id="sorting-the-tricks"><a class="heading-anchor" href="#sorting-the-tricks">Sorting the tricks</a></h2>
+<p>Every optimization worth knowing lands in one of three piles:</p>
+<p><strong>Move fewer bytes per token.</strong> Quantize the weights — 4-bit instead of 16-bit turns the 7 ms read into under 2 ms, and since decode is memory-bound that is very close to a straight speedup.</p>
+<p><strong>Get more tokens per byte moved.</strong> Batching, obviously. Also drafting several tokens with a small model and checking them all in one pass of the large one — the expensive read happens once and yields two or three accepted tokens instead of one.</p>
+<p><strong>Free up capacity so the batch can be bigger.</strong> Smaller attention caches, paged allocation, evicting finished sequences immediately.</p>
+<p>Prefill sits outside all three because it is compute-bound. Its optimizations are different in kind: don't recompute a prefix you have already processed, and use attention kernels that keep intermediate values in fast on-chip memory instead of writing them out and reading them back.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Before reaching for any technique, work out which side you are on. Divide the bytes the GPU must read by its bandwidth, divide the arithmetic by its throughput, and compare.</p>
+<p>If memory time dominates, more arithmetic is free and you should be buying tokens with it. If compute time dominates, nothing about memory will help. Almost every disappointing optimization is one applied to the wrong side of that comparison.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"LLM Inference Optimization"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T14:00","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Generating a token barely uses the GPU's arithmetic — it spends almost all its time moving weights from memory. Once you see that, every serving optimization sorts itself into one of three piles."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/llm-inference-optimization.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"KTCmx5UFh9iYu8OHD2Dlr"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/function-calling/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Function Calling in LLMs"}]]}],["$","$L2",null,{"href":"/blog/vllm/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"vLLM"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-number-that-explains-everything","text":"The number that explains everything","level":2},{"id":"batching-is-not-a-scheduling-convenience","text":"Batching is not a scheduling convenience","level":2},{"id":"why-prefill-is-a-different-problem","text":"Why prefill is a different problem","level":2},{"id":"the-third-bottleneck-capacity","text":"The third bottleneck: capacity","level":2},{"id":"sorting-the-tricks","text":"Sorting the tricks","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
