@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/llm-as-a-judge.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2daf,<p>Open-ended output is hard to score. There is no single right answer to compare against, so the two traditional options are people, which does not scale, and word-overlap metrics, which measure whether the same words appeared rather than whether the answer was any good.</p>
+<p>Using a model as the grader gets you judgement that understands meaning, at a rate that lets you evaluate everything rather than a sample.</p>
+<h2 id="four-ways-to-ask"><a class="heading-anchor" href="#four-ways-to-ask">Four ways to ask</a></h2>
+<p><strong>Score one answer.</strong> Rate it 1 to 5 on a criterion. Simple, and the least reliable — absolute scores drift between runs and cluster in the middle.</p>
+<p><strong>Compare two answers.</strong> Show both, ask which is better. Far more stable, because relative judgements are easier than absolute ones. This is also where the worst bias lives.</p>
+<p><strong>Compare against a reference.</strong> Show the model answer and a known-good one, and ask how close they are in substance. Needs ground truth, which you often do not have.</p>
+<p><strong>Score against a rubric.</strong> Several named criteria, each scored separately, each with a stated definition. More work to set up, and the most usable in practice — a single number tells you something got worse, whereas a rubric tells you which part.</p>
+<h2 id="the-bias-you-can-cancel"><a class="heading-anchor" href="#the-bias-you-can-cancel">The bias you can cancel</a></h2>
+<p>In pairwise comparison, judges systematically favour whichever answer they read first. This is not subtle and it is not rare.</p>
+<p>But it has a convenient shape. Suppose the judge's honest preference for answer A is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span></span></span></span>, and being shown first adds <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>true preference</th><th>bias</th><th>A shown first</th><th>B shown first</th><th>mean of both</th></tr></thead><tbody><tr><td>0.70</td><td>0.15</td><td>0.850</td><td>0.550</td><td><strong>0.700</strong></td></tr><tr><td>0.70</td><td>0.05</td><td>0.750</td><td>0.650</td><td><strong>0.700</strong></td></tr><tr><td>0.85</td><td>0.10</td><td>0.950</td><td>0.750</td><td><strong>0.850</strong></td></tr><tr><td>0.55</td><td>0.20</td><td>0.750</td><td>0.350</td><td><strong>0.550</strong></td></tr></tbody></table>
+<p>Run each comparison in one order only and the winner's score is inflated by exactly <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>. Run it in both orders and average, and the bias cancels precisely — <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>q</mi><mo>+</mo><mi>b</mi><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>q</mi><mo>−</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(q+b) + (q-b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span> over two is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span></span></span></span>.</p>
+<p>So every pairwise comparison should be run twice with the answers swapped. It doubles the cost and removes an entire category of error.</p>
+<h2 id="disagreement-is-information"><a class="heading-anchor" href="#disagreement-is-information">Disagreement is information</a></h2>
+<p>There is a second thing the swap gives you free. When the two orders disagree, the judge did not have a real preference — position decided it.</p>
+<figure>
+<svg viewBox="0 0 560 220" width="560" role="img" aria-label="A curve showing how often the two orderings disagree, falling from about half when the judge has no real preference to about a tenth when the preference is strong." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.v{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}</style>
+<text class="hd" x="20" y="18">DISAGREEMENT MEANS THE JUDGE COULD NOT TELL</text>
+<path d="M80 170 H520" stroke="var(--border)" stroke-width="1"></path>
+<path d="M80 40 V170" stroke="var(--border)" stroke-width="1"></path>
+<path d="M80 48.4 L168 51.0 L256 59.4 L344 72.4 L432 90.0 L520 104.6" fill="none" stroke="color-mix(in srgb, var(--primary) 75%, transparent)" stroke-width="2.4"></path>
+<circle cx="80" cy="48.4" r="4.5" fill="color-mix(in srgb, var(--primary) 85%, transparent)"></circle>
+<text class="v" x="86" y="42">52%</text>
+<circle cx="256" cy="59.4" r="4.5" fill="color-mix(in srgb, var(--primary) 85%, transparent)"></circle>
+<text class="v" x="262" y="53">44%</text>
+<circle cx="432" cy="90.0" r="4.5" fill="color-mix(in srgb, var(--primary) 85%, transparent)"></circle>
+<text class="v" x="438" y="84">20%</text>
+<circle cx="520" cy="104.6" r="4.5" fill="color-mix(in srgb, var(--primary) 85%, transparent)"></circle>
+<text class="v" x="514" y="120" text-anchor="end">11%</text>
+<text class="l" x="80" y="188" text-anchor="middle">0.50</text>
+<text class="l" x="256" y="188" text-anchor="middle">0.70</text>
+<text class="l" x="432" y="188" text-anchor="middle">0.90</text>
+<text class="l" x="520" y="188" text-anchor="middle">0.99</text>
+<text class="l" x="300" y="208" text-anchor="middle">how strongly the judge actually prefers one answer</text>
+<text class="l" x="70" y="46" text-anchor="end">flip</text>
+<text class="l" x="70" y="62" text-anchor="end">rate</text>
+</svg>
+<figcaption>A coin-flip preference disagrees about half the time. A clear one disagrees about a tenth.</figcaption>
+</figure>
+<p>So the flip rate across your evaluation set is a direct measure of how much the judge is actually distinguishing. If half your comparisons flip when swapped, the scores are noise dressed as measurement — and no amount of averaging fixes that, because there is nothing underneath.</p>
+<p>Treating flipped comparisons as ties rather than forcing a winner is usually the honest thing to do.</p>
+<h2 id="the-other-biases"><a class="heading-anchor" href="#the-other-biases">The other biases</a></h2>
+<p>These do not cancel, and have to be designed around.</p>
+<p><strong>Length.</strong> Longer answers score higher, roughly regardless of content. The cheapest partial defence is to state in the rubric that length is not a criterion, and to check whether your judge's scores correlate with word count — if they do, you have measured verbosity.</p>
+<p><strong>Style.</strong> Bullet points, headings, confident phrasing. A well-formatted wrong answer beats a plainly-written right one more often than it should.</p>
+<p><strong>Self-preference.</strong> A judge rates output from its own model family more highly. Which means evaluating your own model with a judge from the same family is not an independent measurement.</p>
+<p><strong>Confidence.</strong> Hedged but correct loses to assertive but wrong. The judge is reading tone as evidence.</p>
+<h2 id="making-it-usable"><a class="heading-anchor" href="#making-it-usable">Making it usable</a></h2>
+<p><strong>The judge must be at least as strong as what it grades.</strong> A weaker judge cannot recognise the failures it is being asked to find, and will grade fluency instead.</p>
+<p><strong>Ask for reasoning before the score, not after.</strong> A model that writes its verdict first and justifies it afterwards is producing a rationalisation. Reasoning first genuinely changes the score it lands on.</p>
+<p><strong>Keep the scale short.</strong> 1–5 with each point defined beats 1–100, where nothing distinguishes 72 from 76 and the judge will not use the range consistently anyway.</p>
+<p><strong>Validate against people once.</strong> Score a hundred examples by hand, run the judge on the same hundred, and check they agree. Without that, you have automated a measurement of unknown validity — and it will be trusted precisely because it produces numbers.</p>
+<p><strong>Use more than one judge for anything important.</strong> Models from different families disagree in different directions, and the cases where they disagree with each other are the cases worth looking at.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>One model grades another's open-ended output, at a scale human review cannot reach.</li>
+<li>Pairwise comparison is more reliable than absolute scoring; a rubric tells you <em>what</em> got worse.</li>
+<li>Position bias is real and inflates the first-shown answer by a fixed amount.</li>
+<li>Running both orders and averaging cancels it exactly.</li>
+<li>The disagreement rate between orders measures how much the judge is really distinguishing.</li>
+<li>Length, style, self-preference and confidence biases do not cancel and need designing around.</li>
+<li>Reasoning before the score, a short scale, a judge at least as strong as the model, and one validation against humans.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"LLM as a judge"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T19:20","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Using one model to grade another scales in a way human review cannot. It also brings biases that are measurable — and at least one of them cancels exactly if you run the comparison twice."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/llm-as-a-judge.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"omFryDr7P9BnBwojtILD7"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/contrastive-learning/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Contrastive learning"}]]}],["$","$L2",null,{"href":"/blog/llm-evaluation/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LLM evaluation"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"four-ways-to-ask","text":"Four ways to ask","level":2},{"id":"the-bias-you-can-cancel","text":"The bias you can cancel","level":2},{"id":"disagreement-is-information","text":"Disagreement is information","level":2},{"id":"the-other-biases","text":"The other biases","level":2},{"id":"making-it-usable","text":"Making it usable","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

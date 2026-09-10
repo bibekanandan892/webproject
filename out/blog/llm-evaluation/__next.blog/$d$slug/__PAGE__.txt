@@ -1,0 +1,100 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/llm-evaluation.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T1f4a,<p>Ordinary software has tests: run the function, compare against the expected value. Language model output has no expected value. There are many good answers to most questions and no way to enumerate them.</p>
+<p>So evaluation stops being a correctness check and becomes a measurement problem, with a trade to make between how good the judgement is and how much of it you can afford.</p>
+<h2 id="four-ways-to-measure"><a class="heading-anchor" href="#four-ways-to-measure">Four ways to measure</a></h2>
+<p><strong>Formulas against a reference.</strong> Count overlapping words with a known-good answer, or measure embedding similarity to it. Instant and free. They also cannot tell a rephrasing from a contradiction — a correct answer using different words scores badly, and a wrong answer reusing the right vocabulary scores well. Useful where output is genuinely constrained; misleading almost everywhere else.</p>
+<p><strong>Benchmarks.</strong> Standard datasets everyone runs, so numbers are comparable across models. Good for choosing between models, weak for telling you whether <em>your</em> application works, because your task is not in there.</p>
+<p><strong>People.</strong> The only thing that actually knows what a good answer is. Slow, expensive, and inconsistent between raters, but it is the ground truth everything else is approximating.</p>
+<p><strong>A model as the grader.</strong> A capable model scores the output against stated criteria. Understands meaning, runs at scale, and brings its own biases — toward length, toward confident phrasing, toward output from its own family.</p>
+<h2 id="the-numbers-that-decide-the-design"><a class="heading-anchor" href="#the-numbers-that-decide-the-design">The numbers that decide the design</a></h2>
+<p>Ten thousand outputs to evaluate:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>cost</th><th>wall time</th></tr></thead><tbody><tr><td>formula</td><td>~$0</td><td>seconds</td></tr><tr><td>model as grader</td><td>$61.50</td><td>minutes, in parallel</td></tr><tr><td>people</td><td><strong>$12,500</strong></td><td><strong>500 person-hours</strong></td></tr></tbody></table>
+<p>Human evaluation is about <strong>200 times</strong> the cost of a model grader, and takes three months of one person's time instead of an afternoon.</p>
+<p>That ratio is why nobody chooses one method. You grade everything with a model, and spend the human budget on a sample — used not to evaluate the output, but to check whether the grader can be trusted.</p>
+<h2 id="how-big-a-sample"><a class="heading-anchor" href="#how-big-a-sample">How big a sample</a></h2>
+<p>Which raises a question worth doing the arithmetic on. If people label a sample and you measure how often the grader agrees with them, how precisely do you know that agreement?</p>
+<figure>
+<svg viewBox="0 0 560 210" width="560" role="img" aria-label="Bars showing the width of the confidence interval on judge-human agreement shrinking as the hand-labelled sample grows from 25 to 4000 examples." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.v{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}</style>
+<text class="hd" x="20" y="18">HOW MUCH HAND-LABELLING BUYS</text>
+<text class="l" x="100" y="46" text-anchor="end">25</text>
+<rect x="110" y="34" width="280" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 30%, transparent)"></rect>
+<text class="v" x="398" y="47">±14.0 pts</text>
+<text class="l" x="100" y="74" text-anchor="end">50</text>
+<rect x="110" y="62" width="198" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<text class="v" x="316" y="75">±9.9</text>
+<text class="l" x="100" y="102" text-anchor="end">100</text>
+<rect x="110" y="90" width="140" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<text class="v" x="258" y="103">±7.0</text>
+<text class="l" x="100" y="130" text-anchor="end">400</text>
+<rect x="110" y="118" width="70" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="v" x="188" y="131">±3.5</text>
+<text class="l" x="100" y="158" text-anchor="end">1000</text>
+<rect x="110" y="146" width="44" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 60%, transparent)"></rect>
+<text class="v" x="162" y="159">±2.2</text>
+<text class="l" x="100" y="186" text-anchor="end">4000</text>
+<rect x="110" y="174" width="22" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 70%, transparent)"></rect>
+<text class="v" x="140" y="187">±1.1</text>
+</svg>
+<figcaption>Precision improves with the square root of the sample, so the fourth hundred buys much less than the first.</figcaption>
+</figure>
+<p>A hundred hand-labelled examples pins the agreement rate to about <strong>±7 points</strong>. That is enough to know the grader is roughly sane, and not enough to tell an 85% grader from an 80% one — for that you need around 400.</p>
+<p>Worth knowing before someone reports that a prompt change improved agreement from 82% to 86% on a sample of fifty.</p>
+<h2 id="the-two-failures-that-quietly-invalidate-everything"><a class="heading-anchor" href="#the-two-failures-that-quietly-invalidate-everything">The two failures that quietly invalidate everything</a></h2>
+<p><strong>Contamination.</strong> If the test data was in the training data, the score measures memorisation. This is not a hypothetical for public benchmarks — they are on the web, and the web is the training set. A model can score well on a benchmark and fail on the same task phrased slightly differently, which is exactly the signature.</p>
+<p>The defence is a private evaluation set drawn from your own data that has never been published.</p>
+<p><strong>Drift.</strong> The model behind an API changes. Your prompts change. Retrieved documents change as the corpus grows. An evaluation run once at launch describes a system that no longer exists.</p>
+<p>The defence is running the same set on a schedule and keeping the history, so a regression shows up as a step down in a chart rather than as a support ticket.</p>
+<h2 id="what-a-working-setup-looks-like"><a class="heading-anchor" href="#what-a-working-setup-looks-like">What a working setup looks like</a></h2>
+<p>A small evaluation set built from <strong>real cases</strong>, including the awkward ones — the ambiguous questions, the adversarial inputs, the rare-but-costly scenarios. A hundred well-chosen examples from your actual traffic are worth more than any public benchmark, because they are the distribution you serve.</p>
+<p>Everything graded automatically, re-run on every change, with the results kept over time.</p>
+<p>A human sample large enough to have validated the grader once, then re-checked occasionally.</p>
+<p>And latency and cost tracked alongside quality, because a change that improves scores while doubling response time is not obviously an improvement, and nothing in a quality metric will tell you.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Open-ended output has no expected value, so evaluation is measurement, not a correctness check.</li>
+<li>Four families: reference formulas, benchmarks, people, and a model as grader.</li>
+<li>People cost about 200× a model grader and take person-months rather than minutes.</li>
+<li>So grade everything automatically and spend the human budget validating the grader.</li>
+<li>100 hand-labelled examples pin agreement to ±7 points; distinguishing 85% from 80% needs about 400.</li>
+<li>Contamination makes benchmark scores measure memorisation; a private set from your own data is the defence.</li>
+<li>Drift makes any one-off evaluation stale; re-run on a schedule and keep the history.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"LLM evaluation"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T19:40","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"There is no formula for whether an answer was any good, so evaluation becomes a choice about what to trade away. The costs differ by two orders of magnitude, which is what decides the shape of a real setup."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/llm-evaluation.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"omFryDr7P9BnBwojtILD7"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/llm-as-a-judge/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LLM as a judge"}]]}],["$","$L2",null,{"href":"/blog/ai-agent-evaluation/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"AI agent evaluation"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"four-ways-to-measure","text":"Four ways to measure","level":2},{"id":"the-numbers-that-decide-the-design","text":"The numbers that decide the design","level":2},{"id":"how-big-a-sample","text":"How big a sample","level":2},{"id":"the-two-failures-that-quietly-invalidate-everything","text":"The two failures that quietly invalidate everything","level":2},{"id":"what-a-working-setup-looks-like","text":"What a working setup looks like","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

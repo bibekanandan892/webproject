@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="LLM as a judge: two candidate answers presented to a judging model, which returns a score.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8B98A9"/></marker>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="112" width="190" height="60" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.18)" stroke-width="2"/>
+<text x="155" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9" text-anchor="middle">answer A</text>
+<rect x="60" y="222" width="190" height="60" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.18)" stroke-width="2"/>
+<text x="155" y="260" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9" text-anchor="middle">answer B</text>
+<path d="M250 148 L322 182" stroke="#8B98A9" stroke-opacity="0.6" stroke-width="2.5" marker-end="url(#a)"/>
+<path d="M250 246 L322 212" stroke="#8B98A9" stroke-opacity="0.6" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="336" y="160" width="200" height="74" rx="10" fill="#64FFDA" fill-opacity="0.28" stroke="#64FFDA" stroke-width="2.5"/>
+<text x="436" y="205" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#64FFDA" text-anchor="middle" font-weight="600">judge</text>
+<path d="M536 197 H610" stroke="#8B98A9" stroke-opacity="0.6" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="624" y="160" width="116" height="74" rx="10" fill="#141C30" stroke="#64FFDA" stroke-opacity="0.5" stroke-width="2"/>
+<text x="682" y="207" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26" fill="#64FFDA" text-anchor="middle">4 / 5</text>
+<text x="60" y="348" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">run it both ways round</text>
+<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">llm as a judge</text>
+</svg>
