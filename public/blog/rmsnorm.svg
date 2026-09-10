@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="RMSNorm: a spread of values before normalisation and the same values afterwards, pulled to a consistent magnitude around an unchanged centre.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 210 H340" stroke="rgba(230,237,243,0.09)" stroke-width="1.5"/>
+<rect x="72" y="120" width="34" height="90" rx="4" fill="#64FFDA" fill-opacity="0.14" stroke="rgba(230,237,243,0.12)"/>
+<rect x="118" y="210" width="34" height="34" rx="4" fill="#64FFDA" fill-opacity="0.14" stroke="rgba(230,237,243,0.12)"/>
+<rect x="164" y="70" width="34" height="140" rx="4" fill="#64FFDA" fill-opacity="0.14" stroke="rgba(230,237,243,0.12)"/>
+<rect x="210" y="42" width="34" height="168" rx="4" fill="#64FFDA" fill-opacity="0.14" stroke="rgba(230,237,243,0.12)"/>
+<rect x="256" y="210" width="34" height="62" rx="4" fill="#64FFDA" fill-opacity="0.14" stroke="rgba(230,237,243,0.12)"/>
+<rect x="302" y="196" width="34" height="14" rx="4" fill="#64FFDA" fill-opacity="0.14" stroke="rgba(230,237,243,0.12)"/>
+<text x="60" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">drifting</text>
+<path d="M368 210 L420 210" stroke="#8B98A9" stroke-width="2"/>
+<path d="M420 203 L434 210 L420 217 z" fill="#8B98A9"/>
+<path d="M460 210 H740" stroke="rgba(230,237,243,0.09)" stroke-width="1.5"/>
+<rect x="472" y="166" width="34" height="44" rx="4" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="1.5"/>
+<rect x="518" y="210" width="34" height="16" rx="4" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="1.5"/>
+<rect x="564" y="140" width="34" height="70" rx="4" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="1.5"/>
+<rect x="610" y="112" width="34" height="98" rx="4" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="1.5"/>
+<rect x="656" y="210" width="34" height="30" rx="4" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="1.5"/>
+<rect x="702" y="206" width="34" height="4" rx="2" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="1.5"/>
+<text x="460" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA">rms = 1</text>
+<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">rmsnorm</text>
+</svg>
