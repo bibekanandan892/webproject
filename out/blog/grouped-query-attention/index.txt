@@ -1,0 +1,151 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/0fgie0keq4156.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","grouped-query-attention",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","grouped-query-attention","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0fgie0keq4156.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0fgie0keq4156.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"uYWHAoZ6Y_L64mGuEbpcn"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+:HL["/blog/grouped-query-attention.svg","image"]
+11:T4129,<p>Attention normally runs several heads side by side, and each head has its own queries, keys and values. Grouped query attention keeps the separate queries but has heads share keys and values in groups.</p>
+<p>That one change is aimed at a single number: how much memory a model needs while it is generating.</p>
+<h2 id="why-the-cache-grows"><a class="heading-anchor" href="#why-the-cache-grows">Why the cache grows</a></h2>
+<p>A model generates one token at a time, and each new token attends to everything before it. Rather than recompute the keys and values of all the earlier tokens at every step, they are worked out once and kept. That store is the KV cache.</p>
+<p>It grows with the sequence, and it is multiplied by the number of heads, because every head has its own keys and values to keep.</p>
+<p>Take a model with 8 heads, a head dimension of 128, and 32 layers, holding 8,000 tokens in fp16. Every token adds a key and a value per head per layer:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn><mo>×</mo><mn>32</mn><mtext> layers</mtext><mo>×</mo><mn>8</mn><mtext> heads</mtext><mo>×</mo><mn>128</mn><mo>×</mo><mn>2</mn><mtext> bytes</mtext><mo>=</mo><mn>128</mn><mtext> KiB per token</mtext></mrow><annotation encoding="application/x-tex">2 \times 32 \text{ layers} \times 8 \text{ heads} \times 128 \times 2\text{ bytes} = 128 \text{ KiB per token}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">32</span><span class="mord text"><span class="mord"> layers</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord">8</span><span class="mord text"><span class="mord"> heads</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">2</span><span class="mord text"><span class="mord"> bytes</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">128</span><span class="mord text"><span class="mord"> KiB per token</span></span></span></span></span></span>
+<p>Over 8,000 tokens that is just under a gigabyte, for one conversation. Serving many at once, the cache — not the weights — is what fills the GPU.</p>
+<h2 id="two-ways-to-shrink-it"><a class="heading-anchor" href="#two-ways-to-shrink-it">Two ways to shrink it</a></h2>
+<p>The heads are the multiplier, so the saving has to come from there.</p>
+<p>The blunt version is to keep one set of keys and values for the whole layer and let every head share it. Each head still has its own queries, so it still asks its own question, but every head now looks at the same evidence. This is <strong>multi-query attention</strong>, and with 8 heads it cuts the cache eight-fold.</p>
+<p>It also costs quality. What made the heads different was partly that they built different keys and values — different views of what each token offers. Collapse those into one and the heads lose much of their independence.</p>
+<p><strong>Grouped query attention</strong> is the version in between. Split the heads into groups, and give each group its own keys and values.</p>
+<figure>
+<svg viewBox="0 0 660 180" width="660" role="img" aria-label="Three panels comparing attention schemes. In multi-head attention eight query heads each connect to their own key-value set. In grouped query attention the eight heads are split into two groups of four, each group sharing one key-value set. In multi-query attention all eight heads share a single key-value set." xmlns="http://www.w3.org/2000/svg">
+<style>.pt{font:600 12px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.06em}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.n{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}</style>
+<text class="pt" x="110" y="18" text-anchor="middle">MHA</text>
+<rect x="24" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="46" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="68" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="90" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="112" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="134" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="156" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="178" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<path d="M33 58 V96 M55 58 V96 M77 58 V96 M99 58 V96 M121 58 V96 M143 58 V96 M165 58 V96 M187 58 V96" stroke="color-mix(in srgb, var(--primary) 40%, transparent)" stroke-width="1.3"></path>
+<rect x="24" y="96" width="18" height="28" rx="3" fill="color-mix(in srgb, var(--primary) 10%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<rect x="46" y="96" width="18" height="28" rx="3" fill="color-mix(in srgb, var(--primary) 10%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<rect x="68" y="96" width="18" height="28" rx="3" fill="color-mix(in srgb, var(--primary) 10%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<rect x="90" y="96" width="18" height="28" rx="3" fill="color-mix(in srgb, var(--primary) 10%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<rect x="112" y="96" width="18" height="28" rx="3" fill="color-mix(in srgb, var(--primary) 10%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<rect x="134" y="96" width="18" height="28" rx="3" fill="color-mix(in srgb, var(--primary) 10%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<rect x="156" y="96" width="18" height="28" rx="3" fill="color-mix(in srgb, var(--primary) 10%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<rect x="178" y="96" width="18" height="28" rx="3" fill="color-mix(in srgb, var(--primary) 10%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<text class="l" x="110" y="142" text-anchor="middle">8 kv sets</text>
+<text class="n" x="110" y="162" text-anchor="middle">1,000 MiB</text>
+<text class="pt" x="330" y="18" text-anchor="middle">GQA</text>
+<rect x="244" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="266" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="288" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="310" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="332" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="354" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="376" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="398" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<path d="M253 58 L286 96 M275 58 L286 96 M297 58 L286 96 M319 58 L286 96 M341 58 L374 96 M363 58 L374 96 M385 58 L374 96 M407 58 L374 96" stroke="color-mix(in srgb, var(--primary) 40%, transparent)" stroke-width="1.3"></path>
+<rect x="244" y="96" width="84" height="28" rx="4" fill="color-mix(in srgb, var(--primary) 14%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="332" y="96" width="84" height="28" rx="4" fill="color-mix(in srgb, var(--primary) 14%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<text class="l" x="330" y="142" text-anchor="middle">2 kv sets</text>
+<text class="n" x="330" y="162" text-anchor="middle">250 MiB</text>
+<text class="pt" x="550" y="18" text-anchor="middle">MQA</text>
+<rect x="464" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="486" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="508" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="530" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="552" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="574" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="596" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<rect x="618" y="34" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="color-mix(in srgb, var(--primary) 45%, transparent)"></rect>
+<path d="M473 58 L550 96 M495 58 L550 96 M517 58 L550 96 M539 58 L550 96 M561 58 L550 96 M583 58 L550 96 M605 58 L550 96 M627 58 L550 96" stroke="color-mix(in srgb, var(--primary) 40%, transparent)" stroke-width="1.3"></path>
+<rect x="464" y="96" width="172" height="28" rx="4" fill="color-mix(in srgb, var(--primary) 14%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<text class="l" x="550" y="142" text-anchor="middle">1 kv set</text>
+<text class="n" x="550" y="162" text-anchor="middle">125 MiB</text>
+</svg>
+<figcaption>Same eight query heads throughout. Only the number of key-value sets below them changes.</figcaption>
+</figure>
+<p>The queries stay separate in all three. That matters, because the query is what decides what a head goes looking for — it is where most of a head's individuality lives. Sharing the keys and values costs less than sharing the queries would.</p>
+<h2 id="it-is-one-dial-not-three-designs"><a class="heading-anchor" href="#it-is-one-dial-not-three-designs">It is one dial, not three designs</a></h2>
+<p>Grouped query attention is not a third scheme sitting between two others. It is the general case, and the other two are its endpoints.</p>
+<p>Set the number of groups equal to the number of heads and every head gets its own keys and values — that is ordinary multi-head attention. Set it to 1 and every head shares one set — that is multi-query attention. Anything between is what gets called GQA.</p>
+<p>In code the dial usually appears as two numbers, <code>num_attention_heads</code> and <code>num_key_value_heads</code>, and the group size is just one divided by the other. A model with 32 query heads and 8 key-value heads runs 8 groups of 4.</p>
+<h2 id="what-it-saves"><a class="heading-anchor" href="#what-it-saves">What it saves</a></h2>
+<p>Same model as before — 8 heads, head dimension 128, 32 layers, 8,000 tokens, fp16:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>kv sets</th><th>per token</th><th>at 8,000 tokens</th><th>vs MHA</th></tr></thead><tbody><tr><td>multi-head</td><td>8</td><td>128 KiB</td><td>1,000 MiB</td><td>—</td></tr><tr><td><strong>grouped, 2 groups</strong></td><td><strong>2</strong></td><td><strong>32 KiB</strong></td><td><strong>250 MiB</strong></td><td><strong>4× smaller</strong></td></tr><tr><td>multi-query</td><td>1</td><td>16 KiB</td><td>125 MiB</td><td>8× smaller</td></tr></tbody></table>
+<p>The saving is exactly the group size. Four heads per group, four times less cache. Nothing subtler is going on.</p>
+<p>What that buys is not really speed at the arithmetic — it is room. A smaller cache means longer contexts fit, and more conversations fit on one GPU at the same time. Generation is limited by moving memory around rather than by multiplying numbers, so a cache a quarter of the size is also read a quarter as fast.</p>
+<h2 id="converting-a-model-that-already-exists"><a class="heading-anchor" href="#converting-a-model-that-already-exists">Converting a model that already exists</a></h2>
+<p>A model trained with full multi-head attention can be moved to grouped attention without starting again.</p>
+<p>Take the heads destined for one group and average their key projection matrices into a single one. Do the same for the values. The model now has one key-value set per group, built out of what its heads already learned, and a short period of further training recovers most of what the averaging blurred.</p>
+<p>That is cheap next to the original training run, which is a large part of why the technique spread quickly — existing models could adopt it rather than waiting for the next generation.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>The KV cache is multiplied by the number of attention heads, and it is what fills memory during generation.</li>
+<li>Multi-query attention gives every head one shared set of keys and values — smallest cache, some quality lost.</li>
+<li>Grouped query attention splits heads into groups and gives each group its own set.</li>
+<li>Queries always stay separate, because that is where most of a head's individuality sits.</li>
+<li>Groups equal to heads is multi-head attention; one group is multi-query; it is a single dial.</li>
+<li>The cache shrinks by exactly the group size, which buys longer contexts and more concurrent users.</li>
+<li>An existing multi-head model can be converted by averaging key and value matrices within each group and briefly training on.</li>
+</ul>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Grouped query attention"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T10:00","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Every attention head keeping its own keys and values makes the cache enormous. Grouped query attention has heads share them in small groups, cutting the memory by the size of the group."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/grouped-query-attention.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Grouped query attention · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Every attention head keeping its own keys and values makes the cache enormous. Grouped query attention has heads share them in small groups, cutting the memory by the size of the group."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"attention,gqa,kv-cache,inference,memory"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/grouped-query-attention/"}],["$","meta","6",{"property":"og:title","content":"Grouped query attention"}],["$","meta","7",{"property":"og:description","content":"Every attention head keeping its own keys and values makes the cache enormous. Grouped query attention has heads share them in small groups, cutting the memory by the size of the group."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/grouped-query-attention/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-10T10:00"}],["$","meta","11",{"property":"article:tag","content":"attention"}],["$","meta","12",{"property":"article:tag","content":"gqa"}],["$","meta","13",{"property":"article:tag","content":"kv-cache"}],["$","meta","14",{"property":"article:tag","content":"inference"}],["$","meta","15",{"property":"article:tag","content":"memory"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Grouped query attention"}],["$","meta","18",{"name":"twitter:description","content":"Every attention head keeping its own keys and values makes the cache enormous. Grouped query attention has heads share them in small groups, cutting the memory by the size of the group."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/math-behind-cross-entropy-loss/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"The math behind cross-entropy loss"}]]}],["$","$Lf",null,{"href":"/blog/math-behind-rope/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"The math behind RoPE"}]]}]]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"why-the-cache-grows","text":"Why the cache grows","level":2},{"id":"two-ways-to-shrink-it","text":"Two ways to shrink it","level":2},{"id":"it-is-one-dial-not-three-designs","text":"It is one dial, not three designs","level":2},{"id":"what-it-saves","text":"What it saves","level":2},{"id":"converting-a-model-that-already-exists","text":"Converting a model that already exists","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]

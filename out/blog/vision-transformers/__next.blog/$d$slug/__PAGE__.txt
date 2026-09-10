@@ -1,0 +1,141 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/vision-transformers.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2ff5,<p>A vision transformer feeds an image through the same machinery a language model uses for text. Almost all of the work is in the conversion: turning a picture into something shaped like a sentence.</p>
+<h2 id="cutting-the-image-into-patches"><a class="heading-anchor" href="#cutting-the-image-into-patches">Cutting the image into patches</a></h2>
+<p>The image is chopped into a grid of small squares. They do not overlap, and nothing is thrown away.</p>
+<p>ViT-Base takes a 224×224 image and cuts it into 16×16 squares. Since 224 ÷ 16 = 14, the grid is 14 across and 14 down, which is 196 patches.</p>
+<p>From here on, a patch plays the part a word plays in a sentence.</p>
+<h2 id="turning-a-patch-into-a-vector"><a class="heading-anchor" href="#turning-a-patch-into-a-vector">Turning a patch into a vector</a></h2>
+<p>A patch is still raw pixels, and a transformer cannot read pixels.</p>
+<p>A 16×16 patch of a colour image holds 16 × 16 × 3 = 768 numbers — three channels for red, green and blue. Those numbers are laid out flat into a single list.</p>
+<p>One learned matrix then multiplies that list into a vector of the model's working width. The same matrix is used for every patch, so it learns one general way to read a square of image. After it runs, 196 patches have become 196 vectors.</p>
+<h2 id="the-token-that-carries-the-answer"><a class="heading-anchor" href="#the-token-that-carries-the-answer">The token that carries the answer</a></h2>
+<p>Nothing so far stands for the whole image. There are only pieces of it.</p>
+<p>So one extra vector is put at the front of the sequence. It does not come from the image at all — it is learned during training, and every image starts with the same one. It is usually called the class token.</p>
+<figure>
+<svg viewBox="0 0 700 200" width="700" role="img" aria-label="A grid of image patches on the left becomes a row of tokens on the right. The row starts with a highlighted class token, followed by patch one, patch two and so on to patch 196, and a position vector is added to each." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.t{font:600 12px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<defs><marker id="vt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<text class="hd" x="20" y="18">ONE IMAGE → 197 TOKENS</text>
+<rect x="20" y="46" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="46" y="46" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="72" y="46" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="98" y="46" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="20" y="72" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="46" y="72" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="72" y="72" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="98" y="72" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="20" y="98" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="46" y="98" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="72" y="98" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="98" y="98" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="20" y="124" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="46" y="124" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="72" y="124" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<rect x="98" y="124" width="24" height="24" rx="2" fill="color-mix(in srgb, var(--primary) 16%, transparent)" stroke="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<text class="l" x="71" y="168" text-anchor="middle">196 patches</text>
+<text class="l" x="174" y="82" text-anchor="middle">flatten</text>
+<path d="M134 97 H206" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.5" marker-end="url(#vt)"></path>
+<text class="l" x="174" y="116" text-anchor="middle">+ project</text>
+<rect x="230" y="74" width="48" height="48" rx="6" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="color-mix(in srgb, var(--primary) 62%, transparent)"></rect>
+<text class="t" x="254" y="103" text-anchor="middle">cls</text>
+<rect x="288" y="74" width="48" height="48" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<text class="t" x="312" y="103" text-anchor="middle">p1</text>
+<rect x="346" y="74" width="48" height="48" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<text class="t" x="370" y="103" text-anchor="middle">p2</text>
+<rect x="404" y="74" width="48" height="48" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<text class="t" x="428" y="103" text-anchor="middle">p3</text>
+<text class="l" x="486" y="103" text-anchor="middle">· · ·</text>
+<rect x="520" y="74" width="48" height="48" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<text class="t" x="544" y="103" text-anchor="middle">p195</text>
+<rect x="578" y="74" width="48" height="48" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 34%, transparent)"></rect>
+<text class="t" x="602" y="103" text-anchor="middle">p196</text>
+<text class="l" x="428" y="146" text-anchor="middle">one learned position vector added to each</text>
+</svg>
+<figcaption>The grid becomes a sequence. The class token is prepended, not taken from the image.</figcaption>
+</figure>
+<p>Because attention lets it read every patch, by the end of the stack that one token has collected a summary of the whole picture. It is the vector the prediction gets read from.</p>
+<p>The sequence is therefore 197 tokens: the class token plus 196 patches.</p>
+<h2 id="telling-the-model-where-each-patch-was"><a class="heading-anchor" href="#telling-the-model-where-each-patch-was">Telling the model where each patch was</a></h2>
+<p>Flattening a grid into a list throws the layout away. A patch from the top-left corner and one from the bottom-right arrive looking equally positionless.</p>
+<p>So a position vector is added to every token — one learned vector per slot in the sequence, added element by element to what is already there.</p>
+<p>Without it, an image and a shuffled version of the same image would look identical to the model.</p>
+<h2 id="through-the-encoder"><a class="heading-anchor" href="#through-the-encoder">Through the encoder</a></h2>
+<p>Nothing exotic happens next. The 197 tokens go through an ordinary transformer encoder: multi-head self-attention, a feed-forward network, normalisation and residual connections, repeated for every layer. ViT-Base uses 12 of them.</p>
+<p>Out come 197 vectors, the same shape as went in, each now carrying context from the rest.</p>
+<p>The class token is then pulled out on its own and passed through a single linear layer that maps it to one score per class. Softmax turns those scores into probabilities, and the highest one is the answer.</p>
+<h2 id="choosing-the-patch-size"><a class="heading-anchor" href="#choosing-the-patch-size">Choosing the patch size</a></h2>
+<p>Patch size is the dial that changes everything downstream, because it sets how long the sequence is — and attention work grows with the square of that.</p>
+<p>On the same 224×224 image:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>patch</th><th>grid</th><th>patches</th><th>tokens</th><th>numbers per patch</th><th>attention pairs</th><th>vs 16×16</th></tr></thead><tbody><tr><td>8×8</td><td>28×28</td><td>784</td><td>785</td><td>192</td><td>616,225</td><td>15.9×</td></tr><tr><td><strong>16×16</strong></td><td><strong>14×14</strong></td><td><strong>196</strong></td><td><strong>197</strong></td><td><strong>768</strong></td><td><strong>38,809</strong></td><td><strong>1×</strong></td></tr><tr><td>32×32</td><td>7×7</td><td>49</td><td>50</td><td>3,072</td><td>2,500</td><td>0.06×</td></tr></tbody></table>
+<p>Halving the patch size quadruples the patch count, and squaring that is where the cost lands: 8×8 patches take about sixteen times the attention work of 16×16.</p>
+<p>Going the other way is sixteen times cheaper, but a 32-pixel block is coarse. Anything finer than that has been averaged away before the transformer ever sees it.</p>
+<p>For a 224-pixel image, 16×16 is where the trade settles.</p>
+<h2 id="why-it-needs-so-much-data"><a class="heading-anchor" href="#why-it-needs-so-much-data">Why it needs so much data</a></h2>
+<p>A convolution has an assumption built into it: pixels near each other are related. That happens to be true of images, so a CNN starts out already knowing something useful.</p>
+<p>A vision transformer knows no such thing. Attention treats every patch as equally related to every other one from the very first layer. That is more flexible, and it is also a far larger space to search — the model has to work out from examples that neighbouring patches matter.</p>
+<p>The result is a crossover. On a mid-sized dataset the CNN's built-in assumption wins, because the transformer spends its capacity relearning something the CNN was given for free. On a very large one the transformer pulls ahead, because the assumption it was never given turns out to be a limit the CNN cannot shed.</p>
+<p>Flexibility only pays once there is enough data to pay for it.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>A vision transformer cuts an image into a grid of patches and treats each patch as a token.</li>
+<li>Every patch is flattened into a list of pixel values and projected by one shared learned matrix.</li>
+<li>An extra learned token is placed at the front; it ends up holding the summary the prediction is read from.</li>
+<li>Position vectors are added, because flattening the grid into a list loses the layout.</li>
+<li>The sequence then runs through an ordinary transformer encoder.</li>
+<li>Patch size sets the sequence length, and attention cost grows with the square of it.</li>
+<li>With modest data a CNN's built-in assumptions win; with enough data the transformer's flexibility does.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Vision transformers"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T09:00","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A vision transformer runs an image through the same machinery a language model runs text through. Almost all of the work is in turning a picture into something shaped like a sentence."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/vision-transformers.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"uYWHAoZ6Y_L64mGuEbpcn"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/feed-forward-networks-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Feed-forward networks in LLMs"}]]}],["$","$L2",null,{"href":"/blog/math-behind-gradient-descent/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"The math behind gradient descent"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"cutting-the-image-into-patches","text":"Cutting the image into patches","level":2},{"id":"turning-a-patch-into-a-vector","text":"Turning a patch into a vector","level":2},{"id":"the-token-that-carries-the-answer","text":"The token that carries the answer","level":2},{"id":"telling-the-model-where-each-patch-was","text":"Telling the model where each patch was","level":2},{"id":"through-the-encoder","text":"Through the encoder","level":2},{"id":"choosing-the-patch-size","text":"Choosing the patch size","level":2},{"id":"why-it-needs-so-much-data","text":"Why it needs so much data","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
