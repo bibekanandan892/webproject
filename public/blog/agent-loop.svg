@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="The agent loop: a growing stack of turns, each one re-sending everything before it.">
+<defs>
+  <radialGradient id="glow" cx="40%" cy="14%" r="82%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="60" y="96" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">each turn re-sends everything before it</text>
+<rect x="60" y="118" width="110" height="34" rx="5" fill="#64FFDA" fill-opacity="0.5"/>
+<rect x="60" y="160" width="230" height="34" rx="5" fill="#64FFDA" fill-opacity="0.42"/>
+<rect x="60" y="202" width="350" height="34" rx="5" fill="#64FFDA" fill-opacity="0.34"/>
+<rect x="60" y="244" width="470" height="34" rx="5" fill="#64FFDA" fill-opacity="0.26"/>
+<rect x="60" y="286" width="590" height="34" rx="5" fill="#64FFDA" fill-opacity="0.18"/>
+<rect x="60" y="328" width="700" height="34" rx="5" fill="#64FFDA" fill-opacity="0.1"/>
+<text x="184" y="141" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9">turn 1</text>
+<text x="424" y="225" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9">turn 3</text>
+<text x="664" y="309" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9">turn 5</text>
+<text x="52" y="414" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">the agent loop</text>
+</svg>
