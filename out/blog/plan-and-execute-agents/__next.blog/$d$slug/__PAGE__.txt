@@ -1,0 +1,147 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/plan-and-execute-agents.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T229b,<p>Some agents decide what to do next after every result. A plan-and-execute agent decides everything up front: it writes a numbered plan, then works down it.</p>
+<p>Reconsidering only happens when something comes back other than what the plan assumed.</p>
+<h2 id="the-parts"><a class="heading-anchor" href="#the-parts">The parts</a></h2>
+<p>A <strong>planner</strong> reads the task and produces the steps. This is the expensive call and the one that determines whether anything else works.</p>
+<p>An <strong>executor</strong> runs the steps one at a time. Each step is narrow — call this tool with these inputs — so this is usually a smaller, cheaper model than the planner.</p>
+<p><strong>Tools</strong>, <strong>memory</strong> holding the task and the plan and everything produced so far, and a <strong>re-planner</strong> that looks at what actually happened and decides whether the remaining plan still makes sense.</p>
+<p>The re-planner is technically optional and practically essential. Without it the agent will follow a plan that stopped being correct three steps ago.</p>
+<h2 id="the-shape"><a class="heading-anchor" href="#the-shape">The shape</a></h2>
+<figure>
+<svg viewBox="0 0 600 240" width="600" role="img" aria-label="A plan of four numbered steps on the left, feeding an execution column on the right where steps are carried out in order, with a dashed arrow returning from execution to the plan to rewrite the remaining steps." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.p{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<defs><marker id="pe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<text class="hd" x="30" y="24">PLAN ONCE, THEN WORK DOWN IT</text>
+<rect x="30" y="40" width="200" height="140" rx="8" fill="color-mix(in srgb, var(--primary) 18%, transparent)" stroke="color-mix(in srgb, var(--primary) 48%, transparent)"></rect>
+<text class="p" x="48" y="68">1 · read the lockfile</text>
+<text class="p" x="48" y="96">2 · look up advisories</text>
+<text class="p" x="48" y="124">3 · find fixed versions</text>
+<text class="p" x="48" y="152">4 · write the table</text>
+<rect x="300" y="40" width="180" height="28" rx="5" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="p" x="316" y="59">step 1 · done</text>
+<rect x="300" y="76" width="180" height="28" rx="5" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="p" x="316" y="95">step 2 · done</text>
+<rect x="300" y="112" width="180" height="28" rx="5" fill="color-mix(in srgb, var(--muted-foreground) 12%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 30%, transparent)"></rect>
+<text class="l" x="316" y="131">step 3 · running</text>
+<rect x="300" y="148" width="180" height="28" rx="5" fill="color-mix(in srgb, var(--muted-foreground) 8%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 22%, transparent)"></rect>
+<text class="l" x="316" y="167">step 4</text>
+<path d="M232 110 H294" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.5" marker-end="url(#pe)"></path>
+<path d="M390 182 V206 H130 V186" fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#pe)"></path>
+<text class="l" x="260" y="224" text-anchor="middle">only when something surprises it</text>
+</svg>
+<figcaption>The plan is written once. The dashed path is the exception, not the loop.</figcaption>
+</figure>
+<h2 id="one-running"><a class="heading-anchor" href="#one-running">One running</a></h2>
+<p><em>List every dependency with a known vulnerability, and the version that fixes it.</em></p>
+<p>The planner writes four steps: read the lockfile, look up advisories for each package, find the fixed version for anything that matches, and write the table.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>step</th><th>what happened</th></tr></thead><tbody><tr><td>1</td><td>read the lockfile — 214 packages. Also found a <strong>second</strong> lockfile in another workspace</td></tr><tr><td>—</td><td><strong>re-plan</strong>: the original plan assumed one lockfile. Steps rewritten to cover both</td></tr><tr><td>1b</td><td>read the second lockfile — 96 more packages, 310 in total</td></tr><tr><td>2</td><td>advisory lookup across all 310 — 4 matches</td></tr><tr><td>3</td><td>fixed versions found for 3; the fourth has no released fix</td></tr><tr><td>4</td><td>table written, with the unfixed one flagged</td></tr></tbody></table>
+<p>The re-plan is the interesting row. Nothing failed at step 1 — it ran, it returned a valid result, and it returned <em>more</em> than the plan expected. A planner that never revisits its plan would have finished confidently and reported on 214 of 310 packages, which is a wrong answer that looks exactly like a right one.</p>
+<p>Step 3 is worth noting too: it found no fix for one package and said so, rather than treating a missing result as an error.</p>
+<h2 id="against-deciding-step-by-step"><a class="heading-anchor" href="#against-deciding-step-by-step">Against deciding step by step</a></h2>
+<p>The alternative is to think again after every observation. The two are not ranked; they suit different tasks.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>one step at a time</th><th>plan first</th></tr></thead><tbody><tr><td>when it thinks</td><td>every turn</td><td>once, then on surprises</td></tr><tr><td>model calls</td><td>one per step, all on the big model</td><td>one big call plus cheap ones</td></tr><tr><td>adapting</td><td>immediate</td><td>only at a re-plan</td></tr><tr><td>long tasks</td><td>drifts, and costs grow with the transcript</td><td>steadier and cheaper</td></tr><tr><td>open-ended tasks</td><td>good</td><td>poor — the plan is guesswork</td></tr><tr><td>visibility</td><td>you see each thought as it happens</td><td>you see the whole intent up front</td></tr></tbody></table>
+<p>Planning first is cheaper because the expensive reasoning happens once. It is steadier because the goal is written down rather than reconstructed from a growing transcript at every turn.</p>
+<p>It fails when the path genuinely cannot be known in advance. If step two depends on what step one returns, a plan written before step one ran is a guess.</p>
+<p>There is also a real benefit that has nothing to do with the model: a plan is legible. You can read the four steps before any of them run, and stop it if they are wrong. An agent that decides as it goes only shows you the decision after it has acted on it.</p>
+<h2 id="what-goes-wrong"><a class="heading-anchor" href="#what-goes-wrong">What goes wrong</a></h2>
+<p><strong>The plan is bad.</strong> Everything downstream inherits it, and the executor will faithfully carry out a wrong plan. Give the planner the real tool list and demand concrete steps — a step reading "gather the relevant data" cannot be executed, only reinterpreted.</p>
+<p><strong>The executor drifts.</strong> It does something defensible that was not what the step meant. Steps should name the tool and the inputs, not describe an intention.</p>
+<p><strong>It never re-plans.</strong> A step returns something unexpected and the agent carries on regardless. This is the failure in the trace above, and it produces confident wrong answers rather than visible errors.</p>
+<p><strong>It over-plans.</strong> Thirty steps for a three-step job. Ask for the shortest plan that does the work.</p>
+<p><strong>It re-plans forever.</strong> Each rewrite produces a slightly different plan and no progress. Cap the re-plans, and stop when two consecutive rewrites come out substantially the same.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>The planner writes all the steps up front; the executor works down them.</li>
+<li>The executor can be a smaller model, because each step is narrow.</li>
+<li>A re-planner checks after each step whether the rest of the plan still holds.</li>
+<li>Re-planning matters most when a step <em>succeeds</em> but returns something the plan did not expect.</li>
+<li>Cheaper and steadier than re-deciding every turn, when the path is knowable.</li>
+<li>Useless when each step depends on what the last one returned.</li>
+<li>A written plan can be read and stopped before anything runs.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Plan-and-execute agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T13:20","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Instead of deciding one step at a time, the agent writes the whole plan first and then works through it. Cheaper and steadier when the path is knowable, and useless when it is not."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/plan-and-execute-agents.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"kJCOXyZ7fXVK2bqW5-aqZ"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/agentic-rag/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Agentic RAG"}]]}],["$","$L2",null,{"href":"/blog/graphrag/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"GraphRAG"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-parts","text":"The parts","level":2},{"id":"the-shape","text":"The shape","level":2},{"id":"one-running","text":"One running","level":2},{"id":"against-deciding-step-by-step","text":"Against deciding step by step","level":2},{"id":"what-goes-wrong","text":"What goes wrong","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

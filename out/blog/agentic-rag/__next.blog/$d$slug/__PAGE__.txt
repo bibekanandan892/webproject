@@ -1,0 +1,165 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/agentic-rag.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T28b1,<p>Ordinary retrieval-augmented generation is a straight line. Take the question, search for passages that look like it, hand those to the model, get an answer.</p>
+<p>It works when one search is enough. Agentic RAG is what you do when it is not: put an agent in charge of the searching, so the number of searches, the queries, and the sources are all decided as it goes.</p>
+<h2 id="where-one-search-runs-out"><a class="heading-anchor" href="#where-one-search-runs-out">Where one search runs out</a></h2>
+<p><strong>The answer is spread across two documents.</strong> Ask which supplier made the part that failed in a recall, and no single passage contains both the recall and the supplier. Searching for the question retrieves things that look like the question, which is not the same as things that answer it.</p>
+<p><strong>The question is vague.</strong> "What changed in the new policy?" matches almost everything and nothing. A fixed pipeline cannot narrow it; it just retrieves badly and proceeds.</p>
+<p><strong>The answer is not in the documents.</strong> Some questions want a number from a database, or something only on the web. One vector store is one kind of source.</p>
+<p><strong>The retrieval was poor and nothing noticed.</strong> This is the worst of the four. A fixed pipeline hands over whatever ranked highest, including when nothing relevant was found, and the model writes a confident answer on top of it.</p>
+<h2 id="what-changes"><a class="heading-anchor" href="#what-changes">What changes</a></h2>
+<figure>
+<svg viewBox="0 0 560 270" width="560" role="img" aria-label="Two flows compared. Standard RAG runs question to retrieve to answer in one pass. Agentic RAG puts an agent between the question and the answer, with the agent calling tools and reading results repeatedly before answering." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<text class="hd" x="30" y="24">STANDARD</text>
+<rect x="30" y="40" width="86" height="32" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="b" x="73" y="60" text-anchor="middle">question</text>
+<rect x="150" y="40" width="96" height="32" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="b" x="198" y="60" text-anchor="middle">retrieve</text>
+<rect x="280" y="40" width="86" height="32" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="b" x="323" y="60" text-anchor="middle">answer</text>
+<path d="M116 56 H144" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#ar)"></path>
+<path d="M246 56 H274" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#ar)"></path>
+<text class="l" x="400" y="60">one pass</text>
+<text class="hd" x="30" y="116">AGENTIC</text>
+<rect x="30" y="132" width="86" height="32" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="b" x="73" y="152" text-anchor="middle">question</text>
+<rect x="150" y="132" width="96" height="32" rx="6" fill="color-mix(in srgb, var(--primary) 24%, transparent)" stroke="color-mix(in srgb, var(--primary) 56%, transparent)"></rect>
+<text class="b" x="198" y="152" text-anchor="middle">agent</text>
+<rect x="150" y="196" width="96" height="32" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="b" x="198" y="216" text-anchor="middle">tools</text>
+<rect x="400" y="132" width="86" height="32" rx="6" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="b" x="443" y="152" text-anchor="middle">answer</text>
+<path d="M116 148 H144" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#ar)"></path>
+<path d="M246 148 H394" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#ar)"></path>
+<path d="M186 164 V190" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#ar)"></path>
+<path d="M210 190 V166" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.4" marker-end="url(#ar)"></path>
+<text class="l" x="262" y="204">search, read,</text>
+<text class="l" x="262" y="220">judge, repeat</text>
+<text class="l" x="400" y="116">when it is satisfied</text>
+</svg>
+<figcaption>The pipeline does not change shape. What changes is who decides how many times it runs.</figcaption>
+</figure>
+<p>The agent decides whether to retrieve at all, which source to use, what query to send, whether what came back is any good, and whether to go again. Standard RAG has none of those decisions in it.</p>
+<h2 id="one-running"><a class="heading-anchor" href="#one-running">One running</a></h2>
+<p><em>Which supplier made the component that failed in the March recall?</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>step</th><th>what it does</th><th>what comes back</th></tr></thead><tbody><tr><td>1</td><td>recognises two unknowns; starts with the recall — <code>sql_query</code> on the recall records</td><td>batch B-2291, failed part: pressure valve, revision C</td></tr><tr><td>2</td><td><code>vector_search("pressure valve supplier")</code></td><td>chunks about the valve — but revision B</td></tr><tr><td>3</td><td>judges these wrong and re-queries: <code>vector_search("pressure valve revision C supplier")</code></td><td>the revision C entry, supplier named</td></tr><tr><td>4</td><td>enough to answer</td><td>Halvern Industrial</td></tr></tbody></table>
+<p>Step 3 is the whole point.</p>
+<p>The retrieval at step 2 was not a failure in any way a pipeline could detect. It returned relevant-looking passages about the right component, ranked confidently. A fixed pipeline hands those straight to the model, which writes a fluent answer naming the wrong supplier — and nothing anywhere reports a problem.</p>
+<p>What caught it was the agent reading the chunks against a fact it had picked up at step 1: the revision is C, these say B. Then it rewrote the query with the revision pinned.</p>
+<p>That is the difference between retrieving and researching.</p>
+<h2 id="three-ways-it-usually-shows-up"><a class="heading-anchor" href="#three-ways-it-usually-shows-up">Three ways it usually shows up</a></h2>
+<p><strong>Think, act, observe.</strong> The general loop: reason about what is needed, search, read the result, decide whether to go again. This is what the trace above does.</p>
+<p><strong>Grading its own retrieval.</strong> Before answering, score the chunks on two questions — are they relevant, and do they actually support the answer being written? Low scores mean searching again or dropping the chunk rather than using it.</p>
+<p><strong>Falling back.</strong> When one source comes up empty, try a different kind. Vector search finds nothing, so go to the web; the web is unhelpful, so query the database. Robustness through having more than one place to look.</p>
+<p>These overlap in practice. A real system usually does all three.</p>
+<h2 id="what-it-costs"><a class="heading-anchor" href="#what-it-costs">What it costs</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>standard</th><th>agentic</th></tr></thead><tbody><tr><td>retrievals</td><td>one</td><td>as many as it decides</td></tr><tr><td>sources</td><td>usually one</td><td>several</td></tr><tr><td>query rewriting</td><td>no</td><td>yes</td></tr><tr><td>checks what it retrieved</td><td>no</td><td>yes</td></tr><tr><td>multi-hop questions</td><td>fails</td><td>handles</td></tr><tr><td>latency</td><td>one round</td><td>several</td></tr><tr><td>cost</td><td>one model call</td><td>one per step</td></tr><tr><td>same question, same path</td><td>yes</td><td>not guaranteed</td></tr></tbody></table>
+<p>The last row causes the most trouble in practice. Two runs of the same question can take different routes and produce differently-worded answers, which makes both testing and debugging harder than for a pipeline that always does the same thing.</p>
+<p>And the loop needs a way out. Stop when the agent says it has enough, when a confidence threshold is met, or when the step count runs out — but something has to stop it, or a question with no answer in the corpus becomes an expensive infinite search.</p>
+<h2 id="when-to-use-which"><a class="heading-anchor" href="#when-to-use-which">When to use which</a></h2>
+<p>Use the agent when questions genuinely need more than one lookup, when the answers live in several different kinds of store, when queries arrive vague, or when being right matters more than being fast.</p>
+<p>Use the straight pipeline when questions are direct, the data is in one place, and latency and cost matter. Most questions really are one search, and paying an agent to work that out each time is a bad trade.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>Standard RAG retrieves once and generates; agentic RAG lets an agent decide the retrieval.</li>
+<li>One search fails on multi-hop questions, vague queries, several sources, and bad results nothing checks.</li>
+<li>The agent chooses the source, writes the query, judges what came back, and decides whether to search again.</li>
+<li>Judging the result is the part that matters — plausible wrong chunks are invisible to a fixed pipeline.</li>
+<li>Common shapes: the think-act-observe loop, grading retrievals, and falling back to another source.</li>
+<li>It costs latency, tokens, and determinism.</li>
+<li>Something must stop the loop.</li>
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Agentic RAG"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T13:00","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Ordinary retrieval searches once and hopes the result was good. Agentic RAG puts an agent in charge of searching, so it can judge what came back, rewrite the query, and go again."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/agentic-rag.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"kJCOXyZ7fXVK2bqW5-aqZ"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/react-agents/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"ReAct agents"}]]}],["$","$L2",null,{"href":"/blog/plan-and-execute-agents/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Plan-and-execute agents"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"where-one-search-runs-out","text":"Where one search runs out","level":2},{"id":"what-changes","text":"What changes","level":2},{"id":"one-running","text":"One running","level":2},{"id":"three-ways-it-usually-shows-up","text":"Three ways it usually shows up","level":2},{"id":"what-it-costs","text":"What it costs","level":2},{"id":"when-to-use-which","text":"When to use which","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

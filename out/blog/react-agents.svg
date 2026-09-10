@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="ReAct agent: a transcript of alternating thought, action and observation entries stacked in order.">
+<defs>
+  <radialGradient id="glow" cx="30%" cy="14%" r="82%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="70" y="66" width="470" height="52" rx="8" fill="#64FFDA" fill-opacity="0.26" stroke="#64FFDA" stroke-width="2"/>
+<text x="92" y="99" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" font-weight="600">thought</text>
+<rect x="70" y="130" width="470" height="52" rx="8" fill="#64FFDA" fill-opacity="0.14" stroke="#64FFDA" stroke-opacity="0.55" stroke-width="2"/>
+<text x="92" y="163" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" fill-opacity="0.9">action</text>
+<rect x="70" y="194" width="470" height="52" rx="8" fill="#141C30" stroke="rgba(230,237,243,0.14)" stroke-width="2"/>
+<text x="92" y="227" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9">observation</text>
+<rect x="70" y="258" width="470" height="52" rx="8" fill="#64FFDA" fill-opacity="0.26" stroke="#64FFDA" stroke-width="2"/>
+<text x="92" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#64FFDA" font-weight="600">thought</text>
+<text x="92" y="340" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#8B98A9">· · ·</text>
+<path d="M566 66 h14 V310 h-14" fill="none" stroke="#64FFDA" stroke-opacity="0.45" stroke-width="2"/>
+<text x="598" y="180" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">re-sent</text>
+<text x="598" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">every step</text>
+<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">react agents</text>
+</svg>

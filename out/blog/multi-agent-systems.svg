@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Multi-agent system: one agent fans work out to three specialised agents running in parallel, which feed into a single reviewer.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8B98A9"/></marker>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="50" y="176" width="130" height="58" rx="9" fill="#64FFDA" fill-opacity="0.24" stroke="#64FFDA" stroke-width="2"/>
+<text x="115" y="212" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle" font-weight="600">split</text>
+<rect x="290" y="72" width="150" height="58" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2"/>
+<text x="365" y="108" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9" text-anchor="middle">worker</text>
+<rect x="290" y="176" width="150" height="58" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2"/>
+<text x="365" y="212" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9" text-anchor="middle">worker</text>
+<rect x="290" y="280" width="150" height="58" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2"/>
+<text x="365" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9" text-anchor="middle">worker</text>
+<rect x="560" y="176" width="180" height="58" rx="9" fill="#64FFDA" fill-opacity="0.24" stroke="#64FFDA" stroke-width="2"/>
+<text x="650" y="212" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle" font-weight="600">reviewer</text>
+<path d="M180 196 L282 106" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2" marker-end="url(#a)"/>
+<path d="M180 205 H282" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2" marker-end="url(#a)"/>
+<path d="M180 214 L282 304" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2" marker-end="url(#a)"/>
+<path d="M440 106 L552 196" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2" marker-end="url(#a)"/>
+<path d="M440 205 H552" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2" marker-end="url(#a)"/>
+<path d="M440 304 L552 214" stroke="#8B98A9" stroke-opacity="0.55" stroke-width="2" marker-end="url(#a)"/>
+<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">multi-agent systems</text>
+</svg>

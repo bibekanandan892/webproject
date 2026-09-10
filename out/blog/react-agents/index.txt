@@ -1,0 +1,153 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/17w3~ac2nlmc0.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","react-agents",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","react-agents","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/17w3~ac2nlmc0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/17w3~ac2nlmc0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"kJCOXyZ7fXVK2bqW5-aqZ"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+:HL["/blog/react-agents.svg","image"]
+11:T2c9f,<p>ReAct is short for reasoning and acting. It is a pattern for building an agent where every step follows the same three beats: a <strong>thought</strong> about what to do, an <strong>action</strong> taken, and an <strong>observation</strong> of what came back.</p>
+<p>The loop repeats those beats until the model decides it has enough to answer.</p>
+<h2 id="why-write-the-thought-down"><a class="heading-anchor" href="#why-write-the-thought-down">Why write the thought down</a></h2>
+<p>The actions and observations are obviously necessary. The thought is the part that looks optional, and it is not.</p>
+<p>It goes into the transcript. On the next step the model reads its own reasoning back, along with what the tool returned, and that is what keeps a sequence of calls coherent rather than each one being decided from scratch.</p>
+<p>It is also the only record of <em>why</em>. When an agent takes a strange action, the observation tells you what it got and the action tells you what it did — the thought is the only thing that tells you what it believed at the time. Debugging without it means guessing.</p>
+<h2 id="the-parts"><a class="heading-anchor" href="#the-parts">The parts</a></h2>
+<p>A model that decides what happens next. A <strong>system prompt</strong> that sets out the pattern, the tools, and the rules. <strong>Tools</strong>, each with a name, a description, and a schema. <strong>Memory</strong>, which here just means the running transcript. And a <strong>loop controller</strong> — ordinary code that calls the model, runs whatever tool it asked for, appends the result, and calls again.</p>
+<p>The tool descriptions deserve more care than they usually get. They are the entire basis on which the model chooses, so two tools described similarly will be picked between at random.</p>
+<h2 id="a-trace"><a class="heading-anchor" href="#a-trace">A trace</a></h2>
+<p>Three tools — <code>query_sales</code>, <code>calculate</code> — and the question: <em>did we ship more in Q3 than Q2, and by how much?</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>Thought</strong></td><td>I need both quarters' totals, and I do not know either.</td></tr><tr><td><strong>Action</strong></td><td><code>query_sales(quarter="Q2")</code></td></tr><tr><td><strong>Observation</strong></td><td>18,400 units</td></tr><tr><td><strong>Thought</strong></td><td>Now the other quarter.</td></tr><tr><td><strong>Action</strong></td><td><code>query_sales(quarter="Q3")</code></td></tr><tr><td><strong>Observation</strong></td><td>21,850 units</td></tr><tr><td><strong>Thought</strong></td><td>Higher. The percentage change needs computing, not estimating.</td></tr><tr><td><strong>Action</strong></td><td><code>calculate("(21850 - 18400) / 18400 * 100")</code></td></tr><tr><td><strong>Observation</strong></td><td>18.75</td></tr><tr><td><strong>Final answer</strong></td><td>Q3 shipped 21,850 against Q2's 18,400 — up 18.75%.</td></tr></tbody></table>
+<p>Two habits worth noticing.</p>
+<p>It fetched both numbers before doing anything with them, because the second query did not depend on the first result. And it used a calculator rather than doing the arithmetic itself, which is what a well-written system prompt asks for — a model producing a percentage from inside its own weights is guessing at a digit level.</p>
+<h2 id="what-the-transcript-looks-like"><a class="heading-anchor" href="#what-the-transcript-looks-like">What the transcript looks like</a></h2>
+<figure>
+<svg viewBox="0 0 560 300" width="560" role="img" aria-label="A vertical transcript of alternating thought, action and observation entries, with a bracket on the right indicating that the whole transcript is re-sent to the model at every step." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.t{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.o{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}.l{font:500 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="30" y="18">THE TRANSCRIPT IS THE MEMORY</text>
+<rect x="30" y="30" width="340" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 22%, transparent)" stroke="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="t" x="42" y="49">thought · need both quarter totals</text>
+<rect x="30" y="66" width="340" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="t" x="42" y="85">action · query_sales(Q2)</text>
+<rect x="30" y="102" width="340" height="30" rx="5" fill="color-mix(in srgb, var(--muted-foreground) 12%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 30%, transparent)"></rect>
+<text class="o" x="42" y="121">observation · 18,400</text>
+<rect x="30" y="138" width="340" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 22%, transparent)" stroke="color-mix(in srgb, var(--primary) 50%, transparent)"></rect>
+<text class="t" x="42" y="157">thought · now the other quarter</text>
+<rect x="30" y="174" width="340" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 12%, transparent)" stroke="color-mix(in srgb, var(--primary) 36%, transparent)"></rect>
+<text class="t" x="42" y="193">action · query_sales(Q3)</text>
+<rect x="30" y="210" width="340" height="30" rx="5" fill="color-mix(in srgb, var(--muted-foreground) 12%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 30%, transparent)"></rect>
+<text class="o" x="42" y="229">observation · 21,850</text>
+<text class="l" x="42" y="262">· · ·</text>
+<path d="M382 30 h8 V240 h-8" fill="none" stroke="color-mix(in srgb, var(--primary) 40%, transparent)" stroke-width="1.4"></path>
+<text class="l" x="402" y="118">all of it goes</text>
+<text class="l" x="402" y="134">back to the</text>
+<text class="l" x="402" y="150">model on the</text>
+<text class="l" x="402" y="166">next step</text>
+</svg>
+<figcaption>Nothing is summarised while the run is short. Each step reads everything the previous steps produced.</figcaption>
+</figure>
+<p>That is also the pattern's main cost. The transcript only grows, and every step re-sends all of it, so a twenty-step run pays for its early steps twenty times over.</p>
+<h2 id="the-loop"><a class="heading-anchor" href="#the-loop">The loop</a></h2>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="python" data-theme="github-dark-default"><code data-language="python" data-theme="github-dark-default" style="display: grid;"><span data-line=""><span style="color:#E6EDF3">messages </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> [</span><span style="color:#79C0FF">SYSTEM_PROMPT</span><span style="color:#E6EDF3">, question]</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#FF7B72">for</span><span style="color:#E6EDF3"> step </span><span style="color:#FF7B72">in</span><span style="color:#79C0FF"> range</span><span style="color:#E6EDF3">(</span><span style="color:#79C0FF">MAX_STEPS</span><span style="color:#E6EDF3">):</span></span>
+<span data-line=""><span style="color:#E6EDF3">    reply </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> model(messages, </span><span style="color:#FFA657">tools</span><span style="color:#FF7B72">=</span><span style="color:#79C0FF">TOOLS</span><span style="color:#E6EDF3">)</span></span>
+<span data-line=""><span style="color:#E6EDF3">    messages.append(reply)</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#FF7B72">    if</span><span style="color:#E6EDF3"> reply.final_answer:</span></span>
+<span data-line=""><span style="color:#FF7B72">        return</span><span style="color:#E6EDF3"> reply.final_answer</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#FF7B72">    for</span><span style="color:#E6EDF3"> call </span><span style="color:#FF7B72">in</span><span style="color:#E6EDF3"> reply.tool_calls:</span></span>
+<span data-line=""><span style="color:#FF7B72">        try</span><span style="color:#E6EDF3">:</span></span>
+<span data-line=""><span style="color:#E6EDF3">            observation </span><span style="color:#FF7B72">=</span><span style="color:#79C0FF"> TOOLS</span><span style="color:#E6EDF3">[call.name](</span><span style="color:#FF7B72">**</span><span style="color:#E6EDF3">call.arguments)</span></span>
+<span data-line=""><span style="color:#FF7B72">        except</span><span style="color:#79C0FF"> Exception</span><span style="color:#FF7B72"> as</span><span style="color:#E6EDF3"> err:</span></span>
+<span data-line=""><span style="color:#E6EDF3">            observation </span><span style="color:#FF7B72">=</span><span style="color:#FF7B72"> f</span><span style="color:#A5D6FF">"tool failed: </span><span style="color:#FF7B72">{</span><span style="color:#E6EDF3">err</span><span style="color:#FF7B72">}</span><span style="color:#A5D6FF">"</span></span>
+<span data-line=""><span style="color:#E6EDF3">        messages.append(observation)</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#FF7B72">raise</span><span style="color:#E6EDF3"> StepLimitReached()</span></span></code></pre></figure>
+<p>The <code>except</code> is the part people leave out. A tool that raises kills the run; a tool whose failure is handed back as an observation gives the model something to react to — and reacting to what came back is the entire pattern.</p>
+<h2 id="what-goes-wrong"><a class="heading-anchor" href="#what-goes-wrong">What goes wrong</a></h2>
+<p><strong>It loops.</strong> The same action with the same arguments, over and over. <code>MAX_STEPS</code> is the guaranteed exit; detecting a repeated action and injecting a nudge to try something else is the graceful one.</p>
+<p><strong>It picks the wrong tool.</strong> Almost always a description problem rather than a reasoning problem.</p>
+<p><strong>It invents a tool or malformed arguments.</strong> Validate before executing, and return the validation error as an observation.</p>
+<p><strong>It runs out of context.</strong> Inevitable on long runs, since the transcript only grows. Old observations get summarised or dropped, while the question and the recent steps stay intact.</p>
+<p><strong>It stops too early.</strong> It answers from two observations when it needed four. The fix is in the prompt: state what has to be true before answering, as something checkable.</p>
+<h2 id="the-short-version"><a class="heading-anchor" href="#the-short-version">The short version</a></h2>
+<ul>
+<li>ReAct runs thought, action, observation, repeatedly, until a final answer.</li>
+<li>The thought is written into the transcript, so the model reads its own reasoning back each step.</li>
+<li>It is also the only record of why an action was taken, which is what makes the run debuggable.</li>
+<li>Tool choice comes down to tool descriptions.</li>
+<li>The transcript is the memory, and it is re-sent whole on every step — which is the pattern's main cost.</li>
+<li>Tool failures should come back as observations, not exceptions.</li>
+<li>A step limit is the only guaranteed way out.</li>
+</ul>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"ReAct agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-10T12:40","children":"Sep 10, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"ReAct makes an agent write down its reasoning before every action. The thought is not decoration — it is what the model reads back on the next step, and it is the only place you can see why anything happened."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/react-agents.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"ReAct agents · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"ReAct makes an agent write down its reasoning before every action. The thought is not decoration — it is what the model reads back on the next step, and it is the only place you can see why anything happened."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"agents,react,reasoning,tools,trace"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/react-agents/"}],["$","meta","6",{"property":"og:title","content":"ReAct agents"}],["$","meta","7",{"property":"og:description","content":"ReAct makes an agent write down its reasoning before every action. The thought is not decoration — it is what the model reads back on the next step, and it is the only place you can see why anything happened."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/react-agents/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-10T12:40"}],["$","meta","11",{"property":"article:tag","content":"agents"}],["$","meta","12",{"property":"article:tag","content":"react"}],["$","meta","13",{"property":"article:tag","content":"reasoning"}],["$","meta","14",{"property":"article:tag","content":"tools"}],["$","meta","15",{"property":"article:tag","content":"trace"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"ReAct agents"}],["$","meta","18",{"name":"twitter:description","content":"ReAct makes an agent write down its reasoning before every action. The thought is not decoration — it is what the model reads back on the next step, and it is the only place you can see why anything happened."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/multi-agent-systems/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Multi-agent systems"}]]}],["$","$Lf",null,{"href":"/blog/agentic-rag/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Agentic RAG"}]]}]]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"why-write-the-thought-down","text":"Why write the thought down","level":2},{"id":"the-parts","text":"The parts","level":2},{"id":"a-trace","text":"A trace","level":2},{"id":"what-the-transcript-looks-like","text":"What the transcript looks like","level":2},{"id":"the-loop","text":"The loop","level":2},{"id":"what-goes-wrong","text":"What goes wrong","level":2},{"id":"the-short-version","text":"The short version","level":2}]}]}]
