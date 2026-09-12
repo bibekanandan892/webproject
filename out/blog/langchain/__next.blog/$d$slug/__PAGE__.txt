@@ -1,0 +1,98 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/langchain.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T285d,<p>LangChain is a framework for building applications around language models. Most descriptions list its parts — prompt templates, chains, memory, retrievers, agents — which makes it look like a bag of utilities.</p>
+<p>It is not a bag of utilities. It is one interface, implemented by everything.</p>
+<h2 id="the-interface"><a class="heading-anchor" href="#the-interface">The interface</a></h2>
+<p>Every component supports the same small set of operations: run it on one input, run it on many, and stream its output as it is produced.</p>
+<p>That uniformity is the whole design. Because a prompt template, a model and an output parser all expose the same shape, they can be connected:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="python" data-theme="github-dark-default"><code data-language="python" data-theme="github-dark-default" style="display: grid;"><span data-line=""><span style="color:#E6EDF3">chain </span><span style="color:#FF7B72">=</span><span style="color:#E6EDF3"> template </span><span style="color:#FF7B72">|</span><span style="color:#E6EDF3"> model </span><span style="color:#FF7B72">|</span><span style="color:#E6EDF3"> parser</span></span></code></pre></figure>
+<p>Each piece takes what the previous one produced and hands on what it made. Nothing in the chain knows what the others are. You could swap the model for a different provider, or the parser for one that produces a dictionary instead of a string, and the chain would be unchanged.</p>
+<p>The individual parts are thin. A prompt template holds a string with <code>{placeholders}</code> and fills them in. An output parser converts the model's text into whatever the next step needs. Memory is a store of previous turns that gets injected into the prompt, which is how a follow-up question containing "she" can resolve — the earlier turns are in the text the model reads.</p>
+<p>None of those is difficult on its own. What the framework adds is that they compose.</p>
+<h2 id="what-composition-actually-buys"><a class="heading-anchor" href="#what-composition-actually-buys">What composition actually buys</a></h2>
+<p>Two things, and neither is the pipe character.</p>
+<p><strong>Batching propagates.</strong> Every component knows how to handle many inputs at once. So a chain assembled for one input can be run over two hundred with no change to its definition:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>200 items through a 3-step chain</th></tr></thead><tbody><tr><td>one at a time</td><td>220 s</td></tr><tr><td>batched 20 at a time</td><td>16 s</td></tr></tbody></table>
+<p>That is nearly 14× faster, and the reason is not clever scheduling — it is that the model call, which dominates, is made 10 times instead of 200. A hand-written loop over a chain gets none of this unless it was written to.</p>
+<p><strong>Streaming propagates.</strong> If every step can pass tokens through as they arrive, the whole chain streams, and the first words reach the user long before the model has finished.</p>
+<p>That "if" is doing real work, and it is the most useful thing to understand about the abstraction.</p>
+<figure>
+<svg viewBox="0 0 560 282" width="560" role="img" aria-label="Two chains: one where every step passes tokens through and output appears early, and one where a blocking parser holds everything until the model finishes." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<defs><marker id="lc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)"></path></marker></defs>
+<text class="hd" x="20" y="18">ONE STEP DECIDES WHETHER THE CHAIN STREAMS</text>
+<rect x="20" y="38" width="104" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="72" y="57" text-anchor="middle">template</text>
+<path d="M130 53 H158" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.4" marker-end="url(#lc)"></path>
+<rect x="164" y="38" width="104" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="216" y="57" text-anchor="middle">model</text>
+<path d="M274 53 H302" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.4" marker-end="url(#lc)"></path>
+<rect x="308" y="38" width="104" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="360" y="57" text-anchor="middle">passes through</text>
+<path d="M418 53 H446" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.4" marker-end="url(#lc)"></path>
+<text class="b" x="452" y="57">0.4 s</text>
+<rect x="20" y="106" width="104" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="72" y="125" text-anchor="middle">template</text>
+<path d="M130 121 H158" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.4" marker-end="url(#lc)"></path>
+<rect x="164" y="106" width="104" height="30" rx="5" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="216" y="125" text-anchor="middle">model</text>
+<path d="M274 121 H302" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.4" marker-end="url(#lc)"></path>
+<rect x="308" y="106" width="104" height="30" rx="5" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<text class="l" x="360" y="125" text-anchor="middle">needs it all</text>
+<path d="M418 121 H446" stroke="var(--muted-foreground)" stroke-opacity="0.55" stroke-width="1.4" marker-end="url(#lc)"></path>
+<text class="l" x="452" y="125">1.1 s</text>
+<path d="M20 158 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="182">time until the reader sees anything</text>
+<rect x="20" y="194" width="60" height="18" rx="3" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="88" y="208">0.4 s — streaming end to end</text>
+<rect x="20" y="220" width="165" height="18" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="l" x="193" y="234">1.1 s — one blocking step, 2.75× worse</text>
+<text class="l" x="20" y="260">the model streamed identically in both cases</text>
+</svg>
+<figcaption>A single component that needs the complete string removes streaming from the whole chain.</figcaption>
+</figure>
+<p>A strict JSON parser is the usual culprit. It cannot validate half an object, so it holds everything until the model is done. The model streamed perfectly; the chain did not, and nothing in the code says so. The fix is to parse partial output, or to put the parse after the point where the user is being shown text.</p>
+<h2 id="retrieval-assembled-from-the-same-parts"><a class="heading-anchor" href="#retrieval-assembled-from-the-same-parts">Retrieval, assembled from the same parts</a></h2>
+<p>RAG in this framework is not a special feature. It is a chain whose first step happens to be a retriever.</p>
+<p>Documents are split into chunks, each chunk is embedded, the vectors go into a store. At query time the question is embedded, the nearest chunks come back, and they are inserted into the prompt template alongside the question. The model then answers from text that is in front of it.</p>
+<p>The framework's contribution here is that swapping the vector store, the embedding model or the chunking strategy changes one line, because all of them satisfy the same interface. The contribution is <em>not</em> that retrieval is hard to write — it is about fifteen lines — it is that the pieces are interchangeable.</p>
+<h2 id="agents-and-the-loop"><a class="heading-anchor" href="#agents-and-the-loop">Agents, and the loop</a></h2>
+<p>An agent is what you get when the chain's output decides what happens next.</p>
+<p>The model is given a set of tools with descriptions. It responds with either an answer or a request to call a tool. The runtime executes it, appends the result, and asks again. Repeat until the response is an answer.</p>
+<p>This is a while-loop, and the framework's job is the plumbing: formatting the tool descriptions into the prompt, parsing the model's request, dispatching it, appending the result in the shape the model expects. Worth having, and worth knowing that it is all it is.</p>
+<h2 id="the-honest-cost"><a class="heading-anchor" href="#the-honest-cost">The honest cost</a></h2>
+<p>The abstraction hides the prompt.</p>
+<p>By the time a chain runs, the text the model receives has been assembled from a template, injected memory, retrieved chunks, and a tool-description block — none of which appear together anywhere in your code. When the output is wrong, the first question is always "what did the model actually see", and the answer is not in the source file.</p>
+<p>So the practical advice is simple: print the assembled prompt, or use tracing that captures it. Every serious debugging session with this framework starts there, and the layers that make composition pleasant are exactly the layers that put that string out of sight.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The value is one interface implemented consistently, which is why batching and streaming work through a chain you assembled from parts that never heard of each other.</p>
+<p>The cost is the distance between your code and the prompt. That distance is what you are paying for the composition, and it is worth paying — as long as you know how to close it when something breaks.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"LangChain"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T17:40","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"The framework's actual content is one interface that every piece implements. That is what makes the pipe operator work, what makes batching and streaming propagate through a chain you assembled — and what makes a broken prompt hard to find."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/langchain.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"CviqyjI0-hvMorasbpKsb"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/sglang/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"SGLang"}]]}],["$","$L2",null,{"href":"/blog/langgraph/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LangGraph"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-interface","text":"The interface","level":2},{"id":"what-composition-actually-buys","text":"What composition actually buys","level":2},{"id":"retrieval-assembled-from-the-same-parts","text":"Retrieval, assembled from the same parts","level":2},{"id":"agents-and-the-loop","text":"Agents, and the loop","level":2},{"id":"the-honest-cost","text":"The honest cost","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

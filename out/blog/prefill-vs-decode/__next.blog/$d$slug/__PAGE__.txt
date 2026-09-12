@@ -1,0 +1,139 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/prefill-vs-decode.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2a12,<p>Answering one request involves two phases that look nothing alike.</p>
+<p><strong>Prefill</strong> reads the prompt. Every token is available at once, so the whole thing goes through the model in a single pass — thousands of tokens processed together — and produces exactly one output token.</p>
+<p><strong>Decode</strong> writes the answer. One token per pass, each pass seeing everything written so far, repeated until the model stops.</p>
+<p>The bridge between them is the attention cache. Prefill fills it with keys and values for every prompt token; decode reads all of it and appends one entry per step. Without it, each new token would reprocess the entire sequence and the cost of an answer would grow with the square of its length.</p>
+<p>Prefill is a wide, parallel, one-shot operation. Decode is a narrow, sequential, repeated one. Nearly everything confusing about serving latency comes from measuring them as if they were one thing.</p>
+<h2 id="two-metrics-and-which-one-matters"><a class="heading-anchor" href="#two-metrics-and-which-one-matters">Two metrics, and which one matters</a></h2>
+<p><strong>Time to first token</strong> is how long until anything appears. It is essentially prefill.</p>
+<p><strong>Time per output token</strong> is the gap between subsequent tokens. It is decode.</p>
+<p>End-to-end duration is the first plus the second repeated. For a 480-token answer with a 320 ms first token and 22 ms per token after:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>time to first token</td><td>320 ms</td></tr><tr><td>479 further tokens at 22 ms</td><td>10,538 ms</td></tr><tr><td><strong>end to end</strong></td><td><strong>10.9 s</strong></td></tr></tbody></table>
+<p>Decode is <strong>97.1%</strong> of the total. Which means:</p>
+<ul>
+<li>Halving time to first token — a serious optimization — saves 160 ms, or <strong>1.5%</strong> of the duration.</li>
+<li>Shaving 2 ms off per-token time saves 958 ms, or <strong>8.8%</strong>.</li>
+</ul>
+<p>And yet time to first token is what users describe as "fast" or "slow". Nobody experiences the 97%: once tokens are arriving faster than they read, the wait is over. The 3% is the entire perceived latency.</p>
+<p>So the two metrics are not two views of one goal. They are separate goals, and improving one rarely helps the other.</p>
+<h2 id="where-they-collide"><a class="heading-anchor" href="#where-they-collide">Where they collide</a></h2>
+<p>Worse: they actively fight, and the mechanism is worth seeing.</p>
+<p>Forty users are decoding, one token every 25 ms. A new request arrives with a 4,000-token prompt. Prefilling it takes 143 ms of solid arithmetic — and during that time the GPU is not decoding.</p>
+<p>Every one of those forty users gets a 143 ms gap in their stream: <strong>5.7 missed tokens</strong>, visible as a stutter. One person's fast first token was paid for by everyone else's smooth output.</p>
+<p>The fix is to stop treating prefill as indivisible. <strong>Chunked prefill</strong> splits the prompt into pieces and interleaves them with decode steps:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>unchunked</th><th>chunked at 512</th></tr></thead><tbody><tr><td>worst gap in an existing stream</td><td>143 ms</td><td>43 ms</td></tr><tr><td>token rate during the prefill</td><td>0/s</td><td>23/s</td></tr><tr><td>new request's first token</td><td>143 ms</td><td>346 ms</td></tr></tbody></table>
+<p>The new request waits 2.4× longer. In exchange, nobody's stream ever stalls for more than one slightly-longer step, and the stall is cut 3.3×.</p>
+<p>That is the trade in its clearest form: you can have the best possible first token for one request, or predictable output for everyone, and the knob between them is the chunk size.</p>
+<figure>
+<svg viewBox="0 0 560 290" width="560" role="img" aria-label="Two timelines of decode steps: one with a long prefill block creating a gap, one with the prefill split into chunks between steps." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ONE BIG PREFILL, OR MANY SMALL ONES</text>
+<text class="l" x="20" y="44">unchunked</text>
+<g fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55">
+<rect x="20" y="54" width="22" height="24" rx="3"></rect><rect x="46" y="54" width="22" height="24" rx="3"></rect><rect x="72" y="54" width="22" height="24" rx="3"></rect>
+</g>
+<rect x="98" y="54" width="143" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<text class="l" x="112" y="71">prefill · 143 ms</text>
+<g fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55">
+<rect x="245" y="54" width="22" height="24" rx="3"></rect><rect x="271" y="54" width="22" height="24" rx="3"></rect><rect x="297" y="54" width="22" height="24" rx="3"></rect><rect x="323" y="54" width="22" height="24" rx="3"></rect>
+</g>
+<text class="l" x="98" y="96">no tokens for anyone — 5.7 slots lost</text>
+<text class="l" x="20" y="132">chunked</text>
+<g>
+<rect x="20" y="142" width="22" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55"></rect>
+<rect x="46" y="142" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<rect x="68" y="142" width="22" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55"></rect>
+<rect x="94" y="142" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<rect x="116" y="142" width="22" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55"></rect>
+<rect x="142" y="142" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<rect x="164" y="142" width="22" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55"></rect>
+<rect x="190" y="142" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<rect x="212" y="142" width="22" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55"></rect>
+<rect x="238" y="142" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<rect x="260" y="142" width="22" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55"></rect>
+<rect x="286" y="142" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<rect x="308" y="142" width="22" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55"></rect>
+<rect x="334" y="142" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<rect x="356" y="142" width="22" height="24" rx="3" fill="color-mix(in srgb, var(--primary) 28%, transparent)" stroke="var(--primary)" stroke-opacity="0.55"></rect>
+<rect x="382" y="142" width="18" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+</g>
+<text class="b" x="20" y="184">a token every 43 ms, without interruption</text>
+<path d="M20 202 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="226">shaded = a decode step for the whole batch · grey = prompt work</text>
+<text class="b" x="20" y="248">the new request's first token: 143 ms becomes 346 ms</text>
+<text class="l" x="20" y="268">the stall everyone else sees: 143 ms becomes 43 ms</text>
+</svg>
+<figcaption>Interleaving does not reduce the work. It changes who waits for it.</figcaption>
+</figure>
+<h2 id="which-technique-targets-which"><a class="heading-anchor" href="#which-technique-targets-which">Which technique targets which</a></h2>
+<p>Once the phases are separate, every optimization has an obvious address:</p>
+<ul>
+<li><strong>Reusing a shared prompt prefix</strong> removes prefill work outright — the only lever that reduces first-token time by orders of magnitude rather than percent.</li>
+<li><strong>Drafting several tokens and checking them in one pass</strong> attacks decode, because the expensive step there is reading the weights, and one read can validate more than one token.</li>
+<li><strong>Smaller attention caches</strong> are a decode concern: they raise how many sequences fit, which raises how many tokens come out per weight read.</li>
+<li><strong>Continuous admission and retirement of requests</strong> helps both, by never leaving a batch slot idle.</li>
+<li><strong>Running the two phases on separate pools of hardware</strong> is the logical conclusion at scale — one set of machines doing compute-heavy prefill, another doing bandwidth-heavy decode, so neither ever blocks the other.</li>
+</ul>
+<p>That last one is the clearest statement of the whole idea. If the phases were similar, splitting the fleet would be pointless.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Measure them apart. A single average latency number blends a compute-bound one-shot operation with a bandwidth-bound loop, and the average tells you nothing about either.</p>
+<p>And be clear which you are optimizing for. Time to first token is a small fraction of a long answer's duration and almost the whole of how fast it feels — so improving it is frequently the right call, and almost never for the reason the end-to-end number suggests.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Prefill vs Decode"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T18:40","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Serving a model is two workloads wearing one name, and their metrics pull against each other. Time to first token is 1.5% of a long answer's duration and almost all of how responsive it feels."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/prefill-vs-decode.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"CviqyjI0-hvMorasbpKsb"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/gpu-for-deep-learning/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"GPU for Deep Learning"}]]}],null]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"two-metrics-and-which-one-matters","text":"Two metrics, and which one matters","level":2},{"id":"where-they-collide","text":"Where they collide","level":2},{"id":"which-technique-targets-which","text":"Which technique targets which","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

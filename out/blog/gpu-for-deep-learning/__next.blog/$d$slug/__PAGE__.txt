@@ -1,0 +1,104 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/gpu-for-deep-learning.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2240,<p>A CPU has a handful of cores, each sophisticated — branch prediction, deep caches, out-of-order execution — designed to make a single sequence of instructions finish as fast as possible.</p>
+<p>A GPU has thousands of simple cores with almost none of that machinery, designed so that thousands of independent calculations happen at once.</p>
+<p>Which of those is better depends entirely on whether the work is one long dependent sequence or a great many unrelated pieces. Neural networks are emphatically the second.</p>
+<h2 id="why-the-arithmetic-fits"><a class="heading-anchor" href="#why-the-arithmetic-fits">Why the arithmetic fits</a></h2>
+<p>Nearly all the computation in a neural network is matrix multiplication, and a matrix multiplication is a collection of independent dot products.</p>
+<p>Each output element is one multiply-and-add chain over a row and a column. Nothing about the element at position (3, 7) depends on the element at (3, 8). They can all be computed simultaneously, in any order, by anyone.</p>
+<p>That is an unusually friendly structure. Most programs are full of dependencies — this branch depends on that comparison, this write must precede that read — and a machine with a thousand weak cores cannot help with them. A matrix multiplication has no dependencies to respect, so the more cores you throw at it the faster it finishes, right up until you run out of work to give them.</p>
+<h2 id="where-the-limit-actually-is"><a class="heading-anchor" href="#where-the-limit-actually-is">Where the limit actually is</a></h2>
+<p>Not the cores. Memory.</p>
+<p>A GPU has its own memory, and everything it computes on must be in there. This is the constraint people hit first, and it is much tighter for training than the model size suggests.</p>
+<p>Take a 7-billion-parameter model trained in mixed precision with a standard optimizer:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>bytes per parameter</th><th>7B model</th></tr></thead><tbody><tr><td>weights, 16-bit</td><td>2</td><td>14.0 GB</td></tr><tr><td>gradients, 16-bit</td><td>2</td><td>14.0 GB</td></tr><tr><td>32-bit master copy of the weights</td><td>4</td><td>28.0 GB</td></tr><tr><td>optimizer's two running averages, 32-bit</td><td>8</td><td>56.0 GB</td></tr><tr><td></td><td></td><td><strong>112.0 GB</strong></td></tr></tbody></table>
+<p>That total is before a single activation is stored, and it does not fit on an 80 GB card.</p>
+<p>Running the same model needs only the 14 GB of weights. <strong>Training costs 8× the memory of inference</strong> — and if inference is quantized to around 4 bits, 28×.</p>
+<p>The line items are worth reading carefully, because the two largest have nothing to do with the model. The optimizer's running averages are 56 GB on their own: 4× the weights, kept in full precision because they accumulate small updates that would vanish at 16-bit. Drop to an optimizer without momentum and the budget falls to 56 GB, which is why memory-constrained training sometimes does exactly that, accepting slower convergence in exchange for fitting.</p>
+<figure>
+<svg viewBox="0 0 560 286" width="560" role="img" aria-label="Stacked bars comparing the memory needed to run a seven billion parameter model with the memory needed to train it." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE SAME MODEL, RUN AND TRAINED</text>
+<text class="l" x="20" y="46">running it</text>
+<rect x="20" y="56" width="58" height="26" rx="3" fill="color-mix(in srgb, var(--primary) 30%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<text class="b" x="86" y="74">14 GB — weights</text>
+<text class="l" x="20" y="110">training it</text>
+<rect x="20" y="120" width="58" height="26" rx="3" fill="color-mix(in srgb, var(--primary) 30%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="80" y="120" width="58" height="26" rx="3" fill="color-mix(in srgb, var(--primary) 18%, transparent)" stroke="var(--primary)" stroke-opacity="0.45"></rect>
+<rect x="140" y="120" width="116" height="26" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 26%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 45%, transparent)"></rect>
+<rect x="258" y="120" width="232" height="26" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 34%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 55%, transparent)"></rect>
+<text class="b" x="20" y="166">weights</text>
+<text class="l" x="80" y="166">grads</text>
+<text class="l" x="140" y="166">fp32 copy</text>
+<text class="l" x="258" y="166">optimizer averages — 56 GB</text>
+<text class="b" x="20" y="192">112 GB before any activations are stored</text>
+<path d="M20 210 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<rect x="20" y="224" width="331" height="14" rx="3" fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="5 4"></rect>
+<text class="l" x="359" y="236">80 GB — one large card</text>
+<text class="l" x="20" y="264">the two biggest line items are not the model</text>
+</svg>
+<figcaption>The optimizer's state is four times the weights, and it is the reason training does not fit where inference does.</figcaption>
+</figure>
+<p>Activations are the one term you can trade. They scale with batch size and sequence length, and they exist only so the backward pass can reuse them — so you can throw them away and recompute them during the backward pass instead. That is a direct exchange of arithmetic for memory, and on a machine where arithmetic is abundant it is usually a good trade.</p>
+<h2 id="precision"><a class="heading-anchor" href="#precision">Precision</a></h2>
+<p>Since memory is the constraint, the number format matters twice: fewer bits per value means less memory <em>and</em> less traffic to move.</p>
+<p>Sixteen-bit formats halve both against 32-bit and are the norm for training. Eight-bit integers halve again and are common for inference, where there is no gradient to accumulate and small rounding errors do not compound across steps.</p>
+<p>Dedicated matrix-multiply units on the chip operate on these narrow formats specifically, which is why the speedup from lower precision is larger than the bit count suggests — it is not only less data, it is a different, faster unit doing the work.</p>
+<h2 id="why-small-work-is-wasted-work"><a class="heading-anchor" href="#why-small-work-is-wasted-work">Why small work is wasted work</a></h2>
+<p>A GPU hides memory latency by having far more work in flight than it can execute, and switching whenever something stalls. That requires a lot of independent work to be available.</p>
+<p>A 128 × 128 output has 16,384 elements to compute. A large card wants a few hundred thousand threads resident to stay busy — roughly 16× more than that matrix can supply. The hardware is not slow on small matrices; it is idle on them.</p>
+<p>This is why batching matters so much, and why a GPU can look unimpressive on a single small request while being extraordinary on a large batch. The device is sized for a volume of work that small inputs simply do not contain.</p>
+<h2 id="the-software-is-half-of-it"><a class="heading-anchor" href="#the-software-is-half-of-it">The software is half of it</a></h2>
+<p>None of this is reachable without the software layer. Writing a matrix multiplication that actually achieves peak throughput is a serious undertaking — tiling for the cache hierarchy, coalescing memory accesses, choosing instruction mixes per architecture.</p>
+<p>Almost nobody does it. Framework code calls into heavily tuned libraries, written per hardware generation by the vendor, and the framework's job is to dispatch to the right one. This is why the practical experience of using a GPU is <code>move tensor to device</code> and nothing more.</p>
+<p>It is also the real reason one vendor dominates: the hardware advantage is contestable, but a decade of libraries that every framework already targets is not.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The thousands of cores are the easy part of the story and rarely the binding constraint.</p>
+<p>What decides whether you can train a given model on a given card is an accounting exercise: weights, plus gradients, plus a full-precision copy, plus the optimizer's state. Do that sum before anything else, because it is usually the answer.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"GPU for Deep Learning"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T18:20","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A GPU is thousands of simple cores, which suits the arithmetic of a neural network perfectly. What actually decides what you can build on one is not the cores — it is that training a model needs eight times the memory of running it."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/gpu-for-deep-learning.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"CviqyjI0-hvMorasbpKsb"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/langgraph/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LangGraph"}]]}],["$","$L2",null,{"href":"/blog/prefill-vs-decode/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Prefill vs Decode"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"why-the-arithmetic-fits","text":"Why the arithmetic fits","level":2},{"id":"where-the-limit-actually-is","text":"Where the limit actually is","level":2},{"id":"precision","text":"Precision","level":2},{"id":"why-small-work-is-wasted-work","text":"Why small work is wasted work","level":2},{"id":"the-software-is-half-of-it","text":"The software is half of it","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

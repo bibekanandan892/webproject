@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="GPU for deep learning: a few large CPU cores beside a dense grid of small GPU cores.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="60" y="106" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9">cpu</text>
+<g fill="#141C30" stroke="rgba(230,237,243,0.24)" stroke-width="2.5">
+<rect x="60" y="122" width="94" height="94" rx="8"/><rect x="164" y="122" width="94" height="94" rx="8"/>
+<rect x="60" y="226" width="94" height="94" rx="8"/><rect x="164" y="226" width="94" height="94" rx="8"/>
+</g>
+<text x="420" y="106" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">gpu</text>
+<g fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-opacity="0.5" stroke-width="1.2">
+<rect x="420" y="122" width="26" height="26" rx="3"/><rect x="452" y="122" width="26" height="26" rx="3"/><rect x="484" y="122" width="26" height="26" rx="3"/><rect x="516" y="122" width="26" height="26" rx="3"/><rect x="548" y="122" width="26" height="26" rx="3"/><rect x="580" y="122" width="26" height="26" rx="3"/><rect x="612" y="122" width="26" height="26" rx="3"/><rect x="644" y="122" width="26" height="26" rx="3"/><rect x="676" y="122" width="26" height="26" rx="3"/><rect x="708" y="122" width="26" height="26" rx="3"/>
+<rect x="420" y="154" width="26" height="26" rx="3"/><rect x="452" y="154" width="26" height="26" rx="3"/><rect x="484" y="154" width="26" height="26" rx="3"/><rect x="516" y="154" width="26" height="26" rx="3"/><rect x="548" y="154" width="26" height="26" rx="3"/><rect x="580" y="154" width="26" height="26" rx="3"/><rect x="612" y="154" width="26" height="26" rx="3"/><rect x="644" y="154" width="26" height="26" rx="3"/><rect x="676" y="154" width="26" height="26" rx="3"/><rect x="708" y="154" width="26" height="26" rx="3"/>
+<rect x="420" y="186" width="26" height="26" rx="3"/><rect x="452" y="186" width="26" height="26" rx="3"/><rect x="484" y="186" width="26" height="26" rx="3"/><rect x="516" y="186" width="26" height="26" rx="3"/><rect x="548" y="186" width="26" height="26" rx="3"/><rect x="580" y="186" width="26" height="26" rx="3"/><rect x="612" y="186" width="26" height="26" rx="3"/><rect x="644" y="186" width="26" height="26" rx="3"/><rect x="676" y="186" width="26" height="26" rx="3"/><rect x="708" y="186" width="26" height="26" rx="3"/>
+<rect x="420" y="218" width="26" height="26" rx="3"/><rect x="452" y="218" width="26" height="26" rx="3"/><rect x="484" y="218" width="26" height="26" rx="3"/><rect x="516" y="218" width="26" height="26" rx="3"/><rect x="548" y="218" width="26" height="26" rx="3"/><rect x="580" y="218" width="26" height="26" rx="3"/><rect x="612" y="218" width="26" height="26" rx="3"/><rect x="644" y="218" width="26" height="26" rx="3"/><rect x="676" y="218" width="26" height="26" rx="3"/><rect x="708" y="218" width="26" height="26" rx="3"/>
+<rect x="420" y="250" width="26" height="26" rx="3"/><rect x="452" y="250" width="26" height="26" rx="3"/><rect x="484" y="250" width="26" height="26" rx="3"/><rect x="516" y="250" width="26" height="26" rx="3"/><rect x="548" y="250" width="26" height="26" rx="3"/><rect x="580" y="250" width="26" height="26" rx="3"/><rect x="612" y="250" width="26" height="26" rx="3"/><rect x="644" y="250" width="26" height="26" rx="3"/><rect x="676" y="250" width="26" height="26" rx="3"/><rect x="708" y="250" width="26" height="26" rx="3"/>
+<rect x="420" y="282" width="26" height="26" rx="3"/><rect x="452" y="282" width="26" height="26" rx="3"/><rect x="484" y="282" width="26" height="26" rx="3"/><rect x="516" y="282" width="26" height="26" rx="3"/><rect x="548" y="282" width="26" height="26" rx="3"/><rect x="580" y="282" width="26" height="26" rx="3"/><rect x="612" y="282" width="26" height="26" rx="3"/><rect x="644" y="282" width="26" height="26" rx="3"/><rect x="676" y="282" width="26" height="26" rx="3"/><rect x="708" y="282" width="26" height="26" rx="3"/>
+</g>
+<text x="290" y="230" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" fill="#8B98A9" text-anchor="middle">vs</text>
+<text x="60" y="370" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">the cores are easy — the memory is the limit</text>
+<text x="52" y="420" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">gpu for deep learning</text>
+</svg>
