@@ -1,0 +1,142 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/tensorrt-llm.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T20cc,<p>A GPU runs <strong>kernels</strong> — small programs, each doing one piece of maths across thousands of parallel lanes. A forward pass through a language model is a long sequence of them.</p>
+<p>TensorRT-LLM's premise is that a great deal of the time is spent not computing. It compiles a specific model into a fixed <strong>engine</strong> ahead of time, and that compilation is where the recovered time comes from.</p>
+<h2 id="the-overhead-nobody-sees"><a class="heading-anchor" href="#the-overhead-nobody-sees">The overhead nobody sees</a></h2>
+<p>Every kernel has to be launched by the CPU: parameters marshalled, the call submitted, the GPU notified. Around 5 microseconds each, and that is CPU time the GPU spends idle.</p>
+<p>A decode step on a 32-layer model issues roughly a dozen kernels per layer:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>kernels launched per token</td><td>384</td></tr><tr><td>CPU launch overhead at 5 µs each</td><td><strong>1.92 ms</strong></td></tr><tr><td>actual GPU work in the step</td><td>7 ms</td></tr><tr><td>overhead as a share of wall clock</td><td><strong>22%</strong></td></tr></tbody></table>
+<p>A fifth of the time is spent asking for work rather than doing it.</p>
+<p>The fix is to record the whole sequence once and replay it as a single submission. The kernels still run; the CPU stops re-describing them.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>launches</th><th>overhead</th><th>tokens/sec</th></tr></thead><tbody><tr><td>launched individually</td><td>384</td><td>1.92 ms</td><td>112</td></tr><tr><td>replayed as one graph</td><td><strong>1</strong></td><td>0.005 ms</td><td><strong>143</strong></td></tr></tbody></table>
+<p><strong>1.27× more throughput</strong> with no change whatsoever to the arithmetic.</p>
+<p>And notice where it matters. The same 384 launches against a 70 ms prefill is <strong>2.7%</strong> — invisible. Launch overhead is a <em>decode</em> problem specifically, because a decode step is short and made of many tiny kernels. Which is a good illustration of why serving optimizations have to be aimed at one phase or the other.</p>
+<figure>
+<svg viewBox="0 0 560 312" width="560" role="img" aria-label="A decode step&#x27;s time split between GPU work and CPU launch overhead, shown before and after replaying the step as one recorded graph." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">A FIFTH OF A DECODE STEP IS ASKING FOR WORK</text>
+<text class="l" x="20" y="44">384 separate launches</text>
+<rect x="20" y="54" width="392" height="22" rx="3" fill="color-mix(in srgb, var(--primary) 30%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="414" y="54" width="107" height="22" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="b" x="30" y="69">7.00 ms of gpu work</text>
+<text class="l" x="20" y="94">1.92 ms of launch overhead — 22% of the wall clock</text>
+<text class="b" x="20" y="128">one recorded graph</text>
+<rect x="20" y="138" width="392" height="22" rx="3" fill="color-mix(in srgb, var(--primary) 30%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="414" y="138" width="1" height="22" fill="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="b" x="30" y="153">7.00 ms of gpu work</text>
+<text class="b" x="20" y="178">0.005 ms — 384× fewer launches, 1.27× the tokens</text>
+<path d="M20 198 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="222">the same 384 launches against a 70 ms prefill is 2.7% — invisible</text>
+<text class="b" x="20" y="246">so this is a decode optimization, not a general one</text>
+<text class="l" x="20" y="268">short steps made of many tiny kernels are where the overhead lives</text>
+<text class="l" x="20" y="290">nothing about the arithmetic changed</text>
+</svg>
+<figcaption>The kernels still run. The CPU just stops describing them 384 times per token.</figcaption>
+</figure>
+<h2 id="fusing-and-why-it-is-about-traffic"><a class="heading-anchor" href="#fusing-and-why-it-is-about-traffic">Fusing, and why it is about traffic</a></h2>
+<p>Three elementwise operations in a row — scale, add a correction, apply a nonlinearity — as three separate kernels means three reads and three writes of the whole tensor.</p>
+<p>For a 4,096 × 4,096 activation at 16 bits:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>memory moved</th><th>at 3 TB/s</th></tr></thead><tbody><tr><td>three separate kernels</td><td>201 MB</td><td>67 µs</td></tr><tr><td>one fused kernel</td><td><strong>67 MB</strong></td><td><strong>22 µs</strong></td></tr></tbody></table>
+<p><strong>3× less traffic</strong>, because the intermediate values never leave the chip's fast registers. The arithmetic is identical; only the number of round trips changed.</p>
+<p>This is the same principle as everything else in a memory-bound setting. The work was never the problem — the moving was.</p>
+<h2 id="what-the-build-step-is-for"><a class="heading-anchor" href="#what-the-build-step-is-for">What the build step is for</a></h2>
+<p>All of this requires knowing the shape of the computation in advance, which is what the compilation produces. Given a model, a precision, a maximum batch size and a maximum sequence length, the build chooses which kernels to fuse, selects implementations tuned for the specific GPU architecture, and lays out memory.</p>
+<p>That is the trade at the centre of the tool. The engine is <strong>fixed</strong>:</p>
+<ul>
+<li>built for one model and one precision</li>
+<li>built for a maximum batch and sequence length</li>
+<li>built for one GPU architecture, not portable to another</li>
+<li>a build takes tens of minutes</li>
+</ul>
+<p>Change any of those and you build again. Which is exactly why a more flexible runtime path exists alongside the compiled one — most teams want to change models more often than they want the last 20%.</p>
+<h2 id="the-rest-briefly"><a class="heading-anchor" href="#the-rest-briefly">The rest, briefly</a></h2>
+<p>The remaining features are the standard serving set, and they matter for the reasons they always do.</p>
+<p><strong>Quantization</strong> cuts the bytes read per token, which is the dominant decode cost, and lets the narrow-precision units do the arithmetic.</p>
+<p><strong>Paged attention cache</strong> hands out small fixed blocks instead of reserving for the longest possible answer, so memory that would have been stranded becomes batch slots.</p>
+<p><strong>In-flight batching</strong> refills a finished slot at the next step rather than waiting for the slowest request in a group, keeping the batch full.</p>
+<p><strong>Custom attention kernels</strong> keep intermediate attention values in fast on-chip memory rather than writing them out and reading them back.</p>
+<p><strong>Speculative decoding</strong> verifies several proposed tokens in one pass, so the expensive weight read yields more than one token.</p>
+<p><strong>Multi-GPU</strong> splits a model either sideways — every GPU holds part of every layer and they work on the same token together — or lengthways, with each GPU holding a range of layers and requests flowing through as a pipeline. The first reduces latency and needs fast interconnect; the second scales capacity and introduces pipeline bubbles.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>One idea runs through all of it: <strong>keep the GPU from waiting.</strong></p>
+<p>Waiting for the CPU to launch the next kernel, waiting for values to come back from memory that never needed to leave, waiting for a batch slot that a finished request is still holding. None of those are arithmetic problems, and all of them are recovered by deciding the shape of the computation before it runs — which is what you are buying, and the inflexibility is what you are paying.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"TensorRT-LLM"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T07:00","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A decode step launches 384 tiny kernels and spends 1.92 ms of CPU time just asking for them. Replaying the whole step as one recorded graph makes that 5 microseconds, which is 1.27× more tokens per second for no change in arithmetic."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/tensorrt-llm.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rq234X_URaT4go2CrBeUF"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/lpu/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LPU"}]]}],["$","$L2",null,{"href":"/blog/sliding-window-attention/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Sliding Window Attention"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-overhead-nobody-sees","text":"The overhead nobody sees","level":2},{"id":"fusing-and-why-it-is-about-traffic","text":"Fusing, and why it is about traffic","level":2},{"id":"what-the-build-step-is-for","text":"What the build step is for","level":2},{"id":"the-rest-briefly","text":"The rest, briefly","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

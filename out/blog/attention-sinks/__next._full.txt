@@ -1,0 +1,182 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/06p_318ym7y54.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","attention-sinks",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","attention-sinks","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/06p_318ym7y54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/06p_318ym7y54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"rq234X_URaT4go2CrBeUF"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+:HL["/blog/attention-sinks.svg","image"]
+11:T21a3,<p>Attention produces a set of weights over previous positions, and those weights sum to exactly 1. Always.</p>
+<p>Which means there is no way for a position to say <em>none of these is relevant</em>. It has to distribute its full allocation somewhere, whether or not anything deserves it.</p>
+<p>That constraint is the entire origin of attention sinks.</p>
+<h2 id="where-the-surplus-goes"><a class="heading-anchor" href="#where-the-surplus-goes">Where the surplus goes</a></h2>
+<p>Under causal masking, the first token is visible to every later position — it is the one thing everything can see. It also tends to carry little semantic weight.</p>
+<p>So the model learns to put its unused attention there. The first token becomes a drain.</p>
+<p>Look at a typical distribution at position 6:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>position</th><th>weight</th></tr></thead><tbody><tr><td>1 (the sink)</td><td><strong>0.62</strong></td></tr><tr><td>2</td><td>0.03</td></tr><tr><td>3</td><td>0.04</td></tr><tr><td>4</td><td><strong>0.24</strong></td></tr><tr><td>5</td><td>0.05</td></tr><tr><td>6</td><td>0.02</td></tr></tbody></table>
+<p>Position 4 is what this token genuinely cares about. Position 1 is receiving nearly two thirds of the attention and contributing almost nothing — it is absorbing the 0.62 that had nowhere else to go.</p>
+<h2 id="why-dropping-it-is-catastrophic"><a class="heading-anchor" href="#why-dropping-it-is-catastrophic">Why dropping it is catastrophic</a></h2>
+<p>Now run a long conversation past the context limit and evict the oldest tokens. The sink goes first.</p>
+<p>The weights have to be renormalised over what remains, so every one of them is multiplied by <code>1 / (1 − 0.62)</code> = <strong>2.632</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>position</th><th>before</th><th>after eviction</th></tr></thead><tbody><tr><td>2</td><td>0.03</td><td>0.079</td></tr><tr><td>3</td><td>0.04</td><td>0.105</td></tr><tr><td>4</td><td>0.24</td><td><strong>0.632</strong></td></tr><tr><td>5</td><td>0.05</td><td>0.132</td></tr><tr><td>6</td><td>0.02</td><td>0.053</td></tr></tbody></table>
+<p>The genuinely relevant token jumps from 0.24 to 0.632 — <strong>2.63× sharper than the model ever intended.</strong> And the noise at position 3 nearly triples too.</p>
+<p>Every attention distribution in the model is now differently shaped from anything it saw in training. The output degrades immediately and severely, and the cause looks nothing like the symptom: you removed a token that carried no information and the model fell apart.</p>
+<figure>
+<svg viewBox="0 0 560 312" width="560" role="img" aria-label="Attention weights before and after removing the sink token, showing every remaining weight multiplied by 2.63." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">REMOVE THE SINK AND EVERYTHING ELSE TRIPLES</text>
+<text class="l" x="20" y="42">with the sink</text>
+<rect x="20" y="52" width="248" height="20" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 32%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="l" x="30" y="67">0.62 — position 1, carries nothing</text>
+<rect x="270" y="52" width="12" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.4"></rect>
+<rect x="284" y="52" width="16" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.4"></rect>
+<rect x="302" y="52" width="96" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.7"></rect>
+<rect x="400" y="52" width="20" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.4"></rect>
+<rect x="422" y="52" width="8" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.4"></rect>
+<text class="b" x="306" y="92">0.24 — what this token actually needs</text>
+<text class="b" x="20" y="132">sink evicted</text>
+<rect x="20" y="142" width="32" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.4"></rect>
+<rect x="54" y="142" width="42" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.4"></rect>
+<rect x="98" y="142" width="253" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.7"></rect>
+<rect x="353" y="142" width="53" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.4"></rect>
+<rect x="408" y="142" width="21" height="20" rx="2" fill="color-mix(in srgb, var(--primary) 20%, transparent)" stroke="var(--primary)" stroke-opacity="0.4"></rect>
+<text class="b" x="98" y="182">0.632 — 2.63× sharper than trained for</text>
+<path d="M20 202 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="226">the weights must sum to 1, so removing one rescales all the others</text>
+<text class="b" x="20" y="250">keep the first four tokens and the distributions stay the shape they were</text>
+<text class="l" x="20" y="272">a token that carried no information was load-bearing anyway</text>
+<text class="l" x="20" y="290">which is why the symptom looks nothing like the cause</text>
+</svg>
+<figcaption>Nothing in the sink's content mattered. Its share of the total did.</figcaption>
+</figure>
+<h2 id="the-fix-which-is-almost-trivial"><a class="heading-anchor" href="#the-fix-which-is-almost-trivial">The fix, which is almost trivial</a></h2>
+<p>Keep the first few tokens permanently and slide the window over everything else. Four sinks is typically enough.</p>
+<pre><code>[ tokens 1-4, always ] + [ the most recent 4,096 ]
+</code></pre>
+<p>Everything in the middle is discarded. The distributions keep roughly the shape they had, because the drain is still there to absorb the surplus.</p>
+<p>And the memory becomes fixed:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>cache size</th></tr></thead><tbody><tr><td>4 sinks + 4,096 window</td><td><strong>537 MB, for any conversation length</strong></td></tr><tr><td>a growing cache at 32,768 tokens</td><td>4.29 GB</td></tr><tr><td>at 131,072</td><td>17.18 GB</td></tr><tr><td>at 1,048,576</td><td><strong>137.44 GB</strong></td></tr></tbody></table>
+<p>A conversation can run indefinitely in a constant amount of memory. That is what makes streaming deployment possible at all.</p>
+<h2 id="what-the-discovery-changed"><a class="heading-anchor" href="#what-the-discovery-changed">What the discovery changed</a></h2>
+<p>The sink began as an observed quirk — first tokens getting implausible amounts of attention for no semantic reason. Understanding <em>why</em> turned it into a design decision.</p>
+<p>The deeper fix is to give the softmax the option it was missing. Add a learned logit to the denominator that belongs to no real token:</p>
+<pre><code>weight(i) = exp(l_i) / ( exp(sink) + Σ exp(l_j) )
+</code></pre>
+<p>Now the weights over real tokens sum to less than 1 — 0.38 in the example above — and a position with nothing relevant to attend to can output near-zero attention everywhere. The surplus has a home that is not a token.</p>
+<p>Which means nothing is load-bearing by accident. Evicting old tokens redistributes nothing, because there was never any misplaced weight on them to redistribute. Recent architectures build this in rather than relying on the first few tokens to serve the purpose.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The whole phenomenon comes from one property of softmax: it normalises, so it cannot express <em>nothing</em>.</p>
+<p>Given that constraint, the model needed somewhere to put unused attention, and it picked the one position every token can see. The practical consequence is that the first few tokens are structurally load-bearing regardless of what they say — and the principled fix is to stop making a real token do that job.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Attention Sinks"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T07:40","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Attention weights must sum to exactly one, so \"nothing here is relevant\" cannot be expressed. The first token becomes where the surplus goes — and dropping it makes every remaining weight 2.63× sharper than the model intended."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/attention-sinks.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Attention Sinks · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Attention weights must sum to exactly one, so \"nothing here is relevant\" cannot be expressed. The first token becomes where the surplus goes — and dropping it makes every remaining weight 2.63× sharper than the model intended."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"attention-sinks,softmax,streaming,kv-cache,long-context"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/attention-sinks/"}],["$","meta","6",{"property":"og:title","content":"Attention Sinks"}],["$","meta","7",{"property":"og:description","content":"Attention weights must sum to exactly one, so \"nothing here is relevant\" cannot be expressed. The first token becomes where the surplus goes — and dropping it makes every remaining weight 2.63× sharper than the model intended."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/attention-sinks/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-12T07:40"}],["$","meta","11",{"property":"article:tag","content":"attention-sinks"}],["$","meta","12",{"property":"article:tag","content":"softmax"}],["$","meta","13",{"property":"article:tag","content":"streaming"}],["$","meta","14",{"property":"article:tag","content":"kv-cache"}],["$","meta","15",{"property":"article:tag","content":"long-context"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Attention Sinks"}],["$","meta","18",{"name":"twitter:description","content":"Attention weights must sum to exactly one, so \"nothing here is relevant\" cannot be expressed. The first token becomes where the surplus goes — and dropping it makes every remaining weight 2.63× sharper than the model intended."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/sliding-window-attention/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Sliding Window Attention"}]]}],null]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"where-the-surplus-goes","text":"Where the surplus goes","level":2},{"id":"why-dropping-it-is-catastrophic","text":"Why dropping it is catastrophic","level":2},{"id":"the-fix-which-is-almost-trivial","text":"The fix, which is almost trivial","level":2},{"id":"what-the-discovery-changed","text":"What the discovery changed","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
