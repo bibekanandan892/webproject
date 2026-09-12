@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Computer-use agent: a screen with a cursor over a highlighted button, and a loop of capture, decide, act.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64FFDA"/></marker>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="80" width="420" height="250" rx="12" fill="#141C30" stroke="rgba(230,237,243,0.22)" stroke-width="2.5"/>
+<path d="M60 122 H480" stroke="rgba(230,237,243,0.18)" stroke-width="2"/>
+<g fill="#8B98A9" fill-opacity="0.45">
+<circle cx="90" cy="101" r="8"/><circle cx="118" cy="101" r="8"/><circle cx="146" cy="101" r="8"/>
+</g>
+<rect x="96" y="156" width="230" height="22" rx="5" fill="#8B98A9" fill-opacity="0.2"/>
+<rect x="96" y="190" width="300" height="22" rx="5" fill="#8B98A9" fill-opacity="0.2"/>
+<rect x="96" y="224" width="180" height="22" rx="5" fill="#8B98A9" fill-opacity="0.2"/>
+<rect x="96" y="266" width="150" height="42" rx="7" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="2.5"/>
+<text x="171" y="294" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA" text-anchor="middle">confirm</text>
+<path d="M232 282 L262 312 L248 314 L256 330 L245 335 L237 319 L226 328 Z" fill="#64FFDA"/>
+<path d="M520 150 H584" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="596" y="124" width="144" height="52" rx="8" fill="#64FFDA" fill-opacity="0.24" stroke="#64FFDA" stroke-opacity="0.8" stroke-width="2"/>
+<text x="668" y="157" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA" text-anchor="middle">decide</text>
+<path d="M668 188 V236 H520" stroke="#64FFDA" stroke-opacity="0.55" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+<text x="540" y="226" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9">one action</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">look, act, look again — every step must be right</text>
+<text x="52" y="420" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">computer-use agents</text>
+</svg>
