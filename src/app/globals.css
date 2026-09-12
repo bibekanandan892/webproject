@@ -671,4 +671,19 @@
 @media (max-width: 640px) {
   .prose-post { font-size: 0.95rem; }
   .prose-post h2 { font-size: 1.35rem; }
+
+  /* Diagrams are drawn on a 560-unit canvas with 10–11px labels. Shrinking
+     that to fit a phone column renders those labels at about 6px, which is
+     unreadable next to 15px body text — so below this width let the figure
+     scroll horizontally instead of scaling the drawing down. The caption is
+     a block child of the scroll container, so it still wraps to the visible
+     width rather than panning with the diagram. */
+  .prose-post figure:not([data-rehype-pretty-code-figure]) {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+  .prose-post figure:not([data-rehype-pretty-code-figure]) > svg {
+    max-width: none;
+    width: 560px;
+  }
 }

@@ -26,11 +26,11 @@ export function Contact() {
       {email && (
         <a
           href={email.href}
-          className="group mx-auto mt-10 inline-flex items-center gap-3 rounded-md border border-primary/40 bg-primary/10 px-8 py-4 font-mono text-base text-primary transition-all hover:border-primary hover:bg-primary/20"
+          className="group mx-auto mt-10 inline-flex max-w-full items-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-5 py-3.5 font-mono text-sm text-primary transition-all hover:border-primary hover:bg-primary/20 sm:gap-3 sm:px-8 sm:py-4 sm:text-base"
         >
-          <Mail className="h-4 w-4" />
-          {email.href.replace("mailto:", "")}
-          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <Mail className="h-4 w-4 shrink-0" />
+          <span className="truncate">{email.href.replace("mailto:", "")}</span>
+          <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </a>
       )}
 
