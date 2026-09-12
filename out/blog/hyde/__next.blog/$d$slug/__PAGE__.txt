@@ -1,0 +1,98 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/hyde.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T1ebc,<p>Retrieval in a RAG system works by similarity: embed the user's question, find the stored chunks whose embeddings are closest, put them in the prompt.</p>
+<p>The assumption buried in that is that a question resembles its answer. It usually does not.</p>
+<h2 id="measuring-the-gap"><a class="heading-anchor" href="#measuring-the-gap">Measuring the gap</a></h2>
+<p>Take a question and the document that answers it:</p>
+<blockquote>
+<p><strong>Question:</strong> Why does my printer keep jamming?</p>
+<p><strong>Document:</strong> Paper jams occur when the feed rollers lose their grip on the sheet. Clean the rollers with a lint-free cloth and replace them once the rubber has worn smooth.</p>
+</blockquote>
+<p>They are about the same thing and share almost no language. The question contributes three content words — <em>printer</em>, <em>keep</em>, <em>jam</em> — and only one of those appears in the document.</p>
+<p>Now have a model write what it <em>thinks</em> the answer is, without looking anything up:</p>
+<blockquote>
+<p><strong>Hypothetical answer:</strong> Printer jams are usually caused by dirty or worn feed rollers losing grip on the paper. Clean the rollers and replace them if the rubber is worn.</p>
+</blockquote>
+<p>This is not a citation. The model is guessing. But look at what it shares with the real document: <em>jam, worn, feed, roller, grip, paper, clean, replace, rubber</em>.</p>
+<p>Scored on term overlap:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>similarity to the right document</th></tr></thead><tbody><tr><td>the question</td><td>0.123</td></tr><tr><td>the hypothetical answer</td><td><strong>0.636</strong></td></tr></tbody></table>
+<p>A <strong>5.2×</strong> improvement, and the improvement came from text containing no new information — every fact in it was already in the model's weights, and some of it might be wrong.</p>
+<p>(Term overlap is a cruder measure than a real embedding, which would score the question above 0.123. But the asymmetry is the same in embedding space and for the same reason: answers are declarative, full of domain nouns, and structurally like other answers. Questions are short, interrogative, and phrased in the words of someone who does not yet know the terminology.)</p>
+<figure>
+<svg viewBox="0 0 560 288" width="560" role="img" aria-label="A question sitting apart from a cluster of answer documents, with a hypothetical answer landing inside the cluster." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<defs><marker id="hy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--primary)"></path></marker></defs>
+<text class="hd" x="20" y="18">QUESTIONS AND ANSWERS SIT IN DIFFERENT PLACES</text>
+<ellipse cx="380" cy="110" rx="128" ry="72" fill="color-mix(in srgb, var(--muted-foreground) 10%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke-dasharray="6 5"></ellipse>
+<text class="l" x="380" y="200" text-anchor="middle">where answers live</text>
+<g fill="color-mix(in srgb, var(--muted-foreground) 55%, transparent)">
+<circle cx="330" cy="84" r="6"></circle><circle cx="404" cy="72" r="6"></circle><circle cx="356" cy="128" r="6"></circle><circle cx="436" cy="120" r="6"></circle><circle cx="300" cy="130" r="6"></circle><circle cx="452" cy="88" r="6"></circle>
+</g>
+<circle cx="380" cy="102" r="8" fill="var(--muted-foreground)"></circle>
+<text class="l" x="394" y="106">the one we want</text>
+<circle cx="70" cy="150" r="8" fill="none" stroke="var(--primary)" stroke-width="2.5"></circle>
+<text class="b" x="40" y="176">question</text>
+<path d="M82 146 L364 106" stroke="color-mix(in srgb, var(--muted-foreground) 45%, transparent)" stroke-width="1.4" stroke-dasharray="4 4"></path>
+<text class="l" x="150" y="126">0.123</text>
+<circle cx="250" cy="60" r="8" fill="var(--primary)"></circle>
+<text class="b" x="196" y="46">hypothetical</text>
+<path d="M259 68 L370 96" stroke="var(--primary)" stroke-opacity="0.8" stroke-width="2" marker-end="url(#hy)"></path>
+<text class="b" x="286" y="76">0.636</text>
+<path d="M20 220 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="244">the fake answer is a better search key than the real question</text>
+<text class="l" x="20" y="264">it adds no information — it only moves the query somewhere useful</text>
+</svg>
+<figcaption>The generated text is thrown away after the search. Only its position mattered.</figcaption>
+</figure>
+<h2 id="the-steps"><a class="heading-anchor" href="#the-steps">The steps</a></h2>
+<ol>
+<li>The user asks a question.</li>
+<li>A model writes a short hypothetical answer to it, from nothing.</li>
+<li>That answer is embedded.</li>
+<li>The search runs on that embedding.</li>
+<li>The real chunks come back.</li>
+<li>The final answer is written from the real chunks only.</li>
+</ol>
+<p>Step 6 is what keeps this honest. The hypothetical answer never reaches the user and is never cited. It exists to point at a region of the index, and is discarded the moment it has done so.</p>
+<h2 id="where-it-goes-wrong"><a class="heading-anchor" href="#where-it-goes-wrong">Where it goes wrong</a></h2>
+<p>The technique amplifies whatever the model guessed, in both directions.</p>
+<p>If the guess uses the right vocabulary, retrieval improves sharply. If the guess is confidently wrong — the model invents a plausible mechanism that your documents never mention — the search goes looking for that wrong mechanism and returns chunks about it. The question, for all its vocabulary mismatch, at least could not be wrong about the subject.</p>
+<p>Two specific danger zones:</p>
+<p><strong>Unusual or private domains.</strong> If the answer depends on your product's internal naming, the model has never seen it and will guess generic industry terms. The hypothetical answer then points at nothing.</p>
+<p><strong>Queries that are not questions.</strong> A user typing an error code or a part number is already using exactly the vocabulary the document uses. Generating prose around it moves the query <em>away</em> from a good match.</p>
+<p>The mitigation for variance is to generate several hypothetical answers and average their embeddings. Averaging four independent guesses halves the standard deviation of the guessing noise, so an idiosyncratic single answer has less influence. It does not help with a bias the model holds consistently.</p>
+<h2 id="the-cost"><a class="heading-anchor" href="#the-cost">The cost</a></h2>
+<p>One extra model call before every search, adding its own latency and tokens on every query — for a first token the user is still waiting on.</p>
+<p>That is a real tax, and whether it is worth paying is an empirical question with a measurable answer. Run your evaluation set both ways and compare retrieval quality. The technique helps most where the gap it addresses is largest: conversational questions over technical documents. It helps least where queries already look like the corpus.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The insight is not that generated text is useful. It is that <strong>the query and the index are not in the same dialect</strong>, and the fix is to translate the query into the index's dialect before searching.</p>
+<p>A fabricated answer happens to be an effective translator, because it is written in the register that answers are written in. Whether it is true is beside the point — it is never shown to anyone.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"HyDE in RAG"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T19:00","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A question and its answer barely resemble each other, which is a problem when retrieval works by resemblance. HyDE has the model write a fake answer first and searches with that instead."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/hyde.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nWkzCX7NB0gejdpwq_o5V"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/prefill-vs-decode/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Prefill vs Decode"}]]}],["$","$L2",null,{"href":"/blog/hybrid-search/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Hybrid Search"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"measuring-the-gap","text":"Measuring the gap","level":2},{"id":"the-steps","text":"The steps","level":2},{"id":"where-it-goes-wrong","text":"Where it goes wrong","level":2},{"id":"the-cost","text":"The cost","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
