@@ -1,0 +1,140 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/llama-cpp.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T1fb8,<p>llama.cpp runs language models on ordinary machines: a laptop, a desktop with a modest graphics card, a phone. No cluster, no server, no network call.</p>
+<p>Everything it does follows from one constraint, and that constraint is not what most people assume.</p>
+<h2 id="the-ceiling-is-bandwidth"><a class="heading-anchor" href="#the-ceiling-is-bandwidth">The ceiling is bandwidth</a></h2>
+<p>Generating a token requires reading every weight once. That is the dominant cost, and it is a memory transfer, not a calculation.</p>
+<p>A 4 GB quantized model on a desktop with about 50 GB/s of memory bandwidth:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>time to read 4 GB</th><th>tokens per second</th></tr></thead><tbody><tr><td>CPU, ~50 GB/s</td><td>80 ms</td><td><strong>12.5</strong></td></tr><tr><td>GPU, ~1,000 GB/s</td><td>4 ms</td><td>250</td></tr></tbody></table>
+<p>Twelve tokens a second is the ceiling on that CPU. Not the measured speed — the ceiling, the number you cannot beat with a better kernel, more cores, or perfect code, because the weights have to come out of memory and memory delivers 50 GB/s.</p>
+<p>The 20× gap between CPU and GPU here is almost entirely bandwidth. The graphics card's arithmetic advantage is larger still, and mostly irrelevant: for generation the arithmetic was never the bottleneck.</p>
+<p>This reframes the two optimizations people talk about most.</p>
+<p><strong>Quantization is the main speed lever, not just a memory one.</strong> Cutting a model from 14 GB to 4 GB cuts the bytes read per token by the same factor, and since the read is the cost, generation gets about that much faster. It is the rare optimization that improves both constraints at once.</p>
+<p><strong>Hand-tuned CPU arithmetic — SIMD instructions doing eight multiply-adds at a time — matters much more for reading the prompt than for writing the answer.</strong> Prompt processing handles hundreds of tokens per pass over the weights, so it is genuinely compute-bound and benefits enormously. Generation processes one token per pass and is waiting on memory either way.</p>
+<h2 id="which-is-why-partial-offload-disappoints"><a class="heading-anchor" href="#which-is-why-partial-offload-disappoints">Which is why partial offload disappoints</a></h2>
+<p>A machine with a small graphics card can put some layers on it and leave the rest on the CPU. The obvious expectation is that offloading half the work halves the time.</p>
+<p>It does not, and the arithmetic says why. For a 32-layer, 4 GB model:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>layers on the GPU</th><th>VRAM used</th><th>ms/token</th><th>tokens/s</th><th>speedup</th></tr></thead><tbody><tr><td>0</td><td>—</td><td>80.0</td><td>12.5</td><td>1.00×</td></tr><tr><td>8</td><td>1.0 GB</td><td>61.0</td><td>16.4</td><td>1.31×</td></tr><tr><td>16</td><td>2.0 GB</td><td>42.0</td><td>23.8</td><td>1.90×</td></tr><tr><td>24</td><td>3.0 GB</td><td>23.0</td><td>43.5</td><td>3.48×</td></tr><tr><td>28</td><td>3.5 GB</td><td>13.5</td><td>74.1</td><td>5.93×</td></tr><tr><td>32</td><td>4.0 GB</td><td>4.0</td><td>250.0</td><td><strong>20.00×</strong></td></tr></tbody></table>
+<p>Half the layers buys 1.90×. The last four layers — going from 28 to 32 — buy 3.38× on their own.</p>
+<p>The reason is that the CPU's per-layer cost is 30 times the GPU's, so whatever remains on the CPU dominates the total. Moving layers off it reduces that term linearly, but it stays the largest term until almost nothing is left. The payoff is concentrated entirely at the end.</p>
+<p>The practical rule follows directly: <strong>find the largest quantization that fits entirely in VRAM, rather than running a better quantization partially offloaded.</strong> A 4-bit model fully on the card beats a 6-bit model with four layers on the CPU, by a wide margin, and it is not a close call.</p>
+<figure>
+<svg viewBox="0 0 560 298" width="560" role="img" aria-label="A curve of tokens per second against layers offloaded to the GPU, nearly flat at first and rising steeply only near full offload." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE PAYOFF IS ALL AT THE END</text>
+<path d="M60 40 V196 H520" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<text class="l" x="20" y="46">250</text>
+<text class="l" x="20" y="120">125</text>
+<text class="l" x="34" y="200">0</text>
+<path d="M60 188 L175 186 L290 181 L405 169 L462 150 L491 125 L520 40" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<circle cx="290" cy="181" r="4" fill="var(--muted-foreground)"></circle>
+<text class="l" x="200" y="166">half the layers: 1.90×</text>
+<circle cx="462" cy="150" r="4" fill="var(--muted-foreground)"></circle>
+<circle cx="520" cy="40" r="4.6" fill="var(--primary)"></circle>
+<text class="b" x="330" y="76">the last four layers: 3.38×</text>
+<path d="M462 144 L500 84" stroke="var(--primary)" stroke-opacity="0.5" stroke-width="1.4"></path>
+<text class="l" x="60" y="216">0</text>
+<text class="l" x="290" y="216" text-anchor="middle">16</text>
+<text class="l" x="520" y="216" text-anchor="end">32 layers on the GPU</text>
+<path d="M20 234 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="256">whatever is left on the CPU costs 30× per layer, so it dominates</text>
+<text class="l" x="20" y="276">fit a smaller quantization entirely, rather than a better one partly</text>
+</svg>
+<figcaption>Tokens per second against layers offloaded. Nothing much happens until the CPU has almost nothing left to do.</figcaption>
+</figure>
+<h2 id="what-makes-it-start-instantly"><a class="heading-anchor" href="#what-makes-it-start-instantly">What makes it start instantly</a></h2>
+<p>The model is one file laid out the way the runtime wants it, so loading is a memory-map rather than a read: the operating system makes the file appear at an address and fetches pages when they are first touched.</p>
+<p>A 4 GB model therefore begins generating before 4 GB has been read from disk. The pages are also file-backed and clean, so under memory pressure the system can drop and re-read them instead of swapping, and two processes running the same model share one copy.</p>
+<p>None of that is available if the weights need decompressing or rearranging on load. The format has to match the runtime's layout exactly, which is why the two were designed together.</p>
+<h2 id="reading-the-quantization-names"><a class="heading-anchor" href="#reading-the-quantization-names">Reading the quantization names</a></h2>
+<p>A file marked <code>Q4_K_M</code> encodes four decisions: 4 nominal bits per weight, the k-quant family, which stores scales in a two-level arrangement over super-blocks rather than one flat scale per small block, and the medium variant, which keeps some tensors at higher precision than others.</p>
+<p>That last letter is where the judgement lives. Attention projections and embeddings tolerate aggressive quantization far worse than the bulk feed-forward weights, so the S/M/L variants are different answers to which tensors get the extra bits. Given the offload arithmetic above, the right variant is usually the largest one that still fits in VRAM completely.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The project's reputation is for clever CPU code, and the clever CPU code is real. But the thing that decides your tokens per second is how many bytes have to move and how fast the memory holding them is.</p>
+<p>Which is why quantization is the dominant lever, why prompt processing and generation respond to completely different optimizations, and why a partially offloaded model runs at nearly CPU speed until the CPU's share is almost gone.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"llama.cpp"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T21:20","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Running a model on a laptop CPU is a memory-bandwidth problem, not an arithmetic one — which sets a hard ceiling of about 12 tokens a second. It also explains why offloading half the layers to a GPU barely helps."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/llama-cpp.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"wgh5UQswaFhn5028pbIxj"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/model-quantization/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Model Quantization"}]]}],["$","$L2",null,{"href":"/blog/claude-code/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Claude Code"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-ceiling-is-bandwidth","text":"The ceiling is bandwidth","level":2},{"id":"which-is-why-partial-offload-disappoints","text":"Which is why partial offload disappoints","level":2},{"id":"what-makes-it-start-instantly","text":"What makes it start instantly","level":2},{"id":"reading-the-quantization-names","text":"Reading the quantization names","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
