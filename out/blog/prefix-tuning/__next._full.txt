@@ -1,0 +1,153 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/06p_318ym7y54.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","prefix-tuning",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","prefix-tuning","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/06p_318ym7y54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/06p_318ym7y54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"V0YCfyVih3-5Os5FVp-KX"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+:HL["/blog/prefix-tuning.svg","image"]
+11:T249e,<p>Adapting a large model to a task by retraining all of it is expensive to run and expensive to store — a full copy of the weights per task.</p>
+<p>Prefix tuning freezes the model entirely and trains a small set of extra numbers that attention can look at. The interesting question is <em>where</em> those numbers enter, because that decides what they can do.</p>
+<h2 id="not-words"><a class="heading-anchor" href="#not-words">Not words</a></h2>
+<p>The prefix is not text. It is not tokens the tokenizer produced, and it does not correspond to anything you could type.</p>
+<p>It is a set of learned <strong>keys and values</strong> injected directly into the attention computation. Real tokens produce their keys and values by projecting their embeddings; the prefix's are just parameters, optimised by gradient descent to whatever numbers make the task work.</p>
+<p>They take part in attention as things to be <em>attended to</em>. Every real token can look at them. They do not look at anything themselves — there is no query for a prefix position, because a prefix position is not computing an output.</p>
+<h2 id="where-and-why-the-count-works-out"><a class="heading-anchor" href="#where-and-why-the-count-works-out">Where, and why the count works out</a></h2>
+<p>Here is the part worth deriving rather than memorising.</p>
+<p><strong>Prompt tuning</strong> puts learned vectors at the input only — virtual tokens prepended to the embedded sequence. For 20 virtual tokens at hidden size 2,048:</p>
+<pre><code>20 × 2,048 = 40,960 parameters
+</code></pre>
+<p><strong>Prefix tuning</strong> injects a key and a value at <em>every layer</em>. For 24 layers:</p>
+<pre><code>20 × 2 × 2,048 × 24 = 1,966,080 parameters
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>parameters</th></tr></thead><tbody><tr><td>prompt tuning</td><td>40,960</td></tr><tr><td>prefix tuning</td><td><strong>1,966,080</strong></td></tr><tr><td>ratio</td><td><strong>48×</strong></td></tr></tbody></table>
+<p>And 48 is not an empirical number. It is <code>2 × 24</code> — two for keys and values, twenty-four for the layers. <strong>The ratio between the two methods is exactly twice the depth of the model.</strong></p>
+<p>That is also the answer to what the extra parameters buy. Prompt tuning's signal has to travel: it enters at layer 0 and whatever influence it has at layer 20 arrives through twenty layers of frozen computation that it cannot steer. Prefix tuning places parameters at layer 20 directly.</p>
+<p>Against the whole model, the prefix is <strong>0.151%</strong> — 99.85% of the weights are frozen and shared.</p>
+<figure>
+<svg viewBox="0 0 560 310" width="560" role="img" aria-label="A stack of layers: prompt tuning inserting learned vectors only at the input, against prefix tuning injecting keys and values at every layer." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">WHERE THE LEARNED NUMBERS GET IN</text>
+<text class="l" x="20" y="42">prompt tuning</text>
+<g fill="color-mix(in srgb, var(--muted-foreground) 14%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 34%, transparent)">
+<rect x="20" y="52" width="180" height="16" rx="3"></rect><rect x="20" y="72" width="180" height="16" rx="3"></rect><rect x="20" y="92" width="180" height="16" rx="3"></rect><rect x="20" y="112" width="180" height="16" rx="3"></rect><rect x="20" y="132" width="180" height="16" rx="3"></rect><rect x="20" y="152" width="180" height="16" rx="3"></rect><rect x="20" y="172" width="180" height="16" rx="3"></rect>
+</g>
+<rect x="20" y="192" width="180" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 50%, transparent)" stroke="var(--primary)" stroke-opacity="0.7"></rect>
+<text class="b" x="20" y="228">40,960 — at the input only</text>
+<text class="l" x="20" y="248">whatever reaches layer 7 arrives through 7 frozen layers</text>
+<text class="b" x="300" y="42">prefix tuning</text>
+<g fill="color-mix(in srgb, var(--muted-foreground) 14%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 34%, transparent)">
+<rect x="300" y="52" width="180" height="16" rx="3"></rect><rect x="300" y="72" width="180" height="16" rx="3"></rect><rect x="300" y="92" width="180" height="16" rx="3"></rect><rect x="300" y="112" width="180" height="16" rx="3"></rect><rect x="300" y="132" width="180" height="16" rx="3"></rect><rect x="300" y="152" width="180" height="16" rx="3"></rect><rect x="300" y="172" width="180" height="16" rx="3"></rect><rect x="300" y="192" width="180" height="16" rx="3"></rect>
+</g>
+<g fill="color-mix(in srgb, var(--primary) 50%, transparent)" stroke="var(--primary)" stroke-opacity="0.7">
+<rect x="484" y="52" width="36" height="16" rx="3"></rect><rect x="484" y="72" width="36" height="16" rx="3"></rect><rect x="484" y="92" width="36" height="16" rx="3"></rect><rect x="484" y="112" width="36" height="16" rx="3"></rect><rect x="484" y="132" width="36" height="16" rx="3"></rect><rect x="484" y="152" width="36" height="16" rx="3"></rect><rect x="484" y="172" width="36" height="16" rx="3"></rect><rect x="484" y="192" width="36" height="16" rx="3"></rect>
+</g>
+<text class="b" x="300" y="228">1,966,080 — at every layer</text>
+<text class="l" x="300" y="248">48× more, and 48 is exactly 2 × 24 layers</text>
+<path d="M20 264 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="288">both are under 1% of the model — they differ in reach, not size</text>
+</svg>
+<figcaption>The parameter count is a consequence of the placement, not a separate design choice.</figcaption>
+</figure>
+<h2 id="what-it-costs-at-inference"><a class="heading-anchor" href="#what-it-costs-at-inference">What it costs at inference</a></h2>
+<p>This is the limitation that decided which method won in practice.</p>
+<p>The prefix is present in every forward pass, forever. Twenty extra keys and values at every layer means every attention computation processes twenty more positions than it otherwise would:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>context length</th><th>extra attention work</th></tr></thead><tbody><tr><td>100 tokens</td><td><strong>20.0%</strong></td></tr><tr><td>500</td><td>4.0%</td></tr><tr><td>2,000</td><td>1.0%</td></tr><tr><td>8,000</td><td>0.25%</td></tr></tbody></table>
+<p>The overhead is proportionally worst on short inputs, which is often exactly the workload — a classifier, a short extraction, a routing decision.</p>
+<p>And twenty positions of the context window are gone. Not a large loss at 8,000, and material at 512.</p>
+<p>Compare this with an approach that trains a low-rank update to the weight matrices: that update can be <strong>added into the weights</strong> after training, leaving a model that is exactly the original shape and exactly the original speed. Zero inference overhead, and the reason that approach became the default.</p>
+<h2 id="what-it-is-good-at"><a class="heading-anchor" href="#what-it-is-good-at">What it is good at</a></h2>
+<p>Storage, and it is a big win.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>per task</th></tr></thead><tbody><tr><td>a full copy of the model</td><td>2.6 GB</td></tr><tr><td>one prefix</td><td><strong>3.93 MB</strong></td></tr></tbody></table>
+<p><strong>661× smaller.</strong> Two hundred tasks cost 786 MB of prefixes against half a terabyte of model copies — and all two hundred share one loaded set of weights in memory, so switching tasks is swapping a few megabytes rather than reloading a model.</p>
+<p>That is the shape of the argument for any of these methods: one frozen base, many tiny per-task files.</p>
+<h2 id="the-honest-limitations"><a class="heading-anchor" href="#the-honest-limitations">The honest limitations</a></h2>
+<p><strong>It is weaker than full fine-tuning</strong> on tasks that need a real change in capability. Adjusting what attention attends to is less expressive than adjusting the weights, and where the gap shows, it shows.</p>
+<p><strong>Training can be unstable.</strong> The prefix parameters have no natural initialisation — they are not embeddings of anything — and poorly initialised prefixes train badly. Initialising from the embeddings of actual words is a common and slightly inelegant fix.</p>
+<p><strong>The prefix is not interpretable.</strong> With prompt-based approaches you can at least decode the nearest real tokens and get a hint. A prefix's keys and values at layer 17 do not correspond to anything nameable.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The family of methods is distinguished by <em>where</em> the learned numbers enter: at the input, at every layer's attention, or in the weight matrices themselves.</p>
+<p>Prefix tuning's choice — every layer's attention — is what makes it 48× larger than prompt tuning and more expressive for the same reason. It also means the extra positions are there on every forward pass for the life of the model, which is the cost a weight-space method does not pay.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Prefix Tuning"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T05:00","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Prefix tuning trains 48× more parameters than prompt tuning, and that factor is exactly twice the layer count. What the extra numbers buy is influence at every depth rather than only at the input."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/prefix-tuning.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Prefix Tuning · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Prefix tuning trains 48× more parameters than prompt tuning, and that factor is exactly twice the layer count. What the extra numbers buy is influence at every depth rather than only at the input."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"prefix-tuning,peft,attention,adapters,fine-tuning"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/prefix-tuning/"}],["$","meta","6",{"property":"og:title","content":"Prefix Tuning"}],["$","meta","7",{"property":"og:description","content":"Prefix tuning trains 48× more parameters than prompt tuning, and that factor is exactly twice the layer count. What the extra numbers buy is influence at every depth rather than only at the input."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/prefix-tuning/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-12T05:00"}],["$","meta","11",{"property":"article:tag","content":"prefix-tuning"}],["$","meta","12",{"property":"article:tag","content":"peft"}],["$","meta","13",{"property":"article:tag","content":"attention"}],["$","meta","14",{"property":"article:tag","content":"adapters"}],["$","meta","15",{"property":"article:tag","content":"fine-tuning"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Prefix Tuning"}],["$","meta","18",{"name":"twitter:description","content":"Prefix tuning trains 48× more parameters than prompt tuning, and that factor is exactly twice the layer count. What the extra numbers buy is influence at every depth rather than only at the input."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/graph-engineering/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Graph Engineering"}]]}],["$","$Lf",null,{"href":"/blog/definition-of-done/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Definition of Done"}]]}]]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"not-words","text":"Not words","level":2},{"id":"where-and-why-the-count-works-out","text":"Where, and why the count works out","level":2},{"id":"what-it-costs-at-inference","text":"What it costs at inference","level":2},{"id":"what-it-is-good-at","text":"What it is good at","level":2},{"id":"the-honest-limitations","text":"The honest limitations","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]

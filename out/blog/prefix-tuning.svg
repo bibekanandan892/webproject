@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Prefix tuning: a frozen stack of layers with small learned key-value blocks attached to every layer's attention.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="60" y="96" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9">frozen — 99.85%</text>
+<g fill="#141C30" stroke="rgba(230,237,243,0.2)" stroke-width="2">
+<rect x="60" y="110" width="480" height="30" rx="6"/><rect x="60" y="146" width="480" height="30" rx="6"/><rect x="60" y="182" width="480" height="30" rx="6"/><rect x="60" y="218" width="480" height="30" rx="6"/><rect x="60" y="254" width="480" height="30" rx="6"/><rect x="60" y="290" width="480" height="30" rx="6"/>
+</g>
+<text x="574" y="96" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">learned</text>
+<g fill="#64FFDA" fill-opacity="0.45" stroke="#64FFDA" stroke-width="2">
+<rect x="556" y="110" width="88" height="30" rx="6"/><rect x="556" y="146" width="88" height="30" rx="6"/><rect x="556" y="182" width="88" height="30" rx="6"/><rect x="556" y="218" width="88" height="30" rx="6"/><rect x="556" y="254" width="88" height="30" rx="6"/><rect x="556" y="290" width="88" height="30" rx="6"/>
+</g>
+<g stroke="#64FFDA" stroke-opacity="0.5" stroke-width="2">
+<path d="M556 125 H544"/><path d="M556 161 H544"/><path d="M556 197 H544"/><path d="M556 233 H544"/><path d="M556 269 H544"/><path d="M556 305 H544"/>
+</g>
+<text x="660" y="212" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#64FFDA">keys and</text>
+<text x="660" y="236" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#64FFDA">values, at</text>
+<text x="660" y="260" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#64FFDA">every layer</text>
+<text x="60" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">3.93 MB per task, not 2.6 GB</text>
+<text x="52" y="422" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">prefix tuning</text>
+</svg>

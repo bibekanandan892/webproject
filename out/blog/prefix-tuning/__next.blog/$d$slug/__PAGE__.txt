@@ -1,0 +1,139 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/prefix-tuning.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T249e,<p>Adapting a large model to a task by retraining all of it is expensive to run and expensive to store — a full copy of the weights per task.</p>
+<p>Prefix tuning freezes the model entirely and trains a small set of extra numbers that attention can look at. The interesting question is <em>where</em> those numbers enter, because that decides what they can do.</p>
+<h2 id="not-words"><a class="heading-anchor" href="#not-words">Not words</a></h2>
+<p>The prefix is not text. It is not tokens the tokenizer produced, and it does not correspond to anything you could type.</p>
+<p>It is a set of learned <strong>keys and values</strong> injected directly into the attention computation. Real tokens produce their keys and values by projecting their embeddings; the prefix's are just parameters, optimised by gradient descent to whatever numbers make the task work.</p>
+<p>They take part in attention as things to be <em>attended to</em>. Every real token can look at them. They do not look at anything themselves — there is no query for a prefix position, because a prefix position is not computing an output.</p>
+<h2 id="where-and-why-the-count-works-out"><a class="heading-anchor" href="#where-and-why-the-count-works-out">Where, and why the count works out</a></h2>
+<p>Here is the part worth deriving rather than memorising.</p>
+<p><strong>Prompt tuning</strong> puts learned vectors at the input only — virtual tokens prepended to the embedded sequence. For 20 virtual tokens at hidden size 2,048:</p>
+<pre><code>20 × 2,048 = 40,960 parameters
+</code></pre>
+<p><strong>Prefix tuning</strong> injects a key and a value at <em>every layer</em>. For 24 layers:</p>
+<pre><code>20 × 2 × 2,048 × 24 = 1,966,080 parameters
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>parameters</th></tr></thead><tbody><tr><td>prompt tuning</td><td>40,960</td></tr><tr><td>prefix tuning</td><td><strong>1,966,080</strong></td></tr><tr><td>ratio</td><td><strong>48×</strong></td></tr></tbody></table>
+<p>And 48 is not an empirical number. It is <code>2 × 24</code> — two for keys and values, twenty-four for the layers. <strong>The ratio between the two methods is exactly twice the depth of the model.</strong></p>
+<p>That is also the answer to what the extra parameters buy. Prompt tuning's signal has to travel: it enters at layer 0 and whatever influence it has at layer 20 arrives through twenty layers of frozen computation that it cannot steer. Prefix tuning places parameters at layer 20 directly.</p>
+<p>Against the whole model, the prefix is <strong>0.151%</strong> — 99.85% of the weights are frozen and shared.</p>
+<figure>
+<svg viewBox="0 0 560 310" width="560" role="img" aria-label="A stack of layers: prompt tuning inserting learned vectors only at the input, against prefix tuning injecting keys and values at every layer." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">WHERE THE LEARNED NUMBERS GET IN</text>
+<text class="l" x="20" y="42">prompt tuning</text>
+<g fill="color-mix(in srgb, var(--muted-foreground) 14%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 34%, transparent)">
+<rect x="20" y="52" width="180" height="16" rx="3"></rect><rect x="20" y="72" width="180" height="16" rx="3"></rect><rect x="20" y="92" width="180" height="16" rx="3"></rect><rect x="20" y="112" width="180" height="16" rx="3"></rect><rect x="20" y="132" width="180" height="16" rx="3"></rect><rect x="20" y="152" width="180" height="16" rx="3"></rect><rect x="20" y="172" width="180" height="16" rx="3"></rect>
+</g>
+<rect x="20" y="192" width="180" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 50%, transparent)" stroke="var(--primary)" stroke-opacity="0.7"></rect>
+<text class="b" x="20" y="228">40,960 — at the input only</text>
+<text class="l" x="20" y="248">whatever reaches layer 7 arrives through 7 frozen layers</text>
+<text class="b" x="300" y="42">prefix tuning</text>
+<g fill="color-mix(in srgb, var(--muted-foreground) 14%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 34%, transparent)">
+<rect x="300" y="52" width="180" height="16" rx="3"></rect><rect x="300" y="72" width="180" height="16" rx="3"></rect><rect x="300" y="92" width="180" height="16" rx="3"></rect><rect x="300" y="112" width="180" height="16" rx="3"></rect><rect x="300" y="132" width="180" height="16" rx="3"></rect><rect x="300" y="152" width="180" height="16" rx="3"></rect><rect x="300" y="172" width="180" height="16" rx="3"></rect><rect x="300" y="192" width="180" height="16" rx="3"></rect>
+</g>
+<g fill="color-mix(in srgb, var(--primary) 50%, transparent)" stroke="var(--primary)" stroke-opacity="0.7">
+<rect x="484" y="52" width="36" height="16" rx="3"></rect><rect x="484" y="72" width="36" height="16" rx="3"></rect><rect x="484" y="92" width="36" height="16" rx="3"></rect><rect x="484" y="112" width="36" height="16" rx="3"></rect><rect x="484" y="132" width="36" height="16" rx="3"></rect><rect x="484" y="152" width="36" height="16" rx="3"></rect><rect x="484" y="172" width="36" height="16" rx="3"></rect><rect x="484" y="192" width="36" height="16" rx="3"></rect>
+</g>
+<text class="b" x="300" y="228">1,966,080 — at every layer</text>
+<text class="l" x="300" y="248">48× more, and 48 is exactly 2 × 24 layers</text>
+<path d="M20 264 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="288">both are under 1% of the model — they differ in reach, not size</text>
+</svg>
+<figcaption>The parameter count is a consequence of the placement, not a separate design choice.</figcaption>
+</figure>
+<h2 id="what-it-costs-at-inference"><a class="heading-anchor" href="#what-it-costs-at-inference">What it costs at inference</a></h2>
+<p>This is the limitation that decided which method won in practice.</p>
+<p>The prefix is present in every forward pass, forever. Twenty extra keys and values at every layer means every attention computation processes twenty more positions than it otherwise would:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>context length</th><th>extra attention work</th></tr></thead><tbody><tr><td>100 tokens</td><td><strong>20.0%</strong></td></tr><tr><td>500</td><td>4.0%</td></tr><tr><td>2,000</td><td>1.0%</td></tr><tr><td>8,000</td><td>0.25%</td></tr></tbody></table>
+<p>The overhead is proportionally worst on short inputs, which is often exactly the workload — a classifier, a short extraction, a routing decision.</p>
+<p>And twenty positions of the context window are gone. Not a large loss at 8,000, and material at 512.</p>
+<p>Compare this with an approach that trains a low-rank update to the weight matrices: that update can be <strong>added into the weights</strong> after training, leaving a model that is exactly the original shape and exactly the original speed. Zero inference overhead, and the reason that approach became the default.</p>
+<h2 id="what-it-is-good-at"><a class="heading-anchor" href="#what-it-is-good-at">What it is good at</a></h2>
+<p>Storage, and it is a big win.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>per task</th></tr></thead><tbody><tr><td>a full copy of the model</td><td>2.6 GB</td></tr><tr><td>one prefix</td><td><strong>3.93 MB</strong></td></tr></tbody></table>
+<p><strong>661× smaller.</strong> Two hundred tasks cost 786 MB of prefixes against half a terabyte of model copies — and all two hundred share one loaded set of weights in memory, so switching tasks is swapping a few megabytes rather than reloading a model.</p>
+<p>That is the shape of the argument for any of these methods: one frozen base, many tiny per-task files.</p>
+<h2 id="the-honest-limitations"><a class="heading-anchor" href="#the-honest-limitations">The honest limitations</a></h2>
+<p><strong>It is weaker than full fine-tuning</strong> on tasks that need a real change in capability. Adjusting what attention attends to is less expressive than adjusting the weights, and where the gap shows, it shows.</p>
+<p><strong>Training can be unstable.</strong> The prefix parameters have no natural initialisation — they are not embeddings of anything — and poorly initialised prefixes train badly. Initialising from the embeddings of actual words is a common and slightly inelegant fix.</p>
+<p><strong>The prefix is not interpretable.</strong> With prompt-based approaches you can at least decode the nearest real tokens and get a hint. A prefix's keys and values at layer 17 do not correspond to anything nameable.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The family of methods is distinguished by <em>where</em> the learned numbers enter: at the input, at every layer's attention, or in the weight matrices themselves.</p>
+<p>Prefix tuning's choice — every layer's attention — is what makes it 48× larger than prompt tuning and more expressive for the same reason. It also means the extra positions are there on every forward pass for the life of the model, which is the cost a weight-space method does not pay.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Prefix Tuning"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T05:00","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Prefix tuning trains 48× more parameters than prompt tuning, and that factor is exactly twice the layer count. What the extra numbers buy is influence at every depth rather than only at the input."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/prefix-tuning.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"V0YCfyVih3-5Os5FVp-KX"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/graph-engineering/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Graph Engineering"}]]}],["$","$L2",null,{"href":"/blog/definition-of-done/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Definition of Done"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"not-words","text":"Not words","level":2},{"id":"where-and-why-the-count-works-out","text":"Where, and why the count works out","level":2},{"id":"what-it-costs-at-inference","text":"What it costs at inference","level":2},{"id":"what-it-is-good-at","text":"What it is good at","level":2},{"id":"the-honest-limitations","text":"The honest limitations","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
