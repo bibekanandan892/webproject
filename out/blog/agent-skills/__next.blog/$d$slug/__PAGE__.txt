@@ -1,0 +1,109 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/agent-skills.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T1fbe,<p>An agent skill is a folder containing instructions — and optionally scripts and reference files — that an agent loads by itself when it recognises the situation.</p>
+<p>It exists because the alternative does not fit.</p>
+<h2 id="why-not-just-put-it-in-the-prompt"><a class="heading-anchor" href="#why-not-just-put-it-in-the-prompt">Why not just put it in the prompt</a></h2>
+<p>A team accumulates procedures: how a release note is formatted, which checks run before a deploy, what a data export has to include, the conventions a migration follows. Written down, each is a page or two — call it 4,200 tokens.</p>
+<p>Fifty of those, loaded on every request:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>tokens</th></tr></thead><tbody><tr><td>50 procedures, fully loaded</td><td>210,000</td></tr><tr><td>a 200,000-token context window</td><td>200,000</td></tr></tbody></table>
+<p>It is over budget before the agent has read a single file of yours. And even if it fitted, 49 of the 50 are irrelevant to whatever was asked — diluting attention and paying for context that will not be used.</p>
+<h2 id="loading-in-stages"><a class="heading-anchor" href="#loading-in-stages">Loading in stages</a></h2>
+<p>The answer is to load almost nothing and expand on demand.</p>
+<p><strong>Level one</strong> is a name and a one-line description, about 95 tokens per skill. Always present.</p>
+<p><strong>Level two</strong> is the full instructions, loaded only for the skill that matched — 4,200 tokens.</p>
+<p><strong>Level three</strong> is whatever the instructions themselves point at: a longer reference, a schema, an example file. Read only if the work needs it.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>tokens</th></tr></thead><tbody><tr><td>50 descriptions</td><td>4,750</td></tr><tr><td>one skill expanded</td><td>4,200</td></tr><tr><td><strong>total</strong></td><td><strong>8,950</strong></td></tr></tbody></table>
+<p><strong>23× less</strong> than loading everything, and the descriptions cost 2.4% of the window — an amount you would not notice.</p>
+<figure>
+<svg viewBox="0 0 560 300" width="560" role="img" aria-label="A bar for fifty fully loaded procedures overflowing the context window, against a small bar for fifty descriptions plus one expanded skill." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">LOAD THE INDEX, NOT THE LIBRARY</text>
+<rect x="20" y="40" width="476" height="20" rx="3" fill="none" stroke="var(--primary)" stroke-opacity="0.5" stroke-dasharray="5 4"></rect>
+<text class="b" x="20" y="76">the window — 200,000 tokens</text>
+<text class="l" x="20" y="106">everything loaded</text>
+<rect x="20" y="114" width="500" height="22" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 52%, transparent)"></rect>
+<text class="l" x="30" y="129">210,000 — does not fit</text>
+<text class="l" x="20" y="164">descriptions, then one skill</text>
+<rect x="20" y="172" width="11" height="22" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.7"></rect>
+<rect x="33" y="172" width="10" height="22" rx="2" fill="color-mix(in srgb, var(--primary) 25%, transparent)" stroke="var(--primary)" stroke-opacity="0.5"></rect>
+<text class="b" x="52" y="188">8,950 — 23× less</text>
+<path d="M20 214 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="238">the 44 skills that did not fire cost 4,180 tokens — 2.1% of the window</text>
+<text class="b" x="20" y="260">so unused skills are not the problem. being picked wrongly is.</text>
+<text class="l" x="20" y="278">selection is a 50-way choice made from twenty words each</text>
+</svg>
+<figcaption>The saving is large and easy. What it buys is a harder problem: choosing correctly from descriptions alone.</figcaption>
+</figure>
+<h2 id="the-description-is-the-whole-interface"><a class="heading-anchor" href="#the-description-is-the-whole-interface">The description is the whole interface</a></h2>
+<p>Here is the consequence that matters, and it follows directly from the staging.</p>
+<p>At level one the agent sees nothing but the descriptions. Whether a skill is ever used is decided entirely by whether its one line matches the situation — so the description is not a label, it is the trigger.</p>
+<p>Which means the work of writing a good skill is mostly the work of writing that line. Two failures:</p>
+<p><strong>Too vague.</strong> "Helps with reports" matches nothing in particular and will be skipped in favour of doing the work from scratch. The instructions inside may be excellent and will never be read.</p>
+<p><strong>Too broad.</strong> "For any data-related task" matches constantly, including when something else was the right choice, and now a specific procedure is being applied to a situation it was not written for.</p>
+<p>The useful shape is to say <em>when</em>, not <em>what</em>: "Use when producing the weekly operations summary — covers the required sections, the metric definitions, and the sign-off order." Someone reading that knows whether it applies. So does a model.</p>
+<h2 id="what-unused-skills-actually-cost"><a class="heading-anchor" href="#what-unused-skills-actually-cost">What unused skills actually cost</a></h2>
+<p>Worth doing this arithmetic because the intuition is wrong.</p>
+<p>Of 50 skills, suppose 6 are relevant in a typical session. The other 44 cost 44 × 95 = <strong>4,180 tokens</strong> — 2.1% of the window. Negligible.</p>
+<p>So the reason to prune a skill collection is not token cost. It is that every added skill makes the selection problem harder: fifty descriptions that overlap are harder to choose between than twenty that do not. Keep them because they are distinguishable, delete them because they are confusable, and do not think about the tokens at all.</p>
+<h2 id="carrying-code"><a class="heading-anchor" href="#carrying-code">Carrying code</a></h2>
+<p>A skill can include scripts, and this is more than a convenience.</p>
+<p>Asking the model to write the code costs around 700 tokens and produces something slightly different every time. Invoking a script costs about 40 tokens and produces exactly the same behaviour on every run — 17.5× cheaper and, more importantly, deterministic.</p>
+<p>Which suggests the division: put the <em>judgement</em> in the instructions and the <em>mechanics</em> in a script. Anything with a single correct implementation should not be regenerated on each use.</p>
+<h2 id="where-it-sits-next-to-a-connectivity-protocol"><a class="heading-anchor" href="#where-it-sits-next-to-a-connectivity-protocol">Where it sits next to a connectivity protocol</a></h2>
+<p>Two different questions, often confused because both extend an agent.</p>
+<p>A connectivity protocol answers <strong>what can the agent reach</strong> — it exposes tools and data sources that were previously unreachable.</p>
+<p>A skill answers <strong>how should this be done here</strong> — it supplies procedure for something already reachable.</p>
+<p>An agent with tools and no procedure will do the work in a way that is reasonable and not yours. An agent with procedure and no tools cannot do the work at all. They are additive.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Progressive disclosure is the mechanism, and it is not complicated: keep an index in context, expand one entry when it matches.</p>
+<p>The interesting part is what that shifts. Once loading is cheap, the constraint stops being context and becomes selection — and a skill's value is decided by one line of description that has to be specific enough to be recognised and narrow enough not to be recognised wrongly.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Agent Skills"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T00:00","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Loading fifty procedures eagerly costs 210,000 tokens and does not fit. Loading their descriptions costs 4,750, which makes the whole thing work — and turns the real problem into a fifty-way choice made from twenty words."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/agent-skills.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GOWKscQcAGju_FCS5Bzko"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/mcp/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"MCP"}]]}],["$","$L2",null,{"href":"/blog/embeddings/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Embeddings"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"why-not-just-put-it-in-the-prompt","text":"Why not just put it in the prompt","level":2},{"id":"loading-in-stages","text":"Loading in stages","level":2},{"id":"the-description-is-the-whole-interface","text":"The description is the whole interface","level":2},{"id":"what-unused-skills-actually-cost","text":"What unused skills actually cost","level":2},{"id":"carrying-code","text":"Carrying code","level":2},{"id":"where-it-sits-next-to-a-connectivity-protocol","text":"Where it sits next to a connectivity protocol","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

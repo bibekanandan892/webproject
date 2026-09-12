@@ -1,0 +1,127 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/embeddings.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T21aa,<p>A computer comparing text compares characters. "How do I reset my password?" and "I forgot my login details" share almost no characters and mean the same thing; "the bank of the river" and "I need to visit the bank" share a word and mean unrelated things.</p>
+<p>An embedding replaces the text with a list of numbers, arranged so that closeness in the numbers means closeness in meaning. Comparing meaning becomes arithmetic.</p>
+<h2 id="the-toy-version-and-why-it-is-a-toy"><a class="heading-anchor" href="#the-toy-version-and-why-it-is-a-toy">The toy version, and why it is a toy</a></h2>
+<p>Start with two numbers per item — sweetness and size, say. An apple might be [7, 5], a banana [8, 5], a lemon [1, 3]. The apple and banana land near each other without anyone having declared them similar; that relationship is a consequence of the coordinates.</p>
+<p>This is the standard explanation and it hides the important question: why do real embeddings use hundreds of numbers rather than two?</p>
+<p>The answer is capacity, and it is measurable.</p>
+<h2 id="how-many-things-fit-in-a-space"><a class="heading-anchor" href="#how-many-things-fit-in-a-space">How many things fit in a space</a></h2>
+<p>Two directions are <em>distinguishable</em> if the angle between them is wide enough that a small error cannot confuse them. Take a cosine of 0.30 as the threshold.</p>
+<p>How many directions can be placed in <em>d</em> dimensions before some pair exceeds it:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>dimensions</th><th>distinguishable concepts</th></tr></thead><tbody><tr><td>2</td><td>2</td></tr><tr><td>4</td><td>4</td></tr><tr><td>8</td><td>9</td></tr><tr><td>16</td><td>21</td></tr><tr><td>64</td><td>363</td></tr><tr><td>384</td><td>3,000+</td></tr></tbody></table>
+<p>Two dimensions hold two ideas. Sixteen hold twenty-one. Sixty-four hold three hundred and sixty-three, and by 384 the count runs past where it is worth counting.</p>
+<p>The growth is not linear — it accelerates, because the volume available at a given angular separation grows with dimension. This is the whole reason for the size of real embeddings. A language has hundreds of thousands of words standing in millions of relationships, and a two-dimensional space simply has nowhere to put them.</p>
+<p>The same fact in another form: two random directions in <em>d</em> dimensions have an expected absolute cosine of √(2/πd).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>dimensions</th><th>typical cosine between unrelated items</th></tr></thead><tbody><tr><td>2</td><td>0.643</td></tr><tr><td>8</td><td>0.285</td></tr><tr><td>64</td><td>0.0995</td></tr><tr><td>768</td><td>0.0291</td></tr></tbody></table>
+<p>In two dimensions everything is close to everything — 0.64 between unrelated items, which leaves no room for a <em>meaningful</em> 0.8. In 768 dimensions unrelated things sit at 0.03, so a similarity of 0.8 is unambiguous.</p>
+<p>That is why the usual advice — "related sentences score 0.7 to 0.9, unrelated 0.1 to 0.3" — only holds in a high-dimensional space. The scale is an artefact of the dimension count.</p>
+<figure>
+<svg viewBox="0 0 560 302" width="560" role="img" aria-label="Bars on a logarithmic scale showing how many distinguishable concepts fit in two, eight, sixteen, sixty-four and three hundred and eighty-four dimensions." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ROOM FOR IDEAS, MEASURED</text>
+<text class="l" x="20" y="44">concepts that fit, before any pair exceeds cosine 0.30</text>
+<rect x="20" y="54" width="43" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 22%, transparent)" stroke="var(--primary)" stroke-opacity="0.5"></rect>
+<text class="l" x="30" y="67">d = 2 → 2</text>
+<rect x="20" y="78" width="137" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 22%, transparent)" stroke="var(--primary)" stroke-opacity="0.5"></rect>
+<text class="l" x="30" y="91">d = 8 → 9</text>
+<rect x="20" y="102" width="190" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 22%, transparent)" stroke="var(--primary)" stroke-opacity="0.5"></rect>
+<text class="l" x="30" y="115">d = 16 → 21</text>
+<rect x="20" y="126" width="368" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 22%, transparent)" stroke="var(--primary)" stroke-opacity="0.5"></rect>
+<text class="l" x="30" y="139">d = 64 → 363</text>
+<rect x="20" y="150" width="500" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 34%, transparent)" stroke="var(--primary)" stroke-opacity="0.5"></rect>
+<text class="b" x="30" y="163">d = 384 → past counting</text>
+<text class="l" x="20" y="180">log scale — each 144 px is a tenfold increase</text>
+<path d="M20 196 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="218">and the noise floor falls as √(2/πd):</text>
+<text class="l" x="20" y="236">unrelated items sit at 0.643 in 2 dimensions, 0.0291 in 768</text>
+<text class="b" x="20" y="258">so a score of 0.8 means nothing in 2 dimensions and a lot in 768</text>
+<text class="l" x="20" y="280">the familiar 0.7-to-0.9 range is a property of the dimension count</text>
+</svg>
+<figcaption>Capacity rises and the noise floor falls, both with dimension. That is what hundreds of numbers buy.</figcaption>
+</figure>
+<h2 id="where-the-numbers-come-from"><a class="heading-anchor" href="#where-the-numbers-come-from">Where the numbers come from</a></h2>
+<p>Nobody assigns them. A model is trained on a task that requires understanding — predicting missing words, or matching sentences with their paraphrases — and the vectors are whatever internal representation the model developed to succeed at it.</p>
+<p>Which means the axes are not interpretable. There is no "sweetness" dimension in a real embedding; dimension 412 is not <em>about</em> anything. The information lives in relative positions, not in individual coordinates.</p>
+<p>It also means the training objective decides what "similar" means. A model trained to match questions with answers organises differently from one trained to detect paraphrases, and both are correct for their purpose.</p>
+<h2 id="word-arithmetic-honestly"><a class="heading-anchor" href="#word-arithmetic-honestly">Word arithmetic, honestly</a></h2>
+<p>The famous demonstration is that <code>king − man + woman</code> lands near <code>queen</code>. It genuinely works, and it is weaker than the way it is usually told.</p>
+<p>The standard evaluation excludes the three input words from the candidate list. Without that exclusion, the nearest vector to the result is typically one of the inputs — the arithmetic moves the point, but not far enough to escape the neighbourhood it started in. So the relationship is real and the "solving analogies" framing overstates it.</p>
+<p>Worth knowing, because it is the example that convinces people embeddings are doing symbolic reasoning. They are not. They are placing points such that some directions happen to correspond roughly to some relationships.</p>
+<h2 id="what-to-watch-for"><a class="heading-anchor" href="#what-to-watch-for">What to watch for</a></h2>
+<p><strong>Never compare across models.</strong> Two models produce vectors in unrelated spaces. A cosine between them is not a weak signal; it is a meaningless number that looks exactly like a real one.</p>
+<p><strong>Similar is not correct.</strong> Retrieval finds the nearest text, which may be nearby and wrong — a document about the same topic contradicting the one you wanted scores just as well.</p>
+<p><strong>The training data's associations are in there.</strong> An embedding places stereotyped associations near each other because the text it learned from did, and that shows up in anything ranked by similarity.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>An embedding turns meaning into coordinates, and the coordinate count is not arbitrary.</p>
+<p>Two dimensions can separate two ideas. It takes hundreds before unrelated things are far apart enough that "close" carries information — which is why the smallest useful embeddings are in the hundreds and the toy example with two numbers, while a good illustration, is not a small version of the real thing.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Embeddings"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T00:20","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Two numbers can hold two distinguishable concepts. Sixteen can hold twenty-one. That measured curve is the reason real embeddings have hundreds of dimensions, and it is rarely the explanation given."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/embeddings.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GOWKscQcAGju_FCS5Bzko"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/agent-skills/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Agent Skills"}]]}],["$","$L2",null,{"href":"/blog/precision-vs-recall/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Precision vs Recall"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-toy-version-and-why-it-is-a-toy","text":"The toy version, and why it is a toy","level":2},{"id":"how-many-things-fit-in-a-space","text":"How many things fit in a space","level":2},{"id":"where-the-numbers-come-from","text":"Where the numbers come from","level":2},{"id":"word-arithmetic-honestly","text":"Word arithmetic, honestly","level":2},{"id":"what-to-watch-for","text":"What to watch for","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

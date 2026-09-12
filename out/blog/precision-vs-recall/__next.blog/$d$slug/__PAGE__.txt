@@ -1,0 +1,147 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/precision-vs-recall.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T1f82,<p>Any system that flags things gets four outcomes: correctly flagged, wrongly flagged, correctly passed, wrongly passed.</p>
+<p><strong>Precision</strong> is how many of the things it flagged were right. <strong>Recall</strong> is how many of the things it should have flagged it found.</p>
+<p>They pull against each other in the obvious way — a stricter threshold flags less and is right more often — and that is the version everyone learns. There is a bigger effect underneath it.</p>
+<h2 id="what-rarity-does"><a class="heading-anchor" href="#what-rarity-does">What rarity does</a></h2>
+<p>Take 100,000 transactions of which 0.2% are fraudulent. Two hundred real cases.</p>
+<p>A classifier catching 95% of fraud with a 2% false-positive rate sounds strong. It catches 190 of the 200 — and flags 2% of the 99,800 clean transactions, which is 1,996 of them.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>alerts raised</td><td>2,186</td></tr><tr><td>of which real</td><td>190</td></tr><tr><td><strong>precision</strong></td><td><strong>8.7%</strong></td></tr></tbody></table>
+<p>Ninety-one percent of the alerts are wrong. Nothing about that classifier is bad; its recall is excellent and its false-positive rate is low. The problem is that <strong>there are 499 clean transactions for every fraudulent one</strong>, so even a small error rate on the clean ones buries the real cases.</p>
+<h2 id="the-rule-this-implies"><a class="heading-anchor" href="#the-rule-this-implies">The rule this implies</a></h2>
+<p>Tightening the false-positive rate, holding recall at 95%:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>false-positive rate</th><th>alerts</th><th>real</th><th>precision</th></tr></thead><tbody><tr><td>2.0%</td><td>2,186</td><td>190</td><td>8.7%</td></tr><tr><td>0.5%</td><td>689</td><td>190</td><td>27.6%</td></tr><tr><td>0.2%</td><td>390</td><td>190</td><td>48.8%</td></tr><tr><td>0.1%</td><td>290</td><td>190</td><td><strong>65.6%</strong></td></tr></tbody></table>
+<p>Precision crosses 50% almost exactly where the false-positive rate crosses the prevalence — 0.190% against a prevalence of 0.2%.</p>
+<p>That is the rule worth remembering: <strong>to get usable precision, the false-positive rate has to be smaller than the base rate.</strong> With fraud at one in 500, an error rate of one in 500 is the <em>threshold of usefulness</em>, not a good result.</p>
+<p>It also explains a common frustration. Improving recall from 90% to 95% moves precision barely at all, because precision is dominated by the false-positive count. The lever that matters is the one on the negatives, and it is the harder one to move.</p>
+<figure>
+<svg viewBox="0 0 560 290" width="560" role="img" aria-label="Stacked bars showing alerts split into real and false cases at four false-positive rates, with precision rising as the false-positive rate falls." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE SAME 190 REAL CASES, BURIED TO DIFFERENT DEPTHS</text>
+<text class="l" x="20" y="44">fpr 2.0%</text>
+<rect x="88" y="32" width="38" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="126" y="32" width="394" height="18" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 24%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)"></rect>
+<text class="l" x="20" y="80">fpr 0.5%</text>
+<rect x="88" y="68" width="38" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="126" y="68" width="99" height="18" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 24%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)"></rect>
+<text class="l" x="20" y="116">fpr 0.2%</text>
+<rect x="88" y="104" width="38" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="126" y="104" width="40" height="18" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 24%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)"></rect>
+<text class="l" x="20" y="152">fpr 0.1%</text>
+<rect x="88" y="140" width="38" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="126" y="140" width="20" height="18" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 24%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)"></rect>
+<text class="b" x="530" y="44" text-anchor="end">8.7%</text>
+<text class="b" x="235" y="80">27.6%</text>
+<text class="b" x="176" y="116">48.8%</text>
+<text class="b" x="156" y="152">65.6%</text>
+<text class="b" x="88" y="180">shaded = the 190 real cases, identical in every row</text>
+<path d="M20 200 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="224">recall is 95% in all four — only the false-positive rate changed</text>
+<text class="b" x="20" y="246">precision passes 50% where the false-positive rate passes the base rate</text>
+<text class="l" x="20" y="268">which is 0.2%, so an error rate of 1 in 500 is merely the starting line</text>
+</svg>
+<figcaption>Precision is set by the false-positive count, and the false-positive count is set by how many negatives there are.</figcaption>
+</figure>
+<h2 id="deciding-without-pretending-it-is-symmetric"><a class="heading-anchor" href="#deciding-without-pretending-it-is-symmetric">Deciding, without pretending it is symmetric</a></h2>
+<p>The standard advice — favour precision when false alarms are costly, recall when misses are — is correct and too vague to act on. The costs are usually knowable.</p>
+<p>Say a missed fraud costs ₹18,000 and reviewing a false alert costs ₹150 of someone's time. The ratio is <strong>120:1</strong>, which means it is worth raising 120 false alerts to catch one more real case. That single number settles the threshold.</p>
+<p>Total cost at four operating points:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>cost</th></tr></thead><tbody><tr><td>recall 95%, fpr 2.0%</td><td>₹479,400</td></tr><tr><td>recall 95%, fpr 0.2%</td><td><strong>₹209,940</strong></td></tr><tr><td>recall 70%, fpr 0.2%</td><td>₹1,109,940</td></tr><tr><td>recall 50%, fpr 0.1%</td><td>₹1,814,970</td></tr></tbody></table>
+<p>The best point is not the one with the best precision, nor the one with the best recall. It is the one with the lowest cost, and at a 120:1 ratio that means holding recall high and pushing the false-positive rate down — sacrificing recall is catastrophically expensive here, and a few hundred extra reviews barely register.</p>
+<p>This also shows why the single-number summary that averages precision and recall is the wrong tool. It weights the two equally, which is true only when a miss and a false alarm cost the same. If you know the ratio, use the ratio; if you genuinely do not know it, that is the thing to go and find out.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The tug of war between precision and recall is real and secondary.</p>
+<p>The dominant effect is prevalence. When the thing you are looking for is rare, precision is governed by the error rate on everything else, and no amount of recall improvement helps. Work out the base rate first, then the cost of each kind of mistake, and only then pick a threshold — because a classifier that looks excellent on both its own metrics can still produce a queue of alerts that is 91% noise.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Precision vs Recall"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T00:40","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"The trade-off everyone describes is real and it is not the main problem. When positives are rare, a 98%-accurate classifier produces alerts that are wrong 91% of the time — and the fix is not a better model."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/precision-vs-recall.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GOWKscQcAGju_FCS5Bzko"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/embeddings/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Embeddings"}]]}],["$","$L2",null,{"href":"/blog/prompt-injection/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Prompt Injection in LLMs"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-rarity-does","text":"What rarity does","level":2},{"id":"the-rule-this-implies","text":"The rule this implies","level":2},{"id":"deciding-without-pretending-it-is-symmetric","text":"Deciding, without pretending it is symmetric","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
