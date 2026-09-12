@@ -1,0 +1,177 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/deep-rl-from-human-preferences.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T27c2,<p>Reinforcement learning needs a reward: a number after every action saying how well that went. Where there is a natural score — a game, a clearly measurable outcome — this is fine.</p>
+<p>For anything else it is the hardest part of the problem. Write a reward for "do a backflip" and you find yourself specifying joint angles, rotation thresholds and landing conditions, and the agent finds some spinning-on-the-ground behaviour that maximises your formula and looks nothing like a backflip.</p>
+<p>This paper replaced the written reward with a learned one, and its lasting contribution is <em>what it asked people to do.</em></p>
+<h2 id="the-unit-of-human-work"><a class="heading-anchor" href="#the-unit-of-human-work">The unit of human work</a></h2>
+<p>Not "score this action". Two design choices, both about human perception rather than machine learning.</p>
+<p><strong>Short clips, not single states.</strong> A snapshot of a robot mid-air says nothing about whether it is doing the right thing — motion only exists over time. So the unit is a clip of one or two seconds, the shortest window in which a person can tell what is happening.</p>
+<p><strong>Comparison, not scoring.</strong> A person is shown two clips and asked which is better. Not how good either is — just which one. That is a judgement people make consistently; absolute numbers are not.</p>
+<p>Both choices are about making the question answerable, and they are the reason the labelling budget works out.</p>
+<h2 id="how-little-labelling-that-is"><a class="heading-anchor" href="#how-little-labelling-that-is">How little labelling that is</a></h2>
+<p>An agent training for ten million environment steps, with nine hundred comparisons of two-second clips:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>environment steps</td><td>10,000,000</td></tr><tr><td>steps a human actually saw</td><td>216,000</td></tr><tr><td>share of the run observed</td><td><strong>2.16%</strong></td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>human decisions required</th></tr></thead><tbody><tr><td>a reward for every step</td><td>10,000,000</td></tr><tr><td>one preference per pair of clips</td><td><strong>900</strong></td></tr><tr><td></td><td><strong>11,111× fewer</strong></td></tr></tbody></table>
+<p>At roughly four seconds of attention per comparison, nine hundred comparisons is <strong>one hour</strong> of one person's time. That hour produced a backflip that no hand-written reward function had managed.</p>
+<h2 id="how-a-preference-becomes-a-reward"><a class="heading-anchor" href="#how-a-preference-becomes-a-reward">How a preference becomes a reward</a></h2>
+<p>The reward model outputs a number for each step. A clip's score is the sum of those numbers over its steps, and the probability that a person prefers clip A is:</p>
+<pre><code>P(A preferred) = exp(sum of A) / ( exp(sum of A) + exp(sum of B) )
+</code></pre>
+<p>With per-step predictions of <code>[2, 1, 2]</code> against <code>[1, 1, 0]</code>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>sum of A</td><td>5</td></tr><tr><td>sum of B</td><td>2</td></tr><tr><td>P(A preferred)</td><td><strong>95.3%</strong></td></tr></tbody></table>
+<p>The formula depends only on the difference, which means absolute reward values carry no information:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>gap between the sums</th><th>P(preferred)</th></tr></thead><tbody><tr><td>0</td><td>50.0%</td></tr><tr><td>1</td><td>73.1%</td></tr><tr><td>2</td><td>88.1%</td></tr><tr><td>3</td><td>95.3%</td></tr></tbody></table>
+<p>Training minimises <code>−log P(the clip the human chose)</code>. If the human agreed with the model, the loss here is 0.049. If they picked B, it is 3.049 — <strong>63× larger</strong>. A confident wrong prediction is punished hard, a hedged one mildly, which is what makes the model calibrate rather than just rank.</p>
+<figure>
+<svg viewBox="0 0 560 306" width="560" role="img" aria-label="Two clips of three frames with per-step rewards summed, converted into a preference probability, with the loss shown for agreeing and disagreeing." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE HUMAN PICKS A CLIP — THE MODEL INFERS THE STEPS</text>
+<text class="b" x="20" y="44">clip A</text>
+<g fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.6">
+<rect x="70" y="32" width="52" height="24" rx="3"></rect><rect x="128" y="32" width="52" height="24" rx="3"></rect><rect x="186" y="32" width="52" height="24" rx="3"></rect>
+</g>
+<text class="b" x="96" y="48" text-anchor="middle">2</text>
+<text class="b" x="154" y="48" text-anchor="middle">1</text>
+<text class="b" x="212" y="48" text-anchor="middle">2</text>
+<text class="b" x="252" y="48">sum 5</text>
+<text class="l" x="20" y="86">clip B</text>
+<g fill="color-mix(in srgb, var(--muted-foreground) 22%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)">
+<rect x="70" y="74" width="52" height="24" rx="3"></rect><rect x="128" y="74" width="52" height="24" rx="3"></rect><rect x="186" y="74" width="52" height="24" rx="3"></rect>
+</g>
+<text class="l" x="96" y="90" text-anchor="middle">1</text>
+<text class="l" x="154" y="90" text-anchor="middle">1</text>
+<text class="l" x="212" y="90" text-anchor="middle">0</text>
+<text class="l" x="252" y="90">sum 2</text>
+<path d="M20 116 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="140">a gap of 3 means P(A preferred) = 95.3%</text>
+<rect x="20" y="150" width="440" height="18" rx="3" fill="color-mix(in srgb, var(--primary) 32%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="460" y="150" width="22" height="18" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 26%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 45%, transparent)"></rect>
+<text class="b" x="26" y="163">A — 95.3%</text>
+<text class="l" x="490" y="163">B — 4.7%</text>
+<text class="l" x="20" y="196">loss if the human agreed: 0.049</text>
+<rect x="20" y="204" width="8" height="14" rx="2" fill="color-mix(in srgb, var(--primary) 40%, transparent)"></rect>
+<text class="b" x="20" y="242">loss if the human picked B: 3.049 — 63× larger</text>
+<rect x="20" y="250" width="500" height="14" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 34%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="l" x="20" y="284">nobody told the model which of the three steps was good</text>
+</svg>
+<figcaption>The comparison is about the whole clip. The per-step numbers are the model's own explanation of it.</figcaption>
+</figure>
+<h2 id="the-clever-part-nobody-says-which-step-was-good"><a class="heading-anchor" href="#the-clever-part-nobody-says-which-step-was-good">The clever part: nobody says which step was good</a></h2>
+<p>Look again at what the human provided. "Clip A was better." That is all.</p>
+<p>The model produces a number for every individual step, and those numbers are never labelled. They are inferred — fitted so that their <em>sums</em> explain which clips people preferred, across hundreds of comparisons.</p>
+<p>That is credit assignment, solved by the reward model rather than by the person. A step that appears in many preferred clips accumulates a high value; one that appears in rejected clips does not. The human never had to decide that frame 34 was the good bit, which is fortunate, because they could not have.</p>
+<h2 id="three-things-running-at-once"><a class="heading-anchor" href="#three-things-running-at-once">Three things running at once</a></h2>
+<p>The loop is asynchronous, and this is what makes the tiny labelling budget sufficient.</p>
+<ol>
+<li>The <strong>agent</strong> trains against the current reward model, continuously.</li>
+<li>The <strong>reward model</strong> retrains on all comparisons collected so far, continuously.</li>
+<li>A <strong>human</strong> labels clips sampled from what the agent is doing <em>now</em>.</li>
+</ol>
+<p>Because the clips come from current behaviour, the labels always describe the region of the space the policy actually occupies. There is no need to label good behaviour in advance, or to cover the space — only to keep correcting the model where the agent has arrived.</p>
+<p>Two refinements matter. Clips are chosen where the reward model is most <em>uncertain</em>, so each comparison is maximally informative. And an ensemble of reward models provides that uncertainty estimate, as well as making the learned reward harder to exploit — a policy would have to fool all of them at once.</p>
+<h2 id="what-it-became"><a class="heading-anchor" href="#what-it-became">What it became</a></h2>
+<p>The published result — a backflip from about 900 comparisons in under an hour, and complex behaviours from feedback on well under 1% of interactions — was the proof that the approach worked at all.</p>
+<p>The structure transferred directly. Replace clips of a simulated robot with candidate text responses, and the same three components appear: demonstrations of preference, a reward model trained by comparison, a policy optimised against it. The vocabulary changed and the method did not.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The paper's insight is about the interface to the human, not the algorithm.</p>
+<p>Ask for a comparison rather than a score, over a window long enough to see behaviour, sampled from what the agent is doing right now — and one hour of attention replaces ten million judgements. Everything about learning per-step rewards from whole-clip preferences follows from having asked the answerable question.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Deep RL from Human Preferences"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T03:20","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Nine hundred comparisons — one hour of someone's attention — taught a simulated robot to backflip. That is 11,111× fewer human decisions than scoring every step, and the trick is what the comparison is asked about."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/deep-rl-from-human-preferences.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"VoWegGHAiJEOxjBUk1Hsq"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/decoding-instructgpt/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Decoding InstructGPT"}]]}],["$","$L2",null,{"href":"/blog/llm-watermarking/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LLM Watermarking"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-unit-of-human-work","text":"The unit of human work","level":2},{"id":"how-little-labelling-that-is","text":"How little labelling that is","level":2},{"id":"how-a-preference-becomes-a-reward","text":"How a preference becomes a reward","level":2},{"id":"the-clever-part-nobody-says-which-step-was-good","text":"The clever part: nobody says which step was good","level":2},{"id":"three-things-running-at-once","text":"Three things running at once","level":2},{"id":"what-it-became","text":"What it became","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

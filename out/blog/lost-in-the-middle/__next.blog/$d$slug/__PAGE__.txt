@@ -1,0 +1,111 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/lost-in-the-middle.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2272,<p>Put a fact in a long input and ask about it. Where the fact sits changes whether the model finds it.</p>
+<p>Near the start: found. Near the end: found. Somewhere in the middle: often missed — same fact, same model, same question, same total length. Plot accuracy against position and it makes a <strong>U</strong>.</p>
+<p>That is a strange property, and it has a practical consequence that is easy to compute.</p>
+<h2 id="why-the-middle-is-weak"><a class="heading-anchor" href="#why-the-middle-is-weak">Why the middle is weak</a></h2>
+<p>Four contributing causes, none of them a bug anyone introduced.</p>
+<p><strong>Attention is a budget.</strong> Each position distributes a fixed total of weight across everything it can see. As the input grows, the share available per token shrinks — and the positions that hold their share are the ones with structural advantages.</p>
+<p><strong>Position encoding favours the edges.</strong> The mechanisms that tell a model where a token sits make the very beginning distinctive and make recent tokens strong. A token 40% of the way through has neither advantage.</p>
+<p><strong>Training text is front- and back-loaded.</strong> Human writing puts the thesis at the start and the conclusion at the end. A model that learned to predict text learned that those positions carry weight.</p>
+<p><strong>Long inputs are under-trained.</strong> Most training sequences are short. The behaviour at 80,000 tokens was practised far less than the behaviour at 2,000, so the middle of a long input is the least-rehearsed region of the least-rehearsed length.</p>
+<h2 id="what-it-costs-a-retrieval-system"><a class="heading-anchor" href="#what-it-costs-a-retrieval-system">What it costs a retrieval system</a></h2>
+<p>Model the U-shape: 0.92 accuracy at either end falling to 0.55 in the middle. Retrieve <em>k</em> chunks, with the answer more likely to be in a highly-ranked one than a low-ranked one, and a retriever whose recall improves as <em>k</em> grows.</p>
+<p>End-to-end — the chance the answer is both retrieved <em>and</em> used:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>chunks</th><th>passed in rank order</th><th>best ranks placed at the two ends</th></tr></thead><tbody><tr><td>3</td><td>58.4%</td><td>60.6%</td></tr><tr><td>5</td><td>63.2%</td><td>66.5%</td></tr><tr><td>10</td><td>67.7%</td><td><strong>71.5%</strong></td></tr><tr><td>20</td><td>70.9%</td><td>74.9%</td></tr><tr><td>50</td><td>73.8%</td><td>77.6%</td></tr></tbody></table>
+<p>Two things fall out of that table, and the first one runs against the usual advice.</p>
+<p><strong>More chunks does keep helping.</strong> There is no interior optimum here — the recall gained by retrieving more outweighs the position penalty all the way to 50. The common advice to retrieve fewer chunks <em>because of</em> the U-shape does not hold on these numbers.</p>
+<p><strong>But the returns are poor, and reordering is free.</strong> Going from 10 chunks to 50 buys <strong>+6.1 points</strong> for five times the tokens and five times the prefill cost. Reordering the same 10 buys <strong>+3.9 points</strong> for nothing — 64% of the benefit at zero cost.</p>
+<p>And the comparison that matters: <strong>ten chunks arranged well (71.5%) beat twenty in rank order (70.9%)</strong>, on half the tokens.</p>
+<figure>
+<svg viewBox="0 0 560 312" width="560" role="img" aria-label="A U-shaped accuracy curve across input position, with the best-ranked chunks placed at the two ends where accuracy is highest." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">PUT THE BEST CHUNKS WHERE THE MODEL LOOKS</text>
+<path d="M60 40 V172 H520" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<text class="l" x="26" y="46">0.95</text>
+<text class="l" x="26" y="110">0.70</text>
+<text class="l" x="26" y="176">0.45</text>
+<path d="M60 48 L106 83 L152 111 L198 130 L244 142 L290 146 L336 142 L382 130 L428 111 L474 83 L520 48" stroke="var(--primary)" stroke-width="2.6" fill="none"></path>
+<circle cx="60" cy="48" r="4.4" fill="var(--primary)"></circle>
+<circle cx="520" cy="48" r="4.4" fill="var(--primary)"></circle>
+<circle cx="290" cy="146" r="4.4" fill="var(--muted-foreground)"></circle>
+<text class="b" x="70" y="42">0.92</text>
+<text class="b" x="510" y="42" text-anchor="end">0.92</text>
+<text class="l" x="290" y="164" text-anchor="middle">0.55</text>
+<text class="l" x="60" y="192">start</text>
+<text class="l" x="290" y="192" text-anchor="middle">middle</text>
+<text class="l" x="520" y="192" text-anchor="end">end</text>
+<g fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.7">
+<rect x="60" y="202" width="34" height="18" rx="3"></rect><rect x="486" y="202" width="34" height="18" rx="3"></rect>
+</g>
+<g fill="color-mix(in srgb, var(--muted-foreground) 22%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 40%, transparent)">
+<rect x="98" y="202" width="34" height="18" rx="3"></rect><rect x="136" y="202" width="34" height="18" rx="3"></rect><rect x="174" y="202" width="34" height="18" rx="3"></rect><rect x="212" y="202" width="34" height="18" rx="3"></rect><rect x="250" y="202" width="34" height="18" rx="3"></rect><rect x="288" y="202" width="34" height="18" rx="3"></rect><rect x="326" y="202" width="34" height="18" rx="3"></rect><rect x="364" y="202" width="34" height="18" rx="3"></rect><rect x="402" y="202" width="34" height="18" rx="3"></rect><rect x="440" y="202" width="34" height="18" rx="3"></rect>
+</g>
+<text class="b" x="60" y="236">rank 1</text>
+<text class="b" x="520" y="236" text-anchor="end">rank 2</text>
+<path d="M20 252 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="274">ten chunks arranged this way beat twenty in rank order, on half the tokens</text>
+<text class="l" x="20" y="290">and reordering costs nothing at all</text>
+</svg>
+<figcaption>The curve is the constraint. Where you place your best-ranked chunk is the free variable.</figcaption>
+</figure>
+<h2 id="what-to-actually-do"><a class="heading-anchor" href="#what-to-actually-do">What to actually do</a></h2>
+<p>In rough order of value per unit of effort:</p>
+<p><strong>Reorder.</strong> Put the top-ranked chunk first, the second at the very end, and work inward. This is a few lines of code and it is the only intervention on this list that costs nothing.</p>
+<p><strong>Rerank before you truncate.</strong> A better ordering makes reordering worth more, because it raises the probability mass sitting in the two good positions. The two techniques compound.</p>
+<p><strong>Extract before answering.</strong> Make one pass that pulls the relevant facts out of each chunk, then answer from the extracted notes. The extraction pass reads each chunk in a short context where position barely matters, and the answering pass sees a short input. This converts a long-context problem into two short-context problems.</p>
+<p><strong>Split into passes for genuinely large jobs.</strong> Process chunks in batches, summarise each batch, combine the summaries. More model calls, and each one operates where the model is reliable.</p>
+<p><strong>Measure the model you are using.</strong> Insert a unique fact at 0%, 10%, … 100% depth across several input lengths and record whether it is found. An hour of work produces the actual curve for your model at your lengths, which is the only version of that curve that should inform a decision.</p>
+<h2 id="the-thing-to-be-clear-about"><a class="heading-anchor" href="#the-thing-to-be-clear-about">The thing to be clear about</a></h2>
+<p>A one-million-token context window is a statement about what the model will <strong>accept</strong>, not what it will attend to evenly.</p>
+<p>Those are different claims and only the first one is being made. Treating the advertised number as a promise of uniform comprehension is how a system ends up passing fifty chunks into a model that reliably reads about six of them.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The U-shape is real and the usual response to it is wrong. Retrieving fewer chunks does not help; the recall you lose outweighs the position penalty you avoid.</p>
+<p>What helps is using the positions you have. Reorder so the strongest candidates sit where the model looks, rerank so those candidates are worth the good seats, and for long jobs read in short passes rather than one long one.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Lost in the Middle"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T04:00","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Accuracy follows a U-shape across a long input, which means the order you pass chunks in is worth real points. Ten chunks arranged well beat twenty in rank order, using half the tokens."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/lost-in-the-middle.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"VoWegGHAiJEOxjBUk1Hsq"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/llm-watermarking/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LLM Watermarking"}]]}],["$","$L2",null,{"href":"/blog/loop-engineering/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Loop Engineering"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"why-the-middle-is-weak","text":"Why the middle is weak","level":2},{"id":"what-it-costs-a-retrieval-system","text":"What it costs a retrieval system","level":2},{"id":"what-to-actually-do","text":"What to actually do","level":2},{"id":"the-thing-to-be-clear-about","text":"The thing to be clear about","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
