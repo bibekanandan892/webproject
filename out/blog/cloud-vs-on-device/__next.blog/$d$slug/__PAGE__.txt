@@ -1,0 +1,135 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/cloud-vs-on-device.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T20ef,<p>A trained model has to run somewhere. Either on a server the device talks to, or on the device itself.</p>
+<p>The one-line summary is good: <strong>in the cloud the data travels to the model; on a device the model travels to the data.</strong> Everything else is a consequence of which direction that traffic goes, and three of those consequences are numbers rather than opinions.</p>
+<h2 id="latency-when-it-is-a-budget-rather-than-a-preference"><a class="heading-anchor" href="#latency-when-it-is-a-budget-rather-than-a-preference">Latency, when it is a budget rather than a preference</a></h2>
+<p>Most of the time a network round trip of 50–200 ms is an annoyance. Sometimes it is disqualifying, and the test is whether there is a fixed budget.</p>
+<p>A live camera overlay annotating each frame at 30 frames per second has <strong>33.3 ms per frame</strong>. A 90 ms round trip does not make it slower — it misses 2.7 frames, every frame, permanently. The work cannot be done in the cloud at all, at any bandwidth, because the budget is below the round trip.</p>
+<p>That is the shape to look for. Continuous perception, anything driving a control loop, anything that must respond within one interaction tick — these have hard budgets, and the round trip either fits inside them or it does not. Answering a typed question has no such budget; 200 ms there is invisible.</p>
+<h2 id="the-cost-crossover-and-why-it-is-further-away-than-it-looks"><a class="heading-anchor" href="#the-cost-crossover-and-why-it-is-further-away-than-it-looks">The cost crossover, and why it is further away than it looks</a></h2>
+<p>On-device inference is free per request. That makes it sound cheaper, and the up-front cost is substantial: compressing the model, integrating it, testing across device generations, maintaining the pipeline.</p>
+<p>Put numbers on it — ₹0.04 per cloud request against ₹35,00,000 of engineering:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>requests to break even</th></tr></thead><tbody><tr><td>crossover</td><td>87,500,000</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>monthly volume</th><th>time to break even</th></tr></thead><tbody><tr><td>0.5 M</td><td>175 months</td></tr><tr><td>3 M</td><td>29 months</td></tr><tr><td>20 M</td><td><strong>4.4 months</strong></td></tr></tbody></table>
+<p>At half a million requests a month, on-device pays back in fourteen years — which is to say never, because the model will be replaced first. At twenty million a month it pays back in under five.</p>
+<p>Which means <strong>cost is rarely the reason to go on-device</strong> unless the volume is genuinely large. At moderate scale the honest reasons are latency, offline operation, and data that must not leave the device. Cost is the reason that gets cited and the one that usually does not hold.</p>
+<h2 id="the-number-nobody-plans-for"><a class="heading-anchor" href="#the-number-nobody-plans-for">The number nobody plans for</a></h2>
+<p>This is the constraint that catches teams, and it has no cloud equivalent.</p>
+<p>A cloud model is replaced by deploying it. Every user is on the new version within minutes, and the old one no longer exists.</p>
+<p>An on-device model ships in an app update, and app updates roll out on the users' schedule. A realistic curve: 30% by day three, 70% by week two, 85% by month two, plateauing around 90%.</p>
+<p>Suppose the new model scores 78 on your evaluation where the old one scored 71. What your users actually experience:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>share updated</th><th>effective score</th></tr></thead><tbody><tr><td>day 3</td><td>30%</td><td>73.10</td></tr><tr><td>week 2</td><td>70%</td><td>75.90</td></tr><tr><td>month 2</td><td>85%</td><td>76.95</td></tr><tr><td>plateau</td><td>90%</td><td><strong>77.30</strong></td></tr></tbody></table>
+<p>You never ship 78. The fleet average tops out at 77.30, and <strong>10% of users never get the improvement at all</strong> — they stay on the old model indefinitely, including if it had a bug.</p>
+<p>So an on-device model's quality is not the quality you measured. It is a weighted average over every version still in use, weighted by a distribution you do not control. Plan for it: keep old versions working, and never ship anything that depends on everyone having the same one.</p>
+<figure>
+<svg viewBox="0 0 560 296" width="560" role="img" aria-label="A rollout curve of the share of users updated over two months, with the effective fleet score tracking below the new model&#x27;s score and never reaching it." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE SCORE YOU SHIPPED IS NOT THE SCORE THEY HAVE</text>
+<path d="M60 40 V190 H520" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<text class="l" x="34" y="46">78</text>
+<text class="l" x="34" y="130">74</text>
+<text class="l" x="34" y="194">71</text>
+<path d="M60 40 H520" stroke="var(--primary)" stroke-opacity="0.5" stroke-dasharray="5 4"></path>
+<text class="b" x="392" y="36">78 — what you measured</text>
+<path d="M60 190 L78 145 L146 85 L428 62 L520 55" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<circle cx="78" cy="145" r="4" fill="var(--primary)"></circle>
+<text class="l" x="88" y="150">day 3 — 73.10</text>
+<circle cx="146" cy="85" r="4" fill="var(--primary)"></circle>
+<text class="l" x="156" y="90">week 2 — 75.90</text>
+<circle cx="520" cy="55" r="4.4" fill="var(--primary)"></circle>
+<text class="b" x="300" y="72">plateau — 77.30, and it stops there</text>
+<text class="l" x="60" y="210">day 0</text>
+<text class="l" x="520" y="210" text-anchor="end">month 2 and after</text>
+<path d="M20 228 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="252">10% of users never take the update — including when it is a fix</text>
+<text class="l" x="20" y="274">a cloud model has no such curve: deploying it replaces it</text>
+</svg>
+<figcaption>On-device quality is an average over versions you no longer control.</figcaption>
+</figure>
+<h2 id="privacy-is-the-one-clean-argument"><a class="heading-anchor" href="#privacy-is-the-one-clean-argument">Privacy is the one clean argument</a></h2>
+<p>Everything above is a trade. Data locality is not.</p>
+<p>If inference happens on the device, the input never leaves it. Not "is encrypted in transit", not "is deleted after 30 days" — never leaves. For health data, biometrics, or anything under a rule that forbids transmission, this is the whole reason to accept every cost on the other side of the ledger.</p>
+<p>It is worth being precise about, because "more private" is often claimed for cloud deployments with good retention policies. A policy is a promise. Not transmitting is a property.</p>
+<h2 id="the-hybrid-shape"><a class="heading-anchor" href="#the-hybrid-shape">The hybrid shape</a></h2>
+<p>Most shipped products do both, and the division is usually the same: a small model on the device handles the common, latency-sensitive, easy cases; anything it cannot handle confidently goes to a larger model in the cloud.</p>
+<p>A voice assistant is the clearest example. Wake-word detection has to run continuously and locally — streaming audio to a server all day is unacceptable on both privacy and battery grounds. The subsequent request, once triggered, goes wherever it needs to.</p>
+<p>What makes this work is that the on-device model can <em>decide to escalate</em>. It does not need to be good at everything; it needs to be good at knowing when it is out of its depth.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Three questions, in order.</p>
+<p><strong>Is there a hard latency budget below the round trip?</strong> If yes, on-device, and the rest does not matter. <strong>Must the data not leave the device?</strong> If yes, on-device, and cost is the price. <strong>Otherwise:</strong> cloud, until the volume actually clears a crossover you have calculated — and then remember that shipping an update is not the same as it arriving.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Cloud vs On-device"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T02:00","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"In the cloud the data travels to the model; on a device the model travels to the data. Three numbers decide which: the latency budget, the crossover request count, and the fraction of users who never take your update."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/cloud-vs-on-device.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"lawv2Yy3DIkPcOIw9A39K"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/encoder-vs-decoder/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Encoder vs Decoder"}]]}],["$","$L2",null,{"href":"/blog/llm-guardrails/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LLM Guardrails"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"latency-when-it-is-a-budget-rather-than-a-preference","text":"Latency, when it is a budget rather than a preference","level":2},{"id":"the-cost-crossover-and-why-it-is-further-away-than-it-looks","text":"The cost crossover, and why it is further away than it looks","level":2},{"id":"the-number-nobody-plans-for","text":"The number nobody plans for","level":2},{"id":"privacy-is-the-one-clean-argument","text":"Privacy is the one clean argument","level":2},{"id":"the-hybrid-shape","text":"The hybrid shape","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

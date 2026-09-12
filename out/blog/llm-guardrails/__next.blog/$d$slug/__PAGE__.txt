@@ -1,0 +1,165 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/llm-guardrails.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T2624,<p>A guardrail is a check around a model, not inside it. Something looks at the request before the model sees it, or at the response before the user does, and decides whether to let it through.</p>
+<p>That placement is the important part. The model has no idea a guardrail exists; it cannot be argued out of one, and it cannot be relied on to enforce one.</p>
+<h2 id="where-they-sit-and-what-they-check"><a class="heading-anchor" href="#where-they-sit-and-what-they-check">Where they sit and what they check</a></h2>
+<p>Two checkpoints. <strong>Input</strong> guardrails inspect the incoming request. <strong>Output</strong> guardrails inspect the generated response.</p>
+<p>Both are needed and they catch different things. An input check can stop a request that should never be processed. An output check catches the case where the request looked fine and the response did not — a leaked internal note, a phone number, a claim about pricing you do not want made.</p>
+<p>The categories in practice:</p>
+<ul>
+<li><strong>Topic</strong> — is this within what the product is for</li>
+<li><strong>Safety</strong> — harmful content, either direction</li>
+<li><strong>Privacy</strong> — personal data in the request or the response</li>
+<li><strong>Format</strong> — does the output match the required shape</li>
+<li><strong>Grounding</strong> — is the response supported by the retrieved source</li>
+</ul>
+<p>The implementations range from trivial to expensive. A regular expression masking anything that looks like a ten-digit number costs microseconds. A separate small model classifying a request as safe or unsafe costs a model call. Both are guardrails; they differ by what they can recognise and what they cost.</p>
+<h2 id="the-number-that-decides-whether-users-tolerate-it"><a class="heading-anchor" href="#the-number-that-decides-whether-users-tolerate-it">The number that decides whether users tolerate it</a></h2>
+<p>Here is the arithmetic that gets skipped, and it is the reason guardrails get ripped out.</p>
+<p>Take 100,000 requests a day of which 0.3% are genuinely harmful — 300 of them. A guardrail catching 90% with a 1% false-positive rate:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>requests blocked</td><td>1,267</td></tr><tr><td>genuinely harmful</td><td>270</td></tr><tr><td>legitimate</td><td><strong>997</strong></td></tr><tr><td>share of blocks that are mistakes</td><td><strong>78.7%</strong></td></tr></tbody></table>
+<p>Nearly four out of five blocked requests are real users being refused. Not because the guardrail is bad — 90% recall at 1% false positives is a decent classifier. Because harmful requests are <strong>rare</strong>, so 1% of the enormous legitimate majority outnumbers 90% of the tiny harmful minority.</p>
+<p>Tightening it:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>catch rate</th><th>false-positive rate</th><th>blocked</th><th>share that are mistakes</th></tr></thead><tbody><tr><td>90%</td><td>2.0%</td><td>2,264</td><td>88.1%</td></tr><tr><td>90%</td><td>1.0%</td><td>1,267</td><td>78.7%</td></tr><tr><td>90%</td><td>0.3%</td><td>569</td><td>52.6%</td></tr><tr><td>90%</td><td>0.1%</td><td>370</td><td><strong>27.0%</strong></td></tr></tbody></table>
+<p>The false-positive rate has to fall to roughly a third of the base rate before most blocks are correct. Which means <strong>the metric to optimise is the false-positive rate, not the catch rate</strong> — and a guardrail shipped without measuring it will generate a steady stream of complaints from people who did nothing wrong.</p>
+<figure>
+<svg viewBox="0 0 560 290" width="560" role="img" aria-label="Stacked bars of blocked requests at four false-positive rates, showing the legitimate portion shrinking while the harmful portion stays the same size." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">WHO IS ACTUALLY BEING BLOCKED</text>
+<text class="l" x="20" y="44">fpr 2.0%</text>
+<rect x="86" y="32" width="52" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="138" y="32" width="382" height="18" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 24%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)"></rect>
+<text class="l" x="528" y="44" text-anchor="end">88.1%</text>
+<text class="l" x="20" y="80">fpr 1.0%</text>
+<rect x="86" y="68" width="52" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="138" y="68" width="191" height="18" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 24%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)"></rect>
+<text class="l" x="337" y="80">78.7% of blocks are mistakes</text>
+<text class="l" x="20" y="116">fpr 0.3%</text>
+<rect x="86" y="104" width="52" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="138" y="104" width="57" height="18" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 24%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)"></rect>
+<text class="l" x="203" y="116">52.6%</text>
+<text class="l" x="20" y="152">fpr 0.1%</text>
+<rect x="86" y="140" width="52" height="18" rx="2" fill="color-mix(in srgb, var(--primary) 45%, transparent)" stroke="var(--primary)" stroke-opacity="0.6"></rect>
+<rect x="138" y="140" width="19" height="18" rx="2" fill="color-mix(in srgb, var(--muted-foreground) 24%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 42%, transparent)"></rect>
+<text class="b" x="165" y="152">27.0%</text>
+<text class="b" x="86" y="180">shaded = the 270 harmful requests, the same in every row</text>
+<path d="M20 200 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="224">the catch rate is 90% in all four — only the false-positive rate changed</text>
+<text class="b" x="20" y="246">most blocks are correct only once the fpr is below a third of the base rate</text>
+<text class="l" x="20" y="268">so the false-positive rate is the number to optimise</text>
+</svg>
+<figcaption>The harmful requests are the small block on the left in every row. Everything else is someone who did nothing wrong.</figcaption>
+</figure>
+<h2 id="why-layering-helps-less-than-claimed"><a class="heading-anchor" href="#why-layering-helps-less-than-claimed">Why layering helps less than claimed</a></h2>
+<p>The standard advice is to stack guardrails. Two at 90% each should let only 1% through, since 0.10 × 0.10 = 0.01.</p>
+<p>That holds only if their mistakes are independent, and they usually are not — both are models, often trained on similar data, failing on similar phrasings.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>share of misses that are common to both</th><th>combined miss rate</th></tr></thead><tbody><tr><td>0% (independent)</td><td>1.00%</td></tr><tr><td>30%</td><td>3.70%</td></tr><tr><td>50%</td><td>5.50%</td></tr><tr><td>80%</td><td>8.20%</td></tr></tbody></table>
+<p>At 50% correlation, two layers let through 5.5% rather than 1% — five and a half times the claimed figure, and barely twice as good as one layer.</p>
+<p>The implication is not "don't layer". It is to layer <em>different kinds</em> of check: a regular expression and a classifier fail differently; two classifiers fail together. Independence is what you are buying, and it comes from mechanism diversity rather than from count.</p>
+<h2 id="the-latency-you-are-adding"><a class="heading-anchor" href="#the-latency-you-are-adding">The latency you are adding</a></h2>
+<p>A guard model on the input and another on the output, at 120 ms each, adds 240 ms to a 900 ms request — <strong>27% slower</strong>. Two layers on each side make it 53%.</p>
+<p>Which is a real product cost, and it argues for a shape: cheap deterministic checks always, expensive model-based checks only where the cheap ones are insufficient or the consequences justify it.</p>
+<h2 id="what-guardrails-cannot-do"><a class="heading-anchor" href="#what-guardrails-cannot-do">What guardrails cannot do</a></h2>
+<p>They are classifiers, so they have a false-negative rate and an attempt count. A determined user rephrases until something passes; nothing here prevents that.</p>
+<p>So guardrails belong in a system that does not depend on them. The load-bearing protections are the ones that cannot be talked around: limits enforced in code, tools the model simply does not have, human approval on irreversible actions. Guardrails reduce volume and catch the accidental cases. They are not the thing standing between you and the worst outcome.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Two numbers, neither of which is the catch rate.</p>
+<p>The <strong>false-positive rate</strong>, because harmful requests are rare and everything else is your users. And the <strong>correlation between your layers</strong>, because stacking similar checks buys much less than multiplying their individual rates suggests.</p>
+<p>Log every block, review a sample weekly, and treat a rising complaint rate as the signal it is. A guardrail nobody notices is working; one that generates support tickets is refusing the wrong people.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"LLM Guardrails"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T02:20","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A guardrail catching 90% of harmful requests with a 1% false-positive rate blocks 1,267 requests a day, of which 997 are legitimate. The visible effect of most guardrails is refusing real users."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/llm-guardrails.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"lawv2Yy3DIkPcOIw9A39K"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/cloud-vs-on-device/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Cloud vs On-device"}]]}],["$","$L2",null,{"href":"/blog/decoding-colbert/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Decoding ColBERT"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"where-they-sit-and-what-they-check","text":"Where they sit and what they check","level":2},{"id":"the-number-that-decides-whether-users-tolerate-it","text":"The number that decides whether users tolerate it","level":2},{"id":"why-layering-helps-less-than-claimed","text":"Why layering helps less than claimed","level":2},{"id":"the-latency-you-are-adding","text":"The latency you are adding","level":2},{"id":"what-guardrails-cannot-do","text":"What guardrails cannot do","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

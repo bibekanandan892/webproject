@@ -1,0 +1,206 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/decoding-colbert.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T268f,<p>Retrieval has two standard shapes and they sit at opposite extremes.</p>
+<p><strong>Score the query and the document together.</strong> Feed both into one model and let attention run between them. Accurate, and nothing can be prepared in advance — the score exists only once both halves are present, so every query re-reads the whole corpus. Published figures put a full pass at around 10,700 ms per query.</p>
+<p><strong>Score them separately.</strong> Encode every document into one vector ahead of time, encode the query into one vector, compare. Fast, because the corpus was processed before the query existed. The cost is that a passage has been compressed to a single point.</p>
+<p>ColBERT is a third shape, and the idea is small: keep a vector <strong>per token</strong> rather than per passage, and defer the interaction to something cheap.</p>
+<h2 id="what-one-vector-per-passage-loses"><a class="heading-anchor" href="#what-one-vector-per-passage-loses">What one vector per passage loses</a></h2>
+<p>A pooled vector is an average. Averaging a hundred token vectors produces something that represents the passage's overall drift and blurs anything specific in it.</p>
+<p>Take a query of three terms — <em>refund</em>, <em>window</em>, <em>damaged</em> — against two candidates:</p>
+<ul>
+<li><strong>A:</strong> "returns within thirty days if broken"</li>
+<li><strong>B:</strong> "delivery takes three days by courier"</li>
+</ul>
+<p>B is topically adjacent and answers nothing. A answers the question.</p>
+<p>Pool everything to one vector each and compare:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>score</th></tr></thead><tbody><tr><td>query vs A</td><td>0.932</td></tr><tr><td>query vs B</td><td>0.568</td></tr></tbody></table>
+<p>A wins by 64%, which is correct but not emphatic — and B scored 0.568 on a question it has nothing to say about, entirely because it shares the word <em>days</em> and a general customer-service register.</p>
+<h2 id="maxsim"><a class="heading-anchor" href="#maxsim">MaxSim</a></h2>
+<p>ColBERT scores differently. Every query token is compared against every document token, each query token keeps its <strong>best</strong> match, and those bests are summed.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>query token</th><th>best match in A</th><th>score</th></tr></thead><tbody><tr><td>refund</td><td>returns</td><td>0.992</td></tr><tr><td>window</td><td>within</td><td>0.998</td></tr><tr><td>damaged</td><td>broken</td><td>1.000</td></tr><tr><td></td><td><strong>total</strong></td><td><strong>2.990</strong></td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>query token</th><th>best match in B</th><th>score</th></tr></thead><tbody><tr><td>refund</td><td>delivery</td><td>0.234</td></tr><tr><td>window</td><td>days</td><td>0.997</td></tr><tr><td>damaged</td><td>delivery</td><td>0.171</td></tr><tr><td></td><td><strong>total</strong></td><td><strong>1.402</strong></td></tr></tbody></table>
+<p>Now A wins by <strong>113%</strong> — the separation nearly doubled.</p>
+<p>Look at where it came from. Under MaxSim, <em>refund</em> and <em>damaged</em> find nothing in B and contribute 0.234 and 0.171. Under pooling those same failures were averaged in with the one term that did match, and disappeared.</p>
+<p>That is the mechanism: <strong>each query term is scored on its own evidence.</strong> A document that matches two terms out of three cannot hide the third behind an average.</p>
+<figure>
+<svg viewBox="0 0 560 298" width="560" role="img" aria-label="Three query tokens each drawing a line to their best-matching document token, with the per-token scores summed, compared against a single pooled comparison." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">EVERY QUERY TERM KEEPS ITS OWN BEST MATCH</text>
+<text class="l" x="20" y="44">query</text>
+<g fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.6">
+<rect x="20" y="54" width="76" height="22" rx="3"></rect><rect x="20" y="84" width="76" height="22" rx="3"></rect><rect x="20" y="114" width="76" height="22" rx="3"></rect>
+</g>
+<text class="b" x="30" y="69">refund</text>
+<text class="b" x="30" y="99">window</text>
+<text class="b" x="30" y="129">damaged</text>
+<text class="l" x="250" y="44">document A</text>
+<g fill="color-mix(in srgb, var(--muted-foreground) 20%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 40%, transparent)">
+<rect x="250" y="48" width="78" height="20" rx="3"></rect><rect x="250" y="72" width="78" height="20" rx="3"></rect><rect x="250" y="96" width="78" height="20" rx="3"></rect><rect x="250" y="120" width="78" height="20" rx="3"></rect><rect x="250" y="144" width="78" height="20" rx="3"></rect>
+</g>
+<text class="l" x="258" y="62">returns</text>
+<text class="l" x="258" y="86">within</text>
+<text class="l" x="258" y="110">thirty</text>
+<text class="l" x="258" y="134">days</text>
+<text class="l" x="258" y="158">broken</text>
+<path d="M100 65 L246 58" stroke="var(--primary)" stroke-opacity="0.8" stroke-width="2"></path>
+<path d="M100 95 L246 82" stroke="var(--primary)" stroke-opacity="0.8" stroke-width="2"></path>
+<path d="M100 125 L246 154" stroke="var(--primary)" stroke-opacity="0.8" stroke-width="2"></path>
+<g stroke="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke-width="1">
+<path d="M100 65 L246 82"></path><path d="M100 65 L246 106"></path><path d="M100 65 L246 130"></path><path d="M100 95 L246 130"></path><path d="M100 125 L246 106"></path>
+</g>
+<text class="b" x="344" y="62">0.992</text>
+<text class="b" x="344" y="86">0.998</text>
+<text class="b" x="344" y="158">1.000</text>
+<text class="b" x="410" y="110">sum = 2.990</text>
+<path d="M20 184 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="208">pooled to one vector each, the same pair scores 0.932 against 0.568</text>
+<text class="b" x="20" y="230">MaxSim separates them by 113%, pooling by 64%</text>
+<text class="l" x="20" y="252">because the two terms with no match in B are no longer averaged away</text>
+<text class="l" x="20" y="276">the faint lines are the comparisons that lost</text>
+</svg>
+<figcaption>Interaction is deferred, not removed. It is just cheap enough to run at query time.</figcaption>
+</figure>
+<h2 id="why-max-and-not-average"><a class="heading-anchor" href="#why-max-and-not-average">Why max and not average</a></h2>
+<p>A query term compared against every token of a document produces a list of similarities. Most are near zero — the document is mostly about other things.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>similarities for one query term</td><td>0.96, 0.02, 0.61</td></tr><tr><td>max</td><td><strong>0.96</strong></td></tr><tr><td>average</td><td>0.53</td></tr></tbody></table>
+<p>Averaging punishes a document for containing other words, which is not a defect. The question is whether the term appears <em>somewhere</em>, and the maximum answers exactly that. The average answers "what fraction of this document is about this term", which is a different and less useful question.</p>
+<h2 id="the-trade-storage"><a class="heading-anchor" href="#the-trade-storage">The trade: storage</a></h2>
+<p>Every token needs its own vector. At 128 dimensions and 16 bits, a 100-token passage costs:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>one pooled vector</td><td>256 bytes</td></tr><tr><td>one vector per token</td><td>25.0 KB</td></tr></tbody></table>
+<p><strong>100× more storage</strong>, which on a standard benchmark collection works out to roughly 154 GB where a single-vector index is a couple of gigabytes.</p>
+<p>That is the whole price, and it is why the method took a while to become practical. The mitigations are the obvious ones: 128 dimensions rather than 768, aggressive quantization of each vector, and dropping vectors for tokens that carry no discriminative weight.</p>
+<h2 id="why-it-is-fast-anyway"><a class="heading-anchor" href="#why-it-is-fast-anyway">Why it is fast anyway</a></h2>
+<p>The scoring itself is dot products and maximums — no model runs at query time. And the vectors are precomputed, so the expensive encoding happened offline.</p>
+<p>At scale it works in two stages: approximate search over all the token vectors to gather candidate passages, then exact MaxSim over just those. Published results put it at around 61 ms per query with retrieval quality matching a full cross-encoder pass — <strong>170× faster</strong> for essentially the same measured quality.</p>
+<h2 id="what-it-started"><a class="heading-anchor" href="#what-it-started">What it started</a></h2>
+<p>The pattern generalised. "Encode both sides into sets of vectors, defer a cheap interaction to query time" turned out to apply wherever one side can be precomputed and detail matters: image patches against text tokens, and multi-vector representations in retrieval systems generally.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The contribution is not a scoring formula. It is the observation that the choice was never <em>accurate versus precomputable</em> — you can precompute per-token representations and still let the query interact with them, as long as the interaction is simple enough to run on a shortlist.</p>
+<p>You pay for it in disk. What you get back is that a query term which finds nothing cannot be hidden by one that does.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Decoding ColBERT"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-12T02:40","children":"Sep 12, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Keeping one vector per token instead of one per passage lets every query term find its own best match. On a worked example that widened the gap between the right document and a plausible wrong one from 64% to 113%."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/decoding-colbert.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"lawv2Yy3DIkPcOIw9A39K"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/llm-guardrails/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"LLM Guardrails"}]]}],["$","$L2",null,{"href":"/blog/decoding-instructgpt/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Decoding InstructGPT"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-one-vector-per-passage-loses","text":"What one vector per passage loses","level":2},{"id":"maxsim","text":"MaxSim","level":2},{"id":"why-max-and-not-average","text":"Why max and not average","level":2},{"id":"the-trade-storage","text":"The trade: storage","level":2},{"id":"why-it-is-fast-anyway","text":"Why it is fast anyway","level":2},{"id":"what-it-started","text":"What it started","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
