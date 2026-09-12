@@ -1,0 +1,128 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/06p_318ym7y54.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","fine-tuning",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","fine-tuning","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/06p_318ym7y54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/06p_318ym7y54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"D8j_CEeKl7XIVtXlwQS0d"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+:HL["/blog/fine-tuning.svg","image"]
+11:T20d9,<p>Fine-tuning continues training a finished model on examples of your own. Same mechanism as the original training, far less of it, and aimed at one narrow thing.</p>
+<p>The mechanics are simple. The interesting questions are what it is actually good for, and when it is worth doing at all.</p>
+<h2 id="the-mechanism-at-one-weight"><a class="heading-anchor" href="#the-mechanism-at-one-weight">The mechanism, at one weight</a></h2>
+<p>Strip a model down to a single weight <code>w</code> making a prediction <code>w × x</code>.</p>
+<p>Start at <code>w = 0.6</code>, with input 5 and the correct answer 4. The prediction is 3.0 — too low. The squared error tells you how to change <code>w</code>: its derivative is <code>2(prediction − target) × x</code>, which here is −10, so <code>w</code> should go up. With a learning rate of 0.01 it moves by 0.1.</p>
+<p>Repeating:</p>
+<pre><code>3.000 → 3.500 → 3.750 → 3.875 → 3.938 → 3.969
+</code></pre>
+<p>After six steps <code>w</code> is 0.7969 against an exact answer of 0.8. That is the whole of training: measure the error, compute which direction each weight should move, take a small step, repeat.</p>
+<p>A real model does this for billions of weights over millions of examples. Nothing about the idea changes — only the bookkeeping.</p>
+<h2 id="what-it-is-good-at"><a class="heading-anchor" href="#what-it-is-good-at">What it is good at</a></h2>
+<p>Fine-tuning reliably changes <strong>form</strong>: the shape, tone, register and structure of output.</p>
+<p>Teach a model that responses in your domain are three sentences and a bulleted list, or that a particular JSON shape is always correct, or that the house style avoids hedging, and it learns that from a few hundred examples. Behaviour is exactly what gradient descent on examples transfers.</p>
+<p>What it is bad at is <strong>facts</strong>.</p>
+<p>A fact absorbed into weights has no citation, no update path and no way to be corrected short of retraining. Prices change, policies change, a product gets renamed — and the model goes on asserting the version it was trained on, fluently and without any signal that it is out of date. Worse, it has no mechanism for saying "I do not know", because the fact is now indistinguishable from everything else it learned.</p>
+<p>So the division is sharp: <strong>fine-tune for form, retrieve for facts.</strong> A fact in the prompt can be cited, replaced, and dated. A fact in the weights can only be overwritten.</p>
+<h2 id="the-break-even"><a class="heading-anchor" href="#the-break-even">The break-even</a></h2>
+<p>Fine-tuning's practical appeal is that it removes tokens from every request. A long instruction block teaching the model your format becomes unnecessary once the format is in the weights.</p>
+<p>That is a real saving with a real up-front cost:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>token-equivalents</th></tr></thead><tbody><tr><td>training — 3,000 examples × 600 tokens × 3 epochs, ×3 for the backward pass</td><td>16,200,000</td></tr><tr><td>saved per request, by dropping a 2,400-token instruction block</td><td>2,400</td></tr><tr><td><strong>break-even</strong></td><td><strong>6,750 requests</strong></td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>volume</th><th>net</th></tr></thead><tbody><tr><td>1,000 requests</td><td>13.8 M spent</td></tr><tr><td>10,000 requests</td><td>7.8 M saved</td></tr><tr><td>100,000 requests</td><td>223.8 M saved</td></tr></tbody></table>
+<p>Which sounds like a straightforward call at any real volume — until you account for the alternative.</p>
+<p>If that instruction block is a stable prefix, prompt caching already makes re-sending it cost roughly a tenth as much. The per-request saving drops from 2,400 to about 240 tokens, and <strong>break-even moves to 67,500 requests.</strong></p>
+<figure>
+<svg viewBox="0 0 560 280" width="560" role="img" aria-label="Two break-even lines for fine-tuning against request volume, one assuming the replaced prompt is re-sent in full and one assuming it is cached." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">WHEN FINE-TUNING STARTS PAYING</text>
+<path d="M60 40 V150 H520" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<path d="M60 95 H520" stroke="var(--muted-foreground)" stroke-opacity="0.45" stroke-dasharray="5 4"></path>
+<text class="l" x="524" y="98">0</text>
+<text class="l" x="20" y="46">saved</text>
+<text class="l" x="20" y="148">spent</text>
+<path d="M60 143 L106 95 L520 44" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<circle cx="106" cy="95" r="4.4" fill="var(--primary)"></circle>
+<text class="b" x="114" y="86">6,750 — prompt re-sent in full</text>
+<path d="M60 143 L520 95" stroke="color-mix(in srgb, var(--muted-foreground) 75%, transparent)" stroke-width="2.2" fill="none"></path>
+<circle cx="520" cy="95" r="4" fill="var(--muted-foreground)"></circle>
+<text class="l" x="300" y="126">67,500 — prompt cached</text>
+<text class="l" x="60" y="168">0</text>
+<text class="l" x="520" y="168" text-anchor="end">67,500 requests</text>
+<path d="M20 188 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="212">a cacheable prompt is already 90% cheaper to re-send</text>
+<text class="l" x="20" y="234">so caching moves the break-even out by 10×</text>
+<text class="l" x="20" y="258">and it can be changed this afternoon, which weights cannot</text>
+</svg>
+<figcaption>Compare fine-tuning against a cached prompt, not against an uncached one.</figcaption>
+</figure>
+<p>That is the comparison people skip, and it changes the answer for most applications. Not because fine-tuning is bad, but because the thing it is being compared against is cheaper than it looks — and far easier to change.</p>
+<h2 id="full-or-a-small-adapter"><a class="heading-anchor" href="#full-or-a-small-adapter">Full, or a small adapter</a></h2>
+<p>Updating every weight requires holding gradients and optimizer state for all of them, which is several times the memory of the model itself and usually out of reach.</p>
+<p>The alternative trains a small set of added weights and leaves the original untouched. Far less memory, far faster, and the adapter is a small file you can swap, version, or keep several of for different tasks. It is the default for good reasons, and the full version is worth its cost only when the adaptation is large enough that a small correction cannot express it.</p>
+<h2 id="where-it-goes-wrong"><a class="heading-anchor" href="#where-it-goes-wrong">Where it goes wrong</a></h2>
+<p><strong>Narrow data narrows the model.</strong> Train hard on one format and general capability degrades — not visibly on your evaluation set, which is drawn from the same narrow distribution, but on everything else. The defence is to mix in general examples and to evaluate on tasks the fine-tune was <em>not</em> about.</p>
+<p><strong>Bad examples are learned faithfully.</strong> Gradient descent has no notion of a mistake in the training data. A hundred examples containing a formatting inconsistency teach that inconsistency. Data quality dominates data quantity here to an extent that surprises people: a few hundred carefully checked examples routinely beat several thousand scraped ones.</p>
+<p><strong>Evaluation has to exist first.</strong> Without a held-out set and a measure, there is no way to know whether the fine-tune helped. "It seems better" is how a model that regressed on everything except the demo gets shipped.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Try the prompt first, with caching, and measure it. That is nearly free and reversible in an afternoon.</p>
+<p>Reach for fine-tuning when the behaviour you want cannot be described in a prompt at all, or when the volume clears a break-even you have actually calculated against the cached alternative. And whichever you use, keep the facts outside the weights — form belongs in training, and truth belongs somewhere it can be updated.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Fine-tuning"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T23:20","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Fine-tuning is good at changing how a model behaves and bad at teaching it facts. It also has a break-even point — about 6,750 requests in one worked case, and ten times that if the prompt it replaces was being cached."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/fine-tuning.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Fine-tuning · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Fine-tuning is good at changing how a model behaves and bad at teaching it facts. It also has a break-even point — about 6,750 requests in one worked case, and ten times that if the prompt it replaces was being cached."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"fine-tuning,lora,training,prompting,cost"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/fine-tuning/"}],["$","meta","6",{"property":"og:title","content":"Fine-tuning"}],["$","meta","7",{"property":"og:description","content":"Fine-tuning is good at changing how a model behaves and bad at teaching it facts. It also has a break-even point — about 6,750 requests in one worked case, and ten times that if the prompt it replaces was being cached."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/fine-tuning/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-11T23:20"}],["$","meta","11",{"property":"article:tag","content":"fine-tuning"}],["$","meta","12",{"property":"article:tag","content":"lora"}],["$","meta","13",{"property":"article:tag","content":"training"}],["$","meta","14",{"property":"article:tag","content":"prompting"}],["$","meta","15",{"property":"article:tag","content":"cost"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Fine-tuning"}],["$","meta","18",{"name":"twitter:description","content":"Fine-tuning is good at changing how a model behaves and bad at teaching it facts. It also has a break-even point — about 6,750 requests in one worked case, and ten times that if the prompt it replaces was being cached."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/okf/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"OKF"}]]}],["$","$Lf",null,{"href":"/blog/mcp/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"MCP"}]]}]]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"the-mechanism-at-one-weight","text":"The mechanism, at one weight","level":2},{"id":"what-it-is-good-at","text":"What it is good at","level":2},{"id":"the-break-even","text":"The break-even","level":2},{"id":"full-or-a-small-adapter","text":"Full, or a small adapter","level":2},{"id":"where-it-goes-wrong","text":"Where it goes wrong","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]

@@ -1,0 +1,114 @@
+1:"$Sreact.fragment"
+2:I[5233,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+3:I[73632,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default"]
+5:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"ViewportBoundary"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"MetadataBoundary"]
+d:I[51709,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"default",1]
+:HL["/_next/static/chunks/06p_318ym7y54.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b67966e0b83b2cd0-s.p.04y9-s23ppywx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.0333ktddfbsxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+0:{"P":null,"c":["","blog","semantic-search",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","semantic-search","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/06p_318ym7y54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1513ibnpmlx36.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0n~v8~rri7~t2.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable inter_fe8b9d92-module__LINzvG__variable roboto_d38f8dcc-module__aQ5Ubq__variable fraunces_5ea7e84a-module__nbvPNa__variable h-full","children":["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/06p_318ym7y54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"D8j_CEeKl7XIVtXlwQS0d"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+10:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+14:I[31415,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"IconMark"]
+:HL["/blog/semantic-search.svg","image"]
+11:T1a91,<p>Keyword search matches words. Ask about "fixing my car" and a page titled "automobile repair guide" does not appear, because no word in the query appears in the document.</p>
+<p>Semantic search fixes this by comparing <em>meaning</em>. Every document is turned into a vector by a model trained so that texts about similar things land near each other; the query is turned into a vector the same way; the nearest ones come back.</p>
+<p>That works, and the way it works has a consequence that is rarely stated.</p>
+<h2 id="one-vector-for-the-whole-chunk"><a class="heading-anchor" href="#one-vector-for-the-whole-chunk">One vector for the whole chunk</a></h2>
+<p>A chunk of text becomes a single fixed-length vector. However long the chunk, however many distinct things it mentions, the output is one point.</p>
+<p>So the vector is a kind of average. And an average of many things is dominated by the bulk of them.</p>
+<p>Quantifying it with vectors in 768 dimensions, averaged over 200 trials — a chunk of <em>n</em> tokens, then querying with exactly one of the terms in it:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>chunk length</th><th>match on one exact term</th><th>1/√n</th><th>match on a topical query</th></tr></thead><tbody><tr><td>20</td><td>0.2230</td><td>0.2236</td><td>0.630</td></tr><tr><td>50</td><td>0.1415</td><td>0.1414</td><td>0.400</td></tr><tr><td>100</td><td>0.0962</td><td>0.1000</td><td>0.283</td></tr><tr><td>200</td><td><strong>0.0709</strong></td><td>0.0707</td><td>0.197</td></tr><tr><td>400</td><td>0.0512</td><td>0.0500</td><td>0.142</td></tr></tbody></table>
+<p>The measured values track <strong>1/√n</strong> almost exactly, which is what the geometry predicts. In a 200-token chunk, a single distinguishing term accounts for about <strong>7%</strong> of the chunk's direction.</p>
+<p>That is the structural weakness. A document containing one crucial identifier — a part number, an error code, a policy name — has that identifier diluted into insignificance by the surrounding 199 tokens of ordinary prose. A query that <em>is</em> that identifier scores 0.07, while some unrelated chunk that happens to be broadly about the same topic scores 0.20 and wins.</p>
+<p>Keyword search does not have this problem at all, and for the opposite reason: it scores a term by how rare it is in the collection, so a term appearing once in one document is the strongest possible signal rather than the weakest.</p>
+<figure>
+<svg viewBox="0 0 560 292" width="560" role="img" aria-label="A curve showing that one term&#x27;s contribution to a pooled embedding falls as one over the square root of chunk length, with keyword scoring drawn flat." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ONE TERM'S SHARE OF A POOLED VECTOR</text>
+<path d="M70 40 V190 H520" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<text class="l" x="26" y="46">0.25</text>
+<text class="l" x="34" y="118">0.12</text>
+<text class="l" x="48" y="194">0</text>
+<path d="M88 56 L115 105 L160 130 L250 148 L340 155 L430 160 L520 163" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<circle cx="88" cy="56" r="4" fill="var(--primary)"></circle>
+<text class="b" x="98" y="50">0.223 at 20 tokens</text>
+<circle cx="250" cy="148" r="4" fill="var(--primary)"></circle>
+<text class="b" x="260" y="144">0.071 at 200 tokens</text>
+<text class="l" x="70" y="210">0</text>
+<text class="l" x="295" y="210" text-anchor="middle">250</text>
+<text class="l" x="520" y="210" text-anchor="end">500 tokens per chunk</text>
+<path d="M20 228 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="250">the curve is 1/√n — measured values match it to three decimals</text>
+<text class="l" x="20" y="270">a keyword index scores the same term by its rarity, which does not decay</text>
+</svg>
+<figcaption>Longer chunks retrieve topics better and specifics worse, and the trade is not adjustable — it is arithmetic.</figcaption>
+</figure>
+<h2 id="what-this-means-for-chunk-size"><a class="heading-anchor" href="#what-this-means-for-chunk-size">What this means for chunk size</a></h2>
+<p>The table above is the whole chunking debate in one place.</p>
+<p><strong>Short chunks</strong> keep specifics retrievable — halving a chunk from 200 tokens to 100 raises the single-term signal by √2 — and lose surrounding context, so a retrieved fragment may not carry enough to be useful on its own.</p>
+<p><strong>Long chunks</strong> preserve context and average specifics away.</p>
+<p>There is no setting that is good at both, because the dilution is geometric rather than a tuning artefact. Which is why real systems stop trying: they index at more than one granularity, or they keep a keyword index alongside and merge the results, or they retrieve small and then expand to the surrounding region before sending it to a model.</p>
+<h2 id="the-parts-that-are-straightforward"><a class="heading-anchor" href="#the-parts-that-are-straightforward">The parts that are straightforward</a></h2>
+<p><strong>The measure.</strong> Cosine similarity — the angle between two vectors, from −1 to 1, ignoring length. Both vectors must come from the <em>same</em> model at the same version; a distance between vectors from two different models is a meaningless number, not a weak one.</p>
+<p><strong>The storage.</strong> Documents are embedded once, ahead of time, and kept in a vector store. Only the query is embedded at request time, which is what makes the search fast enough to be interactive.</p>
+<p><strong>The scale.</strong> Comparing against every stored vector is exact and too slow past a certain size, so production systems use approximate search: examine a promising neighbourhood rather than everything, accept an occasional miss, and get orders of magnitude more speed for it.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Semantic search solves vocabulary mismatch and introduces specificity loss. Both come from the same design: one vector standing in for a whole passage.</p>
+<p>So the useful question when it disappoints is which of the two failures you are looking at. If the right document was never retrieved and it contained an exact term from the query, the embedding did not fail to understand — it averaged that term down to 7% and something blander outranked it. That is a job for a keyword index, not a better model.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Semantic Search"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T22:40","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Matching by meaning solves the vocabulary problem and creates a new one: one vector per chunk averages everything together, so a single distinguishing term contributes about 1/√n of the direction. At 200 tokens that is 7%."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/semantic-search.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Semantic Search · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Matching by meaning solves the vocabulary problem and creates a new one: one vector per chunk averages everything together, so a single distinguishing term contributes about 1/√n of the direction. At 200 tokens that is 7%."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"semantic-search,embeddings,cosine-similarity,chunking,retrieval"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/semantic-search/"}],["$","meta","6",{"property":"og:title","content":"Semantic Search"}],["$","meta","7",{"property":"og:description","content":"Matching by meaning solves the vocabulary problem and creates a new one: one vector per chunk averages everything together, so a single distinguishing term contributes about 1/√n of the direction. At 200 tokens that is 7%."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/semantic-search/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-09-11T22:40"}],["$","meta","11",{"property":"article:tag","content":"semantic-search"}],["$","meta","12",{"property":"article:tag","content":"embeddings"}],["$","meta","13",{"property":"article:tag","content":"cosine-similarity"}],["$","meta","14",{"property":"article:tag","content":"chunking"}],["$","meta","15",{"property":"article:tag","content":"retrieval"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Semantic Search"}],["$","meta","18",{"name":"twitter:description","content":"Matching by meaning solves the vocabulary problem and creates a new one: one vector per chunk averages everything together, so a single distinguishing term contributes about 1/√n of the direction. At 200 tokens that is 7%."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L14","21",{}]]
+15:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+12:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/cursor/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Cursor"}]]}],["$","$Lf",null,{"href":"/blog/okf/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"OKF"}]]}]]}]
+13:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"one-vector-for-the-whole-chunk","text":"One vector for the whole chunk","level":2},{"id":"what-this-means-for-chunk-size","text":"What this means for chunk size","level":2},{"id":"the-parts-that-are-straightforward","text":"The parts that are straightforward","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
