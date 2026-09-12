@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+2:I[45958,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],""]
+3:I[90315,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"default"]
+a:I[54488,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js","/_next/static/chunks/0ru8c58k4-1my.js"],"TableOfContents"]
+b:I[83775,["/_next/static/chunks/1513ibnpmlx36.js","/_next/static/chunks/0n~v8~rri7~t2.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/image-embeddings.svg","image"]
+:HL["/_next/static/chunks/09w0vcjlop1rx.css","style"]
+4:T1e76,<p>An image embedding is a short list of numbers standing in for a picture, arranged so that pictures of similar things end up close together.</p>
+<p>Why that needs to be <em>learned</em> is easier to see by first trying the naive alternative.</p>
+<h2 id="comparing-pixels"><a class="heading-anchor" href="#comparing-pixels">Comparing pixels</a></h2>
+<p>An image is already a list of numbers. A 224 × 224 colour photo is 150,528 of them, three per pixel. So compare two images by comparing those lists directly.</p>
+<p>Take a simple picture: a bright ring on a dark background. Compare it against three variations, using cosine similarity on the raw pixels:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>similarity to the original</th></tr></thead><tbody><tr><td>the same ring, 18% brighter</td><td>1.000</td></tr><tr><td>the same ring, moved 4 pixels</td><td>0.665</td></tr><tr><td>the same ring, moved 12 pixels</td><td>0.355</td></tr><tr><td><strong>a completely different shape</strong></td><td><strong>0.385</strong></td></tr></tbody></table>
+<p>The last two lines are the problem. Moving the identical object a small distance across the frame makes it <strong>less similar to itself</strong> than an unrelated shape is.</p>
+<p>The reason is mechanical. Pixel comparison lines up position 1 with position 1, position 2 with position 2, and so on. Slide the content and every position now holds something else, so the comparison sees two unrelated lists — even though a person would say nothing changed at all.</p>
+<p>Meanwhile the brightness change scores a perfect 1.000, because cosine ignores overall scale. Raw pixels are simultaneously oversensitive to things that do not matter and blind to things that might.</p>
+<figure>
+<svg viewBox="0 0 560 274" width="560" role="img" aria-label="Similarity scores showing that the same ring shifted twelve pixels scores lower against itself than an entirely different shape does." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">PIXEL SIMILARITY, MEASURED</text>
+<rect x="20" y="40" width="76" height="76" rx="6" fill="none" stroke="color-mix(in srgb, var(--muted-foreground) 35%, transparent)"></rect>
+<circle cx="58" cy="78" r="24" fill="none" stroke="var(--primary)" stroke-opacity="0.8" stroke-width="7"></circle>
+<text class="l" x="20" y="132">original</text>
+<rect x="112" y="40" width="76" height="76" rx="6" fill="none" stroke="color-mix(in srgb, var(--muted-foreground) 35%, transparent)"></rect>
+<circle cx="164" cy="78" r="24" fill="none" stroke="var(--primary)" stroke-opacity="0.8" stroke-width="7"></circle>
+<text class="l" x="112" y="132">moved 12px</text>
+<rect x="204" y="40" width="76" height="76" rx="6" fill="none" stroke="color-mix(in srgb, var(--muted-foreground) 35%, transparent)"></rect>
+<rect x="214" y="66" width="56" height="24" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 65%, transparent)"></rect>
+<text class="l" x="204" y="132">different shape</text>
+<text class="l" x="310" y="52">same ring, 4px</text>
+<rect x="310" y="60" width="146" height="16" rx="3" fill="color-mix(in srgb, var(--primary) 26%, transparent)" stroke="var(--primary)" stroke-opacity="0.5"></rect>
+<text class="b" x="464" y="73">0.665</text>
+<text class="l" x="310" y="98">same ring, 12px</text>
+<rect x="310" y="106" width="78" height="16" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="l" x="396" y="119">0.355</text>
+<text class="l" x="310" y="144">a different shape</text>
+<rect x="310" y="152" width="85" height="16" rx="3" fill="color-mix(in srgb, var(--muted-foreground) 30%, transparent)" stroke="color-mix(in srgb, var(--muted-foreground) 50%, transparent)"></rect>
+<text class="l" x="403" y="165">0.385</text>
+<path d="M20 188 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="212">the object is closer to something else than to itself moved</text>
+<text class="l" x="20" y="232">nothing about the content changed — only where it sat</text>
+<text class="l" x="20" y="252">an embedding is a space where this cannot happen</text>
+</svg>
+<figcaption>Position-by-position comparison has no notion of the same thing appearing elsewhere.</figcaption>
+</figure>
+<h2 id="what-the-network-is-actually-for"><a class="heading-anchor" href="#what-the-network-is-actually-for">What the network is actually for</a></h2>
+<p>An image encoder — a convolutional network or a vision transformer — maps those 150,528 numbers down to something like 512. That is 294× smaller, but compression is not the goal. The goal is <em>which</em> 512 numbers.</p>
+<p>The layers build up in stages. Early ones respond to edges and local contrast. Middle ones combine those into parts — a corner, a repeated texture, a curve of a particular kind. Later ones respond to arrangements of parts, which is where "this is a ring" can exist as a concept at all.</p>
+<p>Crucially, a feature that responds to a ring responds to it <em>wherever it appears</em>. That is the property pixel comparison lacks, and it is why the last layer's output can be compared meaningfully while the input cannot.</p>
+<h2 id="the-training-decides-everything"><a class="heading-anchor" href="#the-training-decides-everything">The training decides everything</a></h2>
+<p>An encoder does not become useful by having the right architecture. It becomes useful because of what it was trained to pull together and push apart.</p>
+<p>Train it to classify objects and the embedding organises by object category — two photos of the same kind of thing land close, regardless of colour or setting. Train it to match images with their captions and the space organises by describable content, which is what lets a text query find a picture. Train it to recognise the same photo under crops, rotations and colour shifts and it becomes explicitly invariant to exactly those.</p>
+<p>Each of those is a different notion of "similar", and all of them are equally valid. The one you get is the one the training objective asked for — which is why an embedding that works beautifully for product search may be useless for detecting near-duplicates, and vice versa.</p>
+<h2 id="using-them"><a class="heading-anchor" href="#using-them">Using them</a></h2>
+<p>Once images are vectors, cosine similarity gives a single number between −1 and 1 for any pair. Everything downstream is that one operation:</p>
+<ul>
+<li><strong>Search</strong> — embed the query, return the nearest stored vectors.</li>
+<li><strong>Duplicate detection</strong> — flag pairs above a threshold, which catches re-encoded and lightly edited copies that a file hash misses entirely.</li>
+<li><strong>Recommendation</strong> — items near what someone already chose.</li>
+<li><strong>Grouping</strong> — cluster the vectors and let the groups define themselves.</li>
+</ul>
+<p>None of these needs labels. The structure is already in the geometry.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The list of numbers is not the interesting part; the picture was always a list of numbers.</p>
+<p>What an embedding provides is a list where <em>distance means something</em> — where moving an object across the frame does not change the answer, and where changing the object does. Pixels get both of those backwards, and correcting that is the entire job.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," all posts"]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Image Embeddings"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-09-11T16:20","children":"Sep 11, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"className":"text-primary","children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[3," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Comparing images by their pixels fails badly — the same object moved twelve pixels can look less like itself than a different object does. An embedding is a representation trained so that stops happening."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card","children":["$","img",null,{"src":"/blog/image-embeddings.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}]]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"K-Qqk_dMv7cS1FGVqGoqY"}
+5:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/computer-use-agents/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Computer-Use Agents"}]]}],["$","$L2",null,{"href":"/blog/google-tpu/","className":"group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 font-mono text-xs text-muted-foreground","children":[false,"newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground transition-colors group-hover:text-primary","children":"Google TPU"}]]}]]}]
+6:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"comparing-pixels","text":"Comparing pixels","level":2},{"id":"what-the-network-is-actually-for","text":"What the network is actually for","level":2},{"id":"the-training-decides-everything","text":"The training decides everything","level":2},{"id":"using-them","text":"Using them","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/09w0vcjlop1rx.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0ru8c58k4-1my.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null
