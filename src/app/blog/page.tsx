@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { PostList } from "@/components/blog/post-list";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { getAllPosts, getUsedCategories } from "@/lib/blog";
 
 const upcomingTopics = [
@@ -34,6 +35,9 @@ export default function BlogPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="mb-6 flex items-center justify-end">
+        <ThemeToggle />
+      </div>
       <SectionHeading
         title="Writing"
         subtitle="Notes on what I'm learning, in my own words."

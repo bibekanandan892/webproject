@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { PostMetaRow } from "@/components/blog/post-meta-row";
 import { PostThumbnail } from "@/components/blog/post-thumbnail";
 import { TableOfContents } from "@/components/blog/table-of-contents";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { getAdjacentPosts, getPostBySlug, getPublishedSlugs } from "@/lib/blog";
 import type { PostMeta } from "@/lib/blog/types";
 
@@ -73,12 +74,15 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-      <Link
-        href="/blog/"
-        className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" /> All posts
-      </Link>
+      <div className="flex items-center justify-between">
+        <Link
+          href="/blog/"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" /> All posts
+        </Link>
+        <ThemeToggle />
+      </div>
 
       <div className="mt-10 gap-12 xl:flex xl:items-start">
         <article className="min-w-0 flex-1 xl:max-w-3xl">
