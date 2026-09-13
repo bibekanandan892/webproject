@@ -9,19 +9,18 @@ import { Moon, Sun } from "lucide-react";
  * in layout.tsx on every page — so the homepage, which has no button of its
  * own, still opens dark for a visitor who chose dark here.
  *
- * Since the Lava Rush retheme dark is the BASE palette, so the polarity here
- * is inverted: `data-theme="light"` is the opt-in attribute and the absence of
- * it means dark. Both values are still written explicitly rather than clearing
+ * `data-theme="dark"` is the opt-in attribute and the absence of it means the
+ * paper-white default. Both values are written explicitly rather than clearing
  * the key, so a deliberate choice sticks either way; the bootstrap script's
- * read is a plain `=== "light"` check, so any other stored value — "dark",
- * garbage, or nothing — falls through to the dark default.
+ * read is a plain `=== "dark"` check, so any other stored value — "light",
+ * garbage, or nothing — falls through to the light default.
  */
 export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsDark(document.documentElement.getAttribute("data-theme") !== "light");
+    setIsDark(document.documentElement.getAttribute("data-theme") === "dark");
     setMounted(true);
   }, []);
 
@@ -30,9 +29,9 @@ export function ThemeToggle() {
     setIsDark(next);
     const root = document.documentElement;
     if (next) {
-      root.removeAttribute("data-theme");
+      root.setAttribute("data-theme", "dark");
     } else {
-      root.setAttribute("data-theme", "light");
+      root.removeAttribute("data-theme");
     }
     try {
       localStorage.setItem("theme", next ? "dark" : "light");

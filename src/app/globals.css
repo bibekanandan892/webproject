@@ -2,10 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* Dark is now the BASE theme, not the opt-in one, so `dark:` utilities have to
-   match by default and switch off under the light override — the inverse of
-   the previous `[data-theme="dark"]` targeting. */
-@custom-variant dark (&:is(:root:not([data-theme="light"]) *));
+@custom-variant dark (&:is([data-theme="dark"] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -65,6 +62,7 @@
      because the light theme has to deepen it to stay readable — see the
      contrast table in execution-2-lava-rush.md §3. */
   --color-accent-strong: var(--accent-strong);
+  --color-cover-dot: var(--cover-dot);
 
   /* Card tints — full-bleed fills for cards, no border, no shadow. Four brand
      colours cannot carry nine distinguishable fills, so the measured
@@ -87,13 +85,114 @@
 }
 
 /* ============================================================================
-   DARK — the default theme. Black Core ground, Cloud Ash ink, Lava Rush accent.
-   The ground runs as a four-step ramp from Black Core up to Gunmetal Gray so
-   bands, cards and chips separate from each other without inventing colours
-   outside the supplied palette.
+   LIGHT — the default theme, and the one most visitors will ever see.
+
+   Warm paper white rather than the palette's Cloud Ash. Cloud Ash (#EDF0F5) is
+   a cool, faintly blue grey; it earns its place as ink on the dark theme, but
+   as a ground under a long article it glares. This site is mostly a blog, so
+   the ground is paper and the primary is ink — a Lava Rush button on paper is
+   an interruption every time the eye passes it. Lava Rush stays on as the
+   accent, deepened to #C23A0C so it clears AA at body size.
+
+   Everything theme-invariant (radii, card tints) is declared here and here
+   only; the dark block below overrides colour and nothing else.
    ============================================================================ */
 :root {
-  /* ---- Ground ramp: Black Core -> Gunmetal ------------------------------ */
+  --background: #FAF9F5;          /* warm paper white */
+  --surface: #F2F0E9;             /* section bands */
+  --surface-hover: #EAE7DE;
+  --surface-elevated: #FFFFFF;
+
+  --card: #FFFFFF;
+  --card-foreground: #020305;
+  --popover: #FFFFFF;
+  --popover-foreground: #020305;
+
+  --foreground: #020305;          /* Black Core — headings and UI */
+  /* Running prose is a notch softer than the headings on purpose. Black Core
+     on paper white is 18.8:1, and a column at that contrast halates over ten
+     minutes of reading; #1F2124 still holds 15.2:1, far above the bar and
+     measurably calmer to sit in. */
+  --body-ink: #1F2124;
+  --ink-soft: #2E2F31;            /* Gunmetal Gray */
+  --muted-foreground: #55585C;    /* gunmetal-derived — 6.8:1 */
+  --faint: #6E7176;               /* meta, eyebrows — 4.7:1, still AA */
+  --line-soft: #DCD9D0;
+
+  /* Ink, not lava — see the note above. */
+  --primary: #020305;
+  --primary-foreground: #FAF9F5;
+  --primary-hover: #2E2F31;
+
+  --accent-strong: #C23A0C;       /* deepened Lava Rush — 5.1:1 on paper */
+
+  --secondary: #F2F0E9;
+  --secondary-foreground: #020305;
+
+  --muted: #F2F0E9;
+
+  /* shadcn's `accent` means "subtle hover fill", not brand accent. The brand
+     orange is --primary / --accent-strong; conflating them would repaint every
+     hover surface in the ui/ primitives. */
+  --accent: #F2F0E9;
+  --accent-foreground: #020305;
+
+  --destructive: #C23A0C;
+
+  --border: rgba(2, 3, 5, 0.10);
+  --border-hover: rgba(2, 3, 5, 0.20);
+  --input: rgba(2, 3, 5, 0.20);
+  --ring: #C23A0C;
+
+  /* The hero canvas needs its own value rather than borrowing --line-soft: the
+     hairline colour that reads correctly as a 1px rule is nearly invisible as
+     a scattered 1px dot at 0.6 alpha. */
+  --cover-dot: #C4BFAE;
+
+  /* ---- Theme-invariant ---------------------------------------------------
+     Card tints. Four brand colours cannot carry the nine distinguishable fills
+     the previous design system had, so these collapse to the three the site
+     actually consumes. Identical in both themes — they composite at low
+     opacity over whatever surface sits behind them. */
+  --tint-lava: #FF4E1B;
+  --tint-gunmetal: #2E2F31;
+  --tint-ash: #EDF0F5;
+
+  --chart-1: #C23A0C;
+  --chart-2: #2E2F31;
+  --chart-3: #6E7176;
+  --chart-4: #FF4E1B;
+  --chart-5: #020305;
+
+  --radius: 0.5rem;               /* 8px — buttons, inputs */
+  --radius-card-size: 1rem;       /* 16px — cards */
+  --radius-cover-size: 1.5rem;    /* 24px — the hero cover */
+
+  --sidebar: #F2F0E9;
+  --sidebar-foreground: #020305;
+  --sidebar-primary: #020305;
+  --sidebar-primary-foreground: #FAF9F5;
+  --sidebar-accent: #EAE7DE;
+  --sidebar-accent-foreground: #020305;
+  --sidebar-border: rgba(2, 3, 5, 0.10);
+  --sidebar-ring: #C23A0C;
+
+  color-scheme: light;
+}
+
+/* ============================================================================
+   DARK — opt-in, toggled from the blog header.
+
+   Black Core ground, Cloud Ash ink, and the one place Lava Rush is allowed to
+   be a button: at 6.2:1 against Black Core the orange is both legible and the
+   brightest thing on the page, which is the whole point of the palette. The
+   ground runs as a four-step ramp up to Gunmetal so bands, cards and chips
+   separate against the black.
+
+   No @media (prefers-color-scheme) block on purpose: a first-time visitor
+   always lands on paper regardless of their OS setting.
+   ============================================================================ */
+[data-theme="dark"] {
   --background: #020305;          /* Black Core */
   --surface: #0B0D0F;             /* section bands, barely lifted */
   --surface-hover: #15181A;
@@ -104,7 +203,6 @@
   --popover: #16181A;
   --popover-foreground: #EDF0F5;
 
-  /* ---- Ink ramp --------------------------------------------------------- */
   --foreground: #EDF0F5;          /* Cloud Ash */
   --body-ink: #EDF0F5;
   --ink-soft: #C7CDD4;
@@ -112,7 +210,6 @@
   --faint: #7A8085;               /* meta, eyebrows — 5.1:1, still AA */
   --line-soft: #2E2F31;           /* Gunmetal as hairline + scrollbar thumb */
 
-  /* ---- Accent ----------------------------------------------------------- */
   /* The orange carries a Black Core label, never Cloud Ash: white on Lava Rush
      is 2.89:1 and fails even the 3:1 large-text bar. Black on it is 6.2:1. */
   --primary: #FF4E1B;             /* Lava Rush */
@@ -126,9 +223,6 @@
 
   --muted: #16181A;
 
-  /* shadcn's `accent` means "subtle hover fill", not brand accent. The brand
-     orange is --primary / --accent-strong; conflating them would repaint every
-     hover surface in the ui/ primitives lava. */
   --accent: #1F2124;
   --accent-foreground: #EDF0F5;
 
@@ -139,20 +233,13 @@
   --input: rgba(237, 240, 245, 0.26);
   --ring: #FF4E1B;
 
-  /* ---- Card tints ------------------------------------------------------- */
-  --tint-lava: #FF4E1B;
-  --tint-gunmetal: #2E2F31;
-  --tint-ash: #EDF0F5;
+  --cover-dot: #3A3C40;
 
   --chart-1: #FF4E1B;
   --chart-2: #A3AAB2;
   --chart-3: #2E2F31;
   --chart-4: #FF6A3D;
   --chart-5: #7A8085;
-
-  --radius: 0.5rem;               /* 8px — buttons, inputs */
-  --radius-card-size: 1rem;       /* 16px — cards */
-  --radius-cover-size: 1.5rem;    /* 24px — the hero cover */
 
   --sidebar: #0B0D0F;
   --sidebar-foreground: #EDF0F5;
@@ -164,84 +251,6 @@
   --sidebar-ring: #FF4E1B;
 
   color-scheme: dark;
-}
-
-/* ============================================================================
-   LIGHT — opt-in, toggled from the blog header.
-   Deliberately NOT the Cloud Ash ground. Cloud Ash (#EDF0F5) is a cool, faintly
-   blue grey; it works as ink on the dark theme, which is its real job, but as a
-   ground for long-form reading it glares. This is a blog, people sit in an
-   article for ten minutes at a time, so the light theme is a warm paper white
-   instead and the primary goes back to ink rather than orange — a Lava Rush
-   button on paper white is an interruption every time your eye passes it.
-   Lava Rush stays on as the accent (links, markers, rules), deepened to
-   #C23A0C so it still clears AA as body-size text.
-   ============================================================================ */
-[data-theme="light"] {
-  --background: #FAF9F5;          /* warm paper white */
-  --surface: #F2F0E9;             /* section bands */
-  --surface-hover: #EAE7DE;
-  --surface-elevated: #FFFFFF;
-
-  --card: #FFFFFF;
-  --card-foreground: #020305;
-  --popover: #FFFFFF;
-  --popover-foreground: #020305;
-
-  --foreground: #020305;          /* Black Core — headings and UI */
-  /* Running prose is a notch softer than the headings on purpose. Black Core
-     on paper white is 18.8:1, and at that contrast a long column starts to
-     halate; #1F2124 still holds 15.2:1, which is far above the bar and
-     measurably calmer to sit in. */
-  --body-ink: #1F2124;
-  --ink-soft: #2E2F31;            /* Gunmetal Gray */
-  --muted-foreground: #55585C;    /* gunmetal-derived — 6.8:1 */
-  --faint: #6E7176;               /* meta, eyebrows — 4.7:1, still AA */
-  --line-soft: #DCD9D0;
-
-  /* Ink, not lava. The dark theme keeps the orange button; see the note above
-     for why the light theme does not. */
-  --primary: #020305;
-  --primary-foreground: #FAF9F5;
-  --primary-hover: #2E2F31;
-
-  --accent-strong: #C23A0C;       /* deepened Lava Rush — 5.1:1 on paper */
-
-  --secondary: #F2F0E9;
-  --secondary-foreground: #020305;
-
-  --muted: #F2F0E9;
-
-  --accent: #F2F0E9;
-  --accent-foreground: #020305;
-
-  --destructive: #C23A0C;
-
-  --border: rgba(2, 3, 5, 0.10);
-  --border-hover: rgba(2, 3, 5, 0.20);
-  --input: rgba(2, 3, 5, 0.20);
-  --ring: #C23A0C;
-
-  --tint-lava: #FF4E1B;
-  --tint-gunmetal: #2E2F31;
-  --tint-ash: #EDF0F5;
-
-  --chart-1: #C23A0C;
-  --chart-2: #2E2F31;
-  --chart-3: #6E7176;
-  --chart-4: #FF4E1B;
-  --chart-5: #020305;
-
-  --sidebar: #F2F0E9;
-  --sidebar-foreground: #020305;
-  --sidebar-primary: #020305;
-  --sidebar-primary-foreground: #FAF9F5;
-  --sidebar-accent: #EAE7DE;
-  --sidebar-accent-foreground: #020305;
-  --sidebar-border: rgba(2, 3, 5, 0.10);
-  --sidebar-ring: #C23A0C;
-
-  color-scheme: light;
 }
 
 @layer base {
@@ -457,8 +466,8 @@
    --shiki-light / --shiki-dark custom properties per token instead of fixed
    colours, so highlighting can follow the runtime theme toggle even though
    it's computed once at build time. */
-.prose-post pre code span { color: var(--shiki-dark); }
-[data-theme="light"] .prose-post pre code span { color: var(--shiki-light); }
+.prose-post pre code span { color: var(--shiki-light); }
+[data-theme="dark"] .prose-post pre code span { color: var(--shiki-dark); }
 
 .prose-post .table-wrap { overflow-x: auto; }
 .prose-post table {

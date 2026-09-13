@@ -57,10 +57,10 @@ export function Cover() {
       ctx!.clearRect(0, 0, width, height);
       // Read the theme token each frame (cheap at this particle count) so the
       // dots stay correct if the visitor flips the dark-mode toggle without a
-      // reload — light and dark map to different --line-soft values.
+      // reload — light and dark map to different --cover-dot values.
       const dot =
-        getComputedStyle(parent!).getPropertyValue("--line-soft").trim() ||
-        "#D1CFC5";
+        getComputedStyle(parent!).getPropertyValue("--cover-dot").trim() ||
+        "#C4BFAE";
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
@@ -81,8 +81,8 @@ export function Cover() {
       // One still frame so the canvas isn't blank, then stop — no drifting.
       ctx!.clearRect(0, 0, width, height);
       const dot =
-        getComputedStyle(parent).getPropertyValue("--line-soft").trim() ||
-        "#D1CFC5";
+        getComputedStyle(parent).getPropertyValue("--cover-dot").trim() ||
+        "#C4BFAE";
       for (const p of particles) {
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);

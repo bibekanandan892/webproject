@@ -23,11 +23,17 @@ Branch: `retheme/lava-rush`, off `master` at `87109f9`.
 
 **Confirmed decisions**
 
-- **Dark is the default.** `:root` carries the Black Core palette; light becomes
-  the opt-in `[data-theme="light"]` override. This inverts the current
-  mechanism, which had light as `:root` and dark as `[data-theme="dark"]`.
-- **Orange pushes to buttons and links**, not accent-only. This retires the
-  "buttons are ink, never clay" discipline from the previous retheme.
+- ~~**Dark is the default.**~~ **Reversed after seeing it built.** Dark shipped
+  as the default in Phase 1, then two rounds of review moved it back: first the
+  light theme was rebuilt on warm paper white (#FAF9F5) instead of Cloud Ash,
+  because Cloud Ash glares under a long article and this site is mostly a blog;
+  then light was made the default outright. `:root` carries the paper palette
+  and `[data-theme="dark"]` is the opt-in override, as it was before this
+  retheme. Cloud Ash keeps its real job as ink on the dark theme.
+- **Orange pushes to links, markers and rules** in both themes, and to buttons
+  in the dark theme only. On paper white the primary is ink: a Lava Rush button
+  there is an interruption every time the eye passes it, and the deepened
+  #C23A0C carries the brand in body text instead.
 
 ## 2. Constraints discovered before writing this
 
