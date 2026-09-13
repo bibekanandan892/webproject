@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Spotlight } from "@/components/spotlight";
 import { ArrowDown } from "lucide-react";
 import { usePhotoClickEgg } from "@/lib/photo-egg";
 
@@ -13,7 +12,6 @@ export function Hero() {
       id="home"
       className="relative isolate overflow-hidden border-b border-border"
     >
-      <Spotlight />
       <div className="relative z-10 mx-auto grid min-h-[calc(100vh-4rem)] max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-12 md:gap-12 md:py-24">
         <div className="flex w-full flex-col gap-6 md:col-span-7 md:items-start">
           <p className="font-mono text-sm text-primary">
