@@ -1,6 +1,6 @@
 # Execution plan — retheme bibekananda.in to the anthropic.com homepage system
 
-**Status:** Phases 0–5b done. Phase 5b verified in `6dd482b`, which also fixes a real theme-bootstrap hydration bug found while verifying it (raw `<script>` under `<html>` breaks on this Next.js version — see that commit). Next: Phase 6 (dark toggle), 7 (Shiki dual theme), 8 (121 cover SVGs), 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
+**Status:** Phases 0–6 done. Phase 6 verified in `b80cb1d` with a live browser (click, reload, cross-page persistence, no console errors). Next: Phase 7 (Shiki dual theme), 8 (121 cover SVGs), 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
 **Repo:** `C:\Users\bibek\Claude project\bipper\webproject`
 **Branch:** `retheme/blue-ink` (name is now stale; the theme is Ivory, not Blue Ink)
 **Reference:** <https://www.anthropic.com/> — every value below was read off the live site, not guessed.
@@ -256,7 +256,7 @@ New component `src/components/cover.tsx` (`"use client"`), implementing §1.8:
 
 Use it for the hero. Do not add a second one; one animated moment per page.
 
-### Phase 6 — Dark toggle
+### Phase 6 — Dark toggle — DONE (`b80cb1d`)
 
 Unchanged from the committed plan. `src/components/theme-toggle.tsx`, client
 island, `localStorage` key `theme`, icon renders only after mount, placed in
