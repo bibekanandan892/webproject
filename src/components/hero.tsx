@@ -6,33 +6,47 @@ import { ArrowDown } from "lucide-react";
 import { usePhotoClickEgg } from "@/lib/photo-egg";
 import { actionButtonVariants } from "@/components/ui/action-button";
 import { cn } from "@/lib/utils";
+import { Cover, useCoverReveal } from "@/components/cover";
 
 export function Hero() {
   const onPhotoClick = usePhotoClickEgg();
+  const sectionRef = useCoverReveal<HTMLElement>();
+
   return (
     <section
+      ref={sectionRef}
       id="home"
+      data-scroll="section"
       className="relative isolate overflow-hidden border-b border-border"
     >
+      <Cover />
+
       <div className="relative z-10 mx-auto grid min-h-[calc(100vh-4rem)] max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-12 md:gap-12 md:py-24">
         <div className="flex w-full flex-col gap-6 md:col-span-7 md:items-start">
-          <p className="font-mono text-base text-faint">
-            Software Engineer · Bengaluru
-          </p>
-          <h1 className="text-[clamp(2.5rem,1.6rem+4.2vw,3.8rem)] leading-[1.1] font-bold tracking-tight text-foreground">
-            Bibekananda Nayak.
-          </h1>
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
-            I build for phones, agents, the web.
-          </h2>
-          <p className="max-w-2xl text-muted-foreground">
+          <div data-scroll="title" className="flex flex-col gap-6">
+            <p className="font-mono text-base text-faint">
+              Software Engineer · Bengaluru
+            </p>
+            <h1 className="text-[clamp(2.5rem,1.6rem+4.2vw,3.8rem)] leading-[1.1] font-bold tracking-tight text-foreground">
+              Bibekananda Nayak.
+            </h1>
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
+              I build for phones, agents, the web.
+            </h2>
+          </div>
+
+          <p data-scroll="subtitle" className="max-w-2xl text-muted-foreground">
             I&apos;m a software engineer specialising in Android, Kotlin
             Multiplatform, and applied AI. Currently shipping consumer apps at{" "}
             <span className="text-foreground">Swiggy</span> and building
             autonomous agents on the side. Previously{" "}
             <span className="text-foreground">iServeU</span>.
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
+
+          <div
+            data-scroll="button"
+            className="mt-4 flex flex-wrap items-center gap-3"
+          >
             <Link
               href="#projects"
               className={cn(actionButtonVariants({ tier: "primary" }))}

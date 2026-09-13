@@ -260,6 +260,41 @@
 }
 
 /* ============================================================================
+   The hero cover animation — execution.md §1.8 / Phase 5b.
+   Cover (src/components/cover.tsx) draws the canvas and adds `is-on`;
+   useCoverReveal adds `is-copy-shown` to the section once it's in view.
+   ============================================================================ */
+.cover-canvas {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.cover-canvas.is-on {
+  opacity: 1;
+}
+
+/* Hidden-until-shown, exactly as measured: gated inside no-preference so a
+   reduced-motion visitor's very first paint already has the copy visible —
+   there is no window where the rule below and the JS's immediate class-add
+   (see useCoverReveal) could race and leave a blank card. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-scroll="section"]:not(.is-copy-shown) [data-scroll="title"],
+  [data-scroll="section"]:not(.is-copy-shown) [data-scroll="subtitle"],
+  [data-scroll="section"]:not(.is-copy-shown) [data-scroll="button"] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+[data-scroll="title"],
+[data-scroll="subtitle"],
+[data-scroll="button"] {
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+[data-scroll="subtitle"] { transition-delay: 0.08s; }
+[data-scroll="button"] { transition-delay: 0.16s; }
+
+/* ============================================================================
    Accessibility — reduce motion globally.
    ============================================================================ */
 @media (prefers-reduced-motion: reduce) {

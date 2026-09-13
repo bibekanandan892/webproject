@@ -44,14 +44,25 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
 };
 
-// Runs before first paint via a render-blocking inline script (next/script
-// cannot do this — it always defers past hydration). Reads the visitor's
-// saved choice and flips to Lamp Black before the browser paints anything,
-// so there is no flash of Blue Ink for a returning dark-mode visitor.
+// Reads the visitor's saved choice and flips to the dark theme before the
+// browser paints anything, so there is no flash of the light theme for a
+// returning dark-mode visitor. Placed inside an explicit <head> — a literal
+// synchronous <script> there runs while the browser is still parsing <head>,
+// before any <body> content is parsed or painted, which is what actually
+// beats first paint; layout.md's "don't manually add <head>" warning is
+// specifically about <title>/<meta> fighting the Metadata API, not about
+// this. Two placements were tried and rejected first: a <script> as a direct
+// child of <html> (a sibling of <body>) throws a hydration error on this
+// Next.js version — React 19's script hoisting won't accept a <script>
+// positioned between <html> and <body>; and next/script's
+// strategy="beforeInteractive" avoids that error but, in this static export,
+// serializes to a `__next_s` push near the end of <body> rather than a
+// literal <head> script, which runs too late to prevent the flash it exists
+// to prevent.
 //
-// Deliberately does NOT check `prefers-color-scheme`: first visit is always
-// Blue Ink regardless of the visitor's OS setting, and the site only goes
-// dark once someone clicks the toggle in the blog header.
+// Deliberately does NOT check `prefers-color-scheme`: first visit always
+// lands in the light theme regardless of the visitor's OS setting, and the
+// site only goes dark once someone clicks the toggle in the blog header.
 const THEME_BOOTSTRAP_SCRIPT = `try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}`;
 
 export default function RootLayout({
@@ -63,10 +74,12 @@ export default function RootLayout({
       className={`${archivo.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} h-full`}
       suppressHydrationWarning
     >
-      <script
-        id="theme-bootstrap"
-        dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }}
-      />
+      <head>
+        <script
+          id="theme-bootstrap"
+          dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }}
+        />
+      </head>
       <body className="min-h-full" suppressHydrationWarning>
         {children}
       </body>
