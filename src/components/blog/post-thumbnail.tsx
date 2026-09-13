@@ -2,11 +2,12 @@ import type { PostCategory, PostMeta } from "@/lib/blog/types";
 
 /**
  * Tint is keyed to the category, not the slug, so the grid is scannable at a
- * glance — every AI post reads teal, every Android post amber.
+ * glance — every AI post reads cactus, every Android post oat. Values are the
+ * measured card tints from execution.md §1.3, not arbitrary hex.
  */
 const CATEGORY_TINT: Record<PostCategory, string> = {
-  AI: "#64FFDA",
-  Android: "#F5A524",
+  AI: "#BCD1CA",
+  Android: "#E3DACC",
 };
 
 const COLS = 13;
@@ -87,8 +88,8 @@ export function PostThumbnail({ post }: { post: PostMeta }) {
       </svg>
 
       <span
-        className="absolute bottom-3 right-4 font-mono text-[11px] uppercase tracking-[0.18em]"
-        style={{ color: tint, opacity: 0.5 }}
+        className="absolute bottom-3 right-4 font-mono text-xs"
+        style={{ color: "var(--foreground)", opacity: 0.5 }}
       >
         {post.category}
       </span>

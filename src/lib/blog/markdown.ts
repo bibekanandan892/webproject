@@ -13,7 +13,12 @@ import type { Plugin } from "unified";
 import type { Root, RootContent } from "hast";
 import type { Heading } from "./types";
 
-const SHIKI_THEME = "github-dark-default";
+// Keyed by "light"/"dark" so rehype-pretty-code emits --shiki-light and
+// --shiki-dark custom properties per token, instead of fixed colours — the
+// .prose-post pre code span rule in globals.css picks between them based on
+// [data-theme="dark"], so highlighting follows the runtime toggle even
+// though Shiki only ever runs once, at build time.
+const SHIKI_THEMES = { light: "github-light", dark: "github-dark-default" } as const;
 
 /** Flattens a hast subtree down to its visible text. */
 function textOf(node: RootContent): string {
@@ -75,7 +80,7 @@ export async function renderMarkdown(body: string): Promise<RenderedMarkdown> {
       properties: { className: ["heading-anchor"] },
     })
     .use(rehypeKatex)
-    .use(rehypePrettyCode, { theme: SHIKI_THEME, keepBackground: false })
+    .use(rehypePrettyCode, { theme: SHIKI_THEMES, keepBackground: false })
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(body);
 

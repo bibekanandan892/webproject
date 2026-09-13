@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Approximate nearest neighbour search: a query point with a greedy walk hopping through a graph of nearby points toward its neighbour.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
-  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64FFDA"/></marker>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#141413"/></marker>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<g stroke="rgba(230,237,243,0.1)" stroke-width="1.5">
+<g stroke="rgba(20,20,19,0.1)" stroke-width="1.5">
 <path d="M120 300 L210 240 M210 240 L300 270 M300 270 L390 200 M390 200 L470 250 M470 250 L560 190 M560 190 L650 210 M120 300 L180 330 M300 270 L330 340 M390 200 L340 130 M470 250 L520 320 M560 190 L600 120 M650 210 L700 280"/>
 </g>
-<g fill="#8B98A9" fill-opacity="0.4">
+<g fill="#5E5D59" fill-opacity="0.4">
 <circle cx="120" cy="300" r="8"/><circle cx="180" cy="330" r="8"/><circle cx="330" cy="340" r="8"/><circle cx="340" cy="130" r="8"/><circle cx="520" cy="320" r="8"/><circle cx="600" cy="120" r="8"/><circle cx="700" cy="280" r="8"/><circle cx="650" cy="210" r="8"/>
 </g>
-<path d="M128 294 L202 246" stroke="#64FFDA" stroke-width="3" marker-end="url(#a)"/>
-<path d="M219 244 L291 266" stroke="#64FFDA" stroke-width="3" marker-end="url(#a)"/>
-<path d="M308 264 L382 206" stroke="#64FFDA" stroke-width="3" marker-end="url(#a)"/>
-<path d="M399 205 L462 244" stroke="#64FFDA" stroke-width="3" marker-end="url(#a)"/>
-<g fill="#64FFDA">
+<path d="M128 294 L202 246" stroke="#141413" stroke-width="3" marker-end="url(#a)"/>
+<path d="M219 244 L291 266" stroke="#141413" stroke-width="3" marker-end="url(#a)"/>
+<path d="M308 264 L382 206" stroke="#141413" stroke-width="3" marker-end="url(#a)"/>
+<path d="M399 205 L462 244" stroke="#141413" stroke-width="3" marker-end="url(#a)"/>
+<g fill="#141413">
 <circle cx="210" cy="240" r="9"/><circle cx="300" cy="270" r="9"/><circle cx="390" cy="200" r="9"/>
 </g>
-<circle cx="470" cy="250" r="16" fill="none" stroke="#64FFDA" stroke-width="3.5"/>
-<circle cx="470" cy="250" r="7" fill="#64FFDA"/>
-<text x="60" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9">start</text>
-<text x="500" y="244" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">close enough</text>
-<text x="60" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">each hop only has to be an improvement</text>
-<text x="52" y="422" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">ann search</text>
+<circle cx="470" cy="250" r="16" fill="none" stroke="#141413" stroke-width="3.5"/>
+<circle cx="470" cy="250" r="7" fill="#141413"/>
+<text x="60" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">start</text>
+<text x="500" y="244" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">close enough</text>
+<text x="60" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">each hop only has to be an improvement</text>
+<text x="52" y="422" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">ann search</text>
 </svg>

@@ -9,8 +9,6 @@ export function Experience() {
       className="mx-auto max-w-6xl px-6 py-24 md:py-32"
     >
       <SectionHeading
-        index={3}
-        label="experience"
         title="Where I've shipped"
       />
 
@@ -39,7 +37,7 @@ export function Experience() {
                 </div>
               </div>
               <div className="flex flex-1 flex-col gap-3">
-                <h3 className="text-lg font-semibold text-primary md:text-xl">
+                <h3 className="text-lg font-semibold text-foreground md:text-xl">
                   {exp.role}
                 </h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">

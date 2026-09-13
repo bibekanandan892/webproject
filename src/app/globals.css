@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is([data-theme="dark"] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -10,8 +10,9 @@
   /* Must not be `var(--font-sans)` — a self-reference is invalid at
      computed-value time, so `@apply font-sans` on <html> silently fell back to
      the browser default serif on every unscoped page (/blog, /vote). */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -42,6 +43,33 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-faint: var(--faint);
+  --color-body-ink: var(--body-ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line-soft: var(--line-soft);
+  --color-border-hover: var(--border-hover);
+  --color-primary-hover: var(--primary-hover);
+
+  /* Brand accent. Deliberately NOT wired into buttons or links — on the
+     reference the clay appears in ::selection and brand moments only, and
+     every button is ink. Keep that discipline. */
+  --color-clay: var(--clay);
+  --color-clay-deep: var(--clay-deep);
+
+  /* Card tints — full-bleed fills for cards, no border, no shadow. */
+  --color-tint-oat: var(--tint-oat);
+  --color-tint-cactus: var(--tint-cactus);
+  --color-tint-sky: var(--tint-sky);
+  --color-tint-heather: var(--tint-heather);
+  --color-tint-fig: var(--tint-fig);
+  --color-tint-coral: var(--tint-coral);
+  --color-tint-manilla: var(--tint-manilla);
+  --color-tint-kraft: var(--tint-kraft);
+  --color-tint-olive: var(--tint-olive);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -49,77 +77,182 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  /* Explicit, not derived from --radius: the reference uses 8 / 16 / 24px and
+     the calc ladder above lands on 14.4 and 17.6, which is visibly off. */
+  --radius-card: var(--radius-card-size);
+  --radius-cover: var(--radius-cover-size);
 }
 
 /* ============================================================================
-   DEFAULT (unscoped) — used by /vote, /blog, and the root layout before a
-   variant wrapper is rendered. Identical to terminal-dark.
+   LIGHT — the default theme, everywhere, always.
+   Values measured off anthropic.com: ivory ground, slate ink ramp, clay accent.
+   Anthropic's own names are kept in comments so the ramp stays legible.
    ============================================================================ */
 :root {
-  --background: #0A0F1C;
-  --foreground: #E6EDF3;
-  --card: #0F1626;
-  --card-foreground: #E6EDF3;
-  --popover: #0F1626;
-  --popover-foreground: #E6EDF3;
+  --background: #FAF9F5;          /* ivory-light */
+  --foreground: #141413;          /* slate-dark */
+  --body-ink: #141413;            /* body copy is full ink, not softened */
+  --faint: #B0AEA5;               /* cloud-medium — "agate": meta, eyebrows */
+  --ink-soft: #3D3D3A;            /* slate-medium — primary button hover */
+  --line-soft: #D1CFC5;           /* cloud-light — hairlines, scrollbar */
 
-  --primary: #64FFDA;
-  --primary-foreground: #0A0F1C;
-  --secondary: #141C30;
-  --secondary-foreground: #E6EDF3;
+  --surface: #F0EEE6;             /* ivory-medium — section bands */
+  --surface-hover: #E8E6DC;       /* ivory-dark */
+  --surface-elevated: #FFFFFF;
 
-  --muted: #141C30;
-  --muted-foreground: #8B98A9;
-  --accent: #141C30;
-  --accent-foreground: #64FFDA;
-  --destructive: #FF6B6B;
+  --card: #FFFFFF;
+  --card-foreground: #141413;
+  --popover: #FFFFFF;
+  --popover-foreground: #141413;
 
-  --border: rgba(230, 237, 243, 0.08);
-  --input: rgba(230, 237, 243, 0.12);
-  --ring: #64FFDA;
+  /* Buttons are INK, never clay. Primary inverts per theme. */
+  --primary: #141413;
+  --primary-foreground: #FAF9F5;
+  --primary-hover: #3D3D3A;
 
-  --surface: #0F1626;
-  --surface-elevated: #141C30;
+  --secondary: #F0EEE6;
+  --secondary-foreground: #141413;
 
-  --chart-1: #64FFDA;
-  --chart-2: #7DD3FC;
-  --chart-3: #A78BFA;
-  --chart-4: #FBBF24;
-  --chart-5: #FB7185;
+  --muted: #F0EEE6;
+  --muted-foreground: #5E5D59;    /* slate-light — secondary text, link hover */
 
-  --radius: 0.75rem;
+  /* shadcn's `accent` means "subtle hover fill", not brand accent. The brand
+     clay lives in --clay below; conflating them would repaint every hover
+     surface in the ui/ primitives. */
+  --accent: #F0EEE6;
+  --accent-foreground: #141413;
 
-  --sidebar: #0F1626;
-  --sidebar-foreground: #E6EDF3;
-  --sidebar-primary: #64FFDA;
-  --sidebar-primary-foreground: #0A0F1C;
-  --sidebar-accent: #141C30;
-  --sidebar-accent-foreground: #64FFDA;
-  --sidebar-border: rgba(230, 237, 243, 0.08);
-  --sidebar-ring: #64FFDA;
+  --clay: #D97757;
+  --clay-deep: #C6613F;
+
+  --destructive: #C6613F;
+
+  --border: rgba(20, 20, 19, 0.10);        /* slate-faded-10 */
+  --border-hover: rgba(20, 20, 19, 0.20);  /* slate-faded-20 */
+  --input: rgba(20, 20, 19, 0.20);
+  --ring: #141413;
+
+  /* Card tints — flat full-bleed fills. Latest-releases uses oat. */
+  --tint-oat: #E3DACC;
+  --tint-cactus: #BCD1CA;
+  --tint-sky: #6A9BCC;
+  --tint-heather: #CBCADB;
+  --tint-fig: #C46686;
+  --tint-coral: #EBCECE;
+  --tint-manilla: #EBDBBC;
+  --tint-kraft: #D4A27F;
+  --tint-olive: #788C5D;
+
+  --chart-1: #D97757;
+  --chart-2: #6A9BCC;
+  --chart-3: #788C5D;
+  --chart-4: #C46686;
+  --chart-5: #5E5D59;
+
+  --radius: 0.5rem;               /* 8px — buttons, inputs */
+  --radius-card-size: 1rem;       /* 16px — cards */
+  --radius-cover-size: 1.5rem;    /* 24px — the hero cover */
+
+  --sidebar: #F0EEE6;
+  --sidebar-foreground: #141413;
+  --sidebar-primary: #141413;
+  --sidebar-primary-foreground: #FAF9F5;
+  --sidebar-accent: #F0EEE6;
+  --sidebar-accent-foreground: #141413;
+  --sidebar-border: rgba(20, 20, 19, 0.10);
+  --sidebar-ring: #141413;
+
+  color-scheme: light;
+}
+
+/* ============================================================================
+   DARK — opt-in, toggled from the blog header only.
+   Mirrors the reference's own `.u-theme-dark` mapping rather than an invented
+   inversion. No @media (prefers-color-scheme) block on purpose: a first-time
+   visitor always lands in light regardless of their OS setting.
+   ============================================================================ */
+[data-theme="dark"] {
+  --background: #141413;
+  --foreground: #FAF9F5;
+  --body-ink: #FAF9F5;
+  --faint: #B0AEA5;               /* agate is deliberately unchanged */
+  --ink-soft: #F0EEE6;
+  --line-soft: #5E5D59;
+
+  --surface: #3D3D3A;
+  --surface-hover: #4A4A46;
+  --surface-elevated: #3D3D3A;
+
+  --card: #3D3D3A;
+  --card-foreground: #FAF9F5;
+  --popover: #3D3D3A;
+  --popover-foreground: #FAF9F5;
+
+  --primary: #FAF9F5;
+  --primary-foreground: #141413;
+  --primary-hover: #F0EEE6;
+
+  --secondary: #3D3D3A;
+  --secondary-foreground: #FAF9F5;
+
+  --muted: #3D3D3A;
+  --muted-foreground: #B0AEA5;
+
+  --accent: #3D3D3A;
+  --accent-foreground: #FAF9F5;
+
+  --clay: #D97757;
+  --clay-deep: #C6613F;
+
+  --destructive: #D97757;
+
+  --border: rgba(250, 249, 245, 0.10);        /* ivory-faded-10 */
+  --border-hover: rgba(250, 249, 245, 0.20);  /* ivory-faded-20 */
+  --input: rgba(250, 249, 245, 0.20);
+  --ring: #FAF9F5;
+
+  --sidebar: #3D3D3A;
+  --sidebar-foreground: #FAF9F5;
+  --sidebar-primary: #FAF9F5;
+  --sidebar-primary-foreground: #141413;
+  --sidebar-accent: #3D3D3A;
+  --sidebar-accent-foreground: #FAF9F5;
+  --sidebar-border: rgba(250, 249, 245, 0.10);
+  --sidebar-ring: #FAF9F5;
+
+  color-scheme: dark;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  /* The single highest-leverage rule in the retheme. The reference sets body
+     copy in a serif at 20px and reserves the sans for headings, buttons and
+     nav — the inverse of the dev-portfolio default this site used to run, and
+     more of what separates the two than any colour value. */
   html {
-    @apply font-sans;
+    @apply font-serif;
     scroll-behavior: smooth;
-    color-scheme: dark;
+    letter-spacing: -0.005em;
   }
   body {
     @apply bg-background text-foreground antialiased;
     background-color: var(--background);
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
   }
   ::selection {
-    background: rgba(100, 255, 218, 0.25);
+    background: rgba(204, 120, 92, 0.5);
     color: var(--foreground);
   }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: var(--background); }
   ::-webkit-scrollbar-thumb {
-    background: var(--surface-elevated);
+    background: var(--line-soft);
     border-radius: 999px;
     border: 2px solid var(--background);
   }
@@ -127,364 +260,39 @@
 }
 
 /* ============================================================================
-   VARIANT: terminal-dark — adds the aurora body gradient over the default palette.
+   The hero cover animation — execution.md §1.8 / Phase 5b.
+   Cover (src/components/cover.tsx) draws the canvas and adds `is-on`;
+   useCoverReveal adds `is-copy-shown` to the section once it's in view.
    ============================================================================ */
-[data-variant="terminal-dark"] {
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  background-image:
-    radial-gradient(60% 50% at 15% 0%, rgba(100, 255, 218, 0.06) 0%, transparent 60%),
-    radial-gradient(50% 40% at 85% 10%, rgba(125, 211, 252, 0.05) 0%, transparent 60%),
-    radial-gradient(80% 60% at 50% 100%, rgba(167, 139, 250, 0.04) 0%, transparent 60%);
-  background-attachment: fixed;
-  background-color: var(--background);
-  color: var(--foreground);
+.cover-canvas {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.cover-canvas.is-on {
+  opacity: 1;
 }
 
-/* ============================================================================
-   VARIANT: kobweb-classic — light cream + teal + Roboto.
-   ============================================================================ */
-[data-variant="kobweb-classic"] {
-  --background: #F9F9F9;
-  --foreground: #121D34;
-  --card: #FFFFFF;
-  --card-foreground: #121D34;
-  --popover: #FFFFFF;
-  --popover-foreground: #121D34;
-
-  --primary: #00A78E;
-  --primary-foreground: #FFFFFF;
-  --secondary: #EDEDED;
-  --secondary-foreground: #121D34;
-
-  --muted: #EDEDED;
-  --muted-foreground: #5B6478;
-  --accent: #EDEDED;
-  --accent-foreground: #00A78E;
-  --destructive: #E5484D;
-
-  --border: #E5E7EB;
-  --input: #E5E7EB;
-  --ring: #00A78E;
-
-  --surface: #FFFFFF;
-  --surface-elevated: #FFFFFF;
-
-  --chart-1: #00A78E;
-  --chart-2: #121D34;
-  --chart-3: #5B6478;
-  --chart-4: #CFCFCF;
-  --chart-5: #EDEDED;
-
-  --radius: 0.375rem;
-
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #121D34;
-  --sidebar-primary: #00A78E;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #EDEDED;
-  --sidebar-accent-foreground: #00A78E;
-  --sidebar-border: #E5E7EB;
-  --sidebar-ring: #00A78E;
-
-  font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
-  color-scheme: light;
-  background-color: var(--background);
-  background-image:
-    radial-gradient(70% 50% at 0% 100%, rgba(0, 167, 142, 0.05) 0%, transparent 60%),
-    radial-gradient(60% 50% at 100% 0%, rgba(18, 29, 52, 0.04) 0%, transparent 60%);
-  color: var(--foreground);
+/* Hidden-until-shown, exactly as measured: gated inside no-preference so a
+   reduced-motion visitor's very first paint already has the copy visible —
+   there is no window where the rule below and the JS's immediate class-add
+   (see useCoverReveal) could race and leave a blank card. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-scroll="section"]:not(.is-copy-shown) [data-scroll="title"],
+  [data-scroll="section"]:not(.is-copy-shown) [data-scroll="subtitle"],
+  [data-scroll="section"]:not(.is-copy-shown) [data-scroll="button"] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
 }
-
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
+[data-scroll="title"],
+[data-scroll="subtitle"],
+[data-scroll="button"] {
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-[data-variant="kobweb-classic"] .fade-up {
-  animation: fade-up 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-
-/* ============================================================================
-   VARIANT: bento-ios — dark ink + amber, chunky rounded.
-   ============================================================================ */
-[data-variant="bento-ios"] {
-  --background: #0B0E12;
-  --foreground: #F4F4F5;
-  --card: #161A22;
-  --card-foreground: #F4F4F5;
-  --popover: #161A22;
-  --popover-foreground: #F4F4F5;
-
-  --primary: #F5A524;
-  --primary-foreground: #0B0E12;
-  --secondary: #1E2330;
-  --secondary-foreground: #F4F4F5;
-
-  --muted: #161A22;
-  --muted-foreground: #A1A1AA;
-  --accent: #1E2330;
-  --accent-foreground: #F5A524;
-  --destructive: #FF6B6B;
-
-  --border: rgba(255, 255, 255, 0.06);
-  --input: rgba(255, 255, 255, 0.10);
-  --ring: #F5A524;
-
-  --surface: #161A22;
-  --surface-elevated: #1E2330;
-
-  --chart-1: #F5A524;
-  --chart-2: #7DD3FC;
-  --chart-3: #C084FC;
-  --chart-4: #4ADE80;
-  --chart-5: #FB7185;
-
-  --radius: 1.5rem;
-
-  --sidebar: #161A22;
-  --sidebar-foreground: #F4F4F5;
-  --sidebar-primary: #F5A524;
-  --sidebar-primary-foreground: #0B0E12;
-  --sidebar-accent: #1E2330;
-  --sidebar-accent-foreground: #F5A524;
-  --sidebar-border: rgba(255, 255, 255, 0.06);
-  --sidebar-ring: #F5A524;
-
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
-}
-
-/* ============================================================================
-   VARIANT: editorial-serif — cream + burnt orange + Fraunces.
-   ============================================================================ */
-[data-variant="editorial-serif"] {
-  --background: #FAF7F2;
-  --foreground: #1A1612;
-  --card: #F2EEE7;
-  --card-foreground: #1A1612;
-  --popover: #F2EEE7;
-  --popover-foreground: #1A1612;
-
-  --primary: #C04A2B;
-  --primary-foreground: #FAF7F2;
-  --secondary: #ECE6DC;
-  --secondary-foreground: #1A1612;
-
-  --muted: #ECE6DC;
-  --muted-foreground: #5B544D;
-  --accent: #ECE6DC;
-  --accent-foreground: #C04A2B;
-  --destructive: #B91C1C;
-
-  --border: rgba(26, 22, 18, 0.10);
-  --input: rgba(26, 22, 18, 0.14);
-  --ring: #C04A2B;
-
-  --surface: #F2EEE7;
-  --surface-elevated: #ECE6DC;
-
-  --chart-1: #C04A2B;
-  --chart-2: #8A6E3F;
-  --chart-3: #5B544D;
-  --chart-4: #B89968;
-  --chart-5: #4D4036;
-
-  --radius: 0.25rem;
-
-  --sidebar: #F2EEE7;
-  --sidebar-foreground: #1A1612;
-  --sidebar-primary: #C04A2B;
-  --sidebar-primary-foreground: #FAF7F2;
-  --sidebar-accent: #ECE6DC;
-  --sidebar-accent-foreground: #C04A2B;
-  --sidebar-border: rgba(26, 22, 18, 0.10);
-  --sidebar-ring: #C04A2B;
-
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  color-scheme: light;
-  background-color: var(--background);
-  color: var(--foreground);
-}
-[data-variant="editorial-serif"] h1,
-[data-variant="editorial-serif"] h2,
-[data-variant="editorial-serif"] h3,
-[data-variant="editorial-serif"] .font-display {
-  font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  letter-spacing: -0.02em;
-}
-
-/* ============================================================================
-   VARIANT: liquid-glass — deep purple + frosted glass utilities.
-   ============================================================================ */
-[data-variant="liquid-glass"] {
-  --background: #0A0518;
-  --foreground: #F4F1FF;
-  --card: rgba(255, 255, 255, 0.06);
-  --card-foreground: #F4F1FF;
-  --popover: rgba(20, 12, 40, 0.85);
-  --popover-foreground: #F4F1FF;
-
-  --primary: #C7B9FF;
-  --primary-foreground: #0A0518;
-  --secondary: rgba(255, 255, 255, 0.08);
-  --secondary-foreground: #F4F1FF;
-
-  --muted: rgba(255, 255, 255, 0.05);
-  --muted-foreground: #B8B0D8;
-  --accent: #FF7BD5;
-  --accent-foreground: #0A0518;
-  --destructive: #FF6B8A;
-
-  --border: rgba(255, 255, 255, 0.12);
-  --input: rgba(255, 255, 255, 0.10);
-  --ring: #C7B9FF;
-
-  --chart-1: #C7B9FF;
-  --chart-2: #7DE2FF;
-  --chart-3: #FF7BD5;
-  --chart-4: #FFD479;
-  --chart-5: #95F5C9;
-
-  --radius: 1.5rem;
-
-  --sidebar: rgba(255, 255, 255, 0.04);
-  --sidebar-foreground: #F4F1FF;
-  --sidebar-primary: #C7B9FF;
-  --sidebar-primary-foreground: #0A0518;
-  --sidebar-accent: rgba(255, 255, 255, 0.06);
-  --sidebar-accent-foreground: #F4F1FF;
-  --sidebar-border: rgba(255, 255, 255, 0.10);
-  --sidebar-ring: #C7B9FF;
-
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
-}
-
-[data-variant="liquid-glass"] .glass-blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(80px);
-  opacity: 0.85;
-  pointer-events: none;
-  will-change: transform;
-}
-
-@keyframes drift-a { 0%,100% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(8vw, 12vh, 0) scale(1.15);} }
-@keyframes drift-b { 0%,100% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(-10vw, -8vh, 0) scale(1.1);} }
-@keyframes drift-c { 0%,100% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(6vw, -10vh, 0) scale(0.95);} }
-@keyframes drift-d { 0%,100% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(-8vw, 10vh, 0) scale(1.2);} }
-[data-variant="liquid-glass"] .drift-a { animation: drift-a 22s ease-in-out infinite; }
-[data-variant="liquid-glass"] .drift-b { animation: drift-b 28s ease-in-out infinite; }
-[data-variant="liquid-glass"] .drift-c { animation: drift-c 26s ease-in-out infinite; }
-[data-variant="liquid-glass"] .drift-d { animation: drift-d 32s ease-in-out infinite; }
-
-[data-variant="liquid-glass"] .glass {
-  position: relative;
-  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--radius);
-  box-shadow:
-    inset 0 1px 0 0 rgba(255,255,255,0.15),
-    inset 0 -1px 0 0 rgba(255,255,255,0.05),
-    0 30px 60px -30px rgba(0,0,0,0.5),
-    0 18px 36px -18px rgba(120,70,200,0.25);
-  transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 400ms;
-}
-[data-variant="liquid-glass"] .glass-hover:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    inset 0 1px 0 0 rgba(255,255,255,0.25),
-    inset 0 -1px 0 0 rgba(255,255,255,0.05),
-    0 40px 80px -30px rgba(0,0,0,0.6),
-    0 24px 48px -16px rgba(199,185,255,0.35);
-}
-[data-variant="liquid-glass"] .glass-shine::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background:
-    radial-gradient(120% 60% at 50% 0%, rgba(255,255,255,0.22), transparent 60%),
-    radial-gradient(120% 80% at 50% 100%, rgba(199,185,255,0.10), transparent 60%);
-  pointer-events: none;
-}
-
-@keyframes float-y { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-6px);} }
-[data-variant="liquid-glass"] .float-y { animation: float-y 6s ease-in-out infinite; }
-
-@keyframes shimmer { 0% { background-position: -200% 0;} 100% { background-position: 200% 0;} }
-[data-variant="liquid-glass"] .text-shimmer {
-  background: linear-gradient(90deg, #C7B9FF 0%, #FF7BD5 30%, #7DE2FF 60%, #C7B9FF 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 8s linear infinite;
-}
-
-/* ============================================================================
-   VARIANT: spatial-3d — deep space + WebGL panel chrome.
-   ============================================================================ */
-[data-variant="spatial-3d"] {
-  --background: #02030A;
-  --foreground: #ECECF8;
-  --card: rgba(255, 255, 255, 0.05);
-  --card-foreground: #ECECF8;
-  --popover: rgba(8, 8, 20, 0.9);
-  --popover-foreground: #ECECF8;
-
-  --primary: #5CC9FF;
-  --primary-foreground: #02030A;
-  --secondary: rgba(255, 255, 255, 0.06);
-  --secondary-foreground: #ECECF8;
-
-  --muted: rgba(255, 255, 255, 0.04);
-  --muted-foreground: #8A8FA8;
-  --accent: #FF6BD1;
-  --accent-foreground: #02030A;
-  --destructive: #FF5470;
-
-  --border: rgba(255, 255, 255, 0.10);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: #5CC9FF;
-
-  --surface: rgba(255, 255, 255, 0.04);
-  --surface-elevated: rgba(255, 255, 255, 0.08);
-
-  --chart-1: #5CC9FF;
-  --chart-2: #FF6BD1;
-  --chart-3: #B49DFF;
-  --chart-4: #FFD479;
-  --chart-5: #5CE3A1;
-
-  --radius: 1rem;
-
-  --sidebar: rgba(255, 255, 255, 0.04);
-  --sidebar-foreground: #ECECF8;
-  --sidebar-primary: #5CC9FF;
-  --sidebar-primary-foreground: #02030A;
-  --sidebar-accent: rgba(255, 255, 255, 0.06);
-  --sidebar-accent-foreground: #5CC9FF;
-  --sidebar-border: rgba(255, 255, 255, 0.10);
-  --sidebar-ring: #5CC9FF;
-
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
-}
-[data-variant="spatial-3d"] .r3f-panel {
-  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius);
-  box-shadow: 0 30px 60px -30px rgba(92,201,255,0.35);
-}
-@keyframes r3f-fade-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-[data-variant="spatial-3d"] .r3f-fade-in { animation: r3f-fade-in 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+[data-scroll="subtitle"] { transition-delay: 0.08s; }
+[data-scroll="button"] { transition-delay: 0.16s; }
 
 /* ============================================================================
    Accessibility — reduce motion globally.
@@ -500,14 +308,14 @@
 
 /* ============================================================================
    Blog article body — .prose-post
-   Applied to build-time markdown HTML on /blog/<slug>. Styled against the
-   default (unscoped) palette so posts read identically no matter which
-   portfolio variant is currently live.
+   Applied to build-time markdown HTML on /blog/<slug>. Reads from the same
+   tokens as the rest of the site, so it follows both D and B automatically.
    ============================================================================ */
 .prose-post {
-  color: var(--foreground);
-  font-size: 1rem;
-  line-height: 1.75;
+  color: var(--body-ink);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.4;
 }
 
 .prose-post > * + * { margin-top: 1.25rem; }
@@ -515,6 +323,7 @@
 .prose-post h2,
 .prose-post h3 {
   scroll-margin-top: 6rem;
+  font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--foreground);
@@ -535,7 +344,7 @@
 }
 .prose-post .heading-anchor:hover::after { opacity: 1; }
 
-.prose-post p { color: var(--foreground); }
+.prose-post p { color: var(--body-ink); }
 
 .prose-post a:not(.heading-anchor) {
   color: var(--primary);
@@ -574,7 +383,7 @@
 
 /* Inline code — excludes code inside highlighted blocks. */
 .prose-post :not(pre) > code {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 0.86em;
   padding: 0.15em 0.4em;
   border-radius: var(--radius-sm);
@@ -584,11 +393,11 @@
   overflow-wrap: break-word;
 }
 
-/* Shiki output from rehype-pretty-code (keepBackground: false). */
+/* Shiki output from rehype-pretty-code (keepBackground: false, dual themes). */
 .prose-post figure[data-rehype-pretty-code-figure] { margin-top: 1.5rem; }
 
 .prose-post figcaption[data-rehype-pretty-code-title] {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--muted-foreground);
   padding: 0.5rem 1rem;
@@ -611,7 +420,7 @@
 }
 .prose-post pre code {
   display: grid;
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   background: none;
   border: 0;
   padding: 0;
@@ -621,6 +430,12 @@
   background: color-mix(in srgb, var(--primary) 10%, transparent);
   box-shadow: inset 2px 0 0 var(--primary);
 }
+/* rehype-pretty-code with `themes:` (rather than a single `theme:`) emits
+   --shiki-light / --shiki-dark custom properties per token instead of fixed
+   colours, so highlighting can follow the runtime theme toggle even though
+   it's computed once at build time. */
+.prose-post pre code span { color: var(--shiki-light); }
+[data-theme="dark"] .prose-post pre code span { color: var(--shiki-dark); }
 
 .prose-post .table-wrap { overflow-x: auto; }
 .prose-post table {
@@ -639,7 +454,7 @@
 }
 .prose-post th {
   background: var(--secondary);
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--primary);

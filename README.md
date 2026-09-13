@@ -1,61 +1,57 @@
-# bibekananda.in — portfolio (consolidated)
+# bibekananda.in — portfolio
 
-Multi-variant Next.js 16 portfolio with a built-in voting dashboard. All 6
-design variants live in one repo; one is picked as the live "home" via a
-Supabase-backed admin toggle.
+Static Next.js 16 portfolio. One theme, two modes: a light default and an
+opt-in dark mode toggled from the blog.
 
 ## Quick start
 
 ```bash
 pnpm install
-cp .env.example .env.local       # then fill in your Supabase URL + anon key + admin password
 pnpm dev                          # http://localhost:3000
 ```
+
+No environment variables and no external services are needed — everything
+renders from files in this repo.
 
 ## Routes
 
 | Route                          | Purpose                                                  |
 | ------------------------------ | -------------------------------------------------------- |
-| `/`                            | Renders whichever variant is currently the "main" site   |
-| `/vote`                        | Shareable voting dashboard (thumbnails + thumbs-up)      |
-| `/preview/<variant>/`          | Full-screen preview of any single variant                |
+| `/`                            | Homepage — static, server-rendered, no client fetch      |
 | `/blog`                        | Blog index — markdown posts, filterable by category      |
 | `/blog/<slug>`                 | A post, statically generated from `content/blog/<slug>.md` |
 
-Variants: `terminal-dark`, `kobweb-classic`, `bento-ios`, `editorial-serif`,
-`liquid-glass`, `spatial-3d`.
+## Theme
 
-## Supabase setup (one-time, ~10 min, free tier)
+The design system is measured off anthropic.com's own homepage: an ivory
+ground, a slate ink ramp, and a clay accent reserved for `::selection` and
+brand moments — buttons and links stay ink, not clay. Type is Archivo for
+headings/UI, Source Serif 4 for body copy (20px/1.4, the site's default —
+`html` is `font-serif`, headings are pinned back to `font-sans`), and
+JetBrains Mono for dates and code only.
 
-1. Create a free project at https://supabase.com
-2. Open the SQL editor and paste `supabase/schema.sql`, run it
-3. Project Settings → API: copy the URL + `anon` key into `.env.local`
-4. Pick an admin password and set `NEXT_PUBLIC_ADMIN_PASSWORD`
+Tokens live in `src/app/globals.css`: the light palette on `:root`, the dark
+palette on `[data-theme="dark"]`. There is deliberately **no**
+`@media (prefers-color-scheme)` block — a first-time visitor always lands in
+the light theme regardless of their OS setting. The only way to see dark is
+the toggle button in the blog header (`src/components/theme-toggle.tsx`),
+which writes a `theme` key to `localStorage`. A render-blocking inline
+script in the `<head>` of `src/app/layout.tsx` reads that key before first
+paint, so a returning dark-mode visitor never sees a flash of the light
+theme — see the comment on `THEME_BOOTSTRAP_SCRIPT` in that file for why it
+has to be a literal `<script>` inside a manual `<head>` rather than
+`next/script`, which doesn't run early enough in a static export.
 
-Without Supabase, votes don't persist and `/` always renders the default
-(`terminal-dark`). Everything else still works locally.
+The homepage has no toggle of its own; it just reads the same stored
+preference, so the choice applies site-wide even though the control lives
+only in the blog.
 
-## The voting flow
-
-- Anyone can click any card on `/vote` to open the full variant in a new tab
-- Thumbs-up: one toggleable vote per browser per variant (tracked in localStorage)
-- Counts live-update in Supabase via the `bump_vote` RPC (RLS-locked)
-- "Email my picks" generates a mailto link encoding the user's choices
-- **5-click easter egg**: 5 rapid clicks (within 3s) on the profile photo of
-  any variant's hero navigates to `/vote`
-
-## Admin: switching the live site
-
-1. Visit `/vote`
-2. Click the gear icon (top right)
-3. Enter `NEXT_PUBLIC_ADMIN_PASSWORD`
-4. "Make main" buttons appear on each card
-5. Click one → updates Supabase `site_config.main_variant_id` → `/` now renders
-   that variant for everyone (no redeploy needed)
-
-The admin password is hardcoded into the bundled JS — security through
-obscurity only. Fine for a portfolio voting toy; do not reuse this pattern for
-real auth.
+The hero's cover animation (`src/components/cover.tsx`) is a plain 2D canvas
+drawing a drifting-particle field — not the WebGL2 scene the reference site
+uses, which this project has no equivalent asset for. It fades in on mount
+and stages the hero's copy in via `IntersectionObserver`, gated behind
+`prefers-reduced-motion` so a reduced-motion visitor's first paint already
+shows the copy.
 
 ## The blog
 
@@ -85,6 +81,12 @@ Bodies are rendered at build time (zero client JS) with GFM, KaTeX math
 — inline `<svg>` is how diagrams get into a post. Reading time is computed;
 don't author it.
 
+Shiki highlights each code block against **two** themes at once
+(`github-light` / `github-dark-default`, see `src/lib/blog/markdown.ts`), so
+syntax colouring follows the dark-mode toggle even though highlighting only
+ever runs once, at build time — the CSS picks between the two sets of
+`--shiki-*` custom properties Shiki emits per token based on `[data-theme]`.
+
 `/blog` renders a card grid — one column on mobile, two at `sm`, three at `lg`
 — with a search box above it. Search matches title, summary, category and tags,
 is case-insensitive, and ANDs multiple words. It runs client-side over the posts
@@ -93,12 +95,13 @@ already embedded in the page, so there is no index to build or keep in sync.
 Cards show a thumbnail. Each post has a hand-drawn SVG cover at
 `public/blog/<slug>.svg`, pointed at by `cover` in the frontmatter. Covers load
 through `<img>`, so they are isolated documents — the site's CSS variables do
-**not** reach them and the palette must be hardcoded (`#0F1626` ground,
-`#64FFDA` accent, `#8B98A9` muted). Draw them 800×450 to match the card.
+**not** reach them and the palette must be hardcoded: `#F0EEE6` ground,
+`#141413` ink (accent/lines/text), `#5E5D59` muted, `#FFFFFF` for any raised
+panel inside the diagram. Draw them 800×450 to match the card.
 
 Omit `cover` and the card generates a panel instead, tinted by category
-(AI teal, Android amber) and textured from a hash of the slug — so a post never
-needs an image asset.
+(AI cactus `#BCD1CA`, Android oat `#E3DACC`) and textured from a hash of the
+slug — so a post never needs an image asset.
 
 The category filter appears once two or more categories have published posts.
 To add a category, edit `POST_CATEGORIES` in `src/lib/blog/types.ts` and give it
@@ -112,17 +115,6 @@ dies with `Connection closed.` and the visitor gets Next's "This page couldn't
 load" screen until they reload — direct URL loads still work, so it only shows
 up when following a link from inside the site.
 
-## Regenerating thumbnails
-
-If you change a variant's look, refresh its thumbnail:
-
-```bash
-pnpm dev -p 3000                       # in one terminal
-pnpm tsx scripts/snap-thumbnails.ts    # in another
-```
-
-Output: `public/thumbs/<variant>.png` (1280×800).
-
 ## Project layout
 
 ```
@@ -131,34 +123,37 @@ content/
 
 src/
 ├── app/
-│   ├── layout.tsx           # loads all 5 fonts (Geist, Geist_Mono, Inter, Roboto, Fraunces)
-│   ├── page.tsx             # home — reads main variant from Supabase
-│   ├── globals.css          # shared base + per-variant scoped palettes/utilities
-│   ├── vote/page.tsx        # voting dashboard
-│   ├── preview/[variant]/   # full-screen variant previews
+│   ├── layout.tsx           # loads Archivo, Source Serif 4, JetBrains Mono;
+│   │                        # the theme-bootstrap <script> lives here
+│   ├── page.tsx             # homepage — static server component, no client fetch
+│   ├── globals.css          # tokens (:root light, [data-theme="dark"] dark),
+│   │                        # base layer, the cover-animation and reveal CSS,
+│   │                        # and .prose-post for rendered post bodies
 │   ├── blog/page.tsx        # post index
 │   └── blog/[slug]/page.tsx # article page (generateStaticParams)
-├── variants/
-│   ├── registry.ts          # VARIANTS metadata + lookup
-│   ├── VariantHost.tsx      # wraps a variant with [data-variant="X"]
-│   └── <id>/Variant.tsx     # one folder per variant
 ├── components/
 │   ├── blog/                # PostCard, PostList (filter), TableOfContents
-│   ├── vote/                # VariantCard, AdminGate
-│   └── *.tsx                # shared hero/now/experience/... (used by some variants)
+│   ├── ui/
+│   │   └── action-button.tsx  # the three-tier button system (primary/
+│   │                          # secondary/tertiary), a bare cva — see the
+│   │                          # file for why it isn't a wrapped component
+│   ├── cover.tsx             # hero canvas animation + scroll-reveal hook
+│   ├── theme-toggle.tsx      # the dark-mode button, lives in the blog header
+│   └── *.tsx                 # hero/now/experience/tech/projects/contact/...
 ├── lib/
-│   ├── blog/                # posts.ts (fs + frontmatter), markdown.ts (remark/rehype)
-│   ├── supabase.ts          # browser client singleton
-│   ├── votes.ts             # toggleVote / fetchCounts / getMyVotes
-│   ├── main-variant.ts      # fetchMainVariant / setMainVariant
-│   └── photo-egg.ts         # usePhotoClickEgg() — the 5-click hook
-└── data/                    # static content shared across all variants
+│   ├── blog/                 # posts.ts (fs + frontmatter), markdown.ts (remark/rehype)
+│   └── photo-egg.ts          # usePhotoClickEgg() — the 5-click hero easter egg
+└── data/                     # static content (experience, projects, tech, ...)
 ```
+
+Two things predate this layout and are known, deliberately unaddressed:
+`src/components/looking-for.tsx` is fully built but never rendered anywhere,
+and `src/components/ui/{badge,button,card,separator}.tsx` are unused shadcn
+scaffolding. Neither is wired into any page.
 
 ## Deploy
 
-Static export, served by Render as a free Static Site. Supabase is called from
-the browser; no Render compute needed.
+Static export, served by Render as a free Static Site.
 
 **Render builds the `deploy` branch, not `master`**, and it serves the
 pre-built `out/` directory that is committed there. Pushing to `master` alone
@@ -179,6 +174,3 @@ git push origin deploy                            # this is what goes live
 ```
 
 Render picks it up on commit and the site updates in about a minute.
-
-Set the three `NEXT_PUBLIC_*` env vars in the Render dashboard
-(Environment → Add Environment Variable) so they're baked into the build.

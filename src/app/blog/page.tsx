@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { PostList } from "@/components/blog/post-list";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { getAllPosts, getUsedCategories } from "@/lib/blog";
 
 const upcomingTopics = [
@@ -34,9 +35,10 @@ export default function BlogPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="mb-6 flex items-center justify-end">
+        <ThemeToggle />
+      </div>
       <SectionHeading
-        index={99}
-        label="blog"
         title="Writing"
         subtitle="Notes on what I'm learning, in my own words."
       />
@@ -50,7 +52,7 @@ export default function BlogPage() {
       )}
 
       <div className="mt-20 max-w-3xl">
-        <p className="font-mono text-xs uppercase tracking-wider text-primary">writing next</p>
+        <p className="font-sans text-sm font-semibold text-foreground">Writing next</p>
         <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2">
           {upcomingTopics.map((t) => (
             <div key={t.category} className="flex flex-col gap-3">
@@ -58,7 +60,7 @@ export default function BlogPage() {
               <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
                 {t.items.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/50" />
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -70,9 +72,9 @@ export default function BlogPage() {
 
       <Link
         href="/"
-        className="mt-16 inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary"
+        className="mt-16 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
-        <ArrowLeft className="h-4 w-4" /> back home
+        <ArrowLeft className="h-4 w-4" /> Back home
       </Link>
     </div>
   );
