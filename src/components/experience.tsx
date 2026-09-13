@@ -28,7 +28,7 @@ export function Experience() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <p className="font-mono text-xs text-muted-foreground">
+                  <p className="font-sans text-xs tracking-wide text-muted-foreground">
                     {exp.from}
                     {" — "}
                     {exp.to}

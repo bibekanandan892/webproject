@@ -56,7 +56,7 @@ export function Now() {
               {entry.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-md border border-border bg-secondary/40 px-2 py-1 font-mono text-xs text-muted-foreground"
+                  className="rounded-md border border-border bg-secondary/40 px-2 py-1 font-sans text-xs tracking-wide text-muted-foreground"
                 >
                   {tech}
                 </span>

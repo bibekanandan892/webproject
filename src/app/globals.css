@@ -13,9 +13,14 @@
   /* Must not be `var(--font-sans)` — a self-reference is invalid at
      computed-value time, so `@apply font-sans` on <html> silently fell back to
      the browser default serif on every unscoped page (/blog, /vote). */
-  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-lora), Georgia, "Times New Roman", serif;
+  /* NOT a third brand face — this is the OS monospace stack, and it is scoped
+     to `<code>` and `<pre>` inside blog posts. Everything that used to be set
+     in JetBrains Mono for texture (eyebrows, tag pills, date stamps) is
+     Poppins now, which keeps the site to the two faces it is supposed to have
+     while leaving actual code legible. */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -240,13 +245,15 @@
   html {
     @apply font-serif;
     scroll-behavior: smooth;
-    letter-spacing: -0.005em;
   }
   body {
     @apply bg-background text-foreground antialiased;
     background-color: var(--background);
     font-size: 1.25rem;
-    line-height: 1.4;
+    /* 1.4 was tuned for Source Serif. Lora sets a noticeably larger x-height
+       at the same nominal size, so the old leading closes the lines up until
+       the paragraph reads as a block; 1.6 restores the colour. */
+    line-height: 1.6;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
@@ -321,7 +328,7 @@
   color: var(--body-ink);
   font-family: var(--font-serif);
   font-size: 1.25rem;
-  line-height: 1.4;
+  line-height: 1.65;
 }
 
 .prose-post > * + * { margin-top: 1.25rem; }
@@ -460,7 +467,8 @@
 }
 .prose-post th {
   background: var(--secondary);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
+  letter-spacing: 0.03em;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--foreground);

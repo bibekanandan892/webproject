@@ -119,7 +119,7 @@ Each phase ends with a local build/preview screenshot before the next starts.
 ## 5. Status
 
 - [x] Phase 1 — colour system (tint remap folded in from Phase 3; now.tsx done here)
-- [ ] Phase 2 — typography
+- [x] Phase 2 — typography
 - [ ] Phase 3 — component colours
 - [ ] Phase 4 — blog SVGs
 - [ ] Phase 5 — verify

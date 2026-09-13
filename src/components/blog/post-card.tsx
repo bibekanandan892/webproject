@@ -42,7 +42,7 @@ export function PostCard({ post }: { post: PostMeta }) {
             {post.tags.slice(0, 3).map((tag) => (
               <li
                 key={tag}
-                className="rounded-md border border-border px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
+                className="rounded-md border border-border px-2 py-0.5 font-sans text-[11px] tracking-wide text-muted-foreground"
               >
                 {tag}
               </li>
