@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Model quantization: a continuous range of values snapped onto a small number of discrete levels, with one outlier stretching the scale.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<text x="60" y="112" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9">real values</text>
-<path d="M60 148 H740" stroke="rgba(230,237,243,0.2)" stroke-width="2"/>
-<g fill="#8B98A9" fill-opacity="0.7">
+<text x="60" y="112" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">real values</text>
+<path d="M60 148 H740" stroke="rgba(20,20,19,0.2)" stroke-width="2"/>
+<g fill="#5E5D59" fill-opacity="0.7">
 <circle cx="96" cy="148" r="7"/><circle cx="122" cy="148" r="7"/><circle cx="141" cy="148" r="7"/><circle cx="168" cy="148" r="7"/><circle cx="184" cy="148" r="7"/><circle cx="205" cy="148" r="7"/><circle cx="229" cy="148" r="7"/><circle cx="246" cy="148" r="7"/>
 </g>
-<circle cx="700" cy="148" r="9" fill="#64FFDA"/>
-<text x="618" y="126" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">one outlier</text>
-<g stroke="#64FFDA" stroke-opacity="0.35" stroke-width="2">
+<circle cx="700" cy="148" r="9" fill="#141413"/>
+<text x="618" y="126" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">one outlier</text>
+<g stroke="#141413" stroke-opacity="0.35" stroke-width="2">
 <path d="M60 214 V254"/><path d="M145 214 V254"/><path d="M230 214 V254"/><path d="M315 214 V254"/><path d="M400 214 V254"/><path d="M485 214 V254"/><path d="M570 214 V254"/><path d="M655 214 V254"/><path d="M740 214 V254"/>
 </g>
-<text x="60" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">the levels available</text>
-<g fill="#64FFDA" fill-opacity="0.85">
+<text x="60" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">the levels available</text>
+<g fill="#141413" fill-opacity="0.85">
 <circle cx="60" cy="234" r="8"/><circle cx="145" cy="234" r="8"/><circle cx="230" cy="234" r="8"/><circle cx="740" cy="234" r="8"/>
 </g>
-<g stroke="#8B98A9" stroke-opacity="0.35" stroke-width="1.8" stroke-dasharray="5 5">
+<g stroke="#5E5D59" stroke-opacity="0.35" stroke-width="1.8" stroke-dasharray="5 5">
 <path d="M96 158 L60 226"/><path d="M122 158 L145 226"/><path d="M141 158 L145 226"/><path d="M168 158 L145 226"/><path d="M184 158 L230 226"/><path d="M205 158 L230 226"/><path d="M229 158 L230 226"/><path d="M246 158 L230 226"/><path d="M700 158 L740 226"/>
 </g>
-<text x="60" y="330" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">eight distinct values collapse onto three</text>
-<text x="60" y="378" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">because the outlier set the scale</text>
-<text x="52" y="426" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">model quantization</text>
+<text x="60" y="330" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">eight distinct values collapse onto three</text>
+<text x="60" y="378" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">because the outlier set the scale</text>
+<text x="52" y="426" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">model quantization</text>
 </svg>

@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Prompt chaining: three prompts in sequence, each output becoming the next input, with a handoff marked as lossy.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
-  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64FFDA"/></marker>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#141413"/></marker>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<rect x="60" y="146" width="190" height="76" rx="10" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="2.5"/>
-<text x="155" y="192" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle" font-weight="600">extract</text>
-<path d="M262 184 H318" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
-<rect x="330" y="146" width="190" height="76" rx="10" fill="#64FFDA" fill-opacity="0.22" stroke="#64FFDA" stroke-opacity="0.8" stroke-width="2.5"/>
-<text x="425" y="192" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle">judge</text>
-<path d="M532 184 H588" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
-<rect x="600" y="146" width="140" height="76" rx="10" fill="#64FFDA" fill-opacity="0.16" stroke="#64FFDA" stroke-opacity="0.65" stroke-width="2.5"/>
-<text x="670" y="192" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle">write</text>
-<g stroke="#8B98A9" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 5">
+<rect x="60" y="146" width="190" height="76" rx="10" fill="#141413" fill-opacity="0.3" stroke="#141413" stroke-width="2.5"/>
+<text x="155" y="192" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413" text-anchor="middle" font-weight="600">extract</text>
+<path d="M262 184 H318" stroke="#141413" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="330" y="146" width="190" height="76" rx="10" fill="#141413" fill-opacity="0.22" stroke="#141413" stroke-opacity="0.8" stroke-width="2.5"/>
+<text x="425" y="192" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413" text-anchor="middle">judge</text>
+<path d="M532 184 H588" stroke="#141413" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="600" y="146" width="140" height="76" rx="10" fill="#141413" fill-opacity="0.16" stroke="#141413" stroke-opacity="0.65" stroke-width="2.5"/>
+<text x="670" y="192" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413" text-anchor="middle">write</text>
+<g stroke="#5E5D59" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 5">
 <path d="M290 200 V262"/><path d="M560 200 V262"/>
 </g>
-<text x="212" y="292" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9">each handoff can lose something</text>
-<text x="60" y="368" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">every step has to work, not just most</text>
-<text x="52" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">prompt chaining</text>
+<text x="212" y="292" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">each handoff can lose something</text>
+<text x="60" y="368" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">every step has to work, not just most</text>
+<text x="52" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">prompt chaining</text>
 </svg>

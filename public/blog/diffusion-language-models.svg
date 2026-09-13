@@ -1,38 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Diffusion language model: rows of masked slots progressively filled in over successive rounds.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
 <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">
-<g fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2">
+<g fill="#FFFFFF" stroke="rgba(20,20,19,0.16)" stroke-width="2">
 <rect x="180" y="86" width="88" height="44" rx="6"/><rect x="276" y="86" width="88" height="44" rx="6"/><rect x="372" y="86" width="88" height="44" rx="6"/><rect x="468" y="86" width="88" height="44" rx="6"/><rect x="564" y="86" width="88" height="44" rx="6"/>
 </g>
-<text x="60" y="115" fill="#8B98A9">round 0</text>
-<g fill="#8B98A9" fill-opacity="0.55" text-anchor="middle">
+<text x="60" y="115" fill="#5E5D59">round 0</text>
+<g fill="#5E5D59" fill-opacity="0.55" text-anchor="middle">
 <text x="224" y="115">?</text><text x="320" y="115">?</text><text x="416" y="115">?</text><text x="512" y="115">?</text><text x="608" y="115">?</text>
 </g>
-<g fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2">
+<g fill="#FFFFFF" stroke="rgba(20,20,19,0.16)" stroke-width="2">
 <rect x="276" y="160" width="88" height="44" rx="6"/><rect x="372" y="160" width="88" height="44" rx="6"/><rect x="468" y="160" width="88" height="44" rx="6"/>
 </g>
-<g fill="#64FFDA" fill-opacity="0.28" stroke="#64FFDA" stroke-width="2">
+<g fill="#141413" fill-opacity="0.28" stroke="#141413" stroke-width="2">
 <rect x="180" y="160" width="88" height="44" rx="6"/><rect x="564" y="160" width="88" height="44" rx="6"/>
 </g>
-<text x="60" y="189" fill="#8B98A9">round 1</text>
+<text x="60" y="189" fill="#5E5D59">round 1</text>
 <g text-anchor="middle">
-<text x="224" y="189" fill="#64FFDA">the</text><text x="320" y="189" fill="#8B98A9" fill-opacity="0.55">?</text><text x="416" y="189" fill="#8B98A9" fill-opacity="0.55">?</text><text x="512" y="189" fill="#8B98A9" fill-opacity="0.55">?</text><text x="608" y="189" fill="#64FFDA">pm</text>
+<text x="224" y="189" fill="#141413">the</text><text x="320" y="189" fill="#5E5D59" fill-opacity="0.55">?</text><text x="416" y="189" fill="#5E5D59" fill-opacity="0.55">?</text><text x="512" y="189" fill="#5E5D59" fill-opacity="0.55">?</text><text x="608" y="189" fill="#141413">pm</text>
 </g>
-<g fill="#64FFDA" fill-opacity="0.28" stroke="#64FFDA" stroke-width="2">
+<g fill="#141413" fill-opacity="0.28" stroke="#141413" stroke-width="2">
 <rect x="180" y="234" width="88" height="44" rx="6"/><rect x="276" y="234" width="88" height="44" rx="6"/><rect x="372" y="234" width="88" height="44" rx="6"/><rect x="468" y="234" width="88" height="44" rx="6"/><rect x="564" y="234" width="88" height="44" rx="6"/>
 </g>
-<text x="60" y="263" fill="#8B98A9">round 3</text>
-<g fill="#64FFDA" text-anchor="middle">
+<text x="60" y="263" fill="#5E5D59">round 3</text>
+<g fill="#141413" text-anchor="middle">
 <text x="224" y="263">the</text><text x="320" y="263">desk</text><text x="416" y="263">shuts</text><text x="512" y="263">six</text><text x="608" y="263">pm</text>
 </g>
 </g>
-<text x="60" y="352" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">confident first, in any order</text>
-<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">diffusion language models</text>
+<text x="60" y="352" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">confident first, in any order</text>
+<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">diffusion language models</text>
 </svg>

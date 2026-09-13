@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="LoRA: a large frozen weight matrix beside two thin trainable matrices whose product has the same shape but far fewer numbers.">
 <defs>
   <radialGradient id="glow" cx="38%" cy="14%" r="82%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<rect x="70" y="96" width="190" height="190" rx="6" fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2"/>
-<text x="165" y="200" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="34" fill="#8B98A9" text-anchor="middle" font-weight="600">W</text>
-<text x="165" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9" text-anchor="middle">frozen</text>
-<text x="300" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" fill="#8B98A9" text-anchor="middle">+</text>
-<rect x="352" y="96" width="26" height="190" rx="4" fill="#64FFDA" fill-opacity="0.25" stroke="#64FFDA" stroke-width="2"/>
-<text x="365" y="80" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#64FFDA" text-anchor="middle" font-weight="600">B</text>
-<text x="410" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" fill="#8B98A9" text-anchor="middle">×</text>
-<rect x="446" y="178" width="190" height="26" rx="4" fill="#64FFDA" fill-opacity="0.25" stroke="#64FFDA" stroke-width="2"/>
-<text x="541" y="164" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#64FFDA" text-anchor="middle" font-weight="600">A</text>
-<text x="541" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle">trained</text>
-<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">lora</text>
+<rect x="70" y="96" width="190" height="190" rx="6" fill="#FFFFFF" stroke="rgba(20,20,19,0.16)" stroke-width="2"/>
+<text x="165" y="200" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="34" fill="#5E5D59" text-anchor="middle" font-weight="600">W</text>
+<text x="165" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59" text-anchor="middle">frozen</text>
+<text x="300" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" fill="#5E5D59" text-anchor="middle">+</text>
+<rect x="352" y="96" width="26" height="190" rx="4" fill="#141413" fill-opacity="0.25" stroke="#141413" stroke-width="2"/>
+<text x="365" y="80" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#141413" text-anchor="middle" font-weight="600">B</text>
+<text x="410" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" fill="#5E5D59" text-anchor="middle">×</text>
+<rect x="446" y="178" width="190" height="26" rx="4" fill="#141413" fill-opacity="0.25" stroke="#141413" stroke-width="2"/>
+<text x="541" y="164" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#141413" text-anchor="middle" font-weight="600">A</text>
+<text x="541" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413" text-anchor="middle">trained</text>
+<text x="52" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">lora</text>
 </svg>
