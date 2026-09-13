@@ -1,6 +1,6 @@
 # Execution plan — retheme bibekananda.in to the anthropic.com homepage system
 
-**Status:** Phases 0–5b remaining. Phases 0–4 done. Phase 1-revised (tokens + type roles) done and verified in `b8e4eed`. Next: Phase 5.
+**Status:** Phases 0–5 done. Phase 5 verified in `d3ae9c7`. Next: Phase 5b (cover animation), then Phase 6 (dark toggle), 7 (Shiki dual theme), 8 (121 cover SVGs), 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
 **Repo:** `C:\Users\bibek\Claude project\bipper\webproject`
 **Branch:** `retheme/blue-ink` (name is now stale; the theme is Ivory, not Blue Ink)
 **Reference:** <https://www.anthropic.com/> — every value below was read off the live site, not guessed.
@@ -20,7 +20,7 @@ type roles, and component styling change.
 | 2 · fonts | **done** — folded into Phase 1-revised | Archivo / Source Serif 4 / JetBrains Mono are still the right three faces. But **serif becomes the body default**, not sans. |
 | 3 · delete variants | done, unaffected | — |
 | 4 · static homepage | done, unaffected | — |
-| 5 · de-robot components | not started | Rewritten below against the real system. |
+| 5 · de-robot components | **done** (`d3ae9c7`), excl. 2 items | See "Open decisions" below. |
 | 6 · dark toggle | not started | Mechanism unchanged; palette values change. |
 | 7 · Shiki dual theme | not started | Unchanged. |
 | 8 · 121 cover SVGs | not started | Replacement hexes change. |
@@ -357,22 +357,41 @@ Afterwards remove the three `NEXT_PUBLIC_SUPABASE_*` vars from Render.
 | 121 covers keep the old palette | Phase 8, with the `wc -l` gate that must print 0. |
 | Deploying to `master` changes nothing | Render builds `deploy`. |
 
-## 4. One thing to decide
+## 4. One thing to decide — RESOLVED
 
 `#D97757` clay, `#FAF9F5` ivory, and this exact button system are strongly
 associated with Anthropic's brand. Copied wholesale onto a personal portfolio,
 someone who knows the reference will recognise it.
 
-The neutral foundation — ivory, ink, serif body, quiet weight-400 buttons — is
-a general editorial idiom and carries none of that risk. The **accent** is what
-identifies it.
+~~Two options, and this plan assumes the first unless told otherwise~~ —
+**decided: take it as measured.** Clay accent included, exactly as specified in
+§1.2. Landed in `b8e4eed`.
 
-Two options, and this plan assumes the first unless told otherwise:
+## 4.1 Open decisions from Phase 5
 
-1. **Take it as measured.** Clay accent included. What was asked for.
-2. **Keep the neutrals, shift the accent.** Everything above stays; `#D97757`
-   becomes a different hue at the same saturation and lightness — the system
-   is unchanged and nothing else in the plan moves.
+Two things were deliberately left untouched during the component pass rather
+than acted on unilaterally, because both change what the plan actually is
+(content structure, dead-code removal), not how something is styled.
+
+**`looking-for.tsx` is dead code.** It's exported, fully built (headline,
+pitch, role/domain columns, contact list), and **never rendered anywhere** —
+not in the current `page.tsx`, and it wasn't in the old `terminal-dark`
+`Variant.tsx` either, so this predates the whole retheme. Two ways forward:
+
+1. Wire it into `page.tsx` as a real homepage section — it's already written
+   and just needs its de-robot pass (5 mono uses, the heaviest of any
+   component) plus a slot in the render order.
+2. Delete it — it's speculative content nobody sees.
+
+**`src/components/ui/{badge,button,card,separator}.tsx` are unused shadcn
+scaffolding.** Confirmed zero imports anywhere outside `components/ui/`
+itself — grep for `from "@/components/ui/badge"` etc. across `src/` returns
+nothing. They still carry the old teal-adjacent `bg-primary`/`text-primary`
+classes, but since nothing renders them, that's invisible, not a bug. Deleting
+unused files is `refactor-cleaner` territory, not retheme scope — flagging
+rather than deleting.
+
+Neither blocks Phase 5b onward. Pick when convenient.
 
 ## 5. Out of scope
 
