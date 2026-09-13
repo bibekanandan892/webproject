@@ -1,6 +1,6 @@
 # Execution plan — retheme bibekananda.in to the anthropic.com homepage system
 
-**Status:** Phases 0–4 done and committed. Phases 1–2 need revised values. Phases 5+ not started.
+**Status:** Phases 0–5b remaining. Phases 0–4 done. Phase 1-revised (tokens + type roles) done and verified in `b8e4eed`. Next: Phase 5.
 **Repo:** `C:\Users\bibek\Claude project\bipper\webproject`
 **Branch:** `retheme/blue-ink` (name is now stale; the theme is Ivory, not Blue Ink)
 **Reference:** <https://www.anthropic.com/> — every value below was read off the live site, not guessed.
@@ -16,8 +16,8 @@ type roles, and component styling change.
 | Phase | Status | Effect of the new target |
 |---|---|---|
 | 0 · branch + baseline | done | — |
-| 1 · tokens | **committed, must be revised** | Palette values all change. Architecture (`:root` light, `[data-theme="dark"]` dark) is correct and stays. |
-| 2 · fonts | **committed, roles must be revised** | Archivo / Source Serif 4 / JetBrains Mono are still the right three faces. But **serif becomes the body default**, not sans. |
+| 1 · tokens | **done** (`b8e4eed`) | Palette values all change. Architecture (`:root` light, `[data-theme="dark"]` dark) is correct and stays. |
+| 2 · fonts | **done** — folded into Phase 1-revised | Archivo / Source Serif 4 / JetBrains Mono are still the right three faces. But **serif becomes the body default**, not sans. |
 | 3 · delete variants | done, unaffected | — |
 | 4 · static homepage | done, unaffected | — |
 | 5 · de-robot components | not started | Rewritten below against the real system. |
