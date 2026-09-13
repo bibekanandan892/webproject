@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Continual learning: a band of existing knowledge being partly overwritten by new training, with a frozen alternative below.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<text x="60" y="106" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">train on new data</text>
-<rect x="60" y="124" width="680" height="62" rx="8" fill="#8B98A9" fill-opacity="0.2" stroke="rgba(230,237,243,0.14)" stroke-width="2"/>
-<rect x="60" y="124" width="470" height="62" rx="8" fill="#64FFDA" fill-opacity="0.4" stroke="#64FFDA" stroke-width="2"/>
-<text x="295" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" text-anchor="middle">overwritten</text>
-<text x="636" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9" text-anchor="middle">left</text>
-<text x="60" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA">freeze and attach</text>
-<rect x="60" y="284" width="620" height="62" rx="8" fill="#8B98A9" fill-opacity="0.2" stroke="rgba(230,237,243,0.14)" stroke-width="2"/>
-<text x="370" y="322" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9" text-anchor="middle">frozen</text>
-<rect x="692" y="284" width="48" height="62" rx="8" fill="#64FFDA" fill-opacity="0.55" stroke="#64FFDA" stroke-width="2.5"/>
-<text x="52" y="414" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">continual learning</text>
+<text x="60" y="106" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">train on new data</text>
+<rect x="60" y="124" width="680" height="62" rx="8" fill="#5E5D59" fill-opacity="0.2" stroke="rgba(20,20,19,0.14)" stroke-width="2"/>
+<rect x="60" y="124" width="470" height="62" rx="8" fill="#141413" fill-opacity="0.4" stroke="#141413" stroke-width="2"/>
+<text x="295" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413" text-anchor="middle">overwritten</text>
+<text x="636" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59" text-anchor="middle">left</text>
+<text x="60" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413">freeze and attach</text>
+<rect x="60" y="284" width="620" height="62" rx="8" fill="#5E5D59" fill-opacity="0.2" stroke="rgba(20,20,19,0.14)" stroke-width="2"/>
+<text x="370" y="322" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59" text-anchor="middle">frozen</text>
+<rect x="692" y="284" width="48" height="62" rx="8" fill="#141413" fill-opacity="0.55" stroke="#141413" stroke-width="2.5"/>
+<text x="52" y="414" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">continual learning</text>
 </svg>

@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="TensorRT-LLM: many small kernel launches collapsed into one recorded graph replayed with a single submission.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
-  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64FFDA"/></marker>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#141413"/></marker>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<text x="60" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9">384 launches, one per kernel</text>
-<g fill="#8B98A9" fill-opacity="0.24" stroke="rgba(230,237,243,0.2)" stroke-width="1.5">
+<text x="60" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">384 launches, one per kernel</text>
+<g fill="#5E5D59" fill-opacity="0.24" stroke="rgba(20,20,19,0.2)" stroke-width="1.5">
 <rect x="60" y="118" width="14" height="52" rx="3"/><rect x="82" y="118" width="14" height="52" rx="3"/><rect x="104" y="118" width="14" height="52" rx="3"/><rect x="126" y="118" width="14" height="52" rx="3"/><rect x="148" y="118" width="14" height="52" rx="3"/><rect x="170" y="118" width="14" height="52" rx="3"/><rect x="192" y="118" width="14" height="52" rx="3"/><rect x="214" y="118" width="14" height="52" rx="3"/><rect x="236" y="118" width="14" height="52" rx="3"/><rect x="258" y="118" width="14" height="52" rx="3"/><rect x="280" y="118" width="14" height="52" rx="3"/><rect x="302" y="118" width="14" height="52" rx="3"/><rect x="324" y="118" width="14" height="52" rx="3"/><rect x="346" y="118" width="14" height="52" rx="3"/><rect x="368" y="118" width="14" height="52" rx="3"/><rect x="390" y="118" width="14" height="52" rx="3"/><rect x="412" y="118" width="14" height="52" rx="3"/><rect x="434" y="118" width="14" height="52" rx="3"/><rect x="456" y="118" width="14" height="52" rx="3"/><rect x="478" y="118" width="14" height="52" rx="3"/><rect x="500" y="118" width="14" height="52" rx="3"/><rect x="522" y="118" width="14" height="52" rx="3"/><rect x="544" y="118" width="14" height="52" rx="3"/><rect x="566" y="118" width="14" height="52" rx="3"/><rect x="588" y="118" width="14" height="52" rx="3"/><rect x="610" y="118" width="14" height="52" rx="3"/><rect x="632" y="118" width="14" height="52" rx="3"/><rect x="654" y="118" width="14" height="52" rx="3"/><rect x="676" y="118" width="14" height="52" rx="3"/><rect x="698" y="118" width="14" height="52" rx="3"/>
 </g>
-<text x="60" y="200" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8B98A9">1.92 ms of the CPU just asking</text>
-<path d="M400 214 V252" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
-<text x="60" y="288" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">recorded once, replayed as one</text>
-<rect x="60" y="300" width="652" height="52" rx="8" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="2.5"/>
-<text x="386" y="332" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA" text-anchor="middle" font-weight="600">one submission — 0.005 ms</text>
-<text x="60" y="396" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">same arithmetic, 1.27× the tokens</text>
-<text x="52" y="434" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">tensorrt-llm</text>
+<text x="60" y="200" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#5E5D59">1.92 ms of the CPU just asking</text>
+<path d="M400 214 V252" stroke="#141413" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="60" y="288" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">recorded once, replayed as one</text>
+<rect x="60" y="300" width="652" height="52" rx="8" fill="#141413" fill-opacity="0.3" stroke="#141413" stroke-width="2.5"/>
+<text x="386" y="332" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413" text-anchor="middle" font-weight="600">one submission — 0.005 ms</text>
+<text x="60" y="396" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">same arithmetic, 1.27× the tokens</text>
+<text x="52" y="434" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">tensorrt-llm</text>
 </svg>

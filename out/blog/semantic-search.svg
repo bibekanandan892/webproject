@@ -1,27 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Semantic search: a long passage of tokens collapsing into a single vector, with one distinguishing term almost lost in the average.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
-  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64FFDA"/></marker>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#141413"/></marker>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<text x="60" y="108" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9">one chunk of text</text>
-<g fill="#8B98A9" fill-opacity="0.22" stroke="rgba(230,237,243,0.14)" stroke-width="1.2">
+<text x="60" y="108" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">one chunk of text</text>
+<g fill="#5E5D59" fill-opacity="0.22" stroke="rgba(20,20,19,0.14)" stroke-width="1.2">
 <rect x="60" y="124" width="24" height="22" rx="3"/><rect x="90" y="124" width="24" height="22" rx="3"/><rect x="120" y="124" width="24" height="22" rx="3"/><rect x="150" y="124" width="24" height="22" rx="3"/><rect x="210" y="124" width="24" height="22" rx="3"/><rect x="240" y="124" width="24" height="22" rx="3"/><rect x="270" y="124" width="24" height="22" rx="3"/><rect x="300" y="124" width="24" height="22" rx="3"/><rect x="330" y="124" width="24" height="22" rx="3"/><rect x="360" y="124" width="24" height="22" rx="3"/><rect x="390" y="124" width="24" height="22" rx="3"/><rect x="420" y="124" width="24" height="22" rx="3"/><rect x="450" y="124" width="24" height="22" rx="3"/><rect x="480" y="124" width="24" height="22" rx="3"/>
 <rect x="60" y="152" width="24" height="22" rx="3"/><rect x="90" y="152" width="24" height="22" rx="3"/><rect x="120" y="152" width="24" height="22" rx="3"/><rect x="150" y="152" width="24" height="22" rx="3"/><rect x="180" y="152" width="24" height="22" rx="3"/><rect x="210" y="152" width="24" height="22" rx="3"/><rect x="240" y="152" width="24" height="22" rx="3"/><rect x="270" y="152" width="24" height="22" rx="3"/><rect x="300" y="152" width="24" height="22" rx="3"/><rect x="330" y="152" width="24" height="22" rx="3"/><rect x="360" y="152" width="24" height="22" rx="3"/><rect x="390" y="152" width="24" height="22" rx="3"/><rect x="420" y="152" width="24" height="22" rx="3"/><rect x="450" y="152" width="24" height="22" rx="3"/><rect x="480" y="152" width="24" height="22" rx="3"/>
 </g>
-<rect x="180" y="124" width="24" height="22" rx="3" fill="#64FFDA" fill-opacity="0.75" stroke="#64FFDA" stroke-width="1.5"/>
-<text x="530" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#64FFDA">one</text>
-<text x="530" y="164" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#64FFDA">key term</text>
-<path d="M290 194 V240" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
-<text x="310" y="226" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9">averaged</text>
-<rect x="170" y="252" width="240" height="48" rx="8" fill="#8B98A9" fill-opacity="0.26" stroke="rgba(230,237,243,0.3)" stroke-width="2"/>
-<text x="290" y="282" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9" text-anchor="middle">one vector</text>
-<rect x="430" y="252" width="150" height="48" rx="8" fill="#64FFDA" fill-opacity="0.16" stroke="#64FFDA" stroke-opacity="0.6" stroke-width="2"/>
-<text x="505" y="282" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA" text-anchor="middle">7% of it</text>
-<text x="60" y="362" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">meaning found, specifics averaged away</text>
-<text x="52" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">semantic search</text>
+<rect x="180" y="124" width="24" height="22" rx="3" fill="#141413" fill-opacity="0.75" stroke="#141413" stroke-width="1.5"/>
+<text x="530" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#141413">one</text>
+<text x="530" y="164" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#141413">key term</text>
+<path d="M290 194 V240" stroke="#141413" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="310" y="226" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">averaged</text>
+<rect x="170" y="252" width="240" height="48" rx="8" fill="#5E5D59" fill-opacity="0.26" stroke="rgba(20,20,19,0.3)" stroke-width="2"/>
+<text x="290" y="282" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59" text-anchor="middle">one vector</text>
+<rect x="430" y="252" width="150" height="48" rx="8" fill="#141413" fill-opacity="0.16" stroke="#141413" stroke-opacity="0.6" stroke-width="2"/>
+<text x="505" y="282" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413" text-anchor="middle">7% of it</text>
+<text x="60" y="362" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">meaning found, specifics averaged away</text>
+<text x="52" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">semantic search</text>
 </svg>

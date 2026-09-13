@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="OKF: a folder of markdown files describing tables and metrics, linked to each other, read by an agent before it queries the data.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
-  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64FFDA"/></marker>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#141413"/></marker>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<rect x="60" y="92" width="230" height="46" rx="7" fill="#64FFDA" fill-opacity="0.3" stroke="#64FFDA" stroke-width="2.5"/>
-<text x="80" y="123" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">index.md</text>
-<rect x="100" y="158" width="230" height="46" rx="7" fill="#64FFDA" fill-opacity="0.2" stroke="#64FFDA" stroke-opacity="0.75" stroke-width="2"/>
-<text x="120" y="189" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">shipments.md</text>
-<rect x="140" y="224" width="230" height="46" rx="7" fill="#64FFDA" fill-opacity="0.14" stroke="#64FFDA" stroke-opacity="0.6" stroke-width="2"/>
-<text x="160" y="255" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#64FFDA">carriers.md</text>
-<path d="M180 210 V218" stroke="#64FFDA" stroke-opacity="0.5" stroke-width="2" marker-end="url(#a)"/>
-<path d="M140 144 V152" stroke="#64FFDA" stroke-opacity="0.5" stroke-width="2" marker-end="url(#a)"/>
-<path d="M382 200 H448" stroke="#64FFDA" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
-<rect x="460" y="140" width="160" height="56" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.26)" stroke-width="2.5"/>
-<text x="540" y="175" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9" text-anchor="middle">agent</text>
-<path d="M540 208 V254" stroke="#64FFDA" stroke-opacity="0.6" stroke-width="2.5" marker-end="url(#a)"/>
-<rect x="460" y="266" width="160" height="56" rx="9" fill="#141C30" stroke="rgba(230,237,243,0.2)" stroke-width="2"/>
-<text x="540" y="301" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#8B98A9" text-anchor="middle">the database</text>
-<text x="644" y="176" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#64FFDA">reads first</text>
-<text x="60" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">access to the data is not access to the rules</text>
-<text x="52" y="422" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">okf</text>
+<rect x="60" y="92" width="230" height="46" rx="7" fill="#141413" fill-opacity="0.3" stroke="#141413" stroke-width="2.5"/>
+<text x="80" y="123" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">index.md</text>
+<rect x="100" y="158" width="230" height="46" rx="7" fill="#141413" fill-opacity="0.2" stroke="#141413" stroke-opacity="0.75" stroke-width="2"/>
+<text x="120" y="189" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">shipments.md</text>
+<rect x="140" y="224" width="230" height="46" rx="7" fill="#141413" fill-opacity="0.14" stroke="#141413" stroke-opacity="0.6" stroke-width="2"/>
+<text x="160" y="255" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">carriers.md</text>
+<path d="M180 210 V218" stroke="#141413" stroke-opacity="0.5" stroke-width="2" marker-end="url(#a)"/>
+<path d="M140 144 V152" stroke="#141413" stroke-opacity="0.5" stroke-width="2" marker-end="url(#a)"/>
+<path d="M382 200 H448" stroke="#141413" stroke-opacity="0.7" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="460" y="140" width="160" height="56" rx="9" fill="#FFFFFF" stroke="rgba(20,20,19,0.26)" stroke-width="2.5"/>
+<text x="540" y="175" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59" text-anchor="middle">agent</text>
+<path d="M540 208 V254" stroke="#141413" stroke-opacity="0.6" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="460" y="266" width="160" height="56" rx="9" fill="#FFFFFF" stroke="rgba(20,20,19,0.2)" stroke-width="2"/>
+<text x="540" y="301" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59" text-anchor="middle">the database</text>
+<text x="644" y="176" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#141413">reads first</text>
+<text x="60" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">access to the data is not access to the rules</text>
+<text x="52" y="422" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">okf</text>
 </svg>

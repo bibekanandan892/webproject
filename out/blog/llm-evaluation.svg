@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="LLM evaluation: a wide automatic pass over all outputs, a narrower model-graded layer, and a small human-checked sample at the top.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<rect x="60" y="272" width="680" height="58" rx="8" fill="#8B98A9" fill-opacity="0.2" stroke="rgba(230,237,243,0.14)" stroke-width="2"/>
-<text x="84" y="309" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">formulas · everything · free</text>
-<rect x="60" y="192" width="460" height="58" rx="8" fill="#64FFDA" fill-opacity="0.22" stroke="#64FFDA" stroke-opacity="0.6" stroke-width="2"/>
-<text x="84" y="229" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA">model grader · everything · $61</text>
-<rect x="60" y="112" width="150" height="58" rx="8" fill="#64FFDA" fill-opacity="0.4" stroke="#64FFDA" stroke-width="2.5"/>
-<text x="84" y="149" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA" font-weight="600">people</text>
-<text x="232" y="149" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">a sample · $12,500 for all of it</text>
-<text x="60" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">wider is cheaper, narrower is truer</text>
-<text x="52" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">llm evaluation</text>
+<rect x="60" y="272" width="680" height="58" rx="8" fill="#5E5D59" fill-opacity="0.2" stroke="rgba(20,20,19,0.14)" stroke-width="2"/>
+<text x="84" y="309" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">formulas · everything · free</text>
+<rect x="60" y="192" width="460" height="58" rx="8" fill="#141413" fill-opacity="0.22" stroke="#141413" stroke-opacity="0.6" stroke-width="2"/>
+<text x="84" y="229" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413">model grader · everything · $61</text>
+<rect x="60" y="112" width="150" height="58" rx="8" fill="#141413" fill-opacity="0.4" stroke="#141413" stroke-width="2.5"/>
+<text x="84" y="149" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413" font-weight="600">people</text>
+<text x="232" y="149" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">a sample · $12,500 for all of it</text>
+<text x="60" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">wider is cheaper, narrower is truer</text>
+<text x="52" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">llm evaluation</text>
 </svg>

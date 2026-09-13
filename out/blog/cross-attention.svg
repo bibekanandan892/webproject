@@ -1,33 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Cross attention: one short output sequence drawing weighted connections into a longer source sequence.">
 <defs>
   <radialGradient id="glow" cx="50%" cy="14%" r="80%">
-    <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.12"/>
-    <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
   </radialGradient>
 </defs>
-<rect width="800" height="450" fill="#0F1626"/>
+<rect width="800" height="450" fill="#F0EEE6"/>
 <rect width="800" height="450" fill="url(#glow)"/>
-<text x="60" y="102" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">source</text>
-<g fill="#141C30" stroke="rgba(230,237,243,0.16)" stroke-width="2">
+<text x="60" y="102" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">source</text>
+<g fill="#FFFFFF" stroke="rgba(20,20,19,0.16)" stroke-width="2">
 <rect x="60" y="120" width="120" height="52" rx="7"/>
 <rect x="196" y="120" width="120" height="52" rx="7"/>
 <rect x="332" y="120" width="120" height="52" rx="7"/>
 <rect x="468" y="120" width="120" height="52" rx="7"/>
 <rect x="604" y="120" width="120" height="52" rx="7"/>
 </g>
-<text x="60" y="330" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#64FFDA">being generated</text>
-<rect x="196" y="256" width="120" height="52" rx="7" fill="#64FFDA" fill-opacity="0.34" stroke="#64FFDA" stroke-width="2.5"/>
-<rect x="468" y="256" width="120" height="52" rx="7" fill="#64FFDA" fill-opacity="0.34" stroke="#64FFDA" stroke-width="2.5"/>
-<path d="M256 252 L120 176" stroke="#64FFDA" stroke-opacity="0.25" stroke-width="2"/>
-<path d="M256 252 L256 176" stroke="#64FFDA" stroke-opacity="0.25" stroke-width="2"/>
-<path d="M256 252 L392 176" stroke="#64FFDA" stroke-opacity="0.85" stroke-width="6"/>
-<path d="M256 252 L528 176" stroke="#64FFDA" stroke-opacity="0.25" stroke-width="2"/>
-<path d="M256 252 L664 176" stroke="#64FFDA" stroke-opacity="0.25" stroke-width="2"/>
-<path d="M528 252 L120 176" stroke="#64FFDA" stroke-opacity="0.2" stroke-width="2"/>
-<path d="M528 252 L256 176" stroke="#64FFDA" stroke-opacity="0.2" stroke-width="2"/>
-<path d="M528 252 L392 176" stroke="#64FFDA" stroke-opacity="0.25" stroke-width="2"/>
-<path d="M528 252 L528 176" stroke="#64FFDA" stroke-opacity="0.3" stroke-width="2.5"/>
-<path d="M528 252 L664 176" stroke="#64FFDA" stroke-opacity="0.85" stroke-width="6"/>
-<text x="60" y="384" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#8B98A9">two sequences, different lengths</text>
-<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#64FFDA" fill-opacity="0.9">cross attention</text>
+<text x="60" y="330" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#141413">being generated</text>
+<rect x="196" y="256" width="120" height="52" rx="7" fill="#141413" fill-opacity="0.34" stroke="#141413" stroke-width="2.5"/>
+<rect x="468" y="256" width="120" height="52" rx="7" fill="#141413" fill-opacity="0.34" stroke="#141413" stroke-width="2.5"/>
+<path d="M256 252 L120 176" stroke="#141413" stroke-opacity="0.25" stroke-width="2"/>
+<path d="M256 252 L256 176" stroke="#141413" stroke-opacity="0.25" stroke-width="2"/>
+<path d="M256 252 L392 176" stroke="#141413" stroke-opacity="0.85" stroke-width="6"/>
+<path d="M256 252 L528 176" stroke="#141413" stroke-opacity="0.25" stroke-width="2"/>
+<path d="M256 252 L664 176" stroke="#141413" stroke-opacity="0.25" stroke-width="2"/>
+<path d="M528 252 L120 176" stroke="#141413" stroke-opacity="0.2" stroke-width="2"/>
+<path d="M528 252 L256 176" stroke="#141413" stroke-opacity="0.2" stroke-width="2"/>
+<path d="M528 252 L392 176" stroke="#141413" stroke-opacity="0.25" stroke-width="2"/>
+<path d="M528 252 L528 176" stroke="#141413" stroke-opacity="0.3" stroke-width="2.5"/>
+<path d="M528 252 L664 176" stroke="#141413" stroke-opacity="0.85" stroke-width="6"/>
+<text x="60" y="384" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">two sequences, different lengths</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">cross attention</text>
 </svg>
