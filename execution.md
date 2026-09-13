@@ -1,6 +1,6 @@
 # Execution plan — retheme bibekananda.in to the anthropic.com homepage system
 
-**Status:** Phases 0–7 done. Phase 7 verified in `f80157b` (confirmed a real Shiki token's computed colour actually flips with the theme, live, not just that both CSS variables exist). Next: Phase 8 (121 cover SVGs), 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
+**Status:** Phases 0–8 done. Phase 8 verified in `fdbd2b7`, which also found and fixed a fourth hardcoded colour (`#141C30`) the plan's own spec missed. Next: Phase 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
 **Repo:** `C:\Users\bibek\Claude project\bipper\webproject`
 **Branch:** `retheme/blue-ink` (name is now stale; the theme is Ivory, not Blue Ink)
 **Reference:** <https://www.anthropic.com/> — every value below was read off the live site, not guessed.
@@ -281,21 +281,41 @@ The matching CSS is **already committed** in `globals.css`:
 [data-theme="dark"] .prose-post pre code span { color: var(--shiki-dark); }
 ```
 
-### Phase 8 — The 121 cover SVGs
+### Phase 8 — The 121 cover SVGs — DONE (`fdbd2b7`)
 
 All 121 posts have covers hardcoding the old palette; they are `<img>`-loaded
 isolated documents, so no CSS variable reaches them.
+
+A fourth colour existed that this table missed — found by surveying every
+distinct hex in the corpus rather than trusting this list. `#141C30`
+(181 occurrences), the old `--secondary`/`--surface-elevated` panel shade,
+needed mapping too:
 
 | Old | New |
 |---|---|
 | `#0F1626` ground | `#F0EEE6` ivory-medium |
 | `#64FFDA` accent | `#141413` ink |
 | `#8B98A9` muted | `#5E5D59` slate-light |
+| `#141C30` panel | `#FFFFFF` card |
+| `rgba(230,237,243,*)` stroke | `rgba(20,20,19,*)` |
+
+The `#141C30` → `#FFFFFF` mapping collides with two pre-existing literal
+`#FFFFFF` text labels in `mixture-of-experts-in-llms.svg`, used for contrast
+against that dark panel — a naive parallel sed leaves white-on-white text.
+Route it through a placeholder instead:
 
 ```bash
 cd "C:/Users/bibek/Claude project/bipper/webproject"
-sed -i 's/#0F1626/#F0EEE6/g; s/#64FFDA/#141413/g; s/#8B98A9/#5E5D59/g' public/blog/*.svg
-grep -rl "64FFDA\|0F1626\|8B98A9" public/blog/*.svg | wc -l   # must print 0
+sed -i \
+  -e 's/#FFFFFF/%%OLDWHITE%%/g' \
+  -e 's/#141C30/#FFFFFF/g' \
+  -e 's/%%OLDWHITE%%/#141413/g' \
+  -e 's/#0F1626/#F0EEE6/g' \
+  -e 's/#64FFDA/#141413/g' \
+  -e 's/#8B98A9/#5E5D59/g' \
+  -e 's/rgba(230,\s*237,\s*243,/rgba(20,20,19,/g' \
+  public/blog/*.svg
+grep -rl "64FFDA\|0F1626\|8B98A9\|141C30\|230,237,243\|OLDWHITE" public/blog/*.svg | wc -l   # must print 0
 ```
 
 Ink-on-ivory covers, matching the reference's restraint. Spot-check three or
