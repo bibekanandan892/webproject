@@ -9,8 +9,6 @@ export function LookingFor() {
       className="mx-auto max-w-6xl px-6 py-24 md:py-32"
     >
       <SectionHeading
-        index={2}
-        label="looking for"
         title="What I want next"
       />
 

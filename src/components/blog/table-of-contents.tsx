@@ -41,7 +41,7 @@ export function TableOfContents({ headings }: { headings: readonly Heading[] }) 
 
   return (
     <nav aria-label="Table of contents" className="flex flex-col gap-3">
-      <p className="font-mono text-xs uppercase tracking-wider text-primary">on this page</p>
+      <p className="font-sans text-sm font-semibold text-foreground">On this page</p>
       <ul className="flex flex-col gap-2 border-l border-border">
         {headings.map((heading) => (
           <li key={heading.id}>

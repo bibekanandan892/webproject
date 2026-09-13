@@ -50,16 +50,16 @@ function AdjacentLink({ post, direction }: { post: PostMeta; direction: "prev" |
   return (
     <Link
       href={`/blog/${post.slug}/`}
-      className={`group flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:bg-secondary ${
+      className={`group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary ${
         isPrev ? "items-start text-left" : "items-end text-right"
       }`}
     >
-      <span className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
+      <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
         {isPrev && <ArrowLeft className="h-3 w-3" />}
-        {isPrev ? "older" : "newer"}
+        {isPrev ? "Older" : "Newer"}
         {!isPrev && <ArrowRight className="h-3 w-3" />}
       </span>
-      <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+      <span className="text-sm font-medium text-foreground group-hover:underline">
         {post.title}
       </span>
     </Link>
@@ -75,9 +75,9 @@ export default async function PostPage({ params }: PostPageProps) {
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <Link
         href="/blog/"
-        className="inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-primary"
+        className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
-        <ArrowLeft className="h-4 w-4" /> all posts
+        <ArrowLeft className="h-4 w-4" /> All posts
       </Link>
 
       <div className="mt-10 gap-12 xl:flex xl:items-start">
@@ -100,7 +100,7 @@ export default async function PostPage({ params }: PostPageProps) {
             recognisable from the grid and from its own page. PostThumbnail
             falls back to a generated panel when a post has no authored cover.
           */}
-          <div className="mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-card">
+          <div className="mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card">
             <PostThumbnail post={post} />
           </div>
 

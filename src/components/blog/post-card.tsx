@@ -16,9 +16,9 @@ export function PostCard({ post }: { post: PostMeta }) {
   return (
     <Link
       href={`/blog/${post.slug}/`}
-      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-primary/40 hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      className="group flex h-full flex-col overflow-hidden rounded-card bg-card transition-all hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
     >
-      <div className="aspect-[16/9] w-full shrink-0 overflow-hidden border-b border-border">
+      <div className="aspect-[16/9] w-full shrink-0 overflow-hidden">
         <PostThumbnail post={post} />
       </div>
 
@@ -29,11 +29,11 @@ export function PostCard({ post }: { post: PostMeta }) {
           readingMinutes={post.readingMinutes}
         />
 
-        <h2 className="text-lg font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-primary">
+        <h2 className="text-lg font-bold leading-snug tracking-tight text-foreground">
           {post.title}
         </h2>
 
-        <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+        <p className="line-clamp-3 text-base text-muted-foreground">
           {post.summary}
         </p>
 

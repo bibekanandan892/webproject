@@ -1,6 +1,8 @@
 import { SectionHeading } from "@/components/section-heading";
 import { lookingFor } from "@/data/looking-for";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail } from "lucide-react";
+import { actionButtonVariants } from "@/components/ui/action-button";
+import { cn } from "@/lib/utils";
 
 export function Contact() {
   const email = lookingFor.contacts.find((c) => c.label === "Email");
@@ -11,13 +13,9 @@ export function Contact() {
       id="contact"
       className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32"
     >
-      <SectionHeading
-        index={6}
-        label="contact"
-        title="Let's talk"
-      />
+      <SectionHeading title="Let's talk" />
 
-      <p className="mx-auto max-w-xl text-base leading-relaxed text-muted-foreground">
+      <p className="mx-auto max-w-xl text-muted-foreground">
         I&apos;m always up for a conversation about Android, applied AI, or a
         product worth building. The fastest way to reach me is email — I read
         everything and reply to anything that isn&apos;t spam.
@@ -26,11 +24,15 @@ export function Contact() {
       {email && (
         <a
           href={email.href}
-          className="group mx-auto mt-10 inline-flex max-w-full items-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-5 py-3.5 font-mono text-sm text-primary transition-all hover:border-primary hover:bg-primary/20 sm:gap-3 sm:px-8 sm:py-4 sm:text-base"
+          className={cn(
+            actionButtonVariants({ tier: "primary" }),
+            "mx-auto mt-10 max-w-full sm:px-8 sm:py-4",
+          )}
         >
           <Mail className="h-4 w-4 shrink-0" />
-          <span className="truncate">{email.href.replace("mailto:", "")}</span>
-          <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <span className="truncate font-mono">
+            {email.href.replace("mailto:", "")}
+          </span>
         </a>
       )}
 
@@ -41,9 +43,9 @@ export function Contact() {
             href={c.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-sm text-muted-foreground transition-colors hover:text-primary"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            {c.label.toLowerCase()}
+            {c.label}
           </a>
         ))}
       </div>

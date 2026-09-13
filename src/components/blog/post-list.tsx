@@ -8,6 +8,11 @@ import type { PostCategory, PostMeta } from "@/lib/blog/types";
 const ALL = "all" as const;
 type Filter = typeof ALL | PostCategory;
 
+const FILTER_LABEL: Partial<Record<Filter, string>> = { all: "All" };
+function filterLabel(option: Filter): string {
+  return FILTER_LABEL[option] ?? option;
+}
+
 interface PostListProps {
   posts: readonly PostMeta[];
   categories: readonly PostCategory[];
@@ -55,14 +60,14 @@ export function PostList({ posts, categories }: PostListProps) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search posts"
             aria-label="Search posts"
-            className="w-full rounded-md border border-border bg-card py-2 pl-9 pr-9 font-mono text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/40"
+            className="w-full rounded-md border border-border bg-card py-2 pl-9 pr-9 text-base text-foreground placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery("")}
               aria-label="Clear search"
-              className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-muted-foreground transition-colors hover:text-primary"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-muted-foreground transition-colors hover:text-foreground"
             >
               <X className="h-4 w-4" />
             </button>
@@ -83,13 +88,13 @@ export function PostList({ posts, categories }: PostListProps) {
                   type="button"
                   onClick={() => setFilter(option)}
                   aria-pressed={active}
-                  className={`rounded-md border px-3 py-1.5 font-mono text-xs transition-all ${
+                  className={`rounded-md border px-3 py-1.5 text-sm transition-all ${
                     active
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                      ? "border-foreground bg-foreground text-background"
+                      : "border-border text-muted-foreground hover:border-border-hover hover:text-foreground"
                   }`}
                 >
-                  {option}
+                  {filterLabel(option)}
                 </button>
               );
             })}
@@ -102,14 +107,10 @@ export function PostList({ posts, categories }: PostListProps) {
       </p>
 
       {visible.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-border p-10 text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="rounded-card border border-dashed border-border p-10 text-center">
+          <p className="text-base text-muted-foreground">
             No posts match{" "}
-            {query ? (
-              <span className="font-mono text-foreground">“{query}”</span>
-            ) : (
-              "that filter"
-            )}
+            {query ? <span className="text-foreground">“{query}”</span> : "that filter"}
             .
           </p>
           <button
@@ -118,9 +119,9 @@ export function PostList({ posts, categories }: PostListProps) {
               setQuery("");
               setFilter(ALL);
             }}
-            className="mt-4 rounded-md border border-primary/30 px-3 py-1.5 font-mono text-xs text-primary transition-all hover:border-primary hover:bg-primary/10"
+            className="mt-4 rounded-md border border-border px-3 py-1.5 text-sm text-foreground transition-all hover:border-border-hover"
           >
-            clear filters
+            Clear filters
           </button>
         </div>
       ) : (
