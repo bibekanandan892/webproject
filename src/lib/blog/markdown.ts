@@ -16,7 +16,7 @@ import type { Heading } from "./types";
 // Keyed by "light"/"dark" so rehype-pretty-code emits --shiki-light and
 // --shiki-dark custom properties per token, instead of fixed colours — the
 // .prose-post pre code span rule in globals.css picks between them based on
-// [data-theme="dark"], so highlighting follows the runtime toggle even
+// [data-theme="light"], so highlighting follows the runtime toggle even
 // though Shiki only ever runs once, at build time.
 const SHIKI_THEMES = { light: "github-light", dark: "github-dark-default" } as const;
 

@@ -56,7 +56,7 @@ export default function BlogPage() {
         <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2">
           {upcomingTopics.map((t) => (
             <div key={t.category} className="flex flex-col gap-3">
-              <p className="font-mono text-xs text-muted-foreground">{t.category}</p>
+              <p className="font-sans text-xs tracking-wide text-muted-foreground">{t.category}</p>
               <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
                 {t.items.map((item) => (
                   <li key={item} className="flex gap-2">

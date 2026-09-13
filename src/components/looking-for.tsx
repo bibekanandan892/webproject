@@ -24,7 +24,7 @@ export function LookingFor() {
           <Column title="Role I want" items={[...lookingFor.role]} />
           <Column title="Domains I love" items={[...lookingFor.domains]} />
           <div className="flex flex-col gap-3">
-            <p className="font-mono text-xs uppercase tracking-wider text-primary">
+            <p className="font-sans text-xs font-medium uppercase tracking-wider text-primary">
               How to reach me
             </p>
             <ul className="flex flex-col gap-2">
@@ -34,7 +34,7 @@ export function LookingFor() {
                     href={c.href}
                     className="group inline-flex items-center gap-2 text-sm text-foreground transition-colors hover:text-primary"
                   >
-                    <span className="font-mono text-xs text-muted-foreground group-hover:text-primary">
+                    <span className="font-sans text-xs tracking-wide text-muted-foreground group-hover:text-primary">
                       ↳
                     </span>{" "}
                     {c.label}
@@ -48,7 +48,7 @@ export function LookingFor() {
         <div className="mt-10">
           <Link
             href={lookingFor.contacts[0].href}
-            className="inline-flex items-center gap-2 rounded-md border border-primary/50 bg-primary/10 px-6 py-3 font-mono text-sm text-primary transition-all hover:border-primary hover:bg-primary/20"
+            className="inline-flex items-center gap-2 rounded-md border border-primary/50 bg-primary/10 px-6 py-3 font-sans text-sm tracking-wide text-primary transition-all hover:border-primary hover:bg-primary/20"
           >
             say hi →
           </Link>
@@ -61,13 +61,13 @@ export function LookingFor() {
 function Column({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="flex flex-col gap-3">
-      <p className="font-mono text-xs uppercase tracking-wider text-primary">
+      <p className="font-sans text-xs font-medium uppercase tracking-wider text-primary">
         {title}
       </p>
       <ul className="flex flex-col gap-2 text-sm text-foreground">
         {items.map((item) => (
           <li key={item} className="flex gap-2">
-            <span className="font-mono text-xs text-muted-foreground">↳</span>
+            <span className="font-sans text-xs text-muted-foreground">↳</span>
             <span>{item}</span>
           </li>
         ))}

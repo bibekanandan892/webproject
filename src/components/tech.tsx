@@ -28,7 +28,7 @@ export function Tech() {
               {cat.items.map((item) => (
                 <li
                   key={item.name}
-                  className="rounded-md border border-border bg-secondary/60 px-3 py-1.5 font-mono text-xs text-foreground transition-colors hover:border-border-hover"
+                  className="rounded-md border border-border bg-secondary/60 px-3 py-1.5 font-sans text-xs tracking-wide text-foreground transition-colors hover:border-border-hover"
                 >
                   {item.name}
                 </li>

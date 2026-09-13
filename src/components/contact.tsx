@@ -30,7 +30,7 @@ export function Contact() {
           )}
         >
           <Mail className="h-4 w-4 shrink-0" />
-          <span className="truncate font-mono">
+          <span className="truncate font-sans tracking-wide">
             {email.href.replace("mailto:", "")}
           </span>
         </a>

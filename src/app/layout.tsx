@@ -1,20 +1,31 @@
 import type { Metadata } from "next";
-import { Archivo, Source_Serif_4, JetBrains_Mono } from "next/font/google";
+import { Poppins, Lora } from "next/font/google";
 import "./globals.css";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+// Two faces, and only two. Poppins carries every piece of interface text —
+// headings, nav, buttons, labels, the small stamped pills that used to be set
+// in a mono — and Lora carries running prose. There is deliberately no third
+// webfont: `--font-mono` in globals.css now points at the OS monospace stack,
+// which serves `<code>` inside blog posts without adding a brand face.
+//
+// Poppins is not a variable font on Google Fonts, so the weights actually used
+// across the site have to be listed explicitly — 400/500/600/700 covers
+// font-normal, font-medium, font-semibold and font-bold, which is all of them.
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
+// Lora IS variable (400–700), so no weight list — which matters because the
+// prose `strong` rule asks for 650, a weight a static face could only
+// synthesise.
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -61,8 +72,10 @@ export const metadata: Metadata = {
 // to prevent.
 //
 // Deliberately does NOT check `prefers-color-scheme`: first visit always
-// lands in the light theme regardless of the visitor's OS setting, and the
-// site only goes dark once someone clicks the toggle in the blog header.
+// lands on the paper-white theme regardless of the visitor's OS setting, and
+// the site only goes dark once someone clicks the toggle in the blog header.
+// The read is a plain `=== "dark"`, so any other stored value — "light",
+// garbage, or nothing — falls through to the light default.
 const THEME_BOOTSTRAP_SCRIPT = `try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}`;
 
 export default function RootLayout({
@@ -71,7 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} h-full`}
+      className={`${poppins.variable} ${lora.variable} h-full`}
       suppressHydrationWarning
     >
       <head>

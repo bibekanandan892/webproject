@@ -4,15 +4,20 @@ import { STATUS_LABELS, nowEntries, type WorkStatus } from "@/data/now";
 import { ArrowUpRight } from "lucide-react";
 
 /**
- * Card tints from the measured design system (execution.md §1.3), not raw
- * hex — the badge composites the tint at low opacity over whatever surface
- * sits behind it, so it reads correctly on both the light and dark card
- * backgrounds without a separate dark-mode override.
+ * Card tints from the design tokens, not raw hex — the badge composites the
+ * tint at low opacity over whatever surface sits behind it, so it reads
+ * correctly on both the light and dark card backgrounds without a separate
+ * override.
+ *
+ * The Lava Rush palette is four colours, so these three statuses can no longer
+ * each get a hue of their own. They now read as an intensity ramp instead:
+ * active work is lava, imminent work is ash, and speculative work is gunmetal —
+ * which is arguably more honest signalling than three unrelated pastels were.
  */
 const STATUS_TINT: Record<WorkStatus, string> = {
-  "in-progress": "var(--tint-cactus)",
-  "shipping-soon": "var(--tint-sky)",
-  research: "var(--tint-heather)",
+  "in-progress": "var(--tint-lava)",
+  "shipping-soon": "var(--tint-ash)",
+  research: "var(--tint-gunmetal)",
 };
 
 export function Now() {
@@ -51,7 +56,7 @@ export function Now() {
               {entry.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-md border border-border bg-secondary/40 px-2 py-1 font-mono text-xs text-muted-foreground"
+                  className="rounded-md border border-border bg-secondary/40 px-2 py-1 font-sans text-xs tracking-wide text-muted-foreground"
                 >
                   {tech}
                 </span>
