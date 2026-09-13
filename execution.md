@@ -1,6 +1,6 @@
 # Execution plan — retheme bibekananda.in to the anthropic.com homepage system
 
-**Status:** Phases 0–8 done. Phase 8 verified in `fdbd2b7`, which also found and fixed a fourth hardcoded colour (`#141C30`) the plan's own spec missed. Next: Phase 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
+**Status:** Phases 0–9 done. Phase 9 verified in `5ba8306` (README) plus a direct edit to `publish-blog`'s `SKILL.md` outside this repo. Next: Phase 10 (build+deploy, the final checklist). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
 **Repo:** `C:\Users\bibek\Claude project\bipper\webproject`
 **Branch:** `retheme/blue-ink` (name is now stale; the theme is Ivory, not Blue Ink)
 **Reference:** <https://www.anthropic.com/> — every value below was read off the live site, not guessed.
@@ -322,7 +322,7 @@ Ink-on-ivory covers, matching the reference's restraint. Spot-check three or
 four — some use those hexes at low opacity where the new value reads
 differently.
 
-### Phase 9 — Docs
+### Phase 9 — Docs — DONE (`5ba8306` + SKILL.md edited outside this repo)
 
 1. `README.md` — variant table, voting flow, Supabase setup and thumbnail
    section all describe deleted code. Update the fonts line and the cover-SVG
