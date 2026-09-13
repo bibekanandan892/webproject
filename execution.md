@@ -1,6 +1,6 @@
 # Execution plan — retheme bibekananda.in to the anthropic.com homepage system
 
-**Status:** Phases 0–6 done. Phase 6 verified in `b80cb1d` with a live browser (click, reload, cross-page persistence, no console errors). Next: Phase 7 (Shiki dual theme), 8 (121 cover SVGs), 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
+**Status:** Phases 0–7 done. Phase 7 verified in `f80157b` (confirmed a real Shiki token's computed colour actually flips with the theme, live, not just that both CSS variables exist). Next: Phase 8 (121 cover SVGs), 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
 **Repo:** `C:\Users\bibek\Claude project\bipper\webproject`
 **Branch:** `retheme/blue-ink` (name is now stale; the theme is Ivory, not Blue Ink)
 **Reference:** <https://www.anthropic.com/> — every value below was read off the live site, not guessed.
@@ -263,12 +263,15 @@ island, `localStorage` key `theme`, icon renders only after mount, placed in
 the blog header on `/blog` and `/blog/[slug]`, preference applies site-wide,
 homepage has no button. The bootstrap script in `layout.tsx` is already live.
 
-### Phase 7 — Shiki dual themes
+### Phase 7 — Shiki dual themes — DONE (`f80157b`)
 
-`src/lib/blog/markdown.ts:16` — replace `theme: "github-dark-default"` with:
+`src/lib/blog/markdown.ts:16` — replace `theme: "github-dark-default"` with a
+`Record<string, Theme>` passed through the **same** `theme` option (this
+pinned rehype-pretty-code version has no separate `themes` key — confirmed
+against its `.d.ts`, corrected from the original spec below):
 
 ```ts
-themes: { light: "github-light", dark: "github-dark-default" },
+theme: { light: "github-light", dark: "github-dark-default" },
 ```
 
 The matching CSS is **already committed** in `globals.css`:
