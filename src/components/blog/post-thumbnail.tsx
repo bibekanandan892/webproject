@@ -88,7 +88,7 @@ export function PostThumbnail({ post }: { post: PostMeta }) {
       </svg>
 
       <span
-        className="absolute bottom-3 right-4 font-mono text-xs"
+        className="absolute bottom-3 right-4 font-sans text-xs tracking-wide"
         style={{ color: "var(--foreground)", opacity: 0.5 }}
       >
         {post.category}
