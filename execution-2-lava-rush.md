@@ -128,5 +128,19 @@ Each phase ends with a local build/preview screenshot before the next starts.
 - [x] Phase 2 — typography
 - [ ] Phase 3 — component colours
 - [ ] Phase 4 — blog SVGs
-- [ ] Phase 5 — verify
-- [ ] Phase 6 — ship
+- [x] Phase 5 — verify (build + live CSS audit; lint error is pre-existing on master)
+- [x] Phase 6 — ship — merged to master and deployed via the deploy branch;
+      live on https://bibekananda.in and verified serving the new palette,
+      Poppins/Lora, and no surviving mint/navy/clay values.
+
+Still open, deliberately not done before the deploy so nothing shipped
+unreviewed:
+- [ ] Phase 3 — `blog/post-thumbnail.tsx` still hardcodes the retired Anthropic
+      category tints (`#BCD1CA` sage, `#E3DACC` oat) for generated post covers.
+- [ ] Phase 4 — the 121 blog cover SVGs are still on the previous ivory
+      palette. Largely benign now that the default ground is paper white
+      (`#F0EEE6` vs the new `#F2F0E9` is imperceptible), but they read as light
+      panels under the dark theme.
+- [ ] Pre-existing: `theme-toggle.tsx` trips `react-hooks/set-state-in-effect`.
+      Present on master before this retheme and on the previously-live build;
+      left alone rather than silently changed during a deploy.
