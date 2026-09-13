@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
 };
 
-// Reads the visitor's saved choice and flips to the dark theme before the
-// browser paints anything, so there is no flash of the light theme for a
-// returning dark-mode visitor. Placed inside an explicit <head> — a literal
+// Reads the visitor's saved choice and flips to the light theme before the
+// browser paints anything, so there is no flash of the dark theme for a
+// returning light-mode visitor. Placed inside an explicit <head> — a literal
 // synchronous <script> there runs while the browser is still parsing <head>,
 // before any <body> content is parsed or painted, which is what actually
 // beats first paint; layout.md's "don't manually add <head>" warning is
@@ -61,9 +61,12 @@ export const metadata: Metadata = {
 // to prevent.
 //
 // Deliberately does NOT check `prefers-color-scheme`: first visit always
-// lands in the light theme regardless of the visitor's OS setting, and the
-// site only goes dark once someone clicks the toggle in the blog header.
-const THEME_BOOTSTRAP_SCRIPT = `try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}`;
+// lands in the dark theme regardless of the visitor's OS setting, and the
+// site only goes light once someone clicks the toggle in the blog header.
+// Inverted with the Lava Rush retheme — dark is the base palette in :root now,
+// so the stored value this has to act on is "light", and anything else
+// (nothing, garbage, the old "dark") correctly falls through to the default.
+const THEME_BOOTSTRAP_SCRIPT = `try{if(localStorage.getItem('theme')==='light'){document.documentElement.setAttribute('data-theme','light')}}catch(e){}`;
 
 export default function RootLayout({
   children,
