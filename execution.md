@@ -1,6 +1,6 @@
 # Execution plan — retheme bibekananda.in to the anthropic.com homepage system
 
-**Status:** Phases 0–5 done. Phase 5 verified in `d3ae9c7`. Next: Phase 5b (cover animation), then Phase 6 (dark toggle), 7 (Shiki dual theme), 8 (121 cover SVGs), 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
+**Status:** Phases 0–5b done. Phase 5b verified in `6dd482b`, which also fixes a real theme-bootstrap hydration bug found while verifying it (raw `<script>` under `<html>` breaks on this Next.js version — see that commit). Next: Phase 6 (dark toggle), 7 (Shiki dual theme), 8 (121 cover SVGs), 9 (docs), 10 (build+deploy). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
 **Repo:** `C:\Users\bibek\Claude project\bipper\webproject`
 **Branch:** `retheme/blue-ink` (name is now stale; the theme is Ivory, not Blue Ink)
 **Reference:** <https://www.anthropic.com/> — every value below was read off the live site, not guessed.
@@ -242,7 +242,7 @@ Replace every ad-hoc bordered/filled link across the site with it.
 | `blog/post-meta-row.tsx` | Already correct — mono on dates is the intended usage. Bump to 16px, drop uppercase. |
 | `blog/table-of-contents.tsx` | `on this page` → `On this page`, mono → Archivo. |
 
-### Phase 5b — The cover animation
+### Phase 5b — The cover animation — DONE (`6dd482b`)
 
 New component `src/components/cover.tsx` (`"use client"`), implementing §1.8:
 
