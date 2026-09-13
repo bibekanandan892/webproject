@@ -44,8 +44,32 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-elevated: var(--surface-elevated);
   --color-faint: var(--faint);
   --color-body-ink: var(--body-ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line-soft: var(--line-soft);
+  --color-border-hover: var(--border-hover);
+  --color-primary-hover: var(--primary-hover);
+
+  /* Brand accent. Deliberately NOT wired into buttons or links — on the
+     reference the clay appears in ::selection and brand moments only, and
+     every button is ink. Keep that discipline. */
+  --color-clay: var(--clay);
+  --color-clay-deep: var(--clay-deep);
+
+  /* Card tints — full-bleed fills for cards, no border, no shadow. */
+  --color-tint-oat: var(--tint-oat);
+  --color-tint-cactus: var(--tint-cactus);
+  --color-tint-sky: var(--tint-sky);
+  --color-tint-heather: var(--tint-heather);
+  --color-tint-fig: var(--tint-fig);
+  --color-tint-coral: var(--tint-coral);
+  --color-tint-manilla: var(--tint-manilla);
+  --color-tint-kraft: var(--tint-kraft);
+  --color-tint-olive: var(--tint-olive);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -53,109 +77,148 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  /* Explicit, not derived from --radius: the reference uses 8 / 16 / 24px and
+     the calc ladder above lands on 14.4 and 17.6, which is visibly off. */
+  --radius-card: var(--radius-card-size);
+  --radius-cover: var(--radius-cover-size);
 }
 
 /* ============================================================================
-   D · Blue Ink — the default theme, everywhere, always. Cool paper ground,
-   Archivo display, Source Serif 4 body, one deep-ink-blue accent.
+   LIGHT — the default theme, everywhere, always.
+   Values measured off anthropic.com: ivory ground, slate ink ramp, clay accent.
+   Anthropic's own names are kept in comments so the ramp stays legible.
    ============================================================================ */
 :root {
-  --background: #FCFBF8;
-  --foreground: #16181D;
-  --body-ink: #33373F;
-  --faint: #9CA2AD;
+  --background: #FAF9F5;          /* ivory-light */
+  --foreground: #141413;          /* slate-dark */
+  --body-ink: #141413;            /* body copy is full ink, not softened */
+  --faint: #B0AEA5;               /* cloud-medium — "agate": meta, eyebrows */
+  --ink-soft: #3D3D3A;            /* slate-medium — primary button hover */
+  --line-soft: #D1CFC5;           /* cloud-light — hairlines, scrollbar */
 
-  --card: #F2F1EC;
-  --card-foreground: #16181D;
-  --popover: #F2F1EC;
-  --popover-foreground: #16181D;
+  --surface: #F0EEE6;             /* ivory-medium — section bands */
+  --surface-hover: #E8E6DC;       /* ivory-dark */
+  --surface-elevated: #FFFFFF;
 
-  --primary: #23406B;
-  --primary-foreground: #FCFBF8;
-  --secondary: #F2F1EC;
-  --secondary-foreground: #16181D;
+  --card: #FFFFFF;
+  --card-foreground: #141413;
+  --popover: #FFFFFF;
+  --popover-foreground: #141413;
 
-  --muted: #F2F1EC;
-  --muted-foreground: #5C626D;
-  --accent: #F2F1EC;
-  --accent-foreground: #23406B;
-  --destructive: #B3423A;
+  /* Buttons are INK, never clay. Primary inverts per theme. */
+  --primary: #141413;
+  --primary-foreground: #FAF9F5;
+  --primary-hover: #3D3D3A;
 
-  --border: #E0E1DD;
-  --input: #D7D8D2;
-  --ring: #23406B;
+  --secondary: #F0EEE6;
+  --secondary-foreground: #141413;
 
-  --surface: #F2F1EC;
-  --surface-elevated: #E8E6DE;
+  --muted: #F0EEE6;
+  --muted-foreground: #5E5D59;    /* slate-light — secondary text, link hover */
 
-  --chart-1: #23406B;
-  --chart-2: #5C626D;
-  --chart-3: #9CA2AD;
-  --chart-4: #8A6E45;
-  --chart-5: #4D5561;
+  /* shadcn's `accent` means "subtle hover fill", not brand accent. The brand
+     clay lives in --clay below; conflating them would repaint every hover
+     surface in the ui/ primitives. */
+  --accent: #F0EEE6;
+  --accent-foreground: #141413;
 
-  --radius: 0.3125rem;
+  --clay: #D97757;
+  --clay-deep: #C6613F;
 
-  --sidebar: #F2F1EC;
-  --sidebar-foreground: #16181D;
-  --sidebar-primary: #23406B;
-  --sidebar-primary-foreground: #FCFBF8;
-  --sidebar-accent: #F2F1EC;
-  --sidebar-accent-foreground: #23406B;
-  --sidebar-border: #E0E1DD;
-  --sidebar-ring: #23406B;
+  --destructive: #C6613F;
+
+  --border: rgba(20, 20, 19, 0.10);        /* slate-faded-10 */
+  --border-hover: rgba(20, 20, 19, 0.20);  /* slate-faded-20 */
+  --input: rgba(20, 20, 19, 0.20);
+  --ring: #141413;
+
+  /* Card tints — flat full-bleed fills. Latest-releases uses oat. */
+  --tint-oat: #E3DACC;
+  --tint-cactus: #BCD1CA;
+  --tint-sky: #6A9BCC;
+  --tint-heather: #CBCADB;
+  --tint-fig: #C46686;
+  --tint-coral: #EBCECE;
+  --tint-manilla: #EBDBBC;
+  --tint-kraft: #D4A27F;
+  --tint-olive: #788C5D;
+
+  --chart-1: #D97757;
+  --chart-2: #6A9BCC;
+  --chart-3: #788C5D;
+  --chart-4: #C46686;
+  --chart-5: #5E5D59;
+
+  --radius: 0.5rem;               /* 8px — buttons, inputs */
+  --radius-card-size: 1rem;       /* 16px — cards */
+  --radius-cover-size: 1.5rem;    /* 24px — the hero cover */
+
+  --sidebar: #F0EEE6;
+  --sidebar-foreground: #141413;
+  --sidebar-primary: #141413;
+  --sidebar-primary-foreground: #FAF9F5;
+  --sidebar-accent: #F0EEE6;
+  --sidebar-accent-foreground: #141413;
+  --sidebar-border: rgba(20, 20, 19, 0.10);
+  --sidebar-ring: #141413;
 
   color-scheme: light;
 }
 
 /* ============================================================================
-   B · Lamp Black — opt-in dark theme, toggled from the blog header only.
-   Warm brown-black ground (not blue-black), same type system, sand accent.
-   No @media (prefers-color-scheme) block on purpose: first visit is always D.
+   DARK — opt-in, toggled from the blog header only.
+   Mirrors the reference's own `.u-theme-dark` mapping rather than an invented
+   inversion. No @media (prefers-color-scheme) block on purpose: a first-time
+   visitor always lands in light regardless of their OS setting.
    ============================================================================ */
 [data-theme="dark"] {
-  --background: #1A1714;
-  --foreground: #F0EBE1;
-  --body-ink: #CFC8BB;
-  --faint: #6F6961;
+  --background: #141413;
+  --foreground: #FAF9F5;
+  --body-ink: #FAF9F5;
+  --faint: #B0AEA5;               /* agate is deliberately unchanged */
+  --ink-soft: #F0EEE6;
+  --line-soft: #5E5D59;
 
-  --card: #252019;
-  --card-foreground: #F0EBE1;
-  --popover: #252019;
-  --popover-foreground: #F0EBE1;
+  --surface: #3D3D3A;
+  --surface-hover: #4A4A46;
+  --surface-elevated: #3D3D3A;
 
-  --primary: #C8A45C;
-  --primary-foreground: #1A1714;
-  --secondary: #252019;
-  --secondary-foreground: #F0EBE1;
+  --card: #3D3D3A;
+  --card-foreground: #FAF9F5;
+  --popover: #3D3D3A;
+  --popover-foreground: #FAF9F5;
 
-  --muted: #252019;
-  --muted-foreground: #9C948A;
-  --accent: #252019;
-  --accent-foreground: #C8A45C;
-  --destructive: #D9695B;
+  --primary: #FAF9F5;
+  --primary-foreground: #141413;
+  --primary-hover: #F0EEE6;
 
-  --border: #322D28;
-  --input: #3C362F;
-  --ring: #C8A45C;
+  --secondary: #3D3D3A;
+  --secondary-foreground: #FAF9F5;
 
-  --surface: #252019;
-  --surface-elevated: #2D2721;
+  --muted: #3D3D3A;
+  --muted-foreground: #B0AEA5;
 
-  --chart-1: #C8A45C;
-  --chart-2: #9C948A;
-  --chart-3: #6F6961;
-  --chart-4: #8A9BAE;
-  --chart-5: #B8AFA0;
+  --accent: #3D3D3A;
+  --accent-foreground: #FAF9F5;
 
-  --sidebar: #252019;
-  --sidebar-foreground: #F0EBE1;
-  --sidebar-primary: #C8A45C;
-  --sidebar-primary-foreground: #1A1714;
-  --sidebar-accent: #252019;
-  --sidebar-accent-foreground: #C8A45C;
-  --sidebar-border: #322D28;
-  --sidebar-ring: #C8A45C;
+  --clay: #D97757;
+  --clay-deep: #C6613F;
+
+  --destructive: #D97757;
+
+  --border: rgba(250, 249, 245, 0.10);        /* ivory-faded-10 */
+  --border-hover: rgba(250, 249, 245, 0.20);  /* ivory-faded-20 */
+  --input: rgba(250, 249, 245, 0.20);
+  --ring: #FAF9F5;
+
+  --sidebar: #3D3D3A;
+  --sidebar-foreground: #FAF9F5;
+  --sidebar-primary: #FAF9F5;
+  --sidebar-primary-foreground: #141413;
+  --sidebar-accent: #3D3D3A;
+  --sidebar-accent-foreground: #FAF9F5;
+  --sidebar-border: rgba(250, 249, 245, 0.10);
+  --sidebar-ring: #FAF9F5;
 
   color-scheme: dark;
 }
@@ -164,22 +227,32 @@
   * {
     @apply border-border outline-ring/50;
   }
+  /* The single highest-leverage rule in the retheme. The reference sets body
+     copy in a serif at 20px and reserves the sans for headings, buttons and
+     nav — the inverse of the dev-portfolio default this site used to run, and
+     more of what separates the two than any colour value. */
   html {
-    @apply font-sans;
+    @apply font-serif;
     scroll-behavior: smooth;
+    letter-spacing: -0.005em;
   }
   body {
     @apply bg-background text-foreground antialiased;
     background-color: var(--background);
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
   }
   ::selection {
-    background: color-mix(in srgb, var(--primary) 22%, transparent);
+    background: rgba(204, 120, 92, 0.5);
     color: var(--foreground);
   }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: var(--background); }
   ::-webkit-scrollbar-thumb {
-    background: var(--surface-elevated);
+    background: var(--line-soft);
     border-radius: 999px;
     border: 2px solid var(--background);
   }
@@ -206,8 +279,8 @@
 .prose-post {
   color: var(--body-ink);
   font-family: var(--font-serif);
-  font-size: 1.0625rem;
-  line-height: 1.58;
+  font-size: 1.25rem;
+  line-height: 1.4;
 }
 
 .prose-post > * + * { margin-top: 1.25rem; }
