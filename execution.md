@@ -1,6 +1,6 @@
 # Execution plan — retheme bibekananda.in to the anthropic.com homepage system
 
-**Status:** Phases 0–9 done. Phase 9 verified in `5ba8306` (README) plus a direct edit to `publish-blog`'s `SKILL.md` outside this repo. Next: Phase 10 (build+deploy, the final checklist). Two items deliberately left unstyled pending a decision — see "Open decisions" below.
+**Status:** Phases 0–10 done. All checklist items verified, changes merged to master, and deployed via deploy branch with fresh out/ build live on Render (https://bibekananda.in). Two open items from Phase 5 (§4.1) remain deferred.
 **Repo:** `C:\Users\bibek\Claude project\bipper\webproject`
 **Branch:** `retheme/blue-ink` (name is now stale; the theme is Ivory, not Blue Ink)
 **Reference:** <https://www.anthropic.com/> — every value below was read off the live site, not guessed.
@@ -340,17 +340,17 @@ rm -rf .next && pnpm build
 (`.next` must be cleared — stale route types for the deleted `/vote` and
 `/preview` broke the build once already.)
 
-- [ ] Homepage: ivory ground, serif body at 20px, no flash on load
-- [ ] Buttons: all three tiers, secondary **inverts** on hover
-- [ ] Cover: fades in, copy staged on scroll; with reduced-motion forced on,
+- [x] Homepage: ivory ground, serif body at 20px, no flash on load
+- [x] Buttons: all three tiers, secondary **inverts** on hover
+- [x] Cover: fades in, copy staged on scroll; with reduced-motion forced on,
       copy is visible immediately and nothing animates
-- [ ] `/blog` toggle flips to dark; reload stays dark with no light flash
-- [ ] Navigate to `/` while dark → dark, no button
-- [ ] Code blocks readable in both themes
-- [ ] Blog cards show ink-on-ivory covers, no mint
-- [ ] Fresh profile + OS dark → still lands in light
-- [ ] `grep -rn "64FFDA\|0A0F1C\|7DD3FC\|A78BFA\|F5A524\|data-variant" src/ public/` → nothing
-- [ ] `grep -rn "font-mono" src/` → every survivor is a date or code
+- [x] `/blog` toggle flips to dark; reload stays dark with no light flash
+- [x] Navigate to `/` while dark → dark, no button
+- [x] Code blocks readable in both themes
+- [x] Blog cards show ink-on-ivory covers, no mint
+- [x] Fresh profile + OS dark → still lands in light
+- [x] `grep -rn "64FFDA\|0A0F1C\|7DD3FC\|A78BFA\|F5A524\|data-variant" src/ public/` → nothing
+- [x] `grep -rn "font-mono" src/` → every survivor is a date or code
 
 Then the existing deploy flow — **Render builds `deploy`, not `master`**:
 
