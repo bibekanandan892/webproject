@@ -31,24 +31,34 @@ export function ZenShotsGallery() {
 }
 
 function ShotRow({ label, shots }: { label: string; shots: ZenShot[] }) {
+  // Phone shots are tall; fitting them into 16:9 tiles cropped away most of the screen.
+  const isPhone = shots[0]?.platform === "android";
   return (
     <div>
       <p className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
         {label}
       </p>
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        className={
+          isPhone
+            ? "mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"
+            : "mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        }
+      >
         {shots.map((shot) => (
           <figure
             key={shot.src}
             className="overflow-hidden rounded-xl border border-border bg-card"
           >
-            <div className="relative aspect-video w-full bg-neutral-950">
+            <div
+              className={`relative w-full bg-neutral-950 ${isPhone ? "aspect-[9/20]" : "aspect-video"}`}
+            >
               <Image
                 src={shot.src}
                 alt={shot.alt}
                 fill
-                sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
-                className="object-cover"
+                sizes={isPhone ? "(min-width: 1024px) 180px, (min-width: 640px) 30vw, 45vw" : "(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"}
+                className="object-contain"
               />
             </div>
             <figcaption className="px-4 py-3 text-xs text-muted-foreground">
