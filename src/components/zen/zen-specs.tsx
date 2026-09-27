@@ -46,8 +46,10 @@ const SPECS_TABLE = [
   { label: "Language & UI Framework", value: "Kotlin 2.0 · Jetpack Compose (Material 3)" },
   { label: "Local Database", value: "Room SQLite (Schema version 13 with verified migrations)" },
   { label: "Dependency Injection", value: "Hilt / Dagger" },
-  { label: "AI Engine", value: "Google MediaPipe GenAI tasks-genai · Gemma 3 1B on-device" },
-  { label: "Desktop Companion", value: "Zen Desktop (.NET 8 WPF · 4-State Attention Engine)" },
+  { label: "AI Engine (Android)", value: "Google MediaPipe GenAI tasks-genai · Gemma 3 1B on-device" },
+  { label: "Desktop Companion", value: "Zen Desktop 1.0.9 · .NET 8 WPF · 4-state attention engine" },
+  { label: "Desktop Storage", value: "Local SQLite database, no admin rights required to install" },
+  { label: "AI Engine (Desktop)", value: "Built-in Qwen2.5 1.5B (llama.cpp, ~1.1 GB) or your own Ollama" },
 ];
 
 export function ZenSpecs() {
@@ -57,7 +59,7 @@ export function ZenSpecs() {
       <div className="flex flex-col items-start gap-3">
         <div className="flex items-center gap-2">
           <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            07
+            11
           </span>
           <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
             Specifications & Transparency
@@ -150,16 +152,16 @@ export function ZenSpecs() {
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-neutral-800 pt-4">
           <p className="font-mono text-xs text-neutral-400">
-            Source code is available under MIT on GitHub.
+            A personal project — source stays private, binaries are public.
           </p>
           <a
-            href="https://github.com/bibekanandan892/zen-launcher"
+            href="https://github.com/bibekanandan892/zen-releases/releases"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white px-4 py-2 font-sans text-xs font-semibold text-black transition-opacity hover:opacity-90"
           >
             <GithubIcon className="h-3.5 w-3.5" />
-            <span>Clone / Build on GitHub</span>
+            <span>See Releases on GitHub</span>
             <ExternalLink className="h-3 w-3" />
           </a>
         </div>

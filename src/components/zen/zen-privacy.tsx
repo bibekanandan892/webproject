@@ -40,7 +40,7 @@ export function ZenPrivacy() {
       <div className="flex flex-col items-start gap-3">
         <div className="flex items-center gap-2">
           <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            06
+            10
           </span>
           <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
             Trust & Security
@@ -50,9 +50,33 @@ export function ZenPrivacy() {
           Privacy & Permissions: Each Strictly Optional
         </h2>
         <p className="max-w-3xl font-serif text-lg text-muted-foreground leading-relaxed">
-          Zen Launcher has zero analytics SDKs, zero cloud tracking, zero remote servers,
-          and zero telemetry. Every capability is powered strictly by local Android APIs.
+          Zen has zero analytics SDKs, zero cloud tracking, zero remote servers, and zero
+          telemetry — on Android or on Windows. Every capability is powered strictly by
+          local APIs, and cross-device sync is opt-in and off by default.
         </p>
+      </div>
+
+      {/* Desktop privacy notes */}
+      <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
+        <h3 className="font-sans text-base font-bold text-foreground">On Windows, the same rules</h3>
+        <ul className="mt-4 grid grid-cols-1 gap-2.5 text-xs text-muted-foreground sm:grid-cols-2">
+          <li className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
+            <span>Everything lives in a local SQLite database on the PC — nothing leaves it unless sync is turned on.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
+            <span>Keyboard and mouse input is counted to judge activity, but never recorded — no keylogging.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
+            <span>Browser URLs are stored as domains only by default; a setting can turn on full URLs.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
+            <span>All Devices sync writes to a hidden, app-only folder in your own Google Drive — never a third-party server.</span>
+          </li>
+        </ul>
       </div>
 
       {/* Core Privacy Pillars */}
@@ -78,7 +102,7 @@ export function ZenPrivacy() {
             No Screen Scraping
           </h3>
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Zen Focus sets <code className="font-mono text-[11px] bg-secondary px-1 py-0.5 rounded">canRetrieveWindowContent="false"</code>.
+            Zen Focus sets <code className="font-mono text-[11px] bg-secondary px-1 py-0.5 rounded">canRetrieveWindowContent=&quot;false&quot;</code>.
             It knows which app is open, but can never see what you read, write, or type.
           </p>
         </div>
@@ -130,7 +154,7 @@ export function ZenPrivacy() {
 
               <div className="sm:col-span-8 flex flex-col gap-1.5">
                 <p className="text-xs text-foreground leading-relaxed">
-                  <span className="font-semibold">Why it's needed:</span> {perm.purpose}
+                  <span className="font-semibold">Why it&apos;s needed:</span> {perm.purpose}
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   <span className="font-mono text-[11px] text-foreground">Under the hood:</span> {perm.technical}

@@ -132,7 +132,7 @@ export function ZenScreenshots() {
       <div className="flex flex-col items-start gap-3">
         <div className="flex items-center gap-2">
           <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            03
+            04
           </span>
           <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
             Interface & Ergonomics
@@ -142,7 +142,7 @@ export function ZenScreenshots() {
           Clean Screens & Natural Gestures
         </h2>
         <p className="max-w-3xl font-serif text-lg text-muted-foreground leading-relaxed">
-          Every interaction in Zen Launcher is designed to minimize cognitive friction.
+          Every interaction in Zen is designed to minimize cognitive friction.
           No cognitive load from neon icons, algorithmic badges, or infinite feeds.
         </p>
       </div>

@@ -61,7 +61,9 @@ export function ZenAgeMeter() {
   const horizonYears = 80;
 
   useEffect(() => {
-    setNow(new Date());
+    // The interval callback (not this effect body) is what actually
+    // synchronizes state with the clock, so the first tick sets `now` too —
+    // no separate synchronous setState call is needed here.
     const interval = setInterval(() => {
       setNow(new Date());
     }, 80);
@@ -124,7 +126,7 @@ export function ZenAgeMeter() {
       <div className="flex flex-col items-start gap-3">
         <div className="flex items-center gap-2">
           <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            01
+            02
           </span>
           <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
             Memento Mori Engine
@@ -134,9 +136,11 @@ export function ZenAgeMeter() {
           Age Meter: A Calm Existential Clock
         </h2>
         <p className="max-w-3xl font-serif text-lg text-muted-foreground leading-relaxed">
-          Inspired by Stoic Memento Mori philosophy, Zen Launcher places your finite
-          lifespan directly on your home screen. Not to induce panic, but to invite
-          mindful intentionality every time you unlock your phone.
+          Inspired by Stoic Memento Mori philosophy, Zen places your finite lifespan
+          directly on your home screen. Not to induce panic, but to invite mindful
+          intentionality every time you unlock your phone. The same Life/Year/Today bars
+          also ride along in Zen Desktop&apos;s floating widget, so the reminder isn&apos;t limited
+          to your pocket.
         </p>
       </div>
 
@@ -336,7 +340,7 @@ export function ZenAgeMeter() {
                       })}
                     </div>
                     <p className="mt-2 font-mono text-[11px] text-neutral-500">
-                      * Current hour tick fills live and "breathes". TODAY counts hours spent, then hours left.
+                      * Current hour tick fills live and &quot;breathes&quot;. TODAY counts hours spent, then hours left.
                     </p>
                   </div>
                 </div>

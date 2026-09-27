@@ -86,18 +86,28 @@ export function ZenTimeline() {
       <div className="flex flex-col items-start gap-3">
         <div className="flex items-center gap-2">
           <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            02
+            03
           </span>
           <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
             Visual Feedback Loop
           </span>
         </div>
         <h2 className="font-sans text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Today's Timeline: What the Colors Mean
+          Today&apos;s Timeline: What the Colors Mean
         </h2>
         <p className="max-w-3xl font-serif text-lg text-muted-foreground leading-relaxed">
-          Zen Launcher doesn't just shame you with generic screen-time graphs. It classifies
-          your exact digital diet into high-signal semantic categories right beneath your clock.
+          Zen doesn&apos;t just shame you with a generic screen-time graph. It classifies your
+          exact digital diet into high-signal semantic categories right beneath your clock
+          — and on Windows, the same idea grows into a full timeline with a lane per
+          display, plus a merged view once your phone is synced in (see{" "}
+          <a href="#desktop" className="underline decoration-dotted hover:text-foreground">
+            Zen for Windows
+          </a>{" "}
+          and{" "}
+          <a href="#sync" className="underline decoration-dotted hover:text-foreground">
+            All Devices
+          </a>
+          ).
         </p>
       </div>
 
@@ -151,7 +161,7 @@ export function ZenTimeline() {
           </div>
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
             YouTube Shorts (detected instantly on screen) and any addictive apps you
-            marked as "waste of time".
+            marked as &quot;waste of time&quot;.
           </p>
           <div className="mt-3 flex flex-wrap gap-1 font-mono text-[10px] text-rose-700 dark:text-rose-300">
             <span className="rounded bg-rose-500/15 px-1.5 py-0.5">YouTube Shorts</span>
@@ -196,7 +206,7 @@ export function ZenTimeline() {
               Timeline Simulation Engine
             </h3>
             <p className="text-xs text-muted-foreground">
-              Test Zen's "Today at a glance" packing and tap-to-zoom hour inspector.
+              Test Zen&apos;s &quot;Today at a glance&quot; packing and tap-to-zoom hour inspector.
             </p>
           </div>
 

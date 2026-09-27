@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Sparkles, Smartphone } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useEffect, useState } from "react";
 
@@ -42,10 +42,7 @@ export function ZenNav() {
             </span>
             <div className="flex items-baseline gap-2">
               <span className="font-sans text-base font-semibold tracking-tight text-foreground">
-                Zen Launcher
-              </span>
-              <span className="rounded border border-border bg-secondary/70 px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-                v0.1.0
+                Zen
               </span>
             </div>
           </div>
@@ -55,36 +52,34 @@ export function ZenNav() {
           <a href="#overview" className="transition-colors hover:text-foreground">
             Overview
           </a>
-          <a href="#age-meter" className="transition-colors hover:text-foreground">
-            Age Meter
-          </a>
           <a href="#timeline" className="transition-colors hover:text-foreground">
             Timeline
           </a>
-          <a href="#features" className="transition-colors hover:text-foreground">
-            Features
+          <a href="#modes" className="transition-colors hover:text-foreground">
+            Android Modes
           </a>
-          <a href="#breaks" className="transition-colors hover:text-foreground">
-            Rewards
+          <a href="#desktop" className="transition-colors hover:text-foreground">
+            Windows
+          </a>
+          <a href="#sync" className="transition-colors hover:text-foreground">
+            All Devices
           </a>
           <a href="#privacy" className="transition-colors hover:text-foreground">
             Privacy
           </a>
-          <a href="#specs" className="transition-colors hover:text-foreground">
-            Specs
+          <a href="#faq" className="transition-colors hover:text-foreground">
+            FAQ
           </a>
         </nav>
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="https://github.com/bibekanandan892/zen-launcher"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#download"
             className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-foreground bg-foreground px-3.5 py-1.5 font-sans text-xs font-medium text-background transition-opacity hover:opacity-90"
           >
-            <Smartphone className="h-3.5 w-3.5" />
-            <span>GitHub</span>
+            <Download className="h-3.5 w-3.5" />
+            <span>Download</span>
           </a>
         </div>
       </div>
