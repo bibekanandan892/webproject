@@ -24,7 +24,7 @@ export function ZenFeatures() {
       <div className="flex flex-col items-start gap-3">
         <div className="flex items-center gap-2">
           <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            04
+            08
           </span>
           <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
             Product Capabilities
@@ -35,7 +35,7 @@ export function ZenFeatures() {
         </h2>
         <p className="max-w-3xl font-serif text-lg text-muted-foreground leading-relaxed">
           From unskippable app blockers and mindful breathing wait timers to on-device
-          Gemma 3 1B AI classification, Zen Launcher is engineered for intentional living.
+          Gemma 3 1B AI classification, Zen is engineered for intentional living.
         </p>
       </div>
 
@@ -106,7 +106,7 @@ export function ZenFeatures() {
                 Quiet Notification Inbox
               </p>
               <p className="mt-0.5 text-muted-foreground leading-relaxed">
-                Intercepts distracting alerts and holds them safely in Zen's own local inbox.
+                Intercepts distracting alerts and holds them safely in Zen&apos;s own local inbox.
                 Review them on your schedule without status bar dings.
               </p>
             </div>
@@ -147,7 +147,7 @@ export function ZenFeatures() {
             <div>
               <p className="font-semibold text-foreground">YouTube Tab</p>
               <p className="mt-0.5 text-muted-foreground leading-relaxed">
-                Dedicated switch; partitions today's watch time into Learn, Fun, Shorts,
+                Dedicated switch; partitions today&apos;s watch time into Learn, Fun, Shorts,
                 and untagged. Logs exact time per channel and per video.
               </p>
             </div>
@@ -238,7 +238,7 @@ export function ZenFeatures() {
                 Autonomous Local Inference
               </p>
               <p className="mt-1 text-muted-foreground leading-relaxed">
-                Runs Google's Gemma 3 1B model natively on your phone's processor via
+                Runs Google&apos;s Gemma 3 1B model natively on your phone&apos;s processor via
                 MediaPipe. Completely free, works offline, and sends zero bytes over the air.
               </p>
             </div>
@@ -249,7 +249,7 @@ export function ZenFeatures() {
               </p>
               <p className="mt-1 text-muted-foreground leading-relaxed">
                 Tags new channels and websites as Learn or Fun every 3 hours (only when
-                battery is not low), 2 hours after first seen. Max 2 tries each; manual "Tag now" button.
+                battery is not low), 2 hours after first seen. Max 2 tries each; manual &quot;Tag now&quot; button.
               </p>
             </div>
 
@@ -259,7 +259,7 @@ export function ZenFeatures() {
               </p>
               <p className="mt-1 text-muted-foreground leading-relaxed">
                 Download the Gemma 3 1B model file (555 MB with a free Hugging Face account)
-                once, pick it with Android's system file picker in Zen, and it is ready.
+                once, pick it with Android&apos;s system file picker in Zen, and it is ready.
               </p>
             </div>
           </div>
