@@ -1,10 +1,19 @@
-"use client";
-
 import Image from "next/image";
-import { ShieldCheck, Cpu, Clock, Sparkles, Smartphone, Download, ArrowDown } from "lucide-react";
-import { GithubIcon } from "@/components/social-icons";
+import { ShieldCheck, ArrowDown } from "lucide-react";
+import {
+  ZEN_ANDROID_APK_URL,
+  ZEN_WINDOWS_INSTALLER_URL,
+  formatAssetSize,
+  formatReleaseDate,
+  type ZenRelease,
+} from "@/lib/zen-release";
+import { ZenDownloadButtons } from "./zen-download-cta";
 
-export function ZenHero() {
+export function ZenHero({ release }: { release: ZenRelease }) {
+  const androidSize = formatAssetSize(release.android.sizeBytes);
+  const windowsSize = formatAssetSize(release.windows.sizeBytes);
+  const publishedDate = formatReleaseDate(release.publishedAt);
+
   return (
     <section id="overview" className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24">
       {/* Subtle ambient background glow */}
@@ -25,57 +34,54 @@ export function ZenHero() {
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/80 px-3 py-1 font-mono text-[11px] font-medium text-foreground">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Version 0.1.0 · 21 Sep 2026
+                {release.version ? (
+                  <span>
+                    {release.version}
+                    {publishedDate ? ` · ${publishedDate}` : ""}
+                  </span>
+                ) : (
+                  <span>Free · beta</span>
+                )}
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/60 px-3 py-1 font-mono text-[11px] text-muted-foreground">
-                Android 8.0+ · 64-bit phones
+                Android 8.0+ &amp; Windows 10/11
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/60 px-3 py-1 font-mono text-[11px] text-muted-foreground">
                 <ShieldCheck className="h-3 w-3 text-emerald-500" />
-                Everything stays on the phone
+                Everything stays on your device
               </span>
             </div>
 
             <h1 className="mt-6 font-sans text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Zen Launcher
+              Zen
             </h1>
 
             <p className="mt-4 font-serif text-xl leading-relaxed text-muted-foreground sm:text-2xl">
-              A calm, black-and-white Android home screen that shows how your day
-              is really spent — and helps you spend less of it on the phone.
+              See how your day is really spent — on your phone and your PC.
             </p>
 
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              Inspired by intentional minimalism and Stoic reflection. Replaces
-              vibrant app grids with quiet typography, live Memento Mori age tracking,
-              granular YouTube/website telemetry, and on-device Gemma AI classification.
+              A calm Android home screen and a Windows companion that track every minute,
+              tag it Learn, Productive, Fun, or Waste, and put real friction between you
+              and the apps that don&apos;t deserve your time — a live Memento Mori age meter,
+              an honest per-app timeline, and on-device AI classification, all local.
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-col gap-3">
+              <ZenDownloadButtons
+                androidHref={ZEN_ANDROID_APK_URL}
+                androidSublabel={androidSize ?? undefined}
+                windowsHref={ZEN_WINDOWS_INSTALLER_URL}
+                windowsSublabel={windowsSize ?? undefined}
+                size="compact"
+              />
               <a
-                href="https://github.com/bibekanandan892/zen-launcher"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-foreground bg-foreground px-5 py-2.5 font-sans text-sm font-medium text-background transition-opacity hover:opacity-90"
+                href="#download"
+                className="inline-flex w-fit items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground"
               >
-                <GithubIcon className="h-4 w-4" />
-                <span>View on GitHub</span>
-              </a>
-
-              <a
-                href="#features"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 font-sans text-sm font-medium text-foreground transition-colors hover:border-foreground/40 hover:bg-secondary/60"
-              >
-                <span>Explore Features</span>
-                <ArrowDown className="h-4 w-4" />
-              </a>
-
-              <a
-                href="#specs"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-transparent px-3 py-2 font-mono text-xs text-muted-foreground hover:text-foreground"
-              >
-                <span>APK: 27 MB · Free</span>
+                <span>How to install</span>
+                <ArrowDown className="h-3.5 w-3.5" />
               </a>
             </div>
 
@@ -141,7 +147,7 @@ export function ZenHero() {
                 <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[36px] bg-black">
                   <Image
                     src="/zen/p1_home.png"
-                    alt="Zen Launcher Home Screen with circular clock and battery ring"
+                    alt="Zen Android home screen with circular clock and battery ring"
                     fill
                     priority
                     sizes="(min-width: 640px) 310px, 280px"

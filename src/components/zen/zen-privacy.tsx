@@ -14,7 +14,7 @@ const PERMISSIONS = [
     name: "Accessibility (Zen Focus)",
     badge: "Optional",
     purpose: "Powers wait timers, unskippable app blocking, per-app grayscale, YouTube Shorts isolation, Chrome domain tracking, and unlock rewards.",
-    technical: "canRetrieveWindowContent is strictly FALSE. Only inspects the foreground package/activity class name. Never reads typed text, passwords, or on-screen content.",
+    technical: "Window-content access is on, but used in exactly two places: in Chrome it reads the address bar and keeps only the domain (never the full URL), and in YouTube it checks view IDs (never text) to spot the Shorts player. Everywhere else it only sees which app is in front — never what you type, passwords, or messages.",
     status: "Granted via Android Settings → Accessibility",
   },
   {
@@ -40,7 +40,7 @@ export function ZenPrivacy() {
       <div className="flex flex-col items-start gap-3">
         <div className="flex items-center gap-2">
           <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            06
+            10
           </span>
           <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
             Trust & Security
@@ -50,9 +50,33 @@ export function ZenPrivacy() {
           Privacy & Permissions: Each Strictly Optional
         </h2>
         <p className="max-w-3xl font-serif text-lg text-muted-foreground leading-relaxed">
-          Zen Launcher has zero analytics SDKs, zero cloud tracking, zero remote servers,
-          and zero telemetry. Every capability is powered strictly by local Android APIs.
+          Zen has zero analytics SDKs, zero cloud tracking, zero remote servers, and zero
+          telemetry — on Android or on Windows. Every capability is powered strictly by
+          local APIs, and cross-device sync is opt-in and off by default.
         </p>
+      </div>
+
+      {/* Desktop privacy notes */}
+      <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
+        <h3 className="font-sans text-base font-bold text-foreground">On Windows, the same rules</h3>
+        <ul className="mt-4 grid grid-cols-1 gap-2.5 text-xs text-muted-foreground sm:grid-cols-2">
+          <li className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
+            <span>Everything lives in a local SQLite database on the PC — nothing leaves it unless sync is turned on.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
+            <span>Keyboard and mouse input is counted to judge activity, but never recorded — no keylogging.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
+            <span>Browser URLs are stored as domains only by default; a setting can turn on full URLs.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
+            <span>All Devices sync writes to a hidden, app-only folder in your own Google Drive — never a third-party server.</span>
+          </li>
+        </ul>
       </div>
 
       {/* Core Privacy Pillars */}
@@ -75,11 +99,12 @@ export function ZenPrivacy() {
             <EyeOff className="h-5 w-5" />
           </div>
           <h3 className="mt-4 font-sans text-base font-semibold text-foreground">
-            No Screen Scraping
+            Narrow, Stated Reads
           </h3>
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Zen Focus sets <code className="font-mono text-[11px] bg-secondary px-1 py-0.5 rounded">canRetrieveWindowContent="false"</code>.
-            It knows which app is open, but can never see what you read, write, or type.
+            Zen Focus mostly sees only which app is open. It reads content in two
+            places: Chrome&apos;s address bar (kept as the domain only) and YouTube&apos;s
+            view IDs (to detect Shorts). It never reads what you type.
           </p>
         </div>
 
@@ -130,7 +155,7 @@ export function ZenPrivacy() {
 
               <div className="sm:col-span-8 flex flex-col gap-1.5">
                 <p className="text-xs text-foreground leading-relaxed">
-                  <span className="font-semibold">Why it's needed:</span> {perm.purpose}
+                  <span className="font-semibold">Why it&apos;s needed:</span> {perm.purpose}
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   <span className="font-mono text-[11px] text-foreground">Under the hood:</span> {perm.technical}

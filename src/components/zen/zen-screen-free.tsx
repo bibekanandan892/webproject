@@ -22,7 +22,7 @@ export function ZenScreenFree() {
       <div className="flex flex-col items-start gap-3">
         <div className="flex items-center gap-2">
           <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            05
+            09
           </span>
           <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
             Mindful Incentives
@@ -86,7 +86,7 @@ export function ZenScreenFree() {
                     Visual Integration
                   </p>
                   <p className="mt-0.5 leading-relaxed">
-                    Completed screen-free breaks are permanently recorded on TODAY's timeline
+                    Completed screen-free breaks are permanently recorded on TODAY&apos;s timeline
                     and the glance bar with the distinct ░ pixel checkerboard pattern.
                   </p>
                 </div>
