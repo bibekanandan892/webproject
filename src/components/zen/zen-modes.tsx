@@ -1,5 +1,3 @@
-"use client";
-
 import { Home, AppWindow, ArrowRight, CheckCircle2, XCircle } from "lucide-react";
 
 interface ModeFeature {

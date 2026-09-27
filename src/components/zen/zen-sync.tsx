@@ -1,5 +1,3 @@
-"use client";
-
 import { Cloud, Smartphone, Laptop, ShieldCheck, GitMerge, EyeOff } from "lucide-react";
 
 export function ZenSync() {

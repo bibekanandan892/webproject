@@ -111,20 +111,20 @@ async function fetchShaSums(): Promise<Map<string, string>> {
  * Fetches the latest Zen release's version, per-asset size, and SHA-256
  * checksums. Never throws — any failure degrades to null fields.
  */
-export async function getZenRelease(): Promise<ZenRelease> {
-  let releaseJson: GithubReleaseResponse | null = null;
+async function fetchReleaseJson(): Promise<GithubReleaseResponse | null> {
   try {
     const res = await fetchWithTimeout(RELEASES_API, REVALIDATE_SECONDS);
-    if (res.ok) {
-      releaseJson = (await res.json()) as GithubReleaseResponse;
-    }
+    return res.ok ? ((await res.json()) as GithubReleaseResponse) : null;
   } catch {
     // No network at build time, GitHub API rate limit, or the repo/release
-    // doesn't exist yet. Fall through to the empty release below.
-    releaseJson = null;
+    // doesn't exist yet. Fall through to the empty release.
+    return null;
   }
+}
 
-  const shaSums = await fetchShaSums();
+export async function getZenRelease(): Promise<ZenRelease> {
+  // Independent requests: run together so a slow API doesn't double the build-time wait.
+  const [releaseJson, shaSums] = await Promise.all([fetchReleaseJson(), fetchShaSums()]);
 
   if (!releaseJson) {
     // Still surface any checksums we managed to fetch even if the release

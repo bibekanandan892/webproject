@@ -1,5 +1,3 @@
-"use client";
-
 import { Eye, Hand, Gift, Tags } from "lucide-react";
 
 const PILLARS = [

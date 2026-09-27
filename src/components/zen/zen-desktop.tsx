@@ -1,5 +1,3 @@
-"use client";
-
 import { Monitor, Puzzle, Brain, Wand2, PictureInPicture2, Cpu } from "lucide-react";
 
 const TRACKING_STATES = [

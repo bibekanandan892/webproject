@@ -44,7 +44,7 @@ const SPECS_TABLE = [
   { label: "Package Identifier", value: "com.bibek.zen (Debug: com.bibek.zen.debug)" },
   { label: "OS Compatibility", value: "Android 8.0+ (Oreo, API 26+) · 64-bit architectures" },
   { label: "Language & UI Framework", value: "Kotlin 2.0 · Jetpack Compose (Material 3)" },
-  { label: "Local Database", value: "Room SQLite (Schema version 13 with verified migrations)" },
+  { label: "Local Database", value: "Room SQLite (Schema version 14 with verified migrations)" },
   { label: "Dependency Injection", value: "Hilt / Dagger" },
   { label: "AI Engine (Android)", value: "Google MediaPipe GenAI tasks-genai · Gemma 3 1B on-device" },
   { label: "Desktop Companion", value: "Zen Desktop 1.0.9 · .NET 8 WPF · 4-state attention engine" },

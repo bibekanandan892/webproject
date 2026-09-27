@@ -14,7 +14,7 @@ const PERMISSIONS = [
     name: "Accessibility (Zen Focus)",
     badge: "Optional",
     purpose: "Powers wait timers, unskippable app blocking, per-app grayscale, YouTube Shorts isolation, Chrome domain tracking, and unlock rewards.",
-    technical: "canRetrieveWindowContent is strictly FALSE. Only inspects the foreground package/activity class name. Never reads typed text, passwords, or on-screen content.",
+    technical: "Window-content access is on, but used in exactly two places: in Chrome it reads the address bar and keeps only the domain (never the full URL), and in YouTube it checks view IDs (never text) to spot the Shorts player. Everywhere else it only sees which app is in front — never what you type, passwords, or messages.",
     status: "Granted via Android Settings → Accessibility",
   },
   {
@@ -99,11 +99,12 @@ export function ZenPrivacy() {
             <EyeOff className="h-5 w-5" />
           </div>
           <h3 className="mt-4 font-sans text-base font-semibold text-foreground">
-            No Screen Scraping
+            Narrow, Stated Reads
           </h3>
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Zen Focus sets <code className="font-mono text-[11px] bg-secondary px-1 py-0.5 rounded">canRetrieveWindowContent=&quot;false&quot;</code>.
-            It knows which app is open, but can never see what you read, write, or type.
+            Zen Focus mostly sees only which app is open. It reads content in two
+            places: Chrome&apos;s address bar (kept as the domain only) and YouTube&apos;s
+            view IDs (to detect Shorts). It never reads what you type.
           </p>
         </div>
 
