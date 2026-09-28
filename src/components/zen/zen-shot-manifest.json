@@ -1,0 +1,107 @@
+{
+  "windows/dashboard.png": {
+    "png": "/zen/windows/dashboard.png",
+    "webp1x": "/zen/windows/dashboard-1x.webp",
+    "webp2x": "/zen/windows/dashboard-2x.webp",
+    "width": 760,
+    "height": 456
+  },
+  "windows/timeline.png": {
+    "png": "/zen/windows/timeline.png",
+    "webp1x": "/zen/windows/timeline-1x.webp",
+    "webp2x": "/zen/windows/timeline-2x.webp",
+    "width": 760,
+    "height": 82
+  },
+  "windows/all-devices.png": {
+    "png": "/zen/windows/all-devices.png",
+    "webp1x": "/zen/windows/all-devices-1x.webp",
+    "webp2x": "/zen/windows/all-devices-2x.webp",
+    "width": 760,
+    "height": 456
+  },
+  "windows/tags.png": {
+    "png": "/zen/windows/tags.png",
+    "webp1x": "/zen/windows/tags-1x.webp",
+    "webp2x": "/zen/windows/tags-2x.webp",
+    "width": 760,
+    "height": 290
+  },
+  "windows/widget.png": {
+    "png": "/zen/windows/widget.png",
+    "webp1x": "/zen/windows/widget-1x.webp",
+    "webp2x": "/zen/windows/widget-2x.webp",
+    "width": 190,
+    "height": 130
+  },
+  "windows/setup-welcome.png": {
+    "png": "/zen/windows/setup-welcome.png",
+    "webp1x": "/zen/windows/setup-welcome-1x.webp",
+    "webp2x": "/zen/windows/setup-welcome-2x.webp",
+    "width": 320,
+    "height": 260
+  },
+  "windows/setup-colours.png": {
+    "png": "/zen/windows/setup-colours.png",
+    "webp1x": "/zen/windows/setup-colours-1x.webp",
+    "webp2x": "/zen/windows/setup-colours-2x.webp",
+    "width": 320,
+    "height": 260
+  },
+  "windows/setup-timeline.png": {
+    "png": "/zen/windows/setup-timeline.png",
+    "webp1x": "/zen/windows/setup-timeline-1x.webp",
+    "webp2x": "/zen/windows/setup-timeline-2x.webp",
+    "width": 320,
+    "height": 260
+  },
+  "windows/setup-ai.png": {
+    "png": "/zen/windows/setup-ai.png",
+    "webp1x": "/zen/windows/setup-ai-1x.webp",
+    "webp2x": "/zen/windows/setup-ai-2x.webp",
+    "width": 320,
+    "height": 260
+  },
+  "android/home.png": {
+    "png": "/zen/android/home.png",
+    "webp1x": "/zen/android/home-1x.webp",
+    "webp2x": "/zen/android/home-2x.webp",
+    "width": 260,
+    "height": 578
+  },
+  "android/drawer.png": {
+    "png": "/zen/android/drawer.png",
+    "webp1x": "/zen/android/drawer-1x.webp",
+    "webp2x": "/zen/android/drawer-2x.webp",
+    "width": 260,
+    "height": 578
+  },
+  "android/focus.png": {
+    "png": "/zen/android/focus.png",
+    "webp1x": "/zen/android/focus-1x.webp",
+    "webp2x": "/zen/android/focus-2x.webp",
+    "width": 260,
+    "height": 578
+  },
+  "android/app-mode.png": {
+    "png": "/zen/android/app-mode.png",
+    "webp1x": "/zen/android/app-mode-1x.webp",
+    "webp2x": "/zen/android/app-mode-2x.webp",
+    "width": 260,
+    "height": 578
+  },
+  "android/screen-time.png": {
+    "png": "/zen/android/screen-time.png",
+    "webp1x": "/zen/android/screen-time-1x.webp",
+    "webp2x": "/zen/android/screen-time-2x.webp",
+    "width": 260,
+    "height": 578
+  },
+  "android/screen-free.png": {
+    "png": "/zen/android/screen-free.png",
+    "webp1x": "/zen/android/screen-free-1x.webp",
+    "webp2x": "/zen/android/screen-free-2x.webp",
+    "width": 260,
+    "height": 578
+  }
+}
