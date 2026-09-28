@@ -3,12 +3,13 @@
 //
 // The site builds with `output: "export"` (next.config.ts), so there is no
 // Next.js server at runtime — every `fetch` here runs once during `next
-// build` and its result is baked into the static HTML. The `revalidate`
-// option below is what a normal (server-hosted) Next.js deployment would use
-// to refresh this data on a schedule; it is inert under a static export
-// (there is nothing to revalidate after the files are on disk), but it costs
-// nothing to leave in place and it documents the intended cache lifetime if
-// this site ever moves off static export.
+// build` and its result is baked into the static HTML. Next.js still keeps
+// those responses in its data cache (.next/cache/fetch-cache), and that cache
+// survives between builds: with a plain URL and `revalidate`, a deploy built
+// within the hour after an earlier one silently reused the old release (the
+// page kept showing v1.0.9 after v1.0.10 shipped). Each build therefore
+// fetches with a per-build query stamp, so every deploy reads the release
+// that is actually live. The public download links never carry the stamp.
 //
 // Every fetch is wrapped so a GitHub API failure (rate limit, no network
 // during an offline/CI build, GitHub outage) can never fail `next build`. On
@@ -27,7 +28,14 @@ export const ZEN_SHA256SUMS_URL = `${LATEST_DOWNLOAD_BASE}/SHA256SUMS.txt`;
 export const ZEN_RELEASES_REPO_URL = `https://github.com/${OWNER}/${REPO}`;
 export const ZEN_ALL_RELEASES_URL = `https://github.com/${OWNER}/${REPO}/releases`;
 
-const REVALIDATE_SECONDS = 60 * 60; // 1 hour — see note above.
+const REVALIDATE_SECONDS = 60 * 60;
+// One value per `next build` process: a fresh cache key for every deploy (see note above).
+const BUILD_STAMP = Date.now().toString(36);
+
+/** The URL to fetch at build time - never shown to visitors. */
+function freshUrl(url: string): string {
+  return `${url}${url.includes("?") ? "&" : "?"}build=${BUILD_STAMP}`;
+}
 const FETCH_TIMEOUT_MS = 8000;
 
 interface GithubReleaseAsset {
@@ -97,7 +105,7 @@ function parseShaSums(text: string): Map<string, string> {
 
 async function fetchShaSums(): Promise<Map<string, string>> {
   try {
-    const res = await fetchWithTimeout(ZEN_SHA256SUMS_URL, REVALIDATE_SECONDS);
+    const res = await fetchWithTimeout(freshUrl(ZEN_SHA256SUMS_URL), REVALIDATE_SECONDS);
     if (!res.ok) return new Map();
     return parseShaSums(await res.text());
   } catch {
@@ -113,7 +121,7 @@ async function fetchShaSums(): Promise<Map<string, string>> {
  */
 async function fetchReleaseJson(): Promise<GithubReleaseResponse | null> {
   try {
-    const res = await fetchWithTimeout(RELEASES_API, REVALIDATE_SECONDS);
+    const res = await fetchWithTimeout(freshUrl(RELEASES_API), REVALIDATE_SECONDS);
     return res.ok ? ((await res.json()) as GithubReleaseResponse) : null;
   } catch {
     // No network at build time, GitHub API rate limit, or the repo/release
