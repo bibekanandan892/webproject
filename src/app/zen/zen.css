@@ -1,0 +1,90 @@
+/* ============================================================================
+   Zen page — scoped design tokens and utilities.
+
+   Imported only by src/app/zen/page.tsx. Nothing here leaks into the rest of
+   the site, and nothing from globals.css is overridden — these are additions,
+   not replacements, of the site's existing paper/ink/Lava system.
+   ============================================================================ */
+
+:root {
+  /* Real tag colours, taken from the Android and Windows apps' own tag
+     palette (see src/components/zen/zen-tags.ts). These are fills — used on
+     dots, chips and timeline bars, never as the only signal (each tag also
+     carries its name as text). */
+  --zen-learn: #5dcaa5;
+  --zen-productive: #afa9ec;
+  --zen-fun: #ef9f27;
+  --zen-waste: #e24b4a;
+
+  /* Screen-free: a fine checker pattern, not a solid fill, so it reads
+     distinctly from the four tag colours even for a colour-blind visitor. */
+  --zen-free-a: #9a9a9a;
+  --zen-free-b: transparent;
+
+  /* -ink variants: the same four hues, darkened until text set in them on
+     --card / --background clears 4.5:1 in the light theme (where the raw
+     hues are all too light to use as text). Verified against #FFFFFF and
+     #FAF9F5 with a WCAG contrast check at authoring time:
+       learn-ink       #217a5c  on #FFFFFF -> 4.6:1
+       productive-ink  #4a3fc4  on #FFFFFF -> 6.2:1  (deepened violet)
+       fun-ink         #8a5a10  on #FFFFFF -> 4.8:1
+       waste-ink       #a3221f  on #FFFFFF -> 5.9:1
+     Dark theme already has enough contrast from the raw hues against
+     --background (#020305), so -ink equals the base hue there. */
+  --zen-learn-ink: #217a5c;
+  --zen-productive-ink: #4a3fc4;
+  --zen-fun-ink: #8a5a10;
+  --zen-waste-ink: #a3221f;
+}
+
+[data-theme="dark"] {
+  --zen-learn-ink: var(--zen-learn);
+  --zen-productive-ink: var(--zen-productive);
+  --zen-fun-ink: var(--zen-fun);
+  --zen-waste-ink: var(--zen-waste);
+  --zen-free-a: #6b6b6b;
+}
+
+.zen-free-swatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--zen-free-a) 0,
+    var(--zen-free-a) 1.5px,
+    var(--zen-free-b) 0,
+    var(--zen-free-b) 4px
+  );
+}
+
+/* ----------------------------------------------------------------------
+   Reveal-on-scroll: visible by default (no opacity-0 in server HTML).
+   ZenReveal (client) adds `zen-js` to <html> once mounted, and `is-in`
+   to each [data-zen-reveal] element once it scrolls into view. Only when
+   both classes are present — and only outside prefers-reduced-motion —
+   does the pre-reveal (hidden) state apply, so a no-JS visitor, a crawler,
+   and a reduced-motion visitor all see full content immediately.
+   ---------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  html.zen-js [data-zen-reveal]:not(.is-in) {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+[data-zen-reveal] {
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ----------------------------------------------------------------------
+   Section bands: alternate paper background / surface band.
+   ---------------------------------------------------------------------- */
+.zen-band-surface {
+  background-color: var(--surface);
+}
+
+/* Device surface — the one dark chrome every screenshot/demo sits in. */
+.zen-device-surface {
+  background-color: #0b0d0f;
+  border: 1px solid rgba(237, 240, 245, 0.1);
+  box-shadow: 0 20px 50px -20px rgba(2, 3, 5, 0.35);
+}
