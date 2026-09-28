@@ -26,7 +26,7 @@ export function ZenCopyButton({ value, label }: { value: string; label: string }
     >
       {copied ? (
         <>
-          <Check className="h-3 w-3 text-emerald-400" />
+          <Check className="h-3 w-3 text-[color:var(--zen-learn)]" />
           <span>Copied</span>
         </>
       ) : (

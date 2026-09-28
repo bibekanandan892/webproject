@@ -1,88 +1,76 @@
-"use client";
-
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { ZenSection } from "./zen-section";
+import type { ZenRelease } from "@/lib/zen-release";
 
-interface FaqItem {
-  q: string;
-  a: string;
-}
-
-const FAQS: FaqItem[] = [
+const FAQS = [
   {
     q: "Is Zen free?",
-    a: "Yes. Zen is a personal project, free to download and use, with no ads and no in-app purchases. A ~2 MB build without on-device AI tagging is also available if you want the smaller install.",
+    a: "Yes — free to download and use, no ads, no in-app purchases.",
   },
   {
     q: "Does any of my data leave my device?",
-    a: "By default, no. Everything — usage stats, tags, the age meter, notification inbox — lives in a local database on your phone or PC. Data only leaves the device if you explicitly turn on Drive sync, and even then it goes to a hidden folder in your own Google Drive, never to a server either of us runs.",
+    a: "By default, no. Everything lives in a local database on your phone or PC. Data only leaves if you turn on Drive sync — and even then it goes to a hidden folder in your own Google Drive, never a server either of us runs.",
   },
   {
-    q: "Why does Android call Zen an \"unknown developer\"? Is that dangerous?",
-    a: "It just means the app isn't distributed through the Play Store. Zen needs permissions (Accessibility, notification access) that Play's policies don't allow for this kind of app, so it's a direct APK download instead. Google Play Protect may also warn about this on install — that's expected for any sideloaded app, not a sign something's wrong. The installer for Windows is unsigned for the same personal-project reason, which is why SmartScreen shows a warning too.",
+    q: "Why does Android call Zen an \"unknown developer\"?",
+    a: "It just means the app isn't distributed through the Play Store — Zen needs permissions the Play Store's policies don't allow for this kind of app, so it's a direct APK download instead. That warning is expected for any sideloaded app.",
   },
   {
     q: "Does Zen work if I don't set it as my home screen?",
-    a: "Yes. In app mode it runs alongside your current launcher and still tracks and tags your day, still runs the wait timer and unbypassable blocks, still shows the age meter — you just won't get the extra friction of Zen's calm home screen replacing your app grid.",
+    a: "Yes. In app mode it runs alongside your current launcher and still tracks, tags, and shows the age meter — you just skip the extra friction of Zen's home screen replacing your app grid.",
   },
   {
     q: "I have an iPhone or a Mac — can I use Zen?",
-    a: "Not yet. Zen is Android and Windows only today. There's no timeline for iOS or macOS support.",
+    a: "Not yet. Zen is Android and Windows only today, with no timeline for iOS or macOS.",
   },
   {
     q: "How do I update Zen?",
-    a: "Android: download the latest Zen.apk from this page and install over the existing app — it upgrades in place as long as it's signed with the same release key. Windows: run the latest ZenDesktopSetup.exe; the installer upgrades your existing install without a separate uninstall step.",
+    a: "Android: install the latest Zen.apk over the existing app. Windows: run the latest ZenDesktopSetup.exe — it upgrades your install in place.",
   },
 ];
 
-export function ZenFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+const CURIOUS_ROWS = (release: ZenRelease) => [
+  { label: "Android package", value: "com.bibek.zen" },
+  { label: "OS support", value: "Android 8.0+ (API 26+), 64-bit only" },
+  { label: "Android stack", value: "Kotlin · Jetpack Compose (Material 3) · Room SQLite" },
+  { label: "Android on-device AI", value: "Gemma 3 1B via MediaPipe (~555 MB). Optional: you download it once from Hugging Face (free account, Gemma terms) and pick the file in Zen" },
+  { label: "Windows stack", value: "Windows 10 (1809+) / 11 · .NET 8 · WPF · local SQLite" },
+  { label: "Windows on-device AI", value: "Qwen2.5 1.5B (~1.1 GB), or your own Ollama" },
+  { label: "Sync transport", value: "Google Drive appDataFolder (hidden, app-only)" },
+  { label: "Current release", value: release.version ?? "see the Download section above" },
+];
 
+export function ZenFaq({ release }: { release: ZenRelease }) {
   return (
-    <section id="faq" className="mx-auto max-w-6xl px-6 py-20 md:py-28 border-t border-border">
-      <div className="flex flex-col items-start gap-3">
-        <div className="flex items-center gap-2">
-          <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            13
-          </span>
-          <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-            Common Questions
-          </span>
-        </div>
-        <h2 className="font-sans text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          FAQ
-        </h2>
+    <ZenSection id="faq" eyebrow="Questions" title="FAQ" tone="surface">
+      <div className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+        {FAQS.map((item) => (
+          <details key={item.q} className="group px-6 py-4">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span className="font-sans text-sm font-semibold text-foreground">{item.q}</span>
+              <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+            </summary>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+          </details>
+        ))}
       </div>
 
-      <div className="mt-10 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
-        {FAQS.map((item, i) => {
-          const isOpen = openIndex === i;
-          return (
-            <div key={item.q}>
-              <button
-                type="button"
-                onClick={() => setOpenIndex(isOpen ? null : i)}
-                aria-expanded={isOpen}
-                className="flex w-full items-center justify-between gap-4 px-6 py-4.5 text-left"
-              >
-                <span className="font-sans text-sm font-semibold text-foreground">
-                  {item.q}
-                </span>
-                <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {isOpen && (
-                <div className="px-6 pb-5">
-                  <p className="text-sm leading-relaxed text-muted-foreground">{item.a}</p>
-                </div>
-              )}
+      <details className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
+        <summary className="cursor-pointer font-sans text-sm font-semibold text-foreground">
+          For the curious — tech stack &amp; specs
+        </summary>
+        <div className="mt-5 divide-y divide-border font-sans text-xs">
+          {CURIOUS_ROWS(release).map((row) => (
+            <div key={row.label} className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-12 sm:items-center">
+              <span className="font-medium text-muted-foreground sm:col-span-4">{row.label}</span>
+              <span className="font-mono text-foreground sm:col-span-8">{row.value}</span>
             </div>
-          );
-        })}
-      </div>
-    </section>
+          ))}
+        </div>
+        <p className="mt-4 font-mono text-[11px] text-muted-foreground">
+          Version numbers on this page always come from the latest GitHub release, never hard-coded.
+        </p>
+      </details>
+    </ZenSection>
   );
 }
