@@ -1,170 +1,87 @@
-"use client";
+import { Database, EyeOff, CloudOff } from "lucide-react";
+import { ZenSection } from "./zen-section";
 
-import { ShieldCheck, Lock, Database, EyeOff, CheckCircle2, AlertCircle } from "lucide-react";
+const STATEMENTS = [
+  {
+    icon: Database,
+    title: "Everything lives on your device",
+    desc: "Usage stats, tags, the age meter — all in a local database on your phone or PC.",
+  },
+  {
+    icon: CloudOff,
+    title: "Sync is opt-in and off by default",
+    desc: "Nothing leaves the device until you sign in and turn on sync in Settings.",
+  },
+  {
+    icon: EyeOff,
+    title: "No analytics, no accounts to create",
+    desc: "No tracking SDK and nothing sent anywhere just to watch how you use the app.",
+  },
+];
 
 const PERMISSIONS = [
   {
-    name: "Usage Access",
+    name: "Usage access",
     badge: "Optional",
-    purpose: "Calculates total app screen time, today's timeline bars, and screen-free breaks.",
-    technical: "Reads standard Android UsageStatsManager event intervals. Does not read content.",
-    status: "Granted via Android Settings → Usage Access",
+    body: "Powers today's timeline and screen-time totals by reading Android's standard usage stats — how long each app was in front, never what was on screen.",
   },
   {
-    name: "Accessibility (Zen Focus)",
+    name: "Accessibility",
     badge: "Optional",
-    purpose: "Powers wait timers, unskippable app blocking, per-app grayscale, YouTube Shorts isolation, Chrome domain tracking, and unlock rewards.",
-    technical: "Window-content access is on, but used in exactly two places: in Chrome it reads the address bar and keeps only the domain (never the full URL), and in YouTube it checks view IDs (never text) to spot the Shorts player. Everywhere else it only sees which app is in front — never what you type, passwords, or messages.",
-    status: "Granted via Android Settings → Accessibility",
+    body: "Powers the wait timer, blocks, grayscale and unlock rewards. Window-content reads happen in exactly two places: in Chrome, Zen reads the address bar and keeps only the domain, never the full URL; on YouTube, it checks view IDs — never text — to spot the Shorts player. Everywhere else it only sees which app is in front, never what you type or read.",
   },
   {
-    name: "Notification Access",
+    name: "Notification access",
     badge: "Optional",
-    purpose: "Tracks active YouTube video playback duration (via media session notifications) and routes distracting apps to Zen's quiet in-app inbox.",
-    technical: "Filtered notifications are saved in a local Room database capped at the 200 newest items and completely excluded from cloud backups.",
-    status: "Granted via Android Settings → Notification Listener",
+    body: "Routes distracting notifications into Zen's own quiet inbox, and reads YouTube's now-playing notification to time watch sessions. Saved notifications are capped at 200 and excluded from backups.",
   },
   {
-    name: "Write Secure Settings (ADB)",
-    badge: "Optional · One-Time",
-    purpose: "Enables per-app monochrome (system-level grayscale toggle).",
-    technical: "Requires a single adb pm grant command. Completely optional if you don't use grayscale.",
-    status: "Granted once via adb shell pm grant",
+    name: "Write secure settings",
+    badge: "Optional · one-time (ADB)",
+    body: "A single one-time adb command enables per-app grayscale. Skip it entirely if you don't use that feature.",
   },
 ];
 
 export function ZenPrivacy() {
   return (
-    <section id="privacy" className="mx-auto max-w-6xl px-6 py-20 md:py-28 border-t border-border">
-      {/* Section Header */}
-      <div className="flex flex-col items-start gap-3">
-        <div className="flex items-center gap-2">
-          <span className="flex h-5 w-5 items-center justify-center rounded bg-foreground text-background font-mono text-[10px] font-bold">
-            10
-          </span>
-          <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-            Trust & Security
-          </span>
-        </div>
-        <h2 className="font-sans text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Privacy & Permissions: Each Strictly Optional
-        </h2>
-        <p className="max-w-3xl font-serif text-lg text-muted-foreground leading-relaxed">
-          Zen has zero analytics SDKs, zero cloud tracking, zero remote servers, and zero
-          telemetry — on Android or on Windows. Every capability is powered strictly by
-          local APIs, and cross-device sync is opt-in and off by default.
-        </p>
-      </div>
-
-      {/* Desktop privacy notes */}
-      <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
-        <h3 className="font-sans text-base font-bold text-foreground">On Windows, the same rules</h3>
-        <ul className="mt-4 grid grid-cols-1 gap-2.5 text-xs text-muted-foreground sm:grid-cols-2">
-          <li className="flex items-start gap-2">
-            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
-            <span>Everything lives in a local SQLite database on the PC — nothing leaves it unless sync is turned on.</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
-            <span>Keyboard and mouse input is counted to judge activity, but never recorded — no keylogging.</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
-            <span>Browser URLs are stored as domains only by default; a setting can turn on full URLs.</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 mt-0.5" />
-            <span>All Devices sync writes to a hidden, app-only folder in your own Google Drive — never a third-party server.</span>
-          </li>
-        </ul>
-      </div>
-
-      {/* Core Privacy Pillars */}
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        <div className="rounded-xl border border-border bg-card p-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
-            <Database className="h-5 w-5" />
-          </div>
-          <h3 className="mt-4 font-sans text-base font-semibold text-foreground">
-            100% Local SQLite DB
-          </h3>
-          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            All usage metrics, schedules, favorites, and watch logs live solely inside
-            an encrypted Room database on your physical device.
-          </p>
-        </div>
-
-        <div className="rounded-xl border border-border bg-card p-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
-            <EyeOff className="h-5 w-5" />
-          </div>
-          <h3 className="mt-4 font-sans text-base font-semibold text-foreground">
-            Narrow, Stated Reads
-          </h3>
-          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Zen Focus mostly sees only which app is open. It reads content in two
-            places: Chrome&apos;s address bar (kept as the domain only) and YouTube&apos;s
-            view IDs (to detect Shorts). It never reads what you type.
-          </p>
-        </div>
-
-        <div className="rounded-xl border border-border bg-card p-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
-            <Lock className="h-5 w-5" />
-          </div>
-          <h3 className="mt-4 font-sans text-base font-semibold text-foreground">
-            Excluded from Backups
-          </h3>
-          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Your notification inbox and sensitive usage logs are explicitly excluded from
-            Google Drive and Android cloud transfers (<code className="font-mono text-[11px] bg-secondary px-1 py-0.5 rounded">data_extraction_rules.xml</code>).
-          </p>
-        </div>
-      </div>
-
-      {/* Permissions Breakdown Table */}
-      <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-        <div className="border-b border-border bg-secondary/30 px-6 py-4">
-          <h3 className="font-sans text-sm font-semibold text-foreground">
-            Permission Manifest & System Access Map
-          </h3>
-          <p className="text-xs text-muted-foreground">
-            Every permission is requested just-in-time only when you enable the corresponding feature.
-          </p>
-        </div>
-
-        <div className="divide-y divide-border">
-          {PERMISSIONS.map((perm) => (
-            <div
-              key={perm.name}
-              className="grid grid-cols-1 gap-4 p-6 sm:grid-cols-12 sm:items-start"
-            >
-              <div className="sm:col-span-4">
-                <div className="flex items-center gap-2">
-                  <p className="font-sans text-sm font-semibold text-foreground">
-                    {perm.name}
-                  </p>
-                  <span className="rounded border border-border bg-secondary px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-                    {perm.badge}
-                  </span>
-                </div>
-                <p className="mt-1 font-mono text-[11px] text-muted-foreground">
-                  {perm.status}
-                </p>
-              </div>
-
-              <div className="sm:col-span-8 flex flex-col gap-1.5">
-                <p className="text-xs text-foreground leading-relaxed">
-                  <span className="font-semibold">Why it&apos;s needed:</span> {perm.purpose}
-                </p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  <span className="font-mono text-[11px] text-foreground">Under the hood:</span> {perm.technical}
-                </p>
-              </div>
+    <ZenSection
+      id="privacy"
+      eyebrow="Private by design"
+      title="No analytics. Nothing leaves unless you say so."
+      lede="Every permission below is optional, requested only when you turn on the feature that needs it — and each one does less than you'd guess."
+      tone="surface"
+    >
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {STATEMENTS.map((s) => {
+          const Icon = s.icon;
+          return (
+            <div key={s.title} className="rounded-xl border border-border bg-card p-5">
+              <Icon className="h-5 w-5 text-muted-foreground" />
+              <h3 className="mt-3 font-sans text-sm font-semibold text-foreground">{s.title}</h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{s.desc}</p>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
-    </section>
+
+      <div className="mt-8 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+        {PERMISSIONS.map((p) => (
+          <details key={p.name} className="group px-6 py-4">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span className="flex items-center gap-2.5">
+                <span className="font-sans text-sm font-semibold text-foreground">{p.name}</span>
+                <span className="rounded border border-border bg-secondary px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                  {p.badge}
+                </span>
+              </span>
+              <span className="font-mono text-xs text-muted-foreground transition-transform group-open:rotate-45">
+                +
+              </span>
+            </summary>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+          </details>
+        ))}
+      </div>
+    </ZenSection>
   );
 }
