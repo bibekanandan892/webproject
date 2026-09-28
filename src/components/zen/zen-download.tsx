@@ -67,14 +67,29 @@ export function ZenDownload({ release }: { release: ZenRelease }) {
       </div>
 
       {/* Tabs */}
-      <div className="mt-8" role="tablist" aria-label="Choose your platform">
-        <div className="inline-flex rounded-xl border border-border bg-card p-1">
+      <div className="mt-8">
+        <div
+          role="tablist"
+          aria-label="Choose your platform"
+          className="inline-flex rounded-xl border border-border bg-card p-1"
+          onKeyDown={(e) => {
+            // ARIA tabs: arrow keys move between the two platforms.
+            if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+            e.preventDefault();
+            const next = active === "android" ? "windows" : "android";
+            setTab(next);
+            document.getElementById(`zen-tab-${next}`)?.focus();
+          }}
+        >
           {(["android", "windows"] as const).map((p) => (
             <button
               key={p}
               type="button"
               role="tab"
+              id={`zen-tab-${p}`}
               aria-selected={active === p}
+              aria-controls="zen-tabpanel"
+              tabIndex={active === p ? 0 : -1}
               onClick={() => setTab(p)}
               className={`rounded-lg px-5 py-2 font-sans text-sm font-medium transition-all ${
                 active === p ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"
@@ -85,7 +100,13 @@ export function ZenDownload({ release }: { release: ZenRelease }) {
           ))}
         </div>
 
-        <div className="mt-6 rounded-2xl border border-border bg-card p-6 sm:p-8">
+        <div
+          id="zen-tabpanel"
+          role="tabpanel"
+          aria-labelledby={`zen-tab-${active}`}
+          tabIndex={0}
+          className="mt-6 rounded-2xl border border-border bg-card p-6 sm:p-8"
+        >
           {active === "android" ? (
             <PlatformPanel
               href={ZEN_ANDROID_APK_URL}
@@ -108,7 +129,7 @@ export function ZenDownload({ release }: { release: ZenRelease }) {
               steps={[
                 "Download and run ZenDesktopSetup.exe.",
                 "SmartScreen will likely show \"Windows protected your PC\" because the installer isn't code-signed. Click More info → Run anyway.",
-                "No admin rights needed. A setup wizard walks you through the browser extension and everything else in one pass.",
+                "No admin rights needed. A setup wizard walks you through tracking, tagging, AI and sync. The browser extension is loaded by hand (Developer mode → Load unpacked) — the wizard shows you where.",
               ]}
               uninstall="Settings → Apps, find Zen Desktop, and uninstall — or use the “Uninstall Zen Desktop” shortcut in the Start menu. You'll be asked whether to also delete your local data."
             />

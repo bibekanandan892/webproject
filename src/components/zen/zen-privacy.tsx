@@ -14,7 +14,7 @@ const STATEMENTS = [
   },
   {
     icon: EyeOff,
-    title: "No analytics, no accounts to create",
+    title: "No analytics, no Zen account",
     desc: "No tracking SDK and nothing sent anywhere just to watch how you use the app.",
   },
 ];

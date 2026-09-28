@@ -5,7 +5,7 @@ import type { ZenRelease } from "@/lib/zen-release";
 const FAQS = [
   {
     q: "Is Zen free?",
-    a: "Yes — free to download and use, no ads, no in-app purchases. A smaller build without on-device AI tagging is also available.",
+    a: "Yes — free to download and use, no ads, no in-app purchases.",
   },
   {
     q: "Does any of my data leave my device?",
@@ -33,7 +33,7 @@ const CURIOUS_ROWS = (release: ZenRelease) => [
   { label: "Android package", value: "com.bibek.zen" },
   { label: "OS support", value: "Android 8.0+ (API 26+), 64-bit only" },
   { label: "Android stack", value: "Kotlin · Jetpack Compose (Material 3) · Room SQLite" },
-  { label: "Android on-device AI", value: "Gemma 3 1B via MediaPipe (~555 MB, downloaded once)" },
+  { label: "Android on-device AI", value: "Gemma 3 1B via MediaPipe (~555 MB). Optional: you download it once from Hugging Face (free account, Gemma terms) and pick the file in Zen" },
   { label: "Windows stack", value: "Windows 10 (1809+) / 11 · .NET 8 · WPF · local SQLite" },
   { label: "Windows on-device AI", value: "Qwen2.5 1.5B (~1.1 GB), or your own Ollama" },
   { label: "Sync transport", value: "Google Drive appDataFolder (hidden, app-only)" },

@@ -26,7 +26,7 @@ const FEATURES = [
   {
     icon: Wand2,
     title: "Setup wizard",
-    desc: "One guided pass on first run: tracking, tagging, the extension and sync all get decided.",
+    desc: "One guided pass on first run for tracking, tagging, AI and sync. The browser extension takes one manual step: Developer mode, then Load unpacked.",
     shot: "windows/setup-welcome.png",
   },
 ];
