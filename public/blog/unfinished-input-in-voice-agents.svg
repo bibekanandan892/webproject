@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Unfinished input: digit boxes for a phone number, the first six filled and the last four still empty.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" text-anchor="middle">
+<g fill="#FFFFFF" stroke="#141413" stroke-width="2.5">
+<rect x="60" y="140" width="50" height="64" rx="7"/><rect x="116" y="140" width="50" height="64" rx="7"/><rect x="172" y="140" width="50" height="64" rx="7"/>
+<rect x="250" y="140" width="50" height="64" rx="7"/><rect x="306" y="140" width="50" height="64" rx="7"/><rect x="362" y="140" width="50" height="64" rx="7"/>
+</g>
+<g fill="#141413"><text x="85" y="183">4</text><text x="141" y="183">1</text><text x="197" y="183">5</text><text x="275" y="183">5</text><text x="331" y="183">5</text><text x="387" y="183">5</text></g>
+<g fill="none" stroke="#5E5D59" stroke-opacity="0.5" stroke-width="2.5" stroke-dasharray="6 5">
+<rect x="440" y="140" width="50" height="64" rx="7"/><rect x="496" y="140" width="50" height="64" rx="7"/><rect x="552" y="140" width="50" height="64" rx="7"/><rect x="608" y="140" width="50" height="64" rx="7"/>
+</g>
+</g>
+<text x="680" y="182" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">6 / 10</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">not finished until it has the right shape</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">unfinished input</text>
+</svg>
