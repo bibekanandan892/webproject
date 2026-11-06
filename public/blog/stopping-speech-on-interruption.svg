@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Stopping speech on interruption: a pipeline of audio buffers ending in a speaker, with a stop signal racing along to clear every buffer.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="#5E5D59" fill-opacity="0.25" stroke="rgba(20,20,19,0.3)" stroke-width="1.5">
+<rect x="60" y="150" width="110" height="60" rx="8"/><rect x="200" y="150" width="110" height="60" rx="8"/><rect x="340" y="150" width="110" height="60" rx="8"/><rect x="480" y="150" width="110" height="60" rx="8"/>
+</g>
+<g stroke="#5E5D59" stroke-opacity="0.5" stroke-width="2.5"><path d="M170 180 H200 M310 180 H340 M450 180 H480 M590 180 H630"/></g>
+<path d="M635 160 L670 140 V220 L635 200 Z" fill="#141413" fill-opacity="0.8"/>
+<g stroke="#141413" stroke-width="3"><path d="M690 160 L720 200 M720 160 L690 200"/></g>
+<path d="M60 110 H600" stroke="#141413" stroke-width="4"/>
+<path d="M588 100 L604 110 L588 120" fill="none" stroke="#141413" stroke-width="4"/>
+<text x="60" y="96" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#141413">clear — every buffer, down to the device</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">3.2 s of talking over the user → 210 ms</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">stopping speech instantly</text>
+</svg>
