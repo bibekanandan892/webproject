@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="One-hot encoding: a grid of rows, each with a single filled cell on a diagonal.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="#5E5D59" fill-opacity="0.15" stroke="rgba(20,20,19,0.2)" stroke-width="1.5">
+<rect x="220" y="60" width="360" height="270"/>
+</g>
+<g stroke="rgba(20,20,19,0.2)" stroke-width="1.5">
+<path d="M280 60 V330 M340 60 V330 M400 60 V330 M460 60 V330 M520 60 V330"/>
+<path d="M220 105 H580 M220 150 H580 M220 195 H580 M220 240 H580 M220 285 H580"/>
+</g>
+<g fill="#141413" fill-opacity="0.8">
+<rect x="222" y="62" width="56" height="41"/><rect x="282" y="107" width="56" height="41"/><rect x="342" y="152" width="56" height="41"/><rect x="402" y="197" width="56" height="41"/><rect x="462" y="242" width="56" height="41"/><rect x="522" y="287" width="56" height="41"/>
+</g>
+<text x="60" y="380" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">one 1, everything else 0</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">one-hot encoding</text>
+</svg>
