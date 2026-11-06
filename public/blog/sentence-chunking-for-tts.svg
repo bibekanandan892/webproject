@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Sentence chunking for TTS: a stream of text blocks cut into groups, each group flowing into a speaker as a short waveform.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="#141413" fill-opacity="0.65"><rect x="60" y="110" width="30" height="30" rx="4"/><rect x="94" y="110" width="30" height="30" rx="4"/><rect x="128" y="110" width="30" height="30" rx="4"/><rect x="162" y="110" width="30" height="30" rx="4"/></g>
+<g fill="#5E5D59" fill-opacity="0.35"><rect x="222" y="110" width="30" height="30" rx="4"/><rect x="256" y="110" width="30" height="30" rx="4"/><rect x="290" y="110" width="30" height="30" rx="4"/><rect x="324" y="110" width="30" height="30" rx="4"/><rect x="358" y="110" width="30" height="30" rx="4"/><rect x="392" y="110" width="30" height="30" rx="4"/></g>
+<g fill="#5E5D59" fill-opacity="0.2"><rect x="452" y="110" width="30" height="30" rx="4"/><rect x="486" y="110" width="30" height="30" rx="4"/><rect x="520" y="110" width="30" height="30" rx="4"/><rect x="554" y="110" width="30" height="30" rx="4"/><rect x="588" y="110" width="30" height="30" rx="4"/><rect x="622" y="110" width="30" height="30" rx="4"/><rect x="656" y="110" width="30" height="30" rx="4"/><rect x="690" y="110" width="30" height="30" rx="4"/></g>
+<g stroke="#141413" stroke-width="3"><path d="M207 96 V154"/><path d="M437 96 V154"/></g>
+<path d="M60 230 l8 -24 l8 40 l8 -30 l8 20 l8 -30 l8 36 l8 -20 l8 10 l8 -10 l8 16 l8 -8 l8 0 l8 0 l8 0 l8 0 l8 0 l8 0" fill="none" stroke="#141413" stroke-width="3"/>
+<path d="M222 230 l8 -20 l8 30 l8 -30 l8 24 l8 -30 l8 36 l8 -24 l8 16 l8 -20 l8 30 l8 -20 l8 10 l8 -16 l8 20 l8 -10 l8 6 l8 0 l8 0 l8 0 l8 0 l8 0 l8 0" fill="none" stroke="#5E5D59" stroke-width="3"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">cut early first, then at sentence ends</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">sentence chunking for tts</text>
+</svg>
