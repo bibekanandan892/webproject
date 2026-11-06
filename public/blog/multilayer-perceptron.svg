@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Multilayer perceptron: a smooth curve traced by a chain of straight segments, each joint a ReLU kink.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 200 C150 40 250 40 340 200 C430 360 530 360 620 200 C670 110 710 90 740 100" stroke="#5E5D59" stroke-opacity="0.4" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M60 200 L110 112 L170 76 L230 76 L290 112 L340 200 L390 288 L450 324 L510 324 L570 288 L620 200 L680 118 L740 100" stroke="#141413" stroke-width="3.5" fill="none"/>
+<g fill="#FFFFFF" stroke="#141413" stroke-width="2.5">
+<circle cx="110" cy="112" r="6"/><circle cx="170" cy="76" r="6"/><circle cx="230" cy="76" r="6"/><circle cx="290" cy="112" r="6"/><circle cx="340" cy="200" r="6"/><circle cx="390" cy="288" r="6"/><circle cx="450" cy="324" r="6"/><circle cx="510" cy="324" r="6"/><circle cx="570" cy="288" r="6"/><circle cx="620" cy="200" r="6"/><circle cx="680" cy="118" r="6"/>
+</g>
+<text x="60" y="380" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">enough kinks follow any curve</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">multilayer perceptron</text>
+</svg>
