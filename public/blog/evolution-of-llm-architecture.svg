@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Evolution of LLM architecture: an old transformer block and a new one side by side, the same shape with every part replaced.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="110" y="80" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">2019</text>
+<text x="520" y="80" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">2026</text>
+<g fill="#5E5D59" fill-opacity="0.22" stroke="rgba(20,20,19,0.25)" stroke-width="1.5">
+<rect x="80" y="96" width="220" height="38" rx="7"/><rect x="80" y="142" width="220" height="38" rx="7"/><rect x="80" y="188" width="220" height="38" rx="7"/><rect x="80" y="234" width="220" height="38" rx="7"/><rect x="80" y="280" width="220" height="38" rx="7"/>
+</g>
+<g fill="#FFFFFF" stroke="#141413" stroke-width="2.5">
+<rect x="490" y="96" width="220" height="38" rx="7"/><rect x="490" y="142" width="220" height="38" rx="7"/><rect x="490" y="188" width="220" height="38" rx="7"/><rect x="490" y="234" width="220" height="38" rx="7"/><rect x="490" y="280" width="220" height="38" rx="7"/>
+</g>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" text-anchor="middle">
+<g fill="#5E5D59"><text x="190" y="121">absolute pos</text><text x="190" y="167">LayerNorm</text><text x="190" y="213">multi-head</text><text x="190" y="259">GELU</text><text x="190" y="305">dense</text></g>
+<g fill="#141413"><text x="600" y="121">RoPE</text><text x="600" y="167">RMSNorm</text><text x="600" y="213">GQA</text><text x="600" y="259">SwiGLU</text><text x="600" y="305">MoE</text></g>
+</g>
+<g stroke="#141413" stroke-opacity="0.5" stroke-width="2.5"><path d="M320 207 H470"/><path d="M458 199 L472 207 L458 215" fill="none"/></g>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">4.72 MB of cache per token → 0.33 MB</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">evolution of llm architecture</text>
+</svg>
