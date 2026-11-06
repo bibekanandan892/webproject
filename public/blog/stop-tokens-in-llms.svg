@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Stop tokens: a row of generated tokens ending in a distinct end-of-sequence token, after which nothing follows.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="#5E5D59" fill-opacity="0.3">
+<rect x="60" y="150" width="54" height="54" rx="8"/><rect x="122" y="150" width="54" height="54" rx="8"/><rect x="184" y="150" width="54" height="54" rx="8"/><rect x="246" y="150" width="54" height="54" rx="8"/><rect x="308" y="150" width="54" height="54" rx="8"/><rect x="370" y="150" width="54" height="54" rx="8"/>
+</g>
+<rect x="436" y="146" width="110" height="62" rx="10" fill="#141413" fill-opacity="0.85"/>
+<text x="491" y="185" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#F0EEE6" text-anchor="middle">&lt;eos&gt;</text>
+<g fill="none" stroke="#5E5D59" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="5 5">
+<rect x="558" y="150" width="54" height="54" rx="8"/><rect x="620" y="150" width="54" height="54" rx="8"/><rect x="682" y="150" width="54" height="54" rx="8"/>
+</g>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">miss it and 200 tokens become 4,096</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">stop tokens in llms</text>
+</svg>

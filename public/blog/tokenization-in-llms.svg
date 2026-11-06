@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Tokenization: a word broken into pieces, each piece mapped down to an integer ID.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="#FFFFFF" stroke="#141413" stroke-width="2.5">
+<rect x="60" y="100" width="150" height="58" rx="9"/><rect x="222" y="100" width="170" height="58" rx="9"/><rect x="404" y="100" width="90" height="58" rx="9"/><rect x="506" y="100" width="230" height="58" rx="9"/>
+</g>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#141413" text-anchor="middle">
+<text x="135" y="137">Token</text><text x="307" y="137">ization</text><text x="449" y="137">␣is</text><text x="621" y="137">␣important</text>
+</g>
+<g stroke="#5E5D59" stroke-opacity="0.5" stroke-width="2"><path d="M135 158 V214"/><path d="M307 158 V214"/><path d="M449 158 V214"/><path d="M621 158 V214"/></g>
+<g fill="#5E5D59" fill-opacity="0.24"><rect x="85" y="214" width="100" height="44" rx="7"/><rect x="257" y="214" width="100" height="44" rx="7"/><rect x="399" y="214" width="100" height="44" rx="7"/><rect x="571" y="214" width="100" height="44" rx="7"/></g>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59" text-anchor="middle">
+<text x="135" y="243">3404</text><text x="307" y="243">2065</text><text x="449" y="243">374</text><text x="621" y="243">3062</text>
+</g>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">the model only ever sees the numbers</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">tokenization in llms</text>
+</svg>
