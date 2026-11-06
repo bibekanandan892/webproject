@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Interruption vs background noise: the agent speaking while short blips and one long speech segment arrive from the user's side, only the long one marked as an interruption.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="100" width="680" height="40" rx="8" fill="#5E5D59" fill-opacity="0.3"/>
+<text x="76" y="126" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#5E5D59">agent speaking…</text>
+<g fill="#5E5D59" fill-opacity="0.5"><rect x="140" y="200" width="30" height="34" rx="5"/><rect x="290" y="200" width="22" height="34" rx="5"/><rect x="420" y="200" width="36" height="34" rx="5"/></g>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#5E5D59"><text x="126" y="256">mm-hmm</text><text x="282" y="256">cough</text><text x="420" y="256">tv</text></g>
+<rect x="540" y="196" width="200" height="42" rx="7" fill="#141413" fill-opacity="0.8"/>
+<text x="640" y="223" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#F0EEE6" text-anchor="middle">"wait, no—"</text>
+<path d="M540 90 V290" stroke="#141413" stroke-width="3" stroke-dasharray="6 5"/>
+<text x="548" y="290" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#141413">stop here only</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">150 ms: stops for 98.3% of backchannels</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">interruption or noise?</text>
+</svg>
