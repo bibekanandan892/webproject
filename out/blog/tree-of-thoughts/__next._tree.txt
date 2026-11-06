@@ -7,4 +7,4 @@
 :HL["/_next/static/css/43060c265a4dd412.css","style"]
 :HL["/_next/static/css/14c3451a030fd05e.css","style"]
 :HL["/blog/tree-of-thoughts.svg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"tree-of-thoughts","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"pAoRND46aF4f3iUSreXHC"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"tree-of-thoughts","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"bB-q0gWml2lUh1APrIz0Z"}

@@ -7,4 +7,4 @@
 :HL["/_next/static/css/43060c265a4dd412.css","style"]
 :HL["/_next/static/css/c9b5fdd980e801b2.css","style"]
 :HL["/zen/windows/dashboard-2x.webp","image",{"fetchPriority":"high"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"zen","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"pAoRND46aF4f3iUSreXHC"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"zen","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"bB-q0gWml2lUh1APrIz0Z"}
