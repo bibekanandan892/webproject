@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Optimizers: nested elliptical contours of a narrow valley, a zig-zag path and a smooth path both reaching the centre.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="none" stroke="#5E5D59" stroke-opacity="0.3" stroke-width="2">
+<ellipse cx="420" cy="190" rx="340" ry="80"/><ellipse cx="420" cy="190" rx="250" ry="58"/><ellipse cx="420" cy="190" rx="160" ry="36"/><ellipse cx="420" cy="190" rx="70" ry="15"/>
+</g>
+<path d="M90 140 L110 240 L140 146 L168 234 L200 152 L230 228 L262 158 L294 222 L326 166 L356 214 L388 176 L420 190" stroke="#5E5D59" stroke-width="3" fill="none"/>
+<path d="M90 140 C200 170 320 188 420 190" stroke="#141413" stroke-width="5" fill="none"/>
+<circle cx="420" cy="190" r="8" fill="#141413"/>
+<circle cx="90" cy="140" r="7" fill="#5E5D59"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">SGD 137 steps · momentum 83 · Adam 80</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">optimizers</text>
+</svg>
