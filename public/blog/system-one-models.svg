@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="System One models: an input arrow splitting into a fixed set of labelled options, one of them highlighted with its probability.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="150" width="140" height="60" rx="10" fill="#FFFFFF" stroke="#141413" stroke-width="2.5"/>
+<text x="130" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#141413" text-anchor="middle">situation</text>
+<g stroke="#5E5D59" stroke-opacity="0.35" stroke-width="2">
+<path d="M200 180 L360 90"/><path d="M200 180 L360 180"/><path d="M200 180 L360 225"/><path d="M200 180 L360 270"/>
+</g>
+<path d="M200 180 L360 135" stroke="#141413" stroke-width="4"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#5E5D59">
+<text x="372" y="96">technical  0.11</text>
+<text x="372" y="186">account    0.04</text>
+<text x="372" y="231">sales      0.02</text>
+<text x="372" y="276">other      0.01</text>
+</g>
+<rect x="364" y="118" width="300" height="30" rx="6" fill="#141413" fill-opacity="0.12"/>
+<text x="372" y="141" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="600" fill="#141413">billing    0.82</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">a typed decision, 241× less arithmetic</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">system one models</text>
+</svg>
