@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="KV cache compression: a long row of full-size cache blocks above a shorter row of fewer, thinner blocks.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="60" y="92" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">fp16, every token — 10.74 GB</text>
+<g fill="#5E5D59" fill-opacity="0.26" stroke="rgba(20,20,19,0.18)" stroke-width="1">
+<rect x="60" y="108" width="30" height="80"/><rect x="94" y="108" width="30" height="80"/><rect x="128" y="108" width="30" height="80"/><rect x="162" y="108" width="30" height="80"/><rect x="196" y="108" width="30" height="80"/><rect x="230" y="108" width="30" height="80"/><rect x="264" y="108" width="30" height="80"/><rect x="298" y="108" width="30" height="80"/><rect x="332" y="108" width="30" height="80"/><rect x="366" y="108" width="30" height="80"/><rect x="400" y="108" width="30" height="80"/><rect x="434" y="108" width="30" height="80"/><rect x="468" y="108" width="30" height="80"/><rect x="502" y="108" width="30" height="80"/><rect x="536" y="108" width="30" height="80"/><rect x="570" y="108" width="30" height="80"/><rect x="604" y="108" width="30" height="80"/><rect x="638" y="108" width="30" height="80"/><rect x="672" y="108" width="30" height="80"/><rect x="706" y="108" width="30" height="80"/>
+</g>
+<text x="60" y="236" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">int4, sinks + heavy hitters + recent — 0.60 GB</text>
+<g fill="#141413" fill-opacity="0.55">
+<rect x="60" y="254" width="30" height="22"/><rect x="94" y="254" width="30" height="22"/>
+<rect x="230" y="254" width="30" height="22"/>
+<rect x="434" y="254" width="30" height="22"/>
+<rect x="638" y="254" width="30" height="22"/><rect x="672" y="254" width="30" height="22"/><rect x="706" y="254" width="30" height="22"/>
+</g>
+<g fill="none" stroke="#5E5D59" stroke-opacity="0.3" stroke-dasharray="4 4">
+<rect x="128" y="254" width="98" height="22"/><rect x="264" y="254" width="166" height="22"/><rect x="468" y="254" width="166" height="22"/>
+</g>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">3 conversations in 40 GB becomes 66</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">kv cache compression</text>
+</svg>
