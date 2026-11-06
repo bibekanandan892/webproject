@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Backchannels: a long agent speech wave with small mm-hmm bubbles from the user floating beneath it, the wave unbroken.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 140 l12 -30 l12 46 l12 -36 l12 26 l12 -40 l12 44 l12 -28 l12 18 l12 -32 l12 40 l12 -30 l12 22 l12 -24 l12 30 l12 -18 l12 14 l12 -30 l12 36 l12 -24 l12 18 l12 -28 l12 34 l12 -20 l12 26 l12 -30 l12 36 l12 -22 l12 16 l12 -26 l12 30 l12 -20 l12 24 l12 -30 l12 34 l12 -22 l12 18 l12 -26 l12 30 l12 -14 l12 10 l12 -20 l12 24 l12 -12 l12 8 l12 -10 l12 12 l12 -6 l12 0 l12 0 l12 0 l12 0 l12 0 l12 0 l12 0 l12 0 l12 0 l12 0" fill="none" stroke="#141413" stroke-width="3"/>
+<g fill="#FFFFFF" stroke="#5E5D59" stroke-width="2">
+<rect x="180" y="220" width="104" height="36" rx="18"/><rect x="380" y="240" width="88" height="36" rx="18"/><rect x="560" y="220" width="104" height="36" rx="18"/>
+</g>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#5E5D59" text-anchor="middle"><text x="232" y="243">mm-hmm</text><text x="424" y="263">yeah</text><text x="612" y="243">right</text></g>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">hear it, and keep talking</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">backchannels</text>
+</svg>
