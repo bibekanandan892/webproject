@@ -1,0 +1,145 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","bias-variance-tradeoff",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","bias-variance-tradeoff","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/bias-variance-tradeoff.svg","image"]
+12:T1f92,<p>A model trained on one dataset is a guess. Draw a different sample from the same source — different customers, different patients, different noise — and you get a slightly different model, making slightly different predictions. The bias-variance tradeoff is about how that guess goes wrong.</p>
+<p>There are two ways.</p>
+<p><strong>Bias</strong> is error that persists no matter which sample you trained on. The model is systematically wrong because it is too simple to represent the truth — a straight line fitted to a curve misses the curve every time.</p>
+<p><strong>Variance</strong> is error that comes from the particular sample. The model is flexible enough to fit the truth, but also flexible enough to fit the noise, so it changes a lot from one dataset to the next.</p>
+<p>For squared error, the expected error on new data splits exactly into three parts:</p>
+<p><code>expected error = bias² + variance + irreducible noise</code></p>
+<p>The noise term is the randomness in the data itself; no model can remove it. The other two are the tradeoff.</p>
+<h2 id="a-simulation"><a class="heading-anchor" href="#a-simulation">A simulation</a></h2>
+<p>The true relationship is a sine curve over [−1, 1]. Each dataset has 15 evenly spaced points with noise of standard deviation 0.3 (so the irreducible noise is 0.09). I generated 400 such datasets, fitted polynomials of several degrees to each, and measured the error averaged over them:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>degree</th><th>training error</th><th>bias²</th><th>variance</th><th>expected test error</th></tr></thead><tbody><tr><td>1 (a line)</td><td>0.311</td><td><strong>0.2034</strong></td><td>0.011</td><td>0.304</td></tr><tr><td>3</td><td>0.073</td><td>0.0058</td><td>0.020</td><td><strong>0.116</strong></td></tr><tr><td>5</td><td>0.054</td><td>0.0001</td><td>0.031</td><td>0.121</td></tr><tr><td>9</td><td>0.030</td><td>0.0004</td><td>0.063</td><td>0.153</td></tr><tr><td>12</td><td><strong>0.010</strong></td><td>0.0002</td><td><strong>0.497</strong></td><td>0.587</td></tr></tbody></table>
+<p>Read the columns.</p>
+<p><strong>Bias falls fast.</strong> A line cannot bend, so it is wrong by 0.20 on average no matter what data it sees. By degree 3 the curve shape is captured and bias is nearly gone.</p>
+<p><strong>Variance rises steadily.</strong> Each added degree lets the fit chase more of the noise. At degree 12, with 13 coefficients for 15 points, the curve nearly passes through every noisy point — and swings wildly between them, differently for every dataset. Variance reaches 0.497.</p>
+<p><strong>Training error only goes down.</strong> Degree 12 has the lowest training error of all, 0.010, and the worst test error, 0.587 — almost twice as bad as the straight line. Training error rewards flexibility unconditionally; it cannot see variance.</p>
+<p><strong>The sweet spot is in the middle.</strong> Degree 3 has the lowest test error, 0.116: flexible enough to follow the sine, not so flexible that it follows the noise.</p>
+<figure>
+<svg viewBox="0 0 560 270" width="560" role="img" aria-label="U-shaped curve of test error against polynomial degree with falling bias squared and rising variance curves beneath it; the minimum is at degree 3. Training error falls monotonically." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">TEST ERROR IS A U; TRAINING ERROR IS A SLIDE</text>
+<path d="M70 36 V196 H500" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<text class="l" x="64" y="40" text-anchor="end">0.6</text><text class="l" x="64" y="200" text-anchor="end">0</text>
+<path d="M90 115 L155 165 L220 164 L350 155 L448 39" stroke="var(--primary)" stroke-width="2.6" fill="none"></path>
+<text class="b" x="452" y="44">test 0.587</text>
+<circle cx="155" cy="165" r="4" fill="var(--primary)"></circle><text class="b" x="160" y="182">degree 3 · 0.116</text>
+<path d="M90 113 L155 177 L220 182 L350 188 L448 193" stroke="var(--muted-foreground)" stroke-width="2" stroke-dasharray="5 3" fill="none"></path>
+<text class="l" x="452" y="196">train 0.010</text>
+<path d="M90 142 L155 194 L220 196 L350 196 L448 196" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.6" fill="none"></path>
+<text class="l" x="96" y="138">bias²</text>
+<path d="M90 193 L155 191 L220 188 L350 179 L448 63" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="1.6" fill="none"></path>
+<text class="l" x="400" y="96">variance</text>
+<text class="l" x="90" y="212">1</text><text class="l" x="155" y="212">3</text><text class="l" x="220" y="212">5</text><text class="l" x="350" y="212">9</text><text class="l" x="448" y="212">12 · degree</text>
+<path d="M20 228 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="250">bias falls, variance rises, and their sum has a minimum the training error cannot show</text>
+</svg>
+<figcaption>400 simulated datasets of 15 points from a sine curve with noise. Degree axis not to scale.</figcaption>
+</figure>
+<h2 id="recognising-which-problem-you-have"><a class="heading-anchor" href="#recognising-which-problem-you-have">Recognising which problem you have</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>symptom</th><th>likely problem</th></tr></thead><tbody><tr><td>training error high, test error similar</td><td><strong>high bias</strong> — underfitting</td></tr><tr><td>training error low, test error much higher</td><td><strong>high variance</strong> — overfitting</td></tr><tr><td>both low and close</td><td>about right</td></tr></tbody></table>
+<p>The gap between training and validation error is the practical signal of variance; the level of training error is the signal of bias.</p>
+<h2 id="what-to-do-about-each"><a class="heading-anchor" href="#what-to-do-about-each">What to do about each</a></h2>
+<p><strong>High bias:</strong> use a more flexible model, add better features, train longer, reduce regularisation.</p>
+<p><strong>High variance:</strong> get more data (the most reliable fix — variance shrinks as data grows), add regularisation, simplify the model, use data augmentation, stop training earlier, or average several models (ensembles and random forests reduce variance directly by averaging many high-variance models whose errors partly cancel).</p>
+<h2 id="the-tradeoff-in-modern-deep-learning"><a class="heading-anchor" href="#the-tradeoff-in-modern-deep-learning">The tradeoff in modern deep learning</a></h2>
+<p>Large neural networks often have far more parameters than training examples and still generalise well, which the classic U-curve would not predict. With enough data, implicit regularisation from the training process, explicit techniques like weight decay and dropout, and sometimes training well past the point of fitting the training set, very large models can land on smooth solutions rather than wild ones. The decomposition still holds — error is still bias² plus variance plus noise — but model size alone is a poor guide to where on the curve you are. Validation error remains the honest measure.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Prediction error on new data is bias² + variance + noise. Simple models are biased — systematically wrong; flexible models have variance — wrong differently for each dataset. In 400 simulated datasets, a line scored 0.304, degree 12 scored 0.587 despite the lowest training error, and degree 3 scored best at 0.116.</p>
+<p>Training error always favours flexibility; only held-out data shows variance. Diagnose with the train–validation gap, fix bias with capacity and features, and fix variance with data, regularisation and averaging.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"The bias-variance tradeoff"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T18:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Fit 15 noisy points with a straight line and it is wrong in the same way every time (bias). Fit them with a degree-12 polynomial and it is wrong in a different way every time (variance). Across 400 simulated datasets the line scores 0.304 on new data, degree 12 scores 0.587 despite the lowest training error, and degree 3 wins at 0.116."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/bias-variance-tradeoff.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/random-weight-initialization/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Why weights are initialised randomly"}]]}],["$","$Lf",null,{"href":"/blog/interruption-vs-background-noise/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Telling an interruption from a cough"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"a-simulation","text":"A simulation","level":2},{"id":"recognising-which-problem-you-have","text":"Recognising which problem you have","level":2},{"id":"what-to-do-about-each","text":"What to do about each","level":2},{"id":"the-tradeoff-in-modern-deep-learning","text":"The tradeoff in modern deep learning","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"The bias-variance tradeoff · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Fit 15 noisy points with a straight line and it is wrong in the same way every time (bias). Fit them with a degree-12 polynomial and it is wrong in a different way every time (variance). Across 400 simulated datasets the line scores 0.304 on new data, degree 12 scores 0.587 despite the lowest training error, and degree 3 wins at 0.116."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"bias-variance,overfitting,underfitting,generalisation,fundamentals"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/bias-variance-tradeoff/"}],["$","meta","6",{"property":"og:title","content":"The bias-variance tradeoff"}],["$","meta","7",{"property":"og:description","content":"Fit 15 noisy points with a straight line and it is wrong in the same way every time (bias). Fit them with a degree-12 polynomial and it is wrong in a different way every time (variance). Across 400 simulated datasets the line scores 0.304 on new data, degree 12 scores 0.587 despite the lowest training error, and degree 3 wins at 0.116."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/bias-variance-tradeoff/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T18:30"}],["$","meta","11",{"property":"article:tag","content":"bias-variance"}],["$","meta","12",{"property":"article:tag","content":"overfitting"}],["$","meta","13",{"property":"article:tag","content":"underfitting"}],["$","meta","14",{"property":"article:tag","content":"generalisation"}],["$","meta","15",{"property":"article:tag","content":"fundamentals"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"The bias-variance tradeoff"}],["$","meta","18",{"name":"twitter:description","content":"Fit 15 noisy points with a straight line and it is wrong in the same way every time (bias). Fit them with a degree-12 polynomial and it is wrong in a different way every time (variance). Across 400 simulated datasets the line scores 0.304 on new data, degree 12 scores 0.587 despite the lowest training error, and degree 3 wins at 0.116."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

@@ -1,0 +1,154 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/top-k-and-top-p-sampling.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T21f2,<p>A language model's vocabulary has tens of thousands of tokens, and at every step every one of them gets some probability. Almost all of those probabilities are tiny. But there are so many of them that, together, they add up — and sampling from the full distribution means occasionally drawing one.</p>
+<p>That is the long tail, and it is where incoherent text comes from: not from the model's top choices, but from the thousands of near-zero options that, added up, are drawn surprisingly often.</p>
+<p>Top-k and top-p are two ways of cutting the tail off before sampling. They differ in what they hold fixed.</p>
+<h2 id="top-k-keep-a-fixed-number"><a class="heading-anchor" href="#top-k-keep-a-fixed-number">Top-k: keep a fixed number</a></h2>
+<p>Keep the <em>k</em> most likely tokens, set the rest to zero, renormalise, sample. With <em>k</em> = 40, there are always exactly 40 candidates.</p>
+<h2 id="top-p-keep-a-fixed-share-of-probability"><a class="heading-anchor" href="#top-p-keep-a-fixed-share-of-probability">Top-p: keep a fixed share of probability</a></h2>
+<p>Sort tokens by probability and keep the smallest set whose probabilities add up to at least <em>p</em>. With <em>p</em> = 0.9, keep whatever the top tokens are that together cover 90% of the mass — maybe 3 tokens, maybe 3,000. Also called <strong>nucleus sampling</strong>.</p>
+<h2 id="the-same-rule-on-three-different-steps"><a class="heading-anchor" href="#the-same-rule-on-three-different-steps">The same rule on three different steps</a></h2>
+<p>The shape of the distribution changes from step to step. After <em>"The capital of France is"</em>, nearly all the probability sits on one token. After <em>"My favourite word is"</em>, it is spread over thousands.</p>
+<p>Model three steps over a 50,000-token vocabulary, from very confident to very open:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>step</th><th>top token</th><th>top-p 0.9 keeps</th><th>top-k 40 covers</th></tr></thead><tbody><tr><td>confident</td><td>67.1%</td><td><strong>4 tokens</strong></td><td>99.3% of the mass</td></tr><tr><td>typical</td><td>43.8%</td><td>27 tokens</td><td>92.2%</td></tr><tr><td>open-ended</td><td>8.8%</td><td><strong>15,996 tokens</strong></td><td>37.5%</td></tr></tbody></table>
+<p>Read the rows.</p>
+<p><strong>On the confident step</strong>, top-k is too loose. It keeps 40 candidates when four cover 90% of the probability. The other 36 are the tail it was supposed to remove; together they hold a few per cent of the mass — enough to be drawn now and then. Top-p adapts and keeps just the four.</p>
+<p><strong>On the open-ended step</strong>, top-p is too loose. Keeping 90% of a flat distribution means keeping almost sixteen thousand tokens, most of them individually absurd. Top-k caps the candidates at 40, and those 40 hold only 37.5% of the probability — the model has many reasonable options, and top-k picks among the best of them.</p>
+<p>Neither rule is right on both. That is why they are usually used together.</p>
+<figure>
+<svg viewBox="0 0 560 270" width="560" role="img" aria-label="Two probability distributions: a peaked one where top-p keeps 4 tokens and top-k keeps 40, and a flat one where top-k keeps 40 and top-p keeps nearly 16,000." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">EACH CUT FAILS WHERE THE OTHER WORKS</text>
+<text class="b" x="20" y="44">confident step</text>
+<path d="M20 150 H260" stroke="var(--muted-foreground)" stroke-opacity="0.4"></path>
+<g fill="var(--primary)" fill-opacity="0.8"><rect x="24" y="60" width="10" height="90"></rect><rect x="36" y="134" width="10" height="16"></rect><rect x="48" y="142" width="10" height="8"></rect><rect x="60" y="145" width="10" height="5"></rect></g>
+<g fill="var(--muted-foreground)" fill-opacity="0.45"><rect x="72" y="147" width="10" height="3"></rect><rect x="84" y="148" width="10" height="2"></rect><rect x="96" y="148" width="10" height="2"></rect><rect x="108" y="149" width="10" height="1"></rect><rect x="120" y="149" width="10" height="1"></rect><rect x="132" y="149" width="10" height="1"></rect></g>
+<path d="M71 52 V156" stroke="var(--primary)" stroke-dasharray="3 3"></path><text class="b" x="76" y="62">top-p: 4</text>
+<path d="M200 52 V156" stroke="var(--muted-foreground)" stroke-dasharray="3 3"></path><text class="l" x="160" y="62">top-k: 40</text>
+<text class="b" x="300" y="44">open-ended step</text>
+<path d="M300 150 H540" stroke="var(--muted-foreground)" stroke-opacity="0.4"></path>
+<path d="M302 132 C330 138 380 142 420 144 C470 146 510 147 540 147 V150 H302 Z" fill="var(--muted-foreground)" fill-opacity="0.35"></path>
+<path d="M302 132 C320 136 335 139 350 140 V150 H302 Z" fill="var(--primary)" fill-opacity="0.75"></path>
+<path d="M350 52 V156" stroke="var(--primary)" stroke-dasharray="3 3"></path><text class="b" x="355" y="62">top-k: 40</text>
+<path d="M534 52 V156" stroke="var(--muted-foreground)" stroke-dasharray="3 3"></path><text class="l" x="530" y="76" text-anchor="end">top-p: 15,996</text>
+<path d="M20 190 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="214">top-p adapts to confidence; top-k caps the damage when there is none</text>
+<text class="l" x="20" y="234">used together, the stricter of the two applies on every step</text>
+</svg>
+<figcaption>A fixed count is wrong on confident steps; a fixed share is wrong on flat ones.</figcaption>
+</figure>
+<h2 id="using-both-with-temperature"><a class="heading-anchor" href="#using-both-with-temperature">Using both, with temperature</a></h2>
+<p>Most serving stacks apply the filters in a fixed order:</p>
+<ol>
+<li><strong>Temperature</strong> scales the logits, sharpening or flattening the distribution.</li>
+<li><strong>Top-k</strong> keeps at most <em>k</em> candidates.</li>
+<li><strong>Top-p</strong> keeps the smallest set covering <em>p</em> of what remains.</li>
+<li>Renormalise and sample.</li>
+</ol>
+<p>With both set, the stricter one wins on each step. On the confident step, top-p leaves 4 tokens. On the open-ended step, top-k leaves 40. The tail is cut either way.</p>
+<p>The order with temperature matters. Raising the temperature flattens the distribution <em>before</em> the filters see it, so a higher temperature makes top-p keep more tokens. That is often what people want — more variety among plausible options — but it means the two settings are not independent dials.</p>
+<h2 id="min-p-briefly"><a class="heading-anchor" href="#min-p-briefly">Min-p, briefly</a></h2>
+<p>A newer alternative keeps every token whose probability is at least some fraction of the top token's. With min-p = 0.1, the cut-off is a tenth of whatever the top token has:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>step</th><th>cut-off</th><th>min-p 0.1 keeps</th></tr></thead><tbody><tr><td>confident</td><td>6.71%</td><td>2 tokens</td></tr><tr><td>typical</td><td>4.38%</td><td>4 tokens</td></tr><tr><td>open-ended</td><td>0.88%</td><td>10 tokens</td></tr></tbody></table>
+<p>It adapts in both directions: tight on confident steps like top-p, bounded on flat steps like top-k. The price is that it is stricter than either — on the open-ended step its 10 tokens hold only 25.7% of the probability — so it is usually paired with a somewhat higher temperature.</p>
+<h2 id="typical-settings"><a class="heading-anchor" href="#typical-settings">Typical settings</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>task</th><th>temperature</th><th>top-k</th><th>top-p</th></tr></thead><tbody><tr><td>code, extraction, facts</td><td>0 – 0.2</td><td>—</td><td>—</td></tr><tr><td>general chat</td><td>0.7</td><td>40</td><td>0.9</td></tr><tr><td>creative writing</td><td>0.9 – 1.0</td><td>50–100</td><td>0.95</td></tr></tbody></table>
+<p>At temperature 0 the filters do nothing: greedy decoding already takes only the top token.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Top-k keeps a fixed number of candidates; top-p keeps a fixed share of probability. On a confident step top-k is too generous — 40 tokens where 4 hold 90% of the mass. On a flat step top-p is too generous — 15,996 tokens to reach 90%.</p>
+<p>Use both, so the stricter one applies on each step, and remember that temperature reshapes the distribution before either filter sees it.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Top-k and top-p sampling"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T10:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Both cut off the long tail of unlikely tokens before sampling, and each fails where the other works. On a confident step, top-p at 0.9 keeps 4 tokens where top-k keeps 40; on a flat one it keeps 15,996 where top-k keeps 40 — and leaves 62.5% of the probability out."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/top-k-and-top-p-sampling.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/system-one-models/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"System One models"}]]}],["$","$L2",null,{"href":"/blog/evolution-of-llm-architecture/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"The evolution of LLM architecture"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"top-k-keep-a-fixed-number","text":"Top-k: keep a fixed number","level":2},{"id":"top-p-keep-a-fixed-share-of-probability","text":"Top-p: keep a fixed share of probability","level":2},{"id":"the-same-rule-on-three-different-steps","text":"The same rule on three different steps","level":2},{"id":"using-both-with-temperature","text":"Using both, with temperature","level":2},{"id":"min-p-briefly","text":"Min-p, briefly","level":2},{"id":"typical-settings","text":"Typical settings","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

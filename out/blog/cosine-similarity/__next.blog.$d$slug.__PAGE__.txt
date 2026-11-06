@@ -1,0 +1,123 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/cosine-similarity.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T1df1,<p>Embedding models turn text, images and other data into vectors so that similar things end up close together. "Close" needs a definition, and the one used almost everywhere — semantic search, RAG retrieval, deduplication, recommendation — is cosine similarity.</p>
+<h2 id="the-definition"><a class="heading-anchor" href="#the-definition">The definition</a></h2>
+<p>Cosine similarity is the cosine of the angle between two vectors:</p>
+<p><code>cos(a, b) = (a · b) / (|a| × |b|)</code></p>
+<p>The dot product on top measures how much the vectors point the same way; dividing by both lengths removes the effect of how long they are. The result is always between −1 and 1.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>a</th><th>b</th><th>cosine</th><th>meaning</th></tr></thead><tbody><tr><td>(3, 4)</td><td>(6, 8)</td><td><strong>1.000</strong></td><td>same direction</td></tr><tr><td>(3, 4)</td><td>(4, 3)</td><td>0.960</td><td>nearly the same</td></tr><tr><td>(3, 4)</td><td>(4, −3)</td><td><strong>0.000</strong></td><td>perpendicular — unrelated</td></tr><tr><td>(3, 4)</td><td>(−3, −4)</td><td>−1.000</td><td>opposite</td></tr></tbody></table>
+<p>Note the first row. (6, 8) is twice as long as (3, 4), but it points in exactly the same direction, so the similarity is a perfect 1. Cosine similarity is blind to length.</p>
+<h2 id="why-ignore-length"><a class="heading-anchor" href="#why-ignore-length">Why ignore length?</a></h2>
+<p>In many embedding spaces, a vector's length carries information that is irrelevant to meaning — how long the text was, how frequent its words are, how confident the model was. Two passages about the same topic, one short and one long, should count as similar. Cosine similarity says they are; plain Euclidean distance would be thrown off by their different lengths.</p>
+<p>Many embedding models normalise their outputs to length 1 anyway. For unit vectors, cosine similarity <em>is</em> the dot product, and ranking by cosine, by dot product, or by Euclidean distance all give the same order. That is why vector databases often just compute dot products on pre-normalised vectors: it is the same answer for less work.</p>
+<h2 id="what-the-numbers-mean-in-high-dimensions"><a class="heading-anchor" href="#what-the-numbers-mean-in-high-dimensions">What the numbers mean in high dimensions</a></h2>
+<p>In two or three dimensions, two random directions are often fairly aligned. In hundreds of dimensions, they almost never are. Drawing pairs of random vectors and measuring their cosine:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>dimensions</th><th>typical spread of cosine between random vectors</th></tr></thead><tbody><tr><td>3</td><td>±0.570</td></tr><tr><td>100</td><td>±0.097</td></tr><tr><td>768</td><td><strong>±0.037</strong></td></tr><tr><td>4,096</td><td>±0.016</td></tr></tbody></table>
+<p>The spread is almost exactly <code>1 / √d</code>. In a 768-dimensional space, unrelated directions sit within a few hundredths of zero. That is why a cosine of 0.3 or 0.4 between two embeddings is a strong signal, not a weak one: it is ten standard deviations above chance.</p>
+<p>It also means <strong>cosine scores are not probabilities and are not comparable between models.</strong> One embedding model's "similar" might be 0.8, another's 0.45, depending on how it spreads vectors through its space. Thresholds must be calibrated per model, on examples labelled relevant or not.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="Vectors from an origin at different angles with their cosine values, and a bell curve of random-pair cosines that narrows as dimension rises from 3 to 768." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ANGLE, NOT LENGTH</text>
+<path d="M30 180 H250 M60 200 V40" stroke="var(--muted-foreground)" stroke-opacity="0.3"></path>
+<path d="M60 180 L108 116" stroke="var(--primary)" stroke-width="2.6"></path>
+<path d="M108 116 L156 52" stroke="var(--primary)" stroke-width="2.6" stroke-dasharray="4 3"></path>
+<text class="b" x="160" y="52">(6,8) · cos 1</text>
+<text class="b" x="112" y="112">(3,4)</text>
+<path d="M60 180 L124 132" stroke="var(--muted-foreground)" stroke-width="2"></path>
+<text class="l" x="128" y="140">(4,3) · 0.96</text>
+<path d="M60 180 L100 210" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="3 3"></path>
+<text class="l" x="106" y="206">(4,−3) · 0</text>
+<text class="b" x="300" y="44">random pairs: cosine spread</text>
+<path d="M300 180 H540 M420 60 V186" stroke="var(--muted-foreground)" stroke-opacity="0.3"></path>
+<path d="M300 172 C350 168 380 130 420 128 C460 130 490 168 540 172" stroke="var(--muted-foreground)" stroke-width="2" fill="none"></path>
+<text class="l" x="306" y="164">d = 3</text>
+<path d="M300 180 C400 180 410 64 420 62 C430 64 440 180 540 180" stroke="var(--primary)" stroke-width="2.2" fill="none"></path>
+<text class="b" x="428" y="76">d = 768 · ±0.037</text>
+<text class="l" x="300" y="196">−1</text><text class="l" x="416" y="196">0</text><text class="l" x="540" y="196" text-anchor="end">1</text>
+<path d="M20 216 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="238">in high dimensions unrelated means ≈ 0, so modest scores carry real signal</text>
+</svg>
+<figcaption>Length is discarded; only direction counts. And in many dimensions, random directions are nearly perpendicular.</figcaption>
+</figure>
+<h2 id="using-it-well"><a class="heading-anchor" href="#using-it-well">Using it well</a></h2>
+<p><strong>Normalise once, at index time.</strong> Store unit-length vectors and compute dot products at query time. Comparing a query against a million 768-dimensional vectors is 768 million multiply-adds — trivial for a GPU, and vector indexes avoid most of it with approximate search.</p>
+<p><strong>Embed queries and documents the way the model expects.</strong> Many models use different prefixes or modes for queries and passages; mixing them up lowers every similarity and scrambles the ranking.</p>
+<p><strong>Calibrate thresholds on labelled examples.</strong> "Above 0.75 is a match" from one model's documentation means nothing for another.</p>
+<p><strong>Do not compare scores across queries too literally.</strong> A broad query's best match may score lower than a narrow query's worst. Rank within a query; use thresholds cautiously across them.</p>
+<p><strong>Remember what it cannot see.</strong> Cosine similarity measures topical closeness in the model's space. "The drug is safe" and "the drug is not safe" can be very close. Retrieval systems add keyword search and rerankers for exactly these cases.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Cosine similarity is the dot product of two vectors divided by both their lengths: it compares direction and ignores magnitude, so (3, 4) and (6, 8) score 1 and perpendicular vectors score 0. For unit vectors it equals the dot product, which is why systems normalise once and multiply thereafter.</p>
+<p>In high dimensions, random vectors score within about ±1/√d of zero — ±0.037 at 768 dimensions — so moderate scores are meaningful, but only relative to the specific embedding model that produced them.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Cosine similarity"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T17:00","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Cosine similarity compares the direction of two vectors and ignores their length: (3, 4) and (6, 8) score exactly 1. In high dimensions, unrelated vectors score near 0 — random 768-dimensional vectors land within about ±0.037 — which is what makes a score of 0.4 meaningful."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/cosine-similarity.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/vision-language-models/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"How a vision-language model works"}]]}],["$","$L2",null,{"href":"/blog/unfinished-input-in-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Unfinished input in voice agents"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-definition","text":"The definition","level":2},{"id":"why-ignore-length","text":"Why ignore length?","level":2},{"id":"what-the-numbers-mean-in-high-dimensions","text":"What the numbers mean in high dimensions","level":2},{"id":"using-it-well","text":"Using it well","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

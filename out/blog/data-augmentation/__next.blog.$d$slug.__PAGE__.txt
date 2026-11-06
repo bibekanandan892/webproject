@@ -1,0 +1,113 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/data-augmentation.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T2327,<p>A model learns from examples, and it learns everything those examples make easy to learn — including things you did not intend. If every photo of a cat in the training set is centred and well lit, the model may learn that "cat" means "centred and well lit", and fail on a cat in the corner of a dark room.</p>
+<p>Data augmentation fixes this by creating new training examples from existing ones, using transformations that change the input but not the correct answer. Each transformation tells the model: <em>this</em> does not matter.</p>
+<h2 id="what-augmentations-say"><a class="heading-anchor" href="#what-augmentations-say">What augmentations say</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>transformation</th><th>what it teaches the model to ignore</th></tr></thead><tbody><tr><td>shift / crop</td><td>where the object is in the frame</td></tr><tr><td>horizontal flip</td><td>left–right orientation</td></tr><tr><td>rotation (small)</td><td>camera tilt</td></tr><tr><td>brightness, contrast, colour</td><td>lighting conditions</td></tr><tr><td>blur, noise</td><td>camera quality</td></tr><tr><td>scale</td><td>distance to the object</td></tr></tbody></table>
+<p>These are <strong>invariances</strong>: properties the label should be independent of. Instead of hoping the model figures them out from enough natural variety, augmentation shows it the variety directly.</p>
+<h2 id="how-many-examples-it-makes"><a class="heading-anchor" href="#how-many-examples-it-makes">How many examples it makes</a></h2>
+<p>Take a classic setup: 32 × 32 images, padded by 4 pixels on each side and randomly cropped back to 32 × 32, plus a random horizontal flip.</p>
+<ul>
+<li>Crop positions: <code>(2 × 4 + 1)² = 81</code></li>
+<li>Flips: 2</li>
+<li><strong>Variants per image: 162</strong></li>
+</ul>
+<p>A dataset of 50,000 images becomes, in effect, <strong>8.1 million</strong> distinct training inputs. Combine further transformations — colour jitter, small rotations — and the space becomes practically unbounded.</p>
+<p>In practice augmentations are applied randomly <strong>on the fly</strong>: each time an image is loaded during training, a fresh random transformation is drawn. No enlarged dataset is stored, and every epoch sees slightly different versions. That is why augmented models can train for many more epochs before overfitting.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="One original image with variants around it — shifted, flipped, brightened, rotated — all keeping the label cat; beside it a digit 6 rotated 180 degrees becoming a 9 with the label now wrong." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">SAME LABEL, DIFFERENT INPUT</text>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.6">
+<rect x="20" y="40" width="60" height="60" rx="4"></rect><rect x="90" y="40" width="60" height="60" rx="4"></rect><rect x="160" y="40" width="60" height="60" rx="4"></rect><rect x="230" y="40" width="60" height="60" rx="4"></rect>
+</g>
+<g fill="var(--primary)" fill-opacity="0.7">
+<circle cx="50" cy="72" r="14"></circle><path d="M40 60 L44 50 L48 60 Z M52 60 L56 50 L60 60 Z"></path>
+<circle cx="126" cy="78" r="14"></circle><path d="M116 66 L120 56 L124 66 Z M128 66 L132 56 L136 66 Z"></path>
+<circle cx="190" cy="72" r="14"></circle><path d="M180 60 L184 50 L188 60 Z M192 60 L196 50 L200 60 Z"></path>
+</g>
+<g fill="var(--primary)" fill-opacity="0.35"><circle cx="260" cy="72" r="14"></circle><path d="M250 60 L254 50 L258 60 Z M262 60 L266 50 L270 60 Z"></path></g>
+<text class="l" x="50" y="116" text-anchor="middle">original</text><text class="l" x="120" y="116" text-anchor="middle">shifted</text><text class="l" x="190" y="116" text-anchor="middle">flipped</text><text class="l" x="260" y="116" text-anchor="middle">darker</text>
+<text class="b" x="20" y="136">all still "cat" → 162 crop × flip variants per image</text>
+<rect x="360" y="40" width="60" height="60" rx="4" fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.6"></rect>
+<rect x="470" y="40" width="60" height="60" rx="4" fill="none" stroke="var(--primary)" stroke-width="1.6"></rect>
+<text x="390" y="86" text-anchor="middle" font-size="40" font-family="var(--font-geist-mono),ui-monospace,monospace" fill="var(--muted-foreground)">6</text>
+<text x="500" y="86" text-anchor="middle" font-size="40" font-family="var(--font-geist-mono),ui-monospace,monospace" fill="var(--primary)" transform="rotate(180 500 72)">6</text>
+<path d="M424 70 H466" stroke="var(--muted-foreground)"></path><text class="l" x="445" y="64" text-anchor="middle">180°</text>
+<text class="b" x="360" y="116">label "6", looks like 9</text>
+<path d="M20 160 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="184">an augmentation is only valid if the true label survives it</text>
+<text class="l" x="20" y="204">flipping text, rotating digits, cropping out the object: each teaches a falsehood</text>
+<text class="l" x="20" y="224">50,000 images × 162 = 8.1 million training inputs, drawn fresh each epoch</text>
+</svg>
+<figcaption>Good augmentations encode what should not matter. Bad ones change what the answer is.</figcaption>
+</figure>
+<h2 id="augmentations-can-lie"><a class="heading-anchor" href="#augmentations-can-lie">Augmentations can lie</a></h2>
+<p>An augmentation is only valid if the correct label survives it. Some that are harmless for one task are wrong for another:</p>
+<ul>
+<li><strong>Rotating a 6 by 180° makes a 9.</strong> Rotation augmentation for digit recognition must be limited to small angles.</li>
+<li><strong>Flipping text</strong> turns it into mirror writing; flipping a road scene swaps which side traffic drives on.</li>
+<li><strong>Cropping aggressively</strong> can remove the object entirely, leaving an image of background labelled "cat".</li>
+<li><strong>Colour changes</strong> are wrong where colour <em>is</em> the label — ripe versus unripe fruit, a medical stain, a traffic light.</li>
+</ul>
+<p>Each of these teaches the model something false. Choosing augmentations is a statement about the task: which changes leave the answer alone.</p>
+<h2 id="beyond-images"><a class="heading-anchor" href="#beyond-images">Beyond images</a></h2>
+<p><strong>Audio and speech:</strong> adding background noise and room reverberation, changing speed and pitch slightly, masking short stretches of time or frequency. Speech recognisers trained this way cope far better with real phone lines.</p>
+<p><strong>Text:</strong> harder, because small changes alter meaning. Common methods include <strong>back-translation</strong> (translate to another language and back to get a paraphrase), synonym replacement, and — increasingly — generating paraphrases or new examples with a language model. Each needs checking that the label still holds.</p>
+<p><strong>Tabular data:</strong> usually least amenable; small noise on numeric features, or synthetic minority examples to balance rare classes.</p>
+<p><strong>Mixing methods:</strong> <strong>mixup</strong> blends two images and their labels in proportion; <strong>cutmix</strong> pastes a patch of one image into another and mixes the labels by area. They do not preserve labels exactly — they create soft labels — and act as strong regularisers.</p>
+<h2 id="when-it-helps-most"><a class="heading-anchor" href="#when-it-helps-most">When it helps most</a></h2>
+<ul>
+<li><strong>Small datasets</strong>, where the model would otherwise memorise.</li>
+<li><strong>Deployment conditions unlike the training data</strong> — different cameras, lighting, accents, noise.</li>
+<li><strong>Long training runs</strong>, where repeated exposure to identical examples would overfit.</li>
+</ul>
+<p>For very large datasets it matters less, though even large vision and speech models use it. And it never replaces real data from the conditions you deploy in; it widens what you have, it does not cover what you lack.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Data augmentation creates new training examples by applying transformations that should not change the label, teaching the model which variations to ignore. Random 4-pixel crops and a flip give each 32 × 32 image 162 variants — 8.1 million inputs from 50,000 — drawn fresh every epoch.</p>
+<p>Choose augmentations by asking whether the true answer survives them: a flip is harmless for a cat and wrong for text, a 180° rotation turns a 6 into a 9. Done right, it is one of the cheapest ways to reduce overfitting and make models robust to the conditions they will meet.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Data augmentation"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T17:50","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Teach a model what should not matter by showing it the same example changed in ways that keep the label. Random 4-pixel shifts and a horizontal flip turn each 32×32 image into 162 variants — 8.1 million from 50,000 — but flip the wrong thing and a 6 becomes a 9."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/data-augmentation.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/why-voice-agents-cut-people-off/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Why voice agents cut people off"}]]}],["$","$L2",null,{"href":"/blog/half-duplex-vs-full-duplex-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Half-duplex vs full-duplex voice agents"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-augmentations-say","text":"What augmentations say","level":2},{"id":"how-many-examples-it-makes","text":"How many examples it makes","level":2},{"id":"augmentations-can-lie","text":"Augmentations can lie","level":2},{"id":"beyond-images","text":"Beyond images","level":2},{"id":"when-it-helps-most","text":"When it helps most","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

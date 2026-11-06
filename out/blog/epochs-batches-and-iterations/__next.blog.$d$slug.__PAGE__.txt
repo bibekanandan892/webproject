@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/epochs-batches-and-iterations.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T202c,<p>Training a model means showing it data and adjusting its weights to reduce error. Three terms describe how that showing is organised, and they are easy to mix up:</p>
+<ul>
+<li>A <strong>batch</strong> is the group of examples processed together before one weight update. Its size is the <strong>batch size</strong>.</li>
+<li>An <strong>iteration</strong> (or <strong>step</strong>) is one update: process one batch, compute the gradient, change the weights.</li>
+<li>An <strong>epoch</strong> is one complete pass over the training set.</li>
+</ul>
+<p>They are tied together by a single equation:</p>
+<p><code>iterations per epoch = ⌈ dataset size ÷ batch size ⌉</code></p>
+<h2 id="a-worked-example"><a class="heading-anchor" href="#a-worked-example">A worked example</a></h2>
+<p>Take a dataset of 50,000 images.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>batch size</th><th>iterations per epoch</th><th>iterations in 10 epochs</th><th>gradient noise (relative)</th></tr></thead><tbody><tr><td>32</td><td>1,563</td><td><strong>15,630</strong></td><td>1.00</td></tr><tr><td>128</td><td>391</td><td>3,910</td><td>0.50</td></tr><tr><td>512</td><td>98</td><td><strong>980</strong></td><td>0.25</td></tr></tbody></table>
+<p>(50,000 ÷ 32 = 1,562.5, rounded up because the last, smaller batch still counts.)</p>
+<p>Every row trains on exactly the same data the same number of times — ten epochs. What changes is how many updates the model gets and how reliable each one is.</p>
+<h2 id="why-batches-at-all"><a class="heading-anchor" href="#why-batches-at-all">Why batches at all</a></h2>
+<p><strong>One example at a time</strong> gives an update per example, but each gradient is computed from a single example and is very noisy: it points toward what would help <em>this</em> example, which may hurt others.</p>
+<p><strong>The whole dataset at once</strong> gives the true average gradient, but only one update per pass, and the dataset may not fit in memory.</p>
+<p><strong>Mini-batches</strong> sit between. The gradient of a batch is an estimate of the full-dataset gradient, and its noise falls with the square root of the batch size: a batch 16 times larger gives an estimate 4 times less noisy, as in the table. And hardware processes a batch of examples almost as quickly as one, because of how matrix multiplication reuses data — so larger batches also make each step efficient.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="A dataset bar divided into batches, one highlighted as an iteration, the whole bar labelled an epoch; below, three rows showing that larger batches mean fewer, less noisy steps." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">BATCH → ITERATION → EPOCH</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.3" stroke="var(--background)" stroke-width="2">
+<rect x="20" y="40" width="52" height="24"></rect><rect x="72" y="40" width="52" height="24"></rect><rect x="124" y="40" width="52" height="24"></rect><rect x="176" y="40" width="52" height="24"></rect><rect x="228" y="40" width="52" height="24"></rect><rect x="280" y="40" width="52" height="24"></rect><rect x="332" y="40" width="52" height="24"></rect><rect x="384" y="40" width="52" height="24"></rect><rect x="436" y="40" width="52" height="24"></rect><rect x="488" y="40" width="52" height="24"></rect>
+</g>
+<rect x="124" y="40" width="52" height="24" fill="var(--primary)" fill-opacity="0.8"></rect>
+<text class="b" x="150" y="80" text-anchor="middle">one batch = one iteration</text>
+<path d="M20 90 H540" stroke="var(--muted-foreground)" stroke-opacity="0.6"></path>
+<path d="M20 86 V94 M540 86 V94" stroke="var(--muted-foreground)" stroke-opacity="0.6"></path>
+<text class="l" x="280" y="106" text-anchor="middle">all batches once = one epoch (50,000 examples)</text>
+<text class="l" x="20" y="136">batch 32</text><text class="l" x="120" y="136">1,563 steps/epoch · noise 1.00</text>
+<text class="l" x="20" y="156">batch 128</text><text class="l" x="120" y="156">391 steps/epoch · noise 0.50</text>
+<text class="b" x="20" y="176">batch 512</text><text class="b" x="120" y="176">98 steps/epoch · noise 0.25</text>
+<path d="M20 194 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="216">bigger batches: fewer, steadier, more efficient steps</text>
+<text class="l" x="20" y="234">smaller batches: more, noisier steps — sometimes generalising better</text>
+</svg>
+<figcaption>The same epoch can be 1,563 small steps or 98 large ones.</figcaption>
+</figure>
+<h2 id="choosing-a-batch-size"><a class="heading-anchor" href="#choosing-a-batch-size">Choosing a batch size</a></h2>
+<p><strong>Memory sets the ceiling.</strong> Activations for every example in the batch must be held for the backward pass. When the batch you want does not fit, <strong>gradient accumulation</strong> processes several small batches, adds up their gradients, and applies one update — equivalent to a larger batch, at the cost of time.</p>
+<p><strong>Learning rate must move with it.</strong> A larger batch gives a less noisy gradient, so the model can take larger steps. A common rule of thumb scales the learning rate up roughly in proportion to the batch size, usually with a warm-up period at the start of training.</p>
+<p><strong>Very large batches can generalise worse.</strong> Some noise in the gradient helps training escape sharp, narrow minima that fit the training set but not new data. Past a certain point, larger batches give diminishing returns per example: you process more data per step without making proportionally more progress.</p>
+<p>Typical values: tens to a few hundred for small vision or tabular models on one GPU; millions of tokens per step for large language models across thousands of GPUs.</p>
+<h2 id="how-many-epochs"><a class="heading-anchor" href="#how-many-epochs">How many epochs</a></h2>
+<p>Too few and the model has not learned what the data can teach — <strong>underfitting</strong>. Too many and it starts memorising the training set — <strong>overfitting</strong> — and validation error rises while training error keeps falling.</p>
+<p>The standard practice is to watch the validation loss after each epoch and stop when it stops improving (<strong>early stopping</strong>), keeping the best checkpoint. Small datasets often need many epochs; data augmentation helps by making each epoch slightly different.</p>
+<h2 id="large-language-models-break-the-pattern"><a class="heading-anchor" href="#large-language-models-break-the-pattern">Large language models break the pattern</a></h2>
+<p>A large language model trained on 15 trillion tokens, in batches of about 4 million tokens, takes:</p>
+<p><code>15 × 10¹² ÷ 4 × 10⁶ = 3,750,000 steps</code></p>
+<p>and in that time sees most of its data <strong>once</strong> — less than one epoch. Some high-quality sources are repeated a few times; most text never is. At that scale, data is so plentiful that seeing new examples beats revisiting old ones, and overfitting to the training set is less of a concern than whether there is enough good data at all.</p>
+<p>The vocabulary therefore shifts: language model training is described in tokens and steps, not epochs.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>A batch is the set of examples behind one update; an iteration is one update; an epoch is one pass through the data. Iterations per epoch is the dataset size divided by the batch size: 1,563 for 50,000 examples at batch 32, 98 at batch 512.</p>
+<p>Larger batches give fewer, steadier and more hardware-efficient steps — four times less gradient noise for sixteen times the batch — and need a correspondingly larger learning rate. Small datasets train for many epochs with early stopping; large language models train for millions of steps without finishing one.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Epochs, batches and iterations"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T17:20","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"50,000 examples in batches of 32 is 1,563 iterations per epoch; ten epochs is 15,630 weight updates. Batches of 512 need only 980 updates for the same ten epochs and give gradients a quarter as noisy. A large language model, by contrast, sees most of its data less than once — 3.75 million steps, under one epoch."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/epochs-batches-and-iterations.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/unfinished-input-in-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Unfinished input in voice agents"}]]}],["$","$L2",null,{"href":"/blog/model-serving/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"How model serving works"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"a-worked-example","text":"A worked example","level":2},{"id":"why-batches-at-all","text":"Why batches at all","level":2},{"id":"choosing-a-batch-size","text":"Choosing a batch size","level":2},{"id":"how-many-epochs","text":"How many epochs","level":2},{"id":"large-language-models-break-the-pattern","text":"Large language models break the pattern","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

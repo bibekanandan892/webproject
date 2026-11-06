@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Top-k and top-p: a long-tailed probability distribution with two cut-off lines at different places.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 300 H740" stroke="#141413" stroke-opacity="0.35" stroke-width="2"/>
+<g fill="#141413" fill-opacity="0.6">
+<rect x="70" y="90" width="34" height="210" rx="3"/><rect x="110" y="190" width="34" height="110" rx="3"/><rect x="150" y="230" width="34" height="70" rx="3"/><rect x="190" y="252" width="34" height="48" rx="3"/>
+</g>
+<g fill="#5E5D59" fill-opacity="0.3">
+<rect x="230" y="266" width="34" height="34" rx="3"/><rect x="270" y="274" width="34" height="26" rx="3"/><rect x="310" y="280" width="34" height="20" rx="3"/><rect x="350" y="284" width="34" height="16" rx="3"/><rect x="390" y="287" width="34" height="13" rx="3"/><rect x="430" y="290" width="34" height="10" rx="3"/><rect x="470" y="292" width="34" height="8" rx="3"/><rect x="510" y="294" width="34" height="6" rx="3"/><rect x="550" y="295" width="34" height="5" rx="3"/><rect x="590" y="296" width="34" height="4" rx="3"/><rect x="630" y="297" width="34" height="3" rx="3"/><rect x="670" y="298" width="34" height="2" rx="2"/>
+</g>
+<path d="M227 70 V316" stroke="#141413" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="236" y="84" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#141413">top-p 0.9</text>
+<path d="M547 70 V316" stroke="#5E5D59" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="556" y="84" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#5E5D59">top-k</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">cut the tail — by count, or by share</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">top-k and top-p sampling</text>
+</svg>

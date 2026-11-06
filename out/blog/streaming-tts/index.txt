@@ -1,0 +1,103 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","streaming-tts",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","streaming-tts","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/streaming-tts.svg","image"]
+12:T21a6,<p>Text-to-speech used to work like printing a document: give it the whole text, wait, get the whole audio file back. That is fine for audiobooks. For a voice agent, every millisecond before the first sound is silence the user hears.</p>
+<p>Streaming TTS starts producing audio before it has finished — and, in its fuller form, before it has even <em>received</em> all the text.</p>
+<h2 id="two-kinds-of-streaming"><a class="heading-anchor" href="#two-kinds-of-streaming">Two kinds of streaming</a></h2>
+<p><strong>Streaming output.</strong> The engine still receives a complete sentence, but returns audio in small pieces as it synthesises them, rather than one file at the end. The first piece can play while the rest is generated.</p>
+<p><strong>Streaming input and output.</strong> The engine accepts text incrementally — words or tokens as the language model produces them — and produces audio incrementally too. It can begin speaking the start of a sentence whose end has not been written yet.</p>
+<p>The second is what voice agents need to get time-to-first-audio down, because it removes the wait for the language model to finish a sentence.</p>
+<h2 id="what-batch-synthesis-costs"><a class="heading-anchor" href="#what-batch-synthesis-costs">What batch synthesis costs</a></h2>
+<p>An 18-word sentence spoken at 150 words a minute is <strong>7.2 seconds</strong> of audio. A fast TTS engine synthesising at 10× real time — a real-time factor of 0.1 — takes 0.72 seconds to produce it.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>first audio after the text arrives</th></tr></thead><tbody><tr><td>batch: synthesise all, then play</td><td><strong>0.72 s</strong></td></tr><tr><td>streaming output</td><td>the time to synthesise the first piece — tens to a couple of hundred ms</td></tr></tbody></table>
+<p>And with streaming input, the engine does not wait for the 18-word sentence at all; it can start after the first few words, saving the 0.3–0.4 s the language model would have spent finishing it.</p>
+<h2 id="the-core-difficulty-commitment"><a class="heading-anchor" href="#the-core-difficulty-commitment">The core difficulty: commitment</a></h2>
+<p>Speaking well needs to know what comes next. Intonation is shaped over a whole phrase: a question rises at the end, a list has a characteristic rhythm, emphasis depends on contrast with words that may not have arrived yet.</p>
+<p>A streaming engine has to start speaking before it has that information. Whatever it has already played, it has committed to. If the sentence turns out to be a question, the opening words were already spoken with a statement's contour.</p>
+<p>Engines handle this with a small <strong>lookahead</strong>: they wait for a few words beyond the current one before synthesising it, so they can see the immediate context. More lookahead gives better prosody and more delay; less gives faster first audio and flatter or occasionally wrong intonation. It is the same trade as sentence chunking, moved inside the model.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="Three rows: text tokens arriving, a lookahead window of a few words ahead of the audio being synthesised, and audio playback trailing behind; a batch row waits for the whole sentence first." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">SPEAK WITH A FEW WORDS OF LOOKAHEAD</text>
+<text class="l" x="20" y="50">text in</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.4"><rect x="100" y="38" width="30" height="16" rx="2"></rect><rect x="134" y="38" width="30" height="16" rx="2"></rect><rect x="168" y="38" width="30" height="16" rx="2"></rect><rect x="202" y="38" width="30" height="16" rx="2"></rect><rect x="236" y="38" width="30" height="16" rx="2"></rect><rect x="270" y="38" width="30" height="16" rx="2"></rect></g>
+<rect x="164" y="34" width="106" height="24" rx="4" fill="none" stroke="var(--primary)" stroke-dasharray="3 3"></rect>
+<text class="b" x="276" y="50">lookahead</text>
+<text class="l" x="20" y="88">audio out</text>
+<path d="M100 82 l6 -10 l6 16 l6 -12 l6 8 l6 -12 l6 14 l6 -8 l6 6 l6 -10 l6 12 l6 -8" fill="none" stroke="var(--primary)" stroke-width="2"></path>
+<text class="l" x="20" y="132">batch</text>
+<rect x="100" y="120" width="204" height="16" rx="3" fill="none" stroke="var(--muted-foreground)" stroke-dasharray="3 3"></rect>
+<text class="l" x="110" y="132">wait for 18 words + 0.72 s</text>
+<path d="M310 128 l6 -10 l6 16 l6 -12 l6 8 l6 -12 l6 14 l6 -8 l6 6" fill="none" stroke="var(--muted-foreground)" stroke-width="2"></path>
+<path d="M20 160 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="184">more lookahead: better intonation, later start</text>
+<text class="l" x="20" y="204">audio must keep arriving faster than it plays — real-time factor below 1, with margin</text>
+<text class="l" x="20" y="224">a stalled stream is a gap mid-sentence, which sounds worse than a slower start</text>
+</svg>
+<figcaption>Streaming moves the wait from "the whole sentence" to "a few words ahead".</figcaption>
+</figure>
+<h2 id="keeping-the-stream-fed"><a class="heading-anchor" href="#keeping-the-stream-fed">Keeping the stream fed</a></h2>
+<p>Once playback starts, audio must keep arriving faster than it is played. That requires two things:</p>
+<p><strong>A real-time factor comfortably below 1.</strong> A model producing audio at 0.5× real time — two seconds of audio per second of compute — keeps up even with some variation. One at 0.95× will stall the moment the server is busy.</p>
+<p><strong>Text arriving faster than it is spoken.</strong> The language model must stay ahead of the voice. At 50 tokens a second against speech that consumes about 3 tokens a second, it normally does — unless the model pauses for a tool call mid-reply, which is a reason to finish a spoken sentence before calling tools.</p>
+<p>A stall mid-sentence is worse than a slower start. Listeners tolerate a pause before an answer; a gap in the middle of a word sounds broken. Players usually keep a small buffer — a hundred milliseconds or so — to absorb jitter, which adds slightly to first-audio time in exchange for smooth playback.</p>
+<h2 id="interruption-and-alignment"><a class="heading-anchor" href="#interruption-and-alignment">Interruption and alignment</a></h2>
+<p>Streaming TTS also has to support stopping. When the user barges in, the engine must abandon the rest of the utterance immediately, and the agent needs to know exactly how much was spoken. Engines that return <strong>word-level timestamps</strong> alongside the audio make this straightforward: the agent can cut its record of the reply to the last word actually played.</p>
+<p>The same timestamps support lip-sync for avatars and highlighting of words on screen as they are spoken.</p>
+<h2 id="choosing-an-engine-for-a-voice-agent"><a class="heading-anchor" href="#choosing-an-engine-for-a-voice-agent">Choosing an engine for a voice agent</a></h2>
+<p>The properties that matter, roughly in order:</p>
+<ol>
+<li><strong>Time to first audio</strong> for a short first chunk, measured at the client.</li>
+<li><strong>Streaming text input</strong> over a persistent connection, so per-request overhead is paid once.</li>
+<li><strong>Real-time factor</strong> with headroom at your expected concurrency.</li>
+<li><strong>Prosody with little lookahead</strong> — listen to questions and lists.</li>
+<li><strong>Word timestamps</strong> for interruption handling.</li>
+<li><strong>Pronunciation control</strong> for names, numbers and domain terms.</li>
+</ol>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Batch TTS makes the user wait for an entire sentence to be synthesised — 0.72 s for 7.2 s of speech even at 10× real time. Streaming TTS starts playing after the first piece, and with streaming input it can begin before the language model has finished the sentence.</p>
+<p>The cost is commitment: the engine speaks before it knows the end of the phrase, and uses a few words of lookahead to guess intonation. Keep the real-time factor well below 1, keep the text ahead of the voice, and use word timestamps so interruptions cut the record where the speech actually stopped.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Streaming TTS"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T14:10","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A batch TTS engine synthesises a whole sentence before you hear any of it: 7.2 s of speech at 10× real time is a 0.72 s wait. A streaming engine starts speaking after a few words — but it has to commit to intonation before it knows how the sentence ends."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/streaming-tts.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/sentence-chunking-for-tts/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Sentence chunking for TTS"}]]}],["$","$Lf",null,{"href":"/blog/filler-phrases-in-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Filler phrases in voice agents"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"two-kinds-of-streaming","text":"Two kinds of streaming","level":2},{"id":"what-batch-synthesis-costs","text":"What batch synthesis costs","level":2},{"id":"the-core-difficulty-commitment","text":"The core difficulty: commitment","level":2},{"id":"keeping-the-stream-fed","text":"Keeping the stream fed","level":2},{"id":"interruption-and-alignment","text":"Interruption and alignment","level":2},{"id":"choosing-an-engine-for-a-voice-agent","text":"Choosing an engine for a voice agent","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Streaming TTS · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"A batch TTS engine synthesises a whole sentence before you hear any of it: 7.2 s of speech at 10× real time is a 0.72 s wait. A streaming engine starts speaking after a few words — but it has to commit to intonation before it knows how the sentence ends."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"voice-agents,tts,streaming,latency,speech-synthesis"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/streaming-tts/"}],["$","meta","6",{"property":"og:title","content":"Streaming TTS"}],["$","meta","7",{"property":"og:description","content":"A batch TTS engine synthesises a whole sentence before you hear any of it: 7.2 s of speech at 10× real time is a 0.72 s wait. A streaming engine starts speaking after a few words — but it has to commit to intonation before it knows how the sentence ends."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/streaming-tts/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T14:10"}],["$","meta","11",{"property":"article:tag","content":"voice-agents"}],["$","meta","12",{"property":"article:tag","content":"tts"}],["$","meta","13",{"property":"article:tag","content":"streaming"}],["$","meta","14",{"property":"article:tag","content":"latency"}],["$","meta","15",{"property":"article:tag","content":"speech-synthesis"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Streaming TTS"}],["$","meta","18",{"name":"twitter:description","content":"A batch TTS engine synthesises a whole sentence before you hear any of it: 7.2 s of speech at 10× real time is a 0.72 s wait. A streaming engine starts speaking after a few words — but it has to commit to intonation before it knows how the sentence ends."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

@@ -1,0 +1,114 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/contextual-retrieval.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T2364,<p>Chunking a document for retrieval cuts each piece away from everything around it. Most of the time that is fine. Sometimes it removes exactly what the chunk needed to be found.</p>
+<p>Take a chunk from a quarterly filing:</p>
+<blockquote>
+<p><em>The company's revenue grew by 3% over the previous quarter.</em></p>
+</blockquote>
+<p>Which company? Which quarter? The filing said so on page one. The chunk does not. A user asking <em>"What was ACME's revenue growth in Q2 2023?"</em> shares almost no distinguishing words with it, and its embedding is a generic vector for "revenue grew". It may well lose to a chunk from a different company's filing that happens to name ACME.</p>
+<p>Contextual retrieval fixes the chunk before it is indexed.</p>
+<h2 id="the-method"><a class="heading-anchor" href="#the-method">The method</a></h2>
+<p>For each chunk, ask a language model to write a short piece of context situating it within the whole document, and prepend that to the chunk:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="text" data-theme="github-light github-dark-default"><code data-language="text" data-theme="github-light github-dark-default" style="display: grid;"><span data-line=""><span>&#x3C;document></span></span>
+<span data-line=""><span>{the whole document}</span></span>
+<span data-line=""><span>&#x3C;/document></span></span>
+<span data-line=""> </span>
+<span data-line=""><span>Here is a chunk from that document:</span></span>
+<span data-line=""><span>&#x3C;chunk></span></span>
+<span data-line=""><span>{the chunk}</span></span>
+<span data-line=""><span>&#x3C;/chunk></span></span>
+<span data-line=""> </span>
+<span data-line=""><span>Write a short context (50–100 tokens) that situates this chunk within the</span></span>
+<span data-line=""><span>document, to improve search retrieval. Answer with the context only.</span></span></code></pre></figure>
+<p>The output becomes part of the chunk:</p>
+<blockquote>
+<p><em>This chunk is from ACME Corp's Q2 2023 quarterly report, in the section on financial results; the previous quarter's revenue was $314M.</em> <strong>The company's revenue grew by 3% over the previous quarter.</strong></p>
+</blockquote>
+<p>The contextualised chunk is then embedded <em>and</em> indexed for keyword search (BM25). Both indexes now contain "ACME", "Q2 2023" and "revenue". The question and the chunk finally share the words that matter.</p>
+<h2 id="how-much-it-helps"><a class="heading-anchor" href="#how-much-it-helps">How much it helps</a></h2>
+<p>Anthropic published this technique with measurements across several datasets, using the failure rate of retrieval — how often the right chunk is not in the top 20:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>setup</th><th>top-20 failure rate</th><th>reduction</th></tr></thead><tbody><tr><td>ordinary embeddings</td><td>5.7%</td><td>—</td></tr><tr><td>contextual embeddings</td><td>3.7%</td><td>35%</td></tr><tr><td>contextual embeddings + contextual BM25</td><td>2.9%</td><td><strong>49%</strong></td></tr><tr><td>… plus a reranker</td><td>1.9%</td><td><strong>67%</strong></td></tr></tbody></table>
+<p>The gains stack. Context helps embeddings; it helps keyword search even more, because BM25 is exactly the method that fails when a chunk lacks the literal words of the question. A reranker on top then reorders the larger, better candidate set.</p>
+<figure>
+<svg viewBox="0 0 560 270" width="560" role="img" aria-label="A bare chunk and the same chunk with a prepended context line; below, bars for retrieval failure rates falling from 5.7% to 3.7%, 2.9% and 1.9%." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">GIVE THE CHUNK BACK ITS CONTEXT</text>
+<rect x="20" y="32" width="250" height="44" rx="5" fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.5"></rect>
+<text class="l" x="30" y="58">"revenue grew by 3% …"</text>
+<rect x="290" y="32" width="250" height="44" rx="5" fill="none" stroke="var(--primary)" stroke-width="1.5"></rect>
+<rect x="290" y="32" width="250" height="18" rx="5" fill="var(--primary)" fill-opacity="0.15"></rect>
+<text class="b" x="300" y="45">ACME · Q2 2023 · financial results</text>
+<text class="l" x="300" y="68">"revenue grew by 3% …"</text>
+<text class="l" x="20" y="112">top-20 failure rate</text>
+<text class="l" x="20" y="140">embeddings</text><rect x="200" y="128" width="285" height="16" rx="3" fill="var(--muted-foreground)" fill-opacity="0.55"></rect><text class="l" x="492" y="141">5.7%</text>
+<text class="l" x="20" y="164">+ context</text><rect x="200" y="152" width="185" height="16" rx="3" fill="var(--muted-foreground)" fill-opacity="0.55"></rect><text class="l" x="392" y="165">3.7%</text>
+<text class="l" x="20" y="188">+ contextual BM25</text><rect x="200" y="176" width="145" height="16" rx="3" fill="var(--primary)" fill-opacity="0.7"></rect><text class="b" x="352" y="189">2.9%</text>
+<text class="l" x="20" y="212">+ reranker</text><rect x="200" y="200" width="95" height="16" rx="3" fill="var(--primary)" fill-opacity="0.9"></rect><text class="b" x="302" y="213">1.9%</text>
+<path d="M20 232 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="254">two-thirds fewer misses, from rewriting the index rather than the search</text>
+</svg>
+<figcaption>Failure rates as reported by Anthropic. The improvement comes from what is indexed, not how it is searched.</figcaption>
+</figure>
+<h2 id="what-it-costs"><a class="heading-anchor" href="#what-it-costs">What it costs</a></h2>
+<p>The expensive part is obvious from the prompt: every chunk's call includes the <em>entire document</em>. A document of 8,000 tokens cut into 30 chunks of 256 tokens means 30 calls, each reading the whole document:</p>
+<p><code>30 × (8,000 + 256) = 247,680 input tokens</code> — to index one 8,000-token document.</p>
+<p>This is where prompt caching turns the idea from expensive to cheap. The document is the same prefix in all 30 calls. With caching, it is processed once and then read from cache at a fraction of the price — around a tenth, depending on the provider. The effective cost becomes:</p>
+<p><code>8,000 + 30 × (800 + 256) = 39,680</code> input-token equivalents — <strong>6.2× cheaper.</strong></p>
+<p>Generation is small: 30 contexts of 50–100 tokens each. Indexing is a one-time cost per document, paid again only when the document changes.</p>
+<p>The other costs are minor. The index grows by the size of the contexts — about 23% for 60-token contexts on 256-token chunks — and the context text appears in what is returned to the generation model, which is usually an advantage rather than a cost.</p>
+<h2 id="when-it-helps-most"><a class="heading-anchor" href="#when-it-helps-most">When it helps most</a></h2>
+<p><strong>Documents where chunks depend on surrounding context.</strong> Financial reports, legal agreements, technical manuals, meeting notes — anywhere a paragraph refers to "the company", "this clause", "the above".</p>
+<p><strong>Collections of similar documents.</strong> Many filings from different companies, many versions of the same contract. Without context, chunks from different documents look identical; with it, they carry their source.</p>
+<p><strong>Systems using keyword search.</strong> The largest gain in the table came from contextual BM25. If the retriever is embeddings only, the improvement is real but smaller.</p>
+<p>It helps least on documents whose chunks already stand alone — FAQ entries, product descriptions, short self-contained articles.</p>
+<h2 id="practical-notes"><a class="heading-anchor" href="#practical-notes">Practical notes</a></h2>
+<ul>
+<li><strong>Keep the context short and factual.</strong> It should name the document, the section and any entities the chunk refers to, not summarise or interpret.</li>
+<li><strong>Use a small, cheap model.</strong> The task is extraction, not reasoning.</li>
+<li><strong>Evaluate on your own questions.</strong> The published reductions are averages across datasets; the gain on yours depends on how much context your chunks lose.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Contextual retrieval asks a model to write 50–100 tokens of situating context for each chunk — which document, which section, which entities — and indexes the chunk with that context attached, in both the embedding index and the keyword index.</p>
+<p>Anthropic's measurements put the reduction in retrieval failures at 49% for contextual embeddings plus contextual BM25, and 67% with a reranker. Prompt caching cuts the indexing cost about 6.2× by processing each document once for all of its chunks.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Contextual retrieval"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T11:40","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A chunk that says \"revenue grew 3%\" does not say whose revenue or when. Contextual retrieval has a model write that missing context onto each chunk before indexing. Anthropic measured a 49% cut in retrieval failures — and prompt caching makes the preprocessing 6.2× cheaper."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/contextual-retrieval.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/ollama/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"How Ollama works"}]]}],["$","$L2",null,{"href":"/blog/tree-of-thoughts/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Tree of Thoughts"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-method","text":"The method","level":2},{"id":"how-much-it-helps","text":"How much it helps","level":2},{"id":"what-it-costs","text":"What it costs","level":2},{"id":"when-it-helps-most","text":"When it helps most","level":2},{"id":"practical-notes","text":"Practical notes","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

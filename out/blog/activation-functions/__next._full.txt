@@ -1,0 +1,123 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","activation-functions",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","activation-functions","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/activation-functions.svg","image"]
+12:T1f7c,<p>Every layer of a neural network computes a weighted sum of its inputs and then passes the result through an <strong>activation function</strong>. The weighted sum is the part that learns; the activation is the part that makes learning worth anything.</p>
+<h2 id="why-there-has-to-be-one"><a class="heading-anchor" href="#why-there-has-to-be-one">Why there has to be one</a></h2>
+<p>A weighted sum is a linear operation. Two linear operations in a row are still one linear operation: multiplying by one matrix and then another is the same as multiplying by their product. So a hundred layers with no activation between them collapse into a single layer. However deep the network looks, it can only draw straight lines and flat planes — it cannot even learn XOR.</p>
+<p>An activation function bends the output of each layer. With a bend between every pair of layers, stacking finally means something: each layer can build curved, folded, combined shapes out of the previous layer's output.</p>
+<h2 id="the-common-ones"><a class="heading-anchor" href="#the-common-ones">The common ones</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>input</th><th>sigmoid</th><th>tanh</th><th>ReLU</th><th>GELU</th></tr></thead><tbody><tr><td>−2</td><td>0.119</td><td>−0.964</td><td>0</td><td>−0.046</td></tr><tr><td>0</td><td>0.500</td><td>0.000</td><td>0</td><td>0.000</td></tr><tr><td>2</td><td>0.881</td><td>0.964</td><td>2</td><td>1.954</td></tr></tbody></table>
+<p><strong>Sigmoid</strong>, <code>1 / (1 + e⁻ˣ)</code>, squashes any input into (0, 1). It reads naturally as a probability and is still used for that at the output of binary classifiers.</p>
+<p><strong>Tanh</strong> squashes into (−1, 1) and is centred on zero, which made it preferable to sigmoid in hidden layers for a long time.</p>
+<p><strong>ReLU</strong>, <code>max(0, x)</code>, passes positive inputs unchanged and zeroes negative ones. It is almost trivially cheap and became the default for deep networks.</p>
+<p><strong>GELU</strong> and <strong>SiLU/Swish</strong> are smooth versions of ReLU: close to the identity for large positive inputs, close to zero for large negative ones, with a soft curve between that lets small negative values through. They are the standard choice in transformers, often inside gated variants like SwiGLU.</p>
+<p><strong>Softmax</strong> is different in kind: it acts on a whole vector, turning a list of scores into probabilities that sum to 1. Scores of <code>[2.0, 1.0, 0.1]</code> become <code>[0.659, 0.242, 0.099]</code>. It is used at the output of classifiers and language models, and inside attention.</p>
+<h2 id="why-relu-took-over-the-slope"><a class="heading-anchor" href="#why-relu-took-over-the-slope">Why ReLU took over: the slope</a></h2>
+<p>Training passes gradients backward through every layer, and at each layer the gradient is multiplied by the activation function's slope at that point. Over many layers those multiplications compound.</p>
+<p>The sigmoid's slope is never more than <strong>0.25</strong> (at x = 0) and falls toward zero for large inputs, where the function flattens out — it <strong>saturates</strong>. Even in the best case, ten sigmoid layers multiply the gradient by:</p>
+<p><code>0.25¹⁰ = 9.54 × 10⁻⁷</code></p>
+<p>and twenty layers by about 10⁻¹². The early layers receive a gradient a million times weaker than the later ones and barely learn. This is the <strong>vanishing gradient</strong> problem, and it is why deep networks were so hard to train before around 2010.</p>
+<p>Tanh is better — its slope reaches 1 at zero — but at an input of 1 its slope is already 0.42, and ten such layers give 0.000171.</p>
+<p>ReLU's slope is exactly <strong>1</strong> for every positive input. Gradients pass through active units without shrinking at all. Combined with careful weight initialisation and normalisation layers, that is much of what made very deep networks trainable.</p>
+<figure>
+<svg viewBox="0 0 560 270" width="560" role="img" aria-label="Plots of sigmoid, tanh and ReLU on the same axes, with a note that the sigmoid&#x27;s maximum slope is 0.25 and ten layers of it shrink a gradient to 9.54e-7." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THREE BENDS, THREE SLOPES</text>
+<path d="M40 120 H300 M170 36 V200" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<path d="M40 117 C110 116 140 108 170 90 C200 72 230 64 300 63" stroke="var(--muted-foreground)" stroke-width="2" fill="none"></path>
+<text class="l" x="232" y="58">sigmoid</text>
+<path d="M40 178 C120 178 140 170 170 120 C200 70 220 62 300 62" stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="4 3" fill="none"></path>
+<text class="l" x="44" y="172">tanh</text>
+<path d="M40 120 H170 L248 42" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<text class="b" x="252" y="44">ReLU</text>
+<text class="l" x="174" y="214">0</text>
+<text class="b" x="330" y="56">maximum slope</text>
+<text class="l" x="330" y="80">sigmoid  0.25</text>
+<text class="l" x="330" y="98">tanh     1 at 0, 0.42 at 1</text>
+<text class="b" x="330" y="116">ReLU     1 when active</text>
+<text class="b" x="330" y="146">after 10 layers</text>
+<text class="l" x="330" y="168">sigmoid  9.54 × 10⁻⁷</text>
+<text class="b" x="330" y="186">ReLU     1</text>
+<path d="M20 228 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="250">gradients are multiplied by the slope at every layer on the way back</text>
+</svg>
+<figcaption>Saturating curves flatten at the ends, and a flat curve passes almost no gradient.</figcaption>
+</figure>
+<h2 id="relus-own-problem-and-the-fix"><a class="heading-anchor" href="#relus-own-problem-and-the-fix">ReLU's own problem, and the fix</a></h2>
+<p>ReLU's slope is zero for negative inputs. A neuron whose weighted sum is negative for every input in the data outputs zero always, receives no gradient, and can never recover. These are <strong>dead neurons</strong>; a bad learning rate can kill a substantial share of a network.</p>
+<p>Variants address this:</p>
+<ul>
+<li><strong>Leaky ReLU</strong> gives negative inputs a small slope, such as 0.01, so a gradient always flows.</li>
+<li><strong>GELU and SiLU</strong> curve smoothly through zero, passing a little gradient for moderately negative inputs and none only for very negative ones. Their smoothness also tends to make optimisation slightly better in large models.</li>
+</ul>
+<h2 id="choosing-one"><a class="heading-anchor" href="#choosing-one">Choosing one</a></h2>
+<ul>
+<li><strong>Hidden layers of most networks:</strong> ReLU, or a smooth relative.</li>
+<li><strong>Transformers:</strong> GELU or SiLU, usually in a gated form (SwiGLU) in the feed-forward layers.</li>
+<li><strong>Binary output:</strong> sigmoid, giving a probability.</li>
+<li><strong>Multi-class output:</strong> softmax over the class scores.</li>
+<li><strong>Regression output:</strong> no activation — the raw weighted sum is the prediction.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>An activation function bends each layer's output, without which any stack of layers is equivalent to one linear layer. Sigmoid and tanh squash into fixed ranges and saturate; their small slopes compound during backpropagation, so ten sigmoid layers can shrink gradients to 9.54 × 10⁻⁷ of their size.</p>
+<p>ReLU passes gradients unchanged through active units, which is a large part of why deep learning became practical. Its smooth successors, GELU and SiLU, are now standard in transformers, and softmax remains the way scores become probabilities at the output.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Activation functions"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T15:20","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Without a bend between layers, a deep network is one linear layer in disguise. Which bend matters too: a sigmoid's slope is at most 0.25, so ten sigmoid layers can shrink a gradient by a factor of a million — 9.54 × 10⁻⁷. ReLU's slope is 1, which is most of why deep networks became trainable."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/activation-functions.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/silence-vs-model-based-turn-detection/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Silence-based vs model-based turn detection"}]]}],["$","$Lf",null,{"href":"/blog/train-validation-test-split/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Train, validation and test sets"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"why-there-has-to-be-one","text":"Why there has to be one","level":2},{"id":"the-common-ones","text":"The common ones","level":2},{"id":"why-relu-took-over-the-slope","text":"Why ReLU took over: the slope","level":2},{"id":"relus-own-problem-and-the-fix","text":"ReLU's own problem, and the fix","level":2},{"id":"choosing-one","text":"Choosing one","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Activation functions · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Without a bend between layers, a deep network is one linear layer in disguise. Which bend matters too: a sigmoid's slope is at most 0.25, so ten sigmoid layers can shrink a gradient by a factor of a million — 9.54 × 10⁻⁷. ReLU's slope is 1, which is most of why deep networks became trainable."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"activation-functions,relu,sigmoid,softmax,deep-learning"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/activation-functions/"}],["$","meta","6",{"property":"og:title","content":"Activation functions"}],["$","meta","7",{"property":"og:description","content":"Without a bend between layers, a deep network is one linear layer in disguise. Which bend matters too: a sigmoid's slope is at most 0.25, so ten sigmoid layers can shrink a gradient by a factor of a million — 9.54 × 10⁻⁷. ReLU's slope is 1, which is most of why deep networks became trainable."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/activation-functions/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T15:20"}],["$","meta","11",{"property":"article:tag","content":"activation-functions"}],["$","meta","12",{"property":"article:tag","content":"relu"}],["$","meta","13",{"property":"article:tag","content":"sigmoid"}],["$","meta","14",{"property":"article:tag","content":"softmax"}],["$","meta","15",{"property":"article:tag","content":"deep-learning"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Activation functions"}],["$","meta","18",{"name":"twitter:description","content":"Without a bend between layers, a deep network is one linear layer in disguise. Which bend matters too: a sigmoid's slope is at most 0.25, so ten sigmoid layers can shrink a gradient by a factor of a million — 9.54 × 10⁻⁷. ReLU's slope is 1, which is most of why deep networks became trainable."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

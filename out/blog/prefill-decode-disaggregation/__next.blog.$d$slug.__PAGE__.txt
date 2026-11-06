@@ -1,0 +1,94 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/prefill-decode-disaggregation.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T2479,<p>A language model answers a request in two phases. <strong>Prefill</strong> reads the whole prompt in one pass and builds the KV cache. <strong>Decode</strong> then produces the answer one token at a time, each step reading the cache and the weights again.</p>
+<p>The two phases want opposite hardware. Prefill does a great deal of arithmetic on data it loads once: it is compute-bound. Decode does a little arithmetic on data it must load in full every step: it is memory-bandwidth-bound.</p>
+<p>Prefill-decode disaggregation runs them on different machines. To see why anyone would accept the complexity, look at what happens when they share one.</p>
+<h2 id="the-stall"><a class="heading-anchor" href="#the-stall">The stall</a></h2>
+<p>Take a 70B-parameter model served on 8 accelerators, running a batch of conversations that are all decoding.</p>
+<p>One decode step has to stream the 140 GB of weights through the chips. At about 80% of 8 × 3.35 TB/s, that is <strong>6.53 ms per step</strong> — every conversation in the batch gets one token every 6.53 ms.</p>
+<p>Now a new request arrives with a 32,768-token prompt. Its prefill is roughly <code>2 × parameters × tokens</code> operations:</p>
+<p><code>2 × 70e9 × 32,768 = 4.59 × 10¹⁵ FLOPs</code></p>
+<p>At half of peak throughput on 8 chips, that takes <strong>1.16 seconds.</strong> If the server runs that prefill in the same iteration as everyone's decode — which a simple scheduler does — every running conversation waits for it to finish.</p>
+<p>1.16 seconds is <strong>178 decode steps.</strong> A user watching a reply stream at 150 tokens a second sees it stop dead for over a second, every time anyone else submits a long document.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="Timeline of a shared server: a steady stream of short decode steps interrupted by one long prefill block, against two separate timelines where decode never stops." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ONE SERVER VS TWO POOLS</text>
+<text class="l" x="20" y="48">shared</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.55">
+<rect x="100" y="38" width="8" height="16"></rect><rect x="111" y="38" width="8" height="16"></rect><rect x="122" y="38" width="8" height="16"></rect><rect x="133" y="38" width="8" height="16"></rect><rect x="144" y="38" width="8" height="16"></rect>
+<rect x="395" y="38" width="8" height="16"></rect><rect x="406" y="38" width="8" height="16"></rect><rect x="417" y="38" width="8" height="16"></rect><rect x="428" y="38" width="8" height="16"></rect><rect x="439" y="38" width="8" height="16"></rect><rect x="450" y="38" width="8" height="16"></rect>
+</g>
+<rect x="155" y="38" width="236" height="16" fill="var(--primary)" fill-opacity="0.8"></rect>
+<text class="b" x="273" y="74" text-anchor="middle">32k prefill — 1.16 s, 178 steps of nothing</text>
+<text class="l" x="20" y="118">decode pool</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.55">
+<rect x="100" y="108" width="8" height="16"></rect><rect x="111" y="108" width="8" height="16"></rect><rect x="122" y="108" width="8" height="16"></rect><rect x="133" y="108" width="8" height="16"></rect><rect x="144" y="108" width="8" height="16"></rect><rect x="155" y="108" width="8" height="16"></rect><rect x="166" y="108" width="8" height="16"></rect><rect x="177" y="108" width="8" height="16"></rect><rect x="188" y="108" width="8" height="16"></rect><rect x="199" y="108" width="8" height="16"></rect><rect x="210" y="108" width="8" height="16"></rect><rect x="221" y="108" width="8" height="16"></rect><rect x="232" y="108" width="8" height="16"></rect><rect x="243" y="108" width="8" height="16"></rect><rect x="254" y="108" width="8" height="16"></rect><rect x="265" y="108" width="8" height="16"></rect><rect x="276" y="108" width="8" height="16"></rect><rect x="287" y="108" width="8" height="16"></rect><rect x="298" y="108" width="8" height="16"></rect><rect x="309" y="108" width="8" height="16"></rect><rect x="320" y="108" width="8" height="16"></rect><rect x="331" y="108" width="8" height="16"></rect><rect x="342" y="108" width="8" height="16"></rect><rect x="353" y="108" width="8" height="16"></rect><rect x="364" y="108" width="8" height="16"></rect><rect x="375" y="108" width="8" height="16"></rect><rect x="386" y="108" width="8" height="16"></rect><rect x="397" y="108" width="8" height="16"></rect><rect x="408" y="108" width="8" height="16"></rect><rect x="419" y="108" width="8" height="16"></rect><rect x="430" y="108" width="8" height="16"></rect><rect x="441" y="108" width="8" height="16"></rect><rect x="452" y="108" width="8" height="16"></rect>
+</g>
+<text class="l" x="20" y="158">prefill pool</text>
+<rect x="155" y="148" width="236" height="16" fill="var(--primary)" fill-opacity="0.8"></rect>
+<rect x="391" y="148" width="44" height="16" fill="none" stroke="var(--primary)" stroke-dasharray="3 3"></rect>
+<text class="l" x="440" y="160">ship cache</text>
+<path d="M20 190 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="214">the decode pool never pauses; the new request pays the transfer</text>
+<text class="l" x="20" y="234">10.74 GB of cache: 0.215 s on one 400 Gb/s link, 0.027 s on eight</text>
+</svg>
+<figcaption>Moving prefill elsewhere turns a stall shared by everyone into a delay paid by one request.</figcaption>
+</figure>
+<h2 id="the-split"><a class="heading-anchor" href="#the-split">The split</a></h2>
+<p>In a disaggregated setup there are two pools of machines.</p>
+<ol>
+<li>A request arrives at the <strong>prefill pool</strong>, which processes the prompt and produces the KV cache.</li>
+<li>The cache is sent over the network to a machine in the <strong>decode pool</strong>.</li>
+<li>The decode machine generates the reply, never interrupted by anyone's prefill.</li>
+</ol>
+<p>Each pool can now be tuned for its phase. The prefill pool runs small batches of large prompts and keeps its arithmetic units busy. The decode pool runs large batches of short steps and keeps its memory bandwidth busy. They can even be different hardware, and they can be scaled independently — more prefill machines when users paste long documents, more decode machines when they ask for long answers.</p>
+<h2 id="the-price-moving-the-cache"><a class="heading-anchor" href="#the-price-moving-the-cache">The price: moving the cache</a></h2>
+<p>The KV cache has to cross from one machine to the other. For the 70B-class model, 320 KB per token, a 32,768-token prompt produces 10.74 GB of cache.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>link</th><th>transfer time</th><th>as a share of the prefill</th></tr></thead><tbody><tr><td>one 400 Gb/s NIC</td><td>0.215 s</td><td>18.5%</td></tr><tr><td>eight 400 Gb/s NICs</td><td>0.027 s</td><td>2.3%</td></tr><tr><td>NVLink-class, 900 GB/s</td><td>0.012 s</td><td>1.0%</td></tr></tbody></table>
+<p>On a single commodity link the new request's first token is delayed by a fifth on top of its prefill. With one fast link per accelerator, the cost is a rounding error. In practice the transfer is also pipelined: layer 1's cache is sent while layer 2 is still being computed, so much of it hides behind the prefill itself.</p>
+<p>Note who pays. In the shared design, one long prompt delays <em>every</em> active conversation. In the split design, the transfer delays only the request that caused it. That is the right person to charge.</p>
+<h2 id="the-alternative-chunked-prefill"><a class="heading-anchor" href="#the-alternative-chunked-prefill">The alternative: chunked prefill</a></h2>
+<p>The simpler fix keeps one pool and breaks the big prefill into pieces. Instead of 32,768 tokens in one iteration, process 2,048 per iteration, mixed in with everyone's decode step.</p>
+<p>A 2,048-token chunk takes about 72.5 ms. Decoding users now see each step slow from 6.5 ms to around 79 ms for sixteen iterations instead of stopping for 1,160 ms. That is a slowdown rather than a freeze, and it needs no second pool and no network transfer.</p>
+<p>Chunked prefill is usually where a deployment starts. Disaggregation is where it goes when the workload is large enough that two separately tuned pools beat one compromise — long prompts, strict latency targets on streaming, and enough traffic to keep both pools full.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Prefill is compute-bound and decode is bandwidth-bound, and when they share a machine the expensive one interrupts the cheap one: a 32k-token prompt costs every running conversation 1.16 seconds, or 178 tokens' worth of waiting.</p>
+<p>Disaggregation puts them on separate pools so decode never stops, and charges the one request that caused the work for moving its cache — 0.2 seconds on one ordinary link, a few hundredths with fast interconnect. Chunked prefill is the cheaper halfway house: no freeze, just a slower stream while the big prompt is digested.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Prefill-decode disaggregation"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T09:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"One 32k-token prompt arriving on a shared server freezes every running conversation for 1.16 seconds — 178 decode steps. Splitting prefill and decode onto separate machines removes the freeze, at the price of shipping a 10.74 GB cache across the network."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/prefill-decode-disaggregation.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/kv-cache-compression/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"KV cache compression"}]]}],["$","$L2",null,{"href":"/blog/n-gram-speculation/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"N-gram speculation"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-stall","text":"The stall","level":2},{"id":"the-split","text":"The split","level":2},{"id":"the-price-moving-the-cache","text":"The price: moving the cache","level":2},{"id":"the-alternative-chunked-prefill","text":"The alternative: chunked prefill","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

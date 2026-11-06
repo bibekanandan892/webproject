@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Why LLMs hallucinate: a flat spread of candidate tokens funnelling into a single confident sentence.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 200 H400" stroke="#141413" stroke-opacity="0.35" stroke-width="2"/>
+<g fill="#5E5D59" fill-opacity="0.35">
+<rect x="128" y="113" width="52" height="87" rx="4"/><rect x="192" y="127" width="52" height="73" rx="4"/><rect x="256" y="142" width="52" height="58" rx="4"/><rect x="320" y="156" width="52" height="44" rx="4"/>
+</g>
+<rect x="64" y="104" width="52" height="96" rx="4" fill="#141413" fill-opacity="0.65"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#5E5D59" text-anchor="middle">
+<text x="90" y="222">1847</text><text x="154" y="222">1849</text><text x="218" y="222">1851</text><text x="282" y="222">1846</text><text x="346" y="222">1852</text>
+</g>
+<g stroke="#141413" stroke-opacity="0.5" stroke-width="2.5"><path d="M410 160 H470"/><path d="M458 152 L472 160 L458 168" fill="none"/></g>
+<rect x="490" y="132" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#141413" stroke-width="2.5"/>
+<text x="615" y="166" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#141413" text-anchor="middle">"born in 1847."</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">a 30% guess, written like a fact</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">why llms hallucinate</text>
+</svg>

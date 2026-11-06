@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Bias-variance tradeoff: scattered noisy points with a straight line missing their curve, a wildly wiggling line through every point, and a smooth curve following the trend.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="#5E5D59" fill-opacity="0.6"><circle cx="80" cy="200" r="6"/><circle cx="130" cy="142" r="6"/><circle cx="180" cy="120" r="6"/><circle cx="230" cy="80" r="6"/><circle cx="280" cy="98" r="6"/><circle cx="330" cy="76" r="6"/><circle cx="380" cy="128" r="6"/><circle cx="430" cy="170" r="6"/><circle cx="480" cy="230" r="6"/><circle cx="530" cy="250" r="6"/><circle cx="580" cy="292" r="6"/><circle cx="630" cy="282" r="6"/><circle cx="680" cy="306" r="6"/><circle cx="730" cy="248" r="6"/></g>
+<path d="M60 120 L750 270" stroke="#5E5D59" stroke-opacity="0.5" stroke-width="3" stroke-dasharray="10 7"/>
+<path d="M80 200 C100 120 120 160 130 142 C150 100 165 140 180 120 C200 70 215 90 230 80 C250 110 265 80 280 98 C300 60 315 90 330 76 C350 160 365 110 380 128 C400 190 415 150 430 170 C450 250 465 210 480 230 C500 270 515 230 530 250 C550 320 565 280 580 292 C600 270 615 290 630 282 C650 330 665 300 680 306 C700 220 715 260 730 248" stroke="#5E5D59" stroke-width="2.5" fill="none"/>
+<path d="M60 200 C180 40 340 50 430 170 C520 290 640 330 750 260" stroke="#141413" stroke-width="5" fill="none"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">line 0.304 · degree 3 0.116 · degree 12 0.587</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">bias-variance tradeoff</text>
+</svg>

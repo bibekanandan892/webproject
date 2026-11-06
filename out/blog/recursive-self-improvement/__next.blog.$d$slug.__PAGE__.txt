@@ -1,0 +1,153 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/recursive-self-improvement.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T21b0,<p>Most AI systems are improved by people. Engineers collect data, change the training recipe, run evaluations and decide what ships. The model is the thing being improved; it is not doing the improving.</p>
+<p>Recursive self-improvement is the loop where it is. The system proposes a change to itself — its prompts, its tools, its training data, eventually its own code or weights — evaluates the result, keeps the change if it helped, and then uses the improved version to propose the next change. The improver and the improved are the same thing, so every gain also improves the process of gaining.</p>
+<p>That is the whole idea, and the interesting questions are all quantitative: does the loop compound, stall, or quietly go backwards?</p>
+<h2 id="the-loop"><a class="heading-anchor" href="#the-loop">The loop</a></h2>
+<p>One cycle has four steps:</p>
+<ol>
+<li><strong>Propose.</strong> Generate a candidate change — a new system prompt, a rewritten tool, a batch of synthetic training data, a modified training script.</li>
+<li><strong>Apply.</strong> Build the candidate version.</li>
+<li><strong>Evaluate.</strong> Measure the candidate against the current version.</li>
+<li><strong>Select.</strong> Keep whichever scored better. Repeat, with the winner as the new proposer.</li>
+</ol>
+<p>Pieces of this exist today. Models generate training data that is filtered and used to train their successors. Agents rewrite their own prompts and tool code and keep the versions that pass more tests. Search systems propose and benchmark candidate algorithms. None of these is the full loop running unattended on its own weights — but each is one of its steps.</p>
+<h2 id="does-it-compound"><a class="heading-anchor" href="#does-it-compound">Does it compound?</a></h2>
+<p>If every cycle improves capability by a fixed 10%, ten cycles give <code>1.1¹⁰ = 2.59×</code>. That is the optimistic picture: steady, compounding gains.</p>
+<p>The shape depends entirely on how the per-cycle gain changes as the system gets better:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>per-cycle gain</th><th>after 10 cycles</th><th>limit</th></tr></thead><tbody><tr><td>steady 10%</td><td>2.59×</td><td>unbounded</td></tr><tr><td>10%, growing 10% per cycle</td><td><strong>4.36×</strong></td><td>unbounded, faster</td></tr><tr><td>10%, shrinking 20% per cycle</td><td>1.54×</td><td>bounded</td></tr><tr><td>10%, halving each cycle</td><td>1.21×</td><td><strong>1.21×</strong></td></tr></tbody></table>
+<p>Accelerating returns — each improvement making the next one larger — is the "intelligence explosion" scenario. Diminishing returns — each improvement harder to find than the last — produces a plateau that arrives quickly: with gains halving, the loop has delivered almost everything it ever will in five cycles.</p>
+<p>Which regime is real is an open empirical question, and probably differs by what is being improved. Prompt and tool tweaks show steep diminishing returns: the easy wins are found first. Improvements to the improvement process itself are the ones that could accelerate, and they are the hardest to make.</p>
+<figure>
+<svg viewBox="0 0 560 280" width="560" role="img" aria-label="Four curves of capability over ten cycles: accelerating to 4.36, steady to 2.59, shrinking to 1.54 and halving to 1.21." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE SAME LOOP, FOUR RETURN CURVES</text>
+<path d="M60 36 V200 H460" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<text class="l" x="30" y="204">1×</text><text class="l" x="30" y="40">4.4×</text>
+<path d="M60 200 C200 190 330 140 460 40" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<text class="b" x="468" y="44">4.36× accelerating</text>
+<path d="M60 200 C220 180 340 150 460 125" stroke="var(--primary)" stroke-opacity="0.6" stroke-width="2" fill="none"></path>
+<text class="l" x="468" y="129">2.59× steady</text>
+<path d="M60 200 C150 186 260 177 460 174" stroke="var(--muted-foreground)" stroke-width="2" fill="none"></path>
+<text class="l" x="468" y="172">1.54×</text>
+<path d="M60 200 C110 192 170 190 460 190" stroke="var(--muted-foreground)" stroke-opacity="0.7" stroke-width="2" stroke-dasharray="4 3" fill="none"></path>
+<text class="l" x="468" y="196">1.21× halving</text>
+<text class="l" x="60" y="218">cycle 0</text><text class="l" x="460" y="218" text-anchor="end">cycle 10</text>
+<path d="M20 236 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="258">whether it compounds depends on what each gain does to the next one</text>
+</svg>
+<figcaption>A start of 10% says nothing about where the loop ends. The decay rate does.</figcaption>
+</figure>
+<h2 id="the-real-bottleneck-measurement"><a class="heading-anchor" href="#the-real-bottleneck-measurement">The real bottleneck: measurement</a></h2>
+<p>Step 3 is where the loop is weakest, and it is easy to quantify.</p>
+<p>Suppose the evaluation is a benchmark of 500 questions on which the system scores about 70%. The standard error of that score is <code>√(0.7 × 0.3 / 500) = 2.05%</code>. Comparing two versions doubles the variance, so the difference between them is uncertain by 2.90%.</p>
+<p>Now ask: if the candidate is genuinely <em>worse</em>, how often does it score higher anyway and get kept?</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>true change</th><th>kept by a 500-question benchmark</th></tr></thead><tbody><tr><td>−1% (worse)</td><td><strong>36.5%</strong></td></tr><tr><td>0% (no change)</td><td>50.0%</td></tr><tr><td>+1%</td><td>63.5%</td></tr><tr><td>+3%</td><td>85.0%</td></tr></tbody></table>
+<p>A regression of one point is accepted more than a third of the time. Run the loop for many cycles and it performs a random walk with a small upward drift — and, worse, it accumulates changes that exploit quirks of the benchmark, because every change that happens to score well is kept whether or not it reflects real capability.</p>
+<p>Bigger evaluations help, slowly:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>benchmark size</th><th>uncertainty of a difference</th><th>a −1% change kept</th></tr></thead><tbody><tr><td>500</td><td>2.90%</td><td>36.5%</td></tr><tr><td>2,000</td><td>1.45%</td><td>24.5%</td></tr><tr><td>10,000</td><td>0.65%</td><td>6.1%</td></tr></tbody></table>
+<p>Twenty times the evaluation reduces the false-acceptance rate six-fold. And a fixed benchmark used for selection hundreds of times is, by the end, a training set. A self-improving loop is only as good as a measurement that stays honest under repeated optimisation — fresh held-out tasks, varied evaluators, real-world outcomes rather than proxy scores.</p>
+<h2 id="why-it-is-a-safety-topic"><a class="heading-anchor" href="#why-it-is-a-safety-topic">Why it is a safety topic</a></h2>
+<p>Every cycle optimises the system toward whatever the evaluation rewards. If that is slightly different from what people actually want, the loop amplifies the difference. Humans in the loop are not there for formality; they are the evaluation that is hardest to game.</p>
+<p>The practical safeguards follow from the arithmetic:</p>
+<ul>
+<li><strong>Gate each change with a human or an independent evaluator,</strong> at least for changes to the improvement process itself.</li>
+<li><strong>Hold out evaluation data the loop never sees,</strong> and rotate it.</li>
+<li><strong>Bound what the loop may change.</strong> Prompts and tool code are reviewable; unsupervised edits to weights and training code are not.</li>
+<li><strong>Log every accepted change,</strong> so regressions can be traced and reverted.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Recursive self-improvement is a loop where the system improves the thing that improves it. Whether that compounds — 4.36× in ten cycles — or plateaus at 1.21× depends on whether gains make the next gain larger or smaller, and that is not known in general.</p>
+<p>What is known is that the loop cannot be better than its evaluation. On a 500-question benchmark, a change that makes things 1% worse is kept 36.5% of the time. Honest, fresh, hard-to-game measurement is the actual engine, and human review is part of it.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Recursive self-improvement"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T10:00","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A system that improves the thing that improves it. Ten cycles at a steady 10% compound to 2.59×; with returns halving each cycle the ceiling is 1.21×. And on a 500-question benchmark, a change that makes the model 1% worse passes as an improvement 36.5% of the time."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/recursive-self-improvement.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/temperature-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Temperature in LLMs"}]]}],["$","$L2",null,{"href":"/blog/real-time-voice-agent-design/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Designing a real-time voice agent"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-loop","text":"The loop","level":2},{"id":"does-it-compound","text":"Does it compound?","level":2},{"id":"the-real-bottleneck-measurement","text":"The real bottleneck: measurement","level":2},{"id":"why-it-is-a-safety-topic","text":"Why it is a safety topic","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

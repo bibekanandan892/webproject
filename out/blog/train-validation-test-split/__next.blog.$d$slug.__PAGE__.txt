@@ -1,0 +1,142 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/train-validation-test-split.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T2224,<p>A model is only useful if it works on data it has not seen. Every evaluation practice in machine learning is built around measuring that honestly, and the most basic one is splitting the data into three parts before anything else happens.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>set</th><th>typical share</th><th>used to</th></tr></thead><tbody><tr><td><strong>training</strong></td><td>70–80%</td><td>fit the model's weights</td></tr><tr><td><strong>validation</strong></td><td>10–15%</td><td>choose between models, settings and when to stop</td></tr><tr><td><strong>test</strong></td><td>10–15%</td><td>report the final result — once</td></tr></tbody></table>
+<p>The reason there are three, not two, is the interesting part.</p>
+<h2 id="training-where-the-model-learns"><a class="heading-anchor" href="#training-where-the-model-learns">Training: where the model learns</a></h2>
+<p>The training set is what gradient descent sees. The model's weights are adjusted to reduce error on exactly these examples, so performance on them is always optimistic. A large enough model can memorise its training set completely and still be useless on anything else. Training accuracy tells you the model <em>can</em> fit the data, nothing more.</p>
+<h2 id="validation-where-you-make-decisions"><a class="heading-anchor" href="#validation-where-you-make-decisions">Validation: where you make decisions</a></h2>
+<p>Building a model involves many choices the training process does not make for you: the architecture, the learning rate, how much regularisation, which features to include, when to stop training. Each is decided by trying options and comparing them on data the model did not train on — the validation set.</p>
+<p>Validation data is therefore <em>used</em>, indirectly. Every choice made by looking at validation scores fits the final model a little to those particular examples.</p>
+<h2 id="test-where-you-find-out"><a class="heading-anchor" href="#test-where-you-find-out">Test: where you find out</a></h2>
+<p>The test set answers one question: how well will the finished model do on new data? To answer it honestly, it must play no part in any decision. Ideally it is looked at once, at the end.</p>
+<h2 id="what-goes-wrong-without-the-middle-set"><a class="heading-anchor" href="#what-goes-wrong-without-the-middle-set">What goes wrong without the middle set</a></h2>
+<p>Suppose you skip validation and choose between models by their test score. It feels harmless — you are only picking the best one.</p>
+<p>Simulate it. Twenty model configurations, all with the same <strong>true</strong> accuracy of 90%. Each is scored on the same 1,000-example test set; random variation means each gets a slightly different score. Pick the best:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>configurations compared on the test set</th><th>average score of the "best" one</th></tr></thead><tbody><tr><td>1</td><td>90.00%</td></tr><tr><td>5</td><td>91.11%</td></tr><tr><td>20</td><td><strong>91.71%</strong></td></tr><tr><td>100</td><td>92.39%</td></tr></tbody></table>
+<p>None of them is better than 90%. But pick the winner from 20 and you will report 91.71% — an improvement that exists only because you chose the configuration that happened to get lucky on those particular 1,000 examples. Try 100 and you will report 92.39%.</p>
+<p>This is overfitting to the test set, and it happens with no change to any model weights at all. It is why test sets must be reserved, and why public benchmarks that the whole field tunes against gradually stop measuring what they claim to.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="A bar divided into training, validation and test segments, and below it a chart showing the reported score rising from 90% to 92.39% as more configurations are compared on the test set, against a flat true accuracy of 90%." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">LEARN · CHOOSE · REPORT</text>
+<rect x="20" y="32" width="364" height="24" fill="var(--muted-foreground)" fill-opacity="0.35"></rect>
+<rect x="384" y="32" width="78" height="24" fill="var(--muted-foreground)" fill-opacity="0.6"></rect>
+<rect x="462" y="32" width="78" height="24" fill="var(--primary)" fill-opacity="0.8"></rect>
+<text class="l" x="30" y="48">train 70%</text><text class="l" x="392" y="48">val 15%</text><text class="b" x="470" y="48" fill="var(--background)">test 15%</text>
+<path d="M80 80 V190 H520" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<text class="l" x="74" y="190" text-anchor="end">90%</text><text class="l" x="74" y="90" text-anchor="end">92.5%</text>
+<path d="M80 190 H520" stroke="var(--muted-foreground)" stroke-width="2" stroke-dasharray="4 3"></path>
+<text class="l" x="420" y="184">true accuracy</text>
+<path d="M90 190 L200 146 L330 122 L500 94" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<g fill="var(--primary)"><circle cx="90" cy="190" r="3.5"></circle><circle cx="200" cy="146" r="3.5"></circle><circle cx="330" cy="122" r="3.5"></circle><circle cx="500" cy="94" r="3.5"></circle></g>
+<text class="b" x="206" y="142">5 → 91.11%</text><text class="b" x="336" y="118">20 → 91.71%</text><text class="b" x="452" y="88">100 → 92.39%</text>
+<text class="l" x="80" y="206">configurations compared on the test set →</text>
+<path d="M20 222 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="244">every model is 90%; choosing on the test set reports up to 92.39%</text>
+</svg>
+<figcaption>Selection on a noisy score is optimistic by construction. The validation set absorbs that optimism so the test set does not.</figcaption>
+</figure>
+<h2 id="how-big-each-set-needs-to-be"><a class="heading-anchor" href="#how-big-each-set-needs-to-be">How big each set needs to be</a></h2>
+<p>The test set's size decides how precisely you know the result. For a model around 90% accurate:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>test examples</th><th>standard error</th><th>95% interval</th></tr></thead><tbody><tr><td>100</td><td>3.00%</td><td>±5.88%</td></tr><tr><td>1,000</td><td>0.95%</td><td>±1.86%</td></tr><tr><td>10,000</td><td>0.30%</td><td>±0.59%</td></tr></tbody></table>
+<p>With 100 test examples, "91%" means anywhere from about 85% to 97%. Differences between models smaller than the interval are not evidence of anything. When data is plentiful, test and validation sets can be a small percentage of the total and still contain tens of thousands of examples; when it is scarce, <strong>cross-validation</strong> — rotating which slice is held out and averaging — gets more out of it.</p>
+<h2 id="splitting-correctly"><a class="heading-anchor" href="#splitting-correctly">Splitting correctly</a></h2>
+<p>The split must mimic how the model will meet new data. Random splitting is right only when examples are independent. Common traps:</p>
+<ul>
+<li><strong>Time.</strong> Forecasting models must be validated on data <em>later</em> than their training data. A random split lets the model peek at the future.</li>
+<li><strong>Groups.</strong> If one patient contributes many scans, or one user many messages, all of that person's data must fall in one set. Otherwise the model can recognise the person rather than learn the task.</li>
+<li><strong>Duplicates.</strong> Near-identical examples on both sides of the split — the same image resized, the same document reposted — inflate test scores.</li>
+<li><strong>Preprocessing.</strong> Statistics used to normalise data, fill missing values or select features must be computed on the training set only, then applied to the others.</li>
+</ul>
+<p>Each of these is a form of <strong>leakage</strong>: information about the test examples reaching the model or the modeller before the final evaluation.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Training data fits the weights, validation data makes the choices, test data reports the result. Merging the last two looks harmless but is not: choosing the best of 20 equally good models on a 1,000-example test set reports 91.71% for models that are all really 90%.</p>
+<p>Size the test set for the precision you need — ±1.86% at 1,000 examples — split in a way that matches how the model will be used, and keep the test set out of every decision until the end.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Train, validation and test sets"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T15:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Three slices of data, three jobs: learn, choose, and report. Skip the middle one and tune on the test set, and the best of 20 equally good models scores 91.71% on a 1,000-example test that all of them would really score 90% on — an improvement that does not exist."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/train-validation-test-split.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/activation-functions/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Activation functions"}]]}],["$","$L2",null,{"href":"/blog/dynamic-endpointing/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Dynamic endpointing"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"training-where-the-model-learns","text":"Training: where the model learns","level":2},{"id":"validation-where-you-make-decisions","text":"Validation: where you make decisions","level":2},{"id":"test-where-you-find-out","text":"Test: where you find out","level":2},{"id":"what-goes-wrong-without-the-middle-set","text":"What goes wrong without the middle set","level":2},{"id":"how-big-each-set-needs-to-be","text":"How big each set needs to be","level":2},{"id":"splitting-correctly","text":"Splitting correctly","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

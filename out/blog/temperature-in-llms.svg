@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Temperature: a sharp, peaked distribution on the left and a flattened one on the right over the same four tokens.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="60" y="80" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">T = 0.2</text>
+<text x="440" y="80" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">T = 1.5</text>
+<path d="M60 310 H360 M440 310 H740" stroke="#141413" stroke-opacity="0.35" stroke-width="2"/>
+<g fill="#5E5D59" fill-opacity="0.35">
+<rect x="70" y="102" width="56" height="208" rx="4"/><rect x="140" y="308" width="56" height="2"/><rect x="210" y="309" width="56" height="1"/><rect x="280" y="309" width="56" height="1"/>
+</g>
+<g fill="#141413" fill-opacity="0.55">
+<rect x="450" y="198" width="56" height="112" rx="4"/><rect x="520" y="253" width="56" height="57" rx="4"/><rect x="590" y="280" width="56" height="30" rx="4"/>
+</g>
+<rect x="660" y="299" width="56" height="11" rx="2" fill="#FFFFFF" stroke="#141413" stroke-width="2"/>
+<text x="688" y="290" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#141413" text-anchor="middle">5.2%</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">p = softmax(logits / T)</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">temperature in llms</text>
+</svg>

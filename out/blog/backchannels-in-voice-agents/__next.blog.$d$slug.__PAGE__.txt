@@ -1,0 +1,67 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/backchannels-in-voice-agents.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T1ec9,<p>While one person talks, the other keeps up a quiet stream of small signals: "mm-hmm", "yeah", "right", "okay", "uh-huh", "I see". Linguists call these <strong>backchannels</strong>. They are not attempts to take the turn. They mean the opposite: <em>I'm following, carry on.</em></p>
+<p>Voice agents get this badly wrong in both directions. They stop talking when the caller backchannels, and they never backchannel themselves.</p>
+<h2 id="mistaking-mm-hmm-for-an-interruption"><a class="heading-anchor" href="#mistaking-mm-hmm-for-an-interruption">Mistaking "mm-hmm" for an interruption</a></h2>
+<p>A voice agent with barge-in stops speaking when it detects the user talking. A backchannel is the user talking. So unless the agent can tell the difference, every "mm-hmm" interrupts it.</p>
+<p>Suppose the agent speaks for four minutes in total during a call, and the caller backchannels about six times a minute — a modest rate for someone listening attentively to an explanation. That is around <strong>24 backchannels</strong>. With a barge-in rule that stops after 300 ms of continuous speech, about 65% of typical backchannels last long enough to trigger it:</p>
+<p><code>24 × 0.65 ≈</code> <strong>15.6 false stops in one call</strong></p>
+<p>Fifteen times, the agent halts mid-sentence, waits, and then either repeats itself, asks "Sorry, did you say something?", or treats "mm-hmm" as the caller's complete answer and replies to it. The caller learns to keep silent — which makes the conversation stilted — or gives up.</p>
+<p>With a classifier that recognises backchannel words and ignores them correctly 95% of the time, the same call has about <strong>1.2</strong> false stops.</p>
+<h2 id="recognising-them"><a class="heading-anchor" href="#recognising-them">Recognising them</a></h2>
+<p>Backchannels are a small, recognisable vocabulary, which makes them easier to handle than most turn-taking problems:</p>
+<p><strong>The words.</strong> "Mm-hmm", "uh-huh", "yeah", "yep", "right", "okay", "sure", "I see", "got it". A streaming transcript of the first few hundred milliseconds identifies most of them.</p>
+<p><strong>The shape.</strong> Short — usually under half a second — often quieter than the speaker's normal voice, and with little or nothing following.</p>
+<p><strong>The timing.</strong> They tend to fall at the agent's phrase boundaries and pauses, not in the middle of words.</p>
+<p><strong>The context.</strong> "Yeah" in reply to the agent's direct question is an answer. "Yeah" while the agent is mid-explanation is a backchannel. "Okay" after the agent finishes a list may mean "go on" or "that's enough" — context and intonation decide.</p>
+<p>When a sound is classified as a backchannel, the agent should simply carry on — no pause, no repeat — and it should <strong>not</strong> add the backchannel to the conversation history as a user turn. At most, it might note that the user is engaged.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="A long agent speech bar with small user backchannel marks beneath it; above, a version where each mark causes a gap in the agent&#x27;s speech, and below, a version where the agent continues uninterrupted." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">"MM-HMM" MEANS KEEP GOING</text>
+<text class="l" x="20" y="54">naive barge-in</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.55"><rect x="140" y="42" width="80" height="16" rx="3"></rect><rect x="246" y="42" width="70" height="16" rx="3"></rect><rect x="342" y="42" width="90" height="16" rx="3"></rect><rect x="458" y="42" width="72" height="16" rx="3"></rect></g>
+<text class="l" x="20" y="84">user</text>
+<g fill="var(--primary)" fill-opacity="0.7"><rect x="222" y="74" width="20" height="10" rx="2"></rect><rect x="318" y="74" width="20" height="10" rx="2"></rect><rect x="434" y="74" width="20" height="10" rx="2"></rect></g>
+<text class="l" x="20" y="124">recognised</text>
+<rect x="140" y="112" width="390" height="16" rx="3" fill="var(--primary)" fill-opacity="0.75"></rect>
+<g fill="var(--muted-foreground)" fill-opacity="0.7"><rect x="222" y="134" width="20" height="10" rx="2"></rect><rect x="318" y="134" width="20" height="10" rx="2"></rect><rect x="434" y="134" width="20" height="10" rx="2"></rect></g>
+<text class="l" x="244" y="102">gap, "sorry?", repeat</text>
+<path d="M20 162 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="186">24 backchannels in a call: ~15.6 false stops at a 300 ms rule, ~1.2 with recognition</text>
+<text class="l" x="20" y="206">assumes 4 minutes of agent speech, 6 backchannels per minute</text>
+</svg>
+<figcaption>The same three "mm-hmm"s: a stuttering agent above, a fluent one below.</figcaption>
+</figure>
+<h2 id="agents-that-backchannel"><a class="heading-anchor" href="#agents-that-backchannel">Agents that backchannel</a></h2>
+<p>The other half is the agent's own listening behaviour. When the caller speaks at length — explaining a problem, giving an address, telling a story — a human listener produces backchannels, and the speaker relies on them. Long silence on the line makes people wonder whether they are being heard, and they start repeating themselves or asking "hello?".</p>
+<p>An agent can provide the same signal: a brief, quiet "mm-hmm" or "right" at the caller's natural pauses during a long turn. Doing this well is delicate:</p>
+<ul>
+<li><strong>Timing:</strong> at phrase boundaries, never on top of the caller's words.</li>
+<li><strong>Rate:</strong> occasional. Too frequent sounds impatient; too regular sounds mechanical.</li>
+<li><strong>Volume and length:</strong> short and soft, clearly not an attempt to take the turn.</li>
+<li><strong>Not as a reply:</strong> it must not reset endpointing or make the caller think the agent has started answering.</li>
+</ul>
+<p>In a half-duplex pipeline this needs a separate path — a small set of pre-synthesised clips triggered by pause detection while the agent is listening. Full-duplex speech models can learn to do it natively from conversational data, which is one of their clearer advantages.</p>
+<h2 id="edge-cases"><a class="heading-anchor" href="#edge-cases">Edge cases</a></h2>
+<ul>
+<li><strong>"Yeah, but…"</strong> starts as a backchannel and becomes an interruption. Keep classifying as more audio arrives rather than deciding once.</li>
+<li><strong>"Okay okay okay"</strong> — repeated, rapid backchannels often mean <em>hurry up</em> or <em>I've got it</em>. Some agents shorten the rest of their explanation in response.</li>
+<li><strong>"No"</strong> is never a backchannel when the agent has just stated something the caller disagrees with.</li>
+<li><strong>Non-English backchannels</strong> differ by language and culture, both in form and in how often they are used. Classifiers need data from the populations they serve.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Backchannels — "mm-hmm", "yeah", "right" — are listening signals that mean <em>carry on</em>. An agent that treats them as interruptions stops constantly: about 15.6 times in a call with 24 backchannels under a 300 ms barge-in rule, against about 1.2 with word-level recognition.</p>
+<p>Recognise them by vocabulary, length, timing and context; keep talking through them and keep them out of the conversation history. And let the agent produce them itself, sparingly and at pauses, so callers speaking at length know someone is listening.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Backchannels in voice agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T19:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"\"Mm-hmm\" means keep going. Over four minutes of agent speech a caller might say it 24 times; a barge-in rule that stops for any 300 ms of sound halts the agent about 15.6 times in that call. Recognising backchannels as words brings it to about 1.2 — and a good agent says them too."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/backchannels-in-voice-agents.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/jailbreaking-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Jailbreaking in LLMs"}]]}],["$","$L2",null,{"href":"/blog/decision-trees-and-random-forests/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Decision trees and random forests"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"mistaking-mm-hmm-for-an-interruption","text":"Mistaking \"mm-hmm\" for an interruption","level":2},{"id":"recognising-them","text":"Recognising them","level":2},{"id":"agents-that-backchannel","text":"Agents that backchannel","level":2},{"id":"edge-cases","text":"Edge cases","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

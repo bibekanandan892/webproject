@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Filler phrases: a speech bubble saying let me check that for you, placed over a gap in which a tool is working.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="80" width="420" height="80" rx="16" fill="#FFFFFF" stroke="#141413" stroke-width="2.5"/>
+<path d="M120 160 L110 196 L160 160" fill="#FFFFFF" stroke="#141413" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M118 158 H158" stroke="#FFFFFF" stroke-width="4"/>
+<text x="90" y="130" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="23" fill="#141413">"Let me check that…"</text>
+<rect x="60" y="230" width="300" height="34" rx="6" fill="#141413" fill-opacity="0.7"/>
+<rect x="60" y="276" width="420" height="34" rx="6" fill="#5E5D59" fill-opacity="0.3"/>
+<text x="490" y="253" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#141413">filler 1.2 s</text>
+<text x="490" y="299" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#5E5D59">lookup</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">covers 72.2% of lookups completely</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">filler phrases</text>
+</svg>

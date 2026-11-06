@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Why voice agents cut people off: the user's speech bar with a gap, and the agent's speech bar starting inside that gap and overlapping the user's resumed speech.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19"><text x="60" y="140" fill="#5E5D59">user</text><text x="60" y="240" fill="#141413">agent</text></g>
+<g fill="#5E5D59" fill-opacity="0.45"><rect x="150" y="115" width="230" height="40" rx="8"/><rect x="450" y="115" width="200" height="40" rx="8"/></g>
+<rect x="420" y="215" width="190" height="40" rx="8" fill="#141413" fill-opacity="0.75"/>
+<rect x="450" y="100" width="160" height="170" fill="#141413" fill-opacity="0.08" stroke="#141413" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="530" y="294" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#141413" text-anchor="middle">overlap</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">5% of turns = 46.0% of calls</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">why agents cut people off</text>
+</svg>

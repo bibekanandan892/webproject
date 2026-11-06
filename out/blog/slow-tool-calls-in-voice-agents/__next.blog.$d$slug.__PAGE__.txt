@@ -1,0 +1,91 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/slow-tool-calls-in-voice-agents.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T1fda,<p>A text chatbot that takes three seconds to call an API shows a spinner. A voice agent that takes three seconds plays nothing — and three seconds of silence on a phone call is long enough for the caller to wonder if the line dropped.</p>
+<p>Voice agents call tools constantly: look up the account, check availability, fetch the order, place the booking. The backends behind those tools were rarely designed for conversational latency. The work of a voice agent is to stay conversational anyway, and there are five main techniques.</p>
+<h2 id="1-run-independent-calls-in-parallel"><a class="heading-anchor" href="#1-run-independent-calls-in-parallel">1. Run independent calls in parallel</a></h2>
+<p>A language model handling "When is my next delivery, and can I change the address?" might call three tools: get the customer, get their orders, get the delivery options. If each takes a median 600 ms with a 95th percentile of 1.5 s, the order of execution matters a lot:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>median</th><th>95th percentile</th></tr></thead><tbody><tr><td>one after another</td><td>1,984 ms</td><td><strong>3,456 ms</strong></td></tr><tr><td>all at once</td><td><strong>948 ms</strong></td><td>1,954 ms</td></tr></tbody></table>
+<p>In sequence, the waits add up. In parallel, the user waits only for the slowest one. Most model APIs can return several tool calls in one turn; the agent's runtime should execute them concurrently rather than one at a time. Where calls genuinely depend on each other — you need the customer ID before fetching orders — design the tools so the common chains are a single call.</p>
+<h2 id="2-prefetch-what-you-will-probably-need"><a class="heading-anchor" href="#2-prefetch-what-you-will-probably-need">2. Prefetch what you will probably need</a></h2>
+<p>Some data is needed on almost every call. If the caller's phone number identifies them, look up their account <em>as the call connects</em> — before they have said a word. By the time they ask about their order, it is already loaded.</p>
+<p>More generally, start a tool call as soon as the intent is clear, even before the user has finished speaking: by "what's my balance on…" the balance lookup can begin. If the user turns out to want something else, discard the result. This is safe only for <strong>read-only</strong> tools; anything with side effects waits for confirmation.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="Two timelines of three tool calls: sequential bars laid end to end finishing near 2 seconds, and parallel bars stacked finishing near 1 second; p95 values 3,456 and 1,954 ms." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">WAIT FOR THE SLOWEST, NOT THE SUM</text>
+<text class="l" x="20" y="54">sequential</text>
+<rect x="110" y="42" width="72" height="18" rx="3" fill="var(--muted-foreground)" fill-opacity="0.45"></rect>
+<rect x="182" y="42" width="90" height="18" rx="3" fill="var(--muted-foreground)" fill-opacity="0.6"></rect>
+<rect x="272" y="42" width="76" height="18" rx="3" fill="var(--muted-foreground)" fill-opacity="0.45"></rect>
+<text class="l" x="354" y="55">median 1,984 ms</text>
+<text class="b" x="20" y="96">parallel</text>
+<rect x="110" y="80" width="72" height="10" rx="2" fill="var(--primary)" fill-opacity="0.5"></rect>
+<rect x="110" y="92" width="114" height="10" rx="2" fill="var(--primary)" fill-opacity="0.8"></rect>
+<rect x="110" y="104" width="76" height="10" rx="2" fill="var(--primary)" fill-opacity="0.5"></rect>
+<text class="b" x="232" y="101">median 948 ms</text>
+<text class="l" x="20" y="146">95th percentile</text>
+<text class="l" x="20" y="170">sequential</text><rect x="110" y="160" width="415" height="14" rx="3" fill="var(--muted-foreground)" fill-opacity="0.5"></rect><text class="l" x="520" y="171" text-anchor="end" fill="var(--background)">3,456</text>
+<text class="b" x="20" y="194">parallel</text><rect x="110" y="184" width="235" height="14" rx="3" fill="var(--primary)" fill-opacity="0.8"></rect><text class="b" x="352" y="195">1,954</text>
+<path d="M20 214 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="236">three lookups, each median 600 ms / p95 1.5 s</text>
+<text class="l" x="20" y="254">bar scale: 1 px ≈ 8.3 ms</text>
+</svg>
+<figcaption>Independent calls should never queue behind each other.</figcaption>
+</figure>
+<h2 id="3-speak-while-you-wait"><a class="heading-anchor" href="#3-speak-while-you-wait">3. Speak while you wait</a></h2>
+<p>When a call will take noticeable time, say so immediately: <em>"Let me check your order."</em> A filler phrase turns silence into speech and tells the caller what is happening. Model-generated, specific fillers are best; a short pre-recorded one ("Sure —") can play instantly while the specific one is generated.</p>
+<p>Prompt the model to speak <em>before</em> calling a slow tool rather than after, and have a second, different line ready if the call runs long: <em>"Still checking — the system's a little slow today."</em></p>
+<h2 id="4-set-honest-timeouts"><a class="heading-anchor" href="#4-set-honest-timeouts">4. Set honest timeouts</a></h2>
+<p>Some calls will be very slow or never return. Pick a limit — say 3 seconds for an interactive lookup — and decide in advance what happens after it. In the example above, a single lookup exceeds 3 s only 0.22% of the time, so a timeout there almost never fires during normal operation, but when a backend degrades it fires on every call, and the agent needs a graceful line rather than an endless pause:</p>
+<ul>
+<li><em>"I'm having trouble reaching that system right now. I can try again, or take a message."</em></li>
+<li>Offer a callback or a follow-up message.</li>
+<li>Fall back to a cached or partial answer, clearly labelled as such.</li>
+</ul>
+<p>Retrying silently inside the timeout is fine; retrying silently for twenty seconds is not.</p>
+<h2 id="5-make-it-asynchronous"><a class="heading-anchor" href="#5-make-it-asynchronous">5. Make it asynchronous</a></h2>
+<p>Some work does not belong in the conversation at all. Generating a document, processing a refund, a search that takes a minute. The agent can acknowledge it, continue the conversation, and deliver the result later — "I've started the refund; you'll get a text confirmation within a few minutes."</p>
+<p>This changes the tool's contract: it returns <em>started</em>, not <em>done</em>, and the agent must not claim the outcome before it is known.</p>
+<h2 id="design-the-tools-for-voice"><a class="heading-anchor" href="#design-the-tools-for-voice">Design the tools for voice</a></h2>
+<p>Many slow calls are slow because the tools were designed for something else:</p>
+<ul>
+<li><strong>Return less.</strong> A tool that returns a 50 KB order history makes the model read it all, adding both latency and cost. Return what a spoken answer needs.</li>
+<li><strong>Combine common chains.</strong> If "find customer, then orders" happens on most calls, make it one tool.</li>
+<li><strong>Cache aggressively</strong> within a call. The same customer record should not be fetched three times in one conversation.</li>
+<li><strong>Measure tool latency separately</strong> from model latency, per tool, at the 95th percentile.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Tool latency in a voice agent is silence. Running independent calls in parallel cuts three 600 ms lookups from a median 1,984 ms to 948 ms, and the 95th percentile from 3,456 ms to 1,954.</p>
+<p>Prefetch read-only data as soon as intent is clear, speak a filler before slow calls, set timeouts with a graceful fallback line, move long work out of the conversation, and shape the tools themselves for the speed a conversation needs.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Hiding slow tool calls in voice agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T14:50","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Three lookups at a median 600 ms each take a median 1,984 ms one after another and 948 ms in parallel; the 95th percentile drops from 3,456 ms to 1,954. Parallelism, prefetching, fillers and honest timeouts are how a voice agent stays conversational while the backend is slow."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/slow-tool-calls-in-voice-agents.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/multilayer-perceptron/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"The multilayer perceptron"}]]}],["$","$L2",null,{"href":"/blog/endpointing-in-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Endpointing in voice agents"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"1-run-independent-calls-in-parallel","text":"1. Run independent calls in parallel","level":2},{"id":"2-prefetch-what-you-will-probably-need","text":"2. Prefetch what you will probably need","level":2},{"id":"3-speak-while-you-wait","text":"3. Speak while you wait","level":2},{"id":"4-set-honest-timeouts","text":"4. Set honest timeouts","level":2},{"id":"5-make-it-asynchronous","text":"5. Make it asynchronous","level":2},{"id":"design-the-tools-for-voice","text":"Design the tools for voice","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

@@ -1,0 +1,112 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","time-to-first-audio",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","time-to-first-audio","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/time-to-first-audio.svg","image"]
+12:T1e58,<p>For a chat interface, the usual latency number is how long the whole answer takes. For a voice agent, that number barely matters. What the user experiences is the silence between finishing their sentence and hearing the agent start — <strong>time to first audio</strong>, or TTFA.</p>
+<p>Once the agent is speaking, the user is listening, and listening takes far longer than any of the computation behind it.</p>
+<h2 id="speech-is-slow-computers-are-fast"><a class="heading-anchor" href="#speech-is-slow-computers-are-fast">Speech is slow; computers are fast</a></h2>
+<p>A 60-word reply is a normal conversational answer — three or four sentences. Spoken at a natural 150 words per minute, it lasts:</p>
+<p><code>60 ÷ 150 × 60 =</code> <strong>24 seconds</strong> of audio.</p>
+<p>Now the work to produce it:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>step</th><th>time</th></tr></thead><tbody><tr><td>LLM time to first token</td><td>0.25 s</td></tr><tr><td>LLM generating ~78 tokens at 50 tokens/s</td><td>1.56 s</td></tr><tr><td>TTS synthesising 24 s of audio at 10× real time</td><td>2.40 s</td></tr><tr><td><strong>everything, done one after another</strong></td><td><strong>4.21 s</strong></td></tr></tbody></table>
+<p>If the agent waits for all of that before playing anything, the user sits in 4.21 seconds of silence — long enough to say "hello?" — and then listens for 24 seconds. If the agent streams, it can start speaking once the <em>first sentence</em> is generated and synthesised, typically well under a second, and produce the rest while the first sentence plays.</p>
+<p>The total work is identical. The experience is completely different. Time-to-first-audio is the number that decides it.</p>
+<h2 id="why-streaming-is-safe-the-generator-is-far-ahead"><a class="heading-anchor" href="#why-streaming-is-safe-the-generator-is-far-ahead">Why streaming is safe: the generator is far ahead</a></h2>
+<p>Streaming only works if the pipeline produces audio faster than it is played; otherwise playback would catch up and stutter.</p>
+<p>Speech at 150 words a minute, at about 1.3 tokens per word, consumes <strong>3.25 tokens per second</strong>. An LLM generating 50 tokens a second is more than <strong>15×</strong> faster than the listener needs. TTS at 10× real time is likewise far ahead of playback.</p>
+<p>So once the first chunk is playing, the rest of the reply arrives with plenty of margin. Every millisecond of the user's waiting is in getting that first chunk out.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="Two timelines of the same reply: non-streaming, with 4.21 seconds of silence before 24 seconds of speech; streaming, with under a second of silence before speech while generation continues underneath." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">SAME WORK, DIFFERENT SILENCE</text>
+<text class="l" x="20" y="54">wait for all</text>
+<rect x="110" y="42" width="76" height="18" rx="3" fill="none" stroke="var(--muted-foreground)" stroke-dasharray="3 3"></rect>
+<text class="l" x="114" y="55">4.21 s silent</text>
+<rect x="186" y="42" width="350" height="18" rx="3" fill="var(--muted-foreground)" fill-opacity="0.45"></rect>
+<text class="l" x="196" y="55">speaking 24 s</text>
+<text class="b" x="20" y="98">stream</text>
+<rect x="110" y="86" width="16" height="18" rx="3" fill="none" stroke="var(--primary)" stroke-dasharray="3 3"></rect>
+<rect x="126" y="86" width="350" height="18" rx="3" fill="var(--primary)" fill-opacity="0.75"></rect>
+<text class="b" x="136" y="99" fill="var(--background)">speaking 24 s</text>
+<rect x="126" y="110" width="58" height="6" rx="2" fill="var(--primary)" fill-opacity="0.35"></rect>
+<text class="l" x="190" y="117">generation + synthesis, running ahead underneath</text>
+<path d="M110 132 V36" stroke="var(--muted-foreground)" stroke-opacity="0.5"></path>
+<text class="l" x="112" y="146">user stops</text>
+<path d="M20 166 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="190">the listener needs 3.25 tokens/s; the model makes 50 — 15× headroom</text>
+<text class="l" x="20" y="210">all of the user's waiting is getting the first sentence out</text>
+<text class="l" x="20" y="228">timeline scale: 1 px ≈ 70 ms</text>
+</svg>
+<figcaption>Total time is the same. Only the gap before the first sound changes.</figcaption>
+</figure>
+<h2 id="what-ttfa-is-made-of"><a class="heading-anchor" href="#what-ttfa-is-made-of">What TTFA is made of</a></h2>
+<p>With full streaming, time to first audio is:</p>
+<p><code>endpointing + speech-to-text finalisation + LLM first token + tokens to the first speakable chunk + TTS first audio + network</code></p>
+<p>Each piece can be pushed down:</p>
+<ul>
+<li><strong>Endpointing:</strong> decide sooner that the user has finished, using a turn-detection model rather than a long silence timer.</li>
+<li><strong>First token:</strong> short, cache-friendly prompts; a model sized to the task.</li>
+<li><strong>First chunk:</strong> do not wait for a full sentence if a clause will do. "Sure, " or "Okay — so " is speakable after two tokens.</li>
+<li><strong>TTS first audio:</strong> a streaming TTS that emits audio for the first words before it has the rest of the sentence.</li>
+<li><strong>Network:</strong> keep the TTS and LLM close to each other and to the telephony or WebRTC edge.</li>
+</ul>
+<h2 id="shaping-the-first-words"><a class="heading-anchor" href="#shaping-the-first-words">Shaping the first words</a></h2>
+<p>Because the first chunk is what the user waits for, the content of the reply's opening matters for latency, not just style.</p>
+<p>An answer that begins <em>"Your appointment on Tuesday the 14th at 3pm has been confirmed"</em> cannot start until the model has decided all of that. An answer that begins <em>"Done — "</em> or <em>"Let me check. "</em> can start almost immediately while the substance is still being generated. Many voice agents are prompted to open with a short acknowledgement for exactly this reason.</p>
+<p>The same idea extends to slow tools: say <em>"One moment while I look that up"</em> the instant a tool call starts, so the silence the user hears is short even when the work is not.</p>
+<h2 id="measuring-it-properly"><a class="heading-anchor" href="#measuring-it-properly">Measuring it properly</a></h2>
+<p>TTFA should be measured from the end of the user's speech to the first audio sample <em>the user hears</em> — after network transit and client buffering — not from when the server sent the first audio packet. Server-side timestamps routinely under-report the real gap by a hundred milliseconds or more. And it should be tracked at a high percentile: a handful of four-second silences shapes a user's opinion far more than a good median.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>A voice reply takes much longer to listen to than to produce: 24 seconds of speech from about 4 seconds of computation. If the agent waits for all of it, the user waits 4.21 seconds in silence; if it streams, the wait is just the time to the first speakable chunk.</p>
+<p>Since generation runs 15× faster than speech is consumed, everything after the first chunk is easy. Time to first audio is the latency that users experience — optimise it, design the reply's first words around it, and measure it where the user hears it.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Time to first audio"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T13:40","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A 60-word spoken reply lasts 24 seconds. Generating it takes 1.56 s and synthesising it 2.4 s — so a non-streaming agent stays silent for 4.21 s, while a streaming one can start talking in under one. Users judge the silence, not the total."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/time-to-first-audio.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/matrix-multiplication-in-neural-networks/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Matrix multiplication in neural networks"}]]}],["$","$Lf",null,{"href":"/blog/voice-to-voice-latency/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Measuring voice-to-voice latency"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"speech-is-slow-computers-are-fast","text":"Speech is slow; computers are fast","level":2},{"id":"why-streaming-is-safe-the-generator-is-far-ahead","text":"Why streaming is safe: the generator is far ahead","level":2},{"id":"what-ttfa-is-made-of","text":"What TTFA is made of","level":2},{"id":"shaping-the-first-words","text":"Shaping the first words","level":2},{"id":"measuring-it-properly","text":"Measuring it properly","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Time to first audio · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"A 60-word spoken reply lasts 24 seconds. Generating it takes 1.56 s and synthesising it 2.4 s — so a non-streaming agent stays silent for 4.21 s, while a streaming one can start talking in under one. Users judge the silence, not the total."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"voice-agents,latency,streaming,tts,ttfa"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/time-to-first-audio/"}],["$","meta","6",{"property":"og:title","content":"Time to first audio"}],["$","meta","7",{"property":"og:description","content":"A 60-word spoken reply lasts 24 seconds. Generating it takes 1.56 s and synthesising it 2.4 s — so a non-streaming agent stays silent for 4.21 s, while a streaming one can start talking in under one. Users judge the silence, not the total."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/time-to-first-audio/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T13:40"}],["$","meta","11",{"property":"article:tag","content":"voice-agents"}],["$","meta","12",{"property":"article:tag","content":"latency"}],["$","meta","13",{"property":"article:tag","content":"streaming"}],["$","meta","14",{"property":"article:tag","content":"tts"}],["$","meta","15",{"property":"article:tag","content":"ttfa"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Time to first audio"}],["$","meta","18",{"name":"twitter:description","content":"A 60-word spoken reply lasts 24 seconds. Generating it takes 1.56 s and synthesising it 2.4 s — so a non-streaming agent stays silent for 4.21 s, while a streaming one can start talking in under one. Users judge the silence, not the total."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

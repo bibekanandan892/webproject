@@ -1,0 +1,99 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/one-hot-encoding.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T228b,<p>Models do arithmetic, so their inputs must be numbers. Many useful inputs are not: a colour, a country, a product category, a word. One-hot encoding is the most basic way to turn a category into numbers without pretending it is something it is not.</p>
+<h2 id="the-encoding"><a class="heading-anchor" href="#the-encoding">The encoding</a></h2>
+<p>Give each possible category its own position in a vector. To encode a value, set its position to 1 and every other position to 0.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>colour</th><th>red</th><th>green</th><th>blue</th></tr></thead><tbody><tr><td>red</td><td><strong>1</strong></td><td>0</td><td>0</td></tr><tr><td>green</td><td>0</td><td><strong>1</strong></td><td>0</td></tr><tr><td>blue</td><td>0</td><td>0</td><td><strong>1</strong></td></tr></tbody></table>
+<p>Exactly one entry is "hot". The vector has as many entries as there are categories.</p>
+<h2 id="why-not-just-number-them"><a class="heading-anchor" href="#why-not-just-number-them">Why not just number them?</a></h2>
+<p>The obvious alternative is to assign integers: red = 1, green = 2, blue = 3. The trouble is that a model treats numbers as numbers. It will learn that blue is "more" than red, that green is halfway between them, and that the average of red and blue is green. None of that is true of colours.</p>
+<p>One-hot encoding makes no such claims. No category is bigger than another; no category lies between two others. The model is free to learn a separate weight for each.</p>
+<p>Integer encoding <em>is</em> right when the categories really are ordered — small, medium, large; low, medium, high risk — and the order matters to the prediction. That is <strong>ordinal</strong> data. One-hot is for <strong>nominal</strong> data, where the categories are just names.</p>
+<h2 id="what-one-hot-says-about-similarity"><a class="heading-anchor" href="#what-one-hot-says-about-similarity">What one-hot says about similarity</a></h2>
+<p>Take the dot product of two different one-hot vectors: every position multiplies a 0 by something, so the result is always <strong>0</strong>. The distance between any two different categories is always the same, √2.</p>
+<p>In other words, one-hot encoding says every category is <em>equally</em> unrelated to every other. "Cat" is as different from "kitten" as it is from "carburettor". For colours or countries that is a reasonable starting assumption. For words it is plainly false, and it means a model learns nothing about "kitten" from everything it has learned about "cat".</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="Three one-hot vectors as rows of cells with a single filled cell each, and a note that every pair has dot product zero; beside it, a one-hot vector times an embedding matrix selecting one row." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ONE HOT, ALL ELSE COLD</text>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.5">
+<rect x="80" y="36" width="24" height="24"></rect><rect x="104" y="36" width="24" height="24"></rect><rect x="128" y="36" width="24" height="24"></rect><rect x="152" y="36" width="24" height="24"></rect>
+<rect x="80" y="68" width="24" height="24"></rect><rect x="104" y="68" width="24" height="24"></rect><rect x="128" y="68" width="24" height="24"></rect><rect x="152" y="68" width="24" height="24"></rect>
+<rect x="80" y="100" width="24" height="24"></rect><rect x="104" y="100" width="24" height="24"></rect><rect x="128" y="100" width="24" height="24"></rect><rect x="152" y="100" width="24" height="24"></rect>
+</g>
+<g fill="var(--primary)" fill-opacity="0.8"><rect x="81" y="37" width="22" height="22"></rect><rect x="129" y="69" width="22" height="22"></rect><rect x="153" y="101" width="22" height="22"></rect></g>
+<text class="l" x="20" y="53">cat</text><text class="l" x="20" y="85">kitten</text><text class="l" x="20" y="117">car</text>
+<text class="b" x="20" y="148">any two: dot product 0</text>
+<text class="l" x="20" y="164">cat–kitten as far apart as cat–car</text>
+<rect x="300" y="60" width="96" height="14" fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.6"></rect>
+<rect x="324" y="60" width="24" height="14" fill="var(--primary)" fill-opacity="0.8"></rect>
+<text class="l" x="404" y="72">×</text>
+<rect x="420" y="36" width="100" height="96" fill="var(--muted-foreground)" fill-opacity="0.15" stroke="var(--muted-foreground)" stroke-opacity="0.5"></rect>
+<rect x="420" y="60" width="100" height="24" fill="var(--primary)" fill-opacity="0.35"></rect>
+<text class="b" x="420" y="148">= one row of the table</text>
+<text class="l" x="300" y="164">so it's done as a lookup, not a multiply</text>
+<path d="M20 186 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="208">50,000 categories: 195 KB of mostly zeros to say what a 4-byte index says</text>
+<text class="l" x="20" y="226">and multiplying it by a 4,096-wide table would cost 205M multiply-adds for nothing</text>
+</svg>
+<figcaption>One-hot is the honest starting point and the reason embeddings exist.</figcaption>
+</figure>
+<h2 id="the-size-problem"><a class="heading-anchor" href="#the-size-problem">The size problem</a></h2>
+<p>One-hot vectors are as long as the number of categories. A colour has three; a city might have ten thousand; a vocabulary fifty thousand.</p>
+<p>A 50,000-entry one-hot vector stored as 32-bit floats is <strong>195 KB</strong> — all of it zeros except one value. The same information fits in a single 4-byte integer: the index of the hot position.</p>
+<p>Worse, high-cardinality one-hot features spread little data thinly. A city that appears in five training examples gets a weight learned from five examples, with no way to borrow from similar cities.</p>
+<h2 id="one-hot-and-embeddings-are-the-same-operation"><a class="heading-anchor" href="#one-hot-and-embeddings-are-the-same-operation">One-hot and embeddings are the same operation</a></h2>
+<p>Multiply a one-hot vector by a matrix and you get exactly one row of that matrix — the row at the hot position. Everything else is multiplied by zero.</p>
+<p>So "one-hot encode the word, then multiply by a weight matrix" is identical to "look up the word's row in a table". For a 50,000-word vocabulary and 4,096-dimensional rows, doing the literal multiplication would cost 205 million multiply-adds to produce a result that a lookup produces for free. This is why deep learning frameworks have <strong>embedding layers</strong>: conceptually a one-hot times a matrix, implemented as an index lookup.</p>
+<p>The difference is what is learned. The embedding table's rows are trained, and categories that behave similarly end up with similar rows. "Cat" and "kitten" drift close together; "carburettor" stays far away. The fixed, equal distances of one-hot become learned, meaningful ones. Embeddings are what you get when you keep one-hot's honesty about the input and let the model learn the similarity.</p>
+<h2 id="where-one-hot-is-still-the-right-tool"><a class="heading-anchor" href="#where-one-hot-is-still-the-right-tool">Where one-hot is still the right tool</a></h2>
+<ul>
+<li><strong>Low-cardinality categorical features</strong> in tabular models: payment method, device type, day of week (unless the cyclic order matters).</li>
+<li><strong>Target labels</strong> for classification: the true class as a one-hot vector is exactly what cross-entropy loss compares against the predicted distribution.</li>
+<li><strong>Linear models and trees</strong>, which handle a few dozen one-hot columns well and benefit from their interpretability.</li>
+</ul>
+<p>For high-cardinality features, alternatives are better: learned embeddings, hashing many categories into a fixed number of buckets, or target encoding (replacing a category with a statistic of the target over that category, computed carefully to avoid leakage).</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>One-hot encoding represents a category as a vector with a single 1. It avoids the false ordering of integer codes, which makes it right for nominal data and for classification targets.</p>
+<p>But it treats every pair of categories as equally unrelated, and grows with the number of categories — 195 KB per 50,000-way value. Multiplying a one-hot by a matrix just selects a row, which is why embedding layers implement it as a lookup and learn rows that make related categories similar.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"One-hot encoding"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T16:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"One-hot encoding turns a category into a vector of zeros with a single 1. It makes no false claims about order or similarity — and that is also its limit: every pair of categories is equally unrelated, and a 50,000-word one-hot is 195 KB to say what a 4-byte index says."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/one-hot-encoding.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/logits/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Logits"}]]}],["$","$L2",null,{"href":"/blog/vanishing-and-exploding-gradients/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Vanishing and exploding gradients"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-encoding","text":"The encoding","level":2},{"id":"why-not-just-number-them","text":"Why not just number them?","level":2},{"id":"what-one-hot-says-about-similarity","text":"What one-hot says about similarity","level":2},{"id":"the-size-problem","text":"The size problem","level":2},{"id":"one-hot-and-embeddings-are-the-same-operation","text":"One-hot and embeddings are the same operation","level":2},{"id":"where-one-hot-is-still-the-right-tool","text":"Where one-hot is still the right tool","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

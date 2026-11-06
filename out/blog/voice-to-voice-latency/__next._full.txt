@@ -1,0 +1,149 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","voice-to-voice-latency",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","voice-to-voice-latency","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/voice-to-voice-latency.svg","image"]
+12:T2177,<p>Voice-to-voice latency is the time from the moment a user stops speaking to the moment they hear the agent begin to reply. It is the single number that most determines whether a voice agent feels like a conversation or like a phone menu.</p>
+<p>It is also easy to measure wrongly. The usual mistakes are measuring at the wrong place, defining the start and end inconsistently, and drawing conclusions from too few turns.</p>
+<h2 id="measure-at-the-ears-not-the-server"><a class="heading-anchor" href="#measure-at-the-ears-not-the-server">Measure at the ears, not the server</a></h2>
+<p>The convenient measurement is server-side: log when the speech-to-text stream says the user stopped, log when the first TTS audio packet goes out, subtract. That number leaves out everything between the user's mouth and the server, and between the server and the user's ear:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>segment</th><th>WebRTC in a browser</th><th>phone call (PSTN)</th></tr></thead><tbody><tr><td>microphone capture and encoding</td><td>20 ms</td><td>20 ms</td></tr><tr><td>uplink network</td><td>40</td><td>150</td></tr><tr><td><strong>server-side, as logged</strong></td><td><strong>620</strong></td><td><strong>620</strong></td></tr><tr><td>downlink network</td><td>40</td><td>150</td></tr><tr><td>client jitter buffer</td><td>60</td><td>60</td></tr><tr><td>decoding and playback</td><td>20</td><td>20</td></tr><tr><td><strong>what the user hears</strong></td><td><strong>800 ms</strong></td><td><strong>1,020 ms</strong></td></tr></tbody></table>
+<p>The server reports 620 ms in both cases. The user on a browser experiences 800 and the user on a phone line over a second. Phone networks add substantial delay in each direction through carriers, gateways and transcoding — a cost that never appears in server logs.</p>
+<p>Server-side timings are still essential for finding <em>which</em> component is slow. But the headline number must be measured end to end.</p>
+<h2 id="how-to-measure-end-to-end"><a class="heading-anchor" href="#how-to-measure-end-to-end">How to measure end to end</a></h2>
+<p><strong>Record both sides of real calls</strong>, as two separate audio channels, with a shared clock. Then, for each turn:</p>
+<ol>
+<li>Find where the user's speech ends on the user channel.</li>
+<li>Find where the agent's speech begins on the agent channel.</li>
+<li>Subtract.</li>
+</ol>
+<p>For testing, a simulated caller works well: a script that plays recorded user utterances into the agent over the same path a real caller uses — through the phone network or a real browser — and records what comes back.</p>
+<h2 id="define-stopped-speaking-once"><a class="heading-anchor" href="#define-stopped-speaking-once">Define "stopped speaking" once</a></h2>
+<p>The end of the user's speech is not a sharp event. Speech trails off into breath and room noise. Different detectors place the end at different points, often tens to hundreds of milliseconds apart.</p>
+<p>That matters because the same definition must be used for every measurement you compare. An energy-threshold detector with a long tail will make every agent look 100 ms faster than one that marks the last syllable. Pick one method — ideally marking the end of the last word, which is what a listener perceives — and use it everywhere, including when comparing against vendors' claims.</p>
+<p>The start of the agent's reply has the same problem in reverse: some TTS outputs begin with a few milliseconds of near-silence. Mark the first audible sound, not the first packet.</p>
+<h2 id="report-distributions-and-enough-of-them"><a class="heading-anchor" href="#report-distributions-and-enough-of-them">Report distributions, and enough of them</a></h2>
+<p>Latency varies turn to turn, so a single average hides what users experience. Report at least the median and the 95th percentile, and ideally the 99th: one or two long silences in a call are what people remember.</p>
+<p>The 95th percentile needs a lot of turns to estimate. Simulating an agent whose true p95 is 1,423 ms and estimating it from samples of different sizes:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>turns measured</th><th>range of p95 estimates (middle 90%)</th></tr></thead><tbody><tr><td>50</td><td><strong>1,154 – 1,578 ms</strong></td></tr><tr><td>200</td><td>1,299 – 1,536 ms</td></tr><tr><td>1,000</td><td>1,368 – 1,475 ms</td></tr></tbody></table>
+<p>With 50 turns, the estimate can be off by over 250 ms in either direction — larger than most of the improvements a team is trying to detect. Comparing two configurations on 50 turns each is mostly comparing noise. A few hundred turns per configuration is the minimum for decisions; a thousand for confidence in the tail.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="A path from the user&#x27;s mouth to the server and back to their ear, with the server-logged span covering only the middle; below, ranges of p95 estimates narrowing as the number of measured turns grows." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">WHERE AND HOW MUCH TO MEASURE</text>
+<rect x="20" y="36" width="9" height="18" fill="var(--muted-foreground)" fill-opacity="0.5"></rect>
+<rect x="29" y="36" width="68" height="18" fill="var(--muted-foreground)" fill-opacity="0.35"></rect>
+<rect x="97" y="36" width="282" height="18" fill="var(--muted-foreground)" fill-opacity="0.6"></rect>
+<rect x="379" y="36" width="68" height="18" fill="var(--muted-foreground)" fill-opacity="0.35"></rect>
+<rect x="447" y="36" width="27" height="18" fill="var(--muted-foreground)" fill-opacity="0.5"></rect>
+<rect x="474" y="36" width="9" height="18" fill="var(--muted-foreground)" fill-opacity="0.5"></rect>
+<text class="l" x="238" y="49" text-anchor="middle" fill="var(--background)">server logs 620 ms</text>
+<path d="M20 62 H483" stroke="var(--primary)" stroke-width="2"></path>
+<text class="b" x="20" y="78">phone caller hears 1,020 ms</text>
+<text class="l" x="20" y="116">p95 estimate, true value 1,423 ms</text>
+<path d="M298 124 V196" stroke="var(--primary)" stroke-dasharray="3 3"></path>
+<text class="l" x="20" y="142">50 turns</text><rect x="170" y="133" width="194" height="12" rx="3" fill="var(--muted-foreground)" fill-opacity="0.5"></rect>
+<text class="l" x="20" y="166">200 turns</text><rect x="235" y="157" width="108" height="12" rx="3" fill="var(--muted-foreground)" fill-opacity="0.6"></rect>
+<text class="b" x="20" y="190">1,000 turns</text><rect x="272" y="181" width="49" height="12" rx="3" fill="var(--primary)" fill-opacity="0.8"></rect>
+<path d="M20 210 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="232">measure at the ear, on hundreds of turns, with one definition of "stopped"</text>
+</svg>
+<figcaption>Upper bar drawn to scale for the phone path. Lower bars: middle 90% of simulated p95 estimates.</figcaption>
+</figure>
+<h2 id="break-it-down-per-turn"><a class="heading-anchor" href="#break-it-down-per-turn">Break it down per turn</a></h2>
+<p>Alongside the end-to-end number, log a timestamp at every stage boundary for every turn — end of speech detected, transcript final, first token, first sentence, first audio sent. When the end-to-end p95 moves, the per-stage breakdown shows which stage moved it. Without that, a regression in the LLM provider and a regression in the telephony route look identical.</p>
+<p>Also slice by condition: phone versus browser, region, time of day, conversation length. Latency on the tenth turn of a long call — with a long prompt for the model to process — is often noticeably worse than on the first.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Voice-to-voice latency is the silence the user hears, measured from the end of their speech to the start of the agent's audio at their ear. Server logs leave out capture, network and playback: 620 ms on the server is about 800 ms in a browser and 1,020 ms on a phone line.</p>
+<p>Measure end to end with recordings or a simulated caller, use one consistent definition of when speech ended, and collect enough turns: a p95 from 50 turns can be 250 ms off in either direction.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Measuring voice-to-voice latency"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T13:50","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Voice-to-voice latency is the gap a person actually hears. A server that logs 620 ms is delivering about 800 ms over WebRTC and 1,020 ms over a phone line — and estimating the 95th percentile from 50 calls can land anywhere from 1,154 to 1,578 ms."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/voice-to-voice-latency.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/time-to-first-audio/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Time to first audio"}]]}],["$","$Lf",null,{"href":"/blog/sentence-chunking-for-tts/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Sentence chunking for TTS"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"measure-at-the-ears-not-the-server","text":"Measure at the ears, not the server","level":2},{"id":"how-to-measure-end-to-end","text":"How to measure end to end","level":2},{"id":"define-stopped-speaking-once","text":"Define \"stopped speaking\" once","level":2},{"id":"report-distributions-and-enough-of-them","text":"Report distributions, and enough of them","level":2},{"id":"break-it-down-per-turn","text":"Break it down per turn","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Measuring voice-to-voice latency · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Voice-to-voice latency is the gap a person actually hears. A server that logs 620 ms is delivering about 800 ms over WebRTC and 1,020 ms over a phone line — and estimating the 95th percentile from 50 calls can land anywhere from 1,154 to 1,578 ms."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"voice-agents,latency,measurement,percentiles,telephony"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/voice-to-voice-latency/"}],["$","meta","6",{"property":"og:title","content":"Measuring voice-to-voice latency"}],["$","meta","7",{"property":"og:description","content":"Voice-to-voice latency is the gap a person actually hears. A server that logs 620 ms is delivering about 800 ms over WebRTC and 1,020 ms over a phone line — and estimating the 95th percentile from 50 calls can land anywhere from 1,154 to 1,578 ms."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/voice-to-voice-latency/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T13:50"}],["$","meta","11",{"property":"article:tag","content":"voice-agents"}],["$","meta","12",{"property":"article:tag","content":"latency"}],["$","meta","13",{"property":"article:tag","content":"measurement"}],["$","meta","14",{"property":"article:tag","content":"percentiles"}],["$","meta","15",{"property":"article:tag","content":"telephony"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Measuring voice-to-voice latency"}],["$","meta","18",{"name":"twitter:description","content":"Voice-to-voice latency is the gap a person actually hears. A server that logs 620 ms is delivering about 800 ms over WebRTC and 1,020 ms over a phone line — and estimating the 95th percentile from 50 calls can land anywhere from 1,154 to 1,578 ms."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

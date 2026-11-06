@@ -1,0 +1,107 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/tree-of-thoughts.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T211c,<p>Chain-of-thought prompting asks a model to reason step by step before answering. It helps a great deal, but it has a structural weakness: the chain is written once, left to right. If step two goes wrong, every step after it builds on the mistake. There is no going back.</p>
+<p>Tree of Thoughts treats reasoning as a search instead. At each step the model proposes several possible next thoughts, evaluates them, keeps the promising ones, and expands those further. Dead ends are abandoned. The answer is the best path found through the tree.</p>
+<h2 id="the-parts"><a class="heading-anchor" href="#the-parts">The parts</a></h2>
+<p>A Tree of Thoughts system needs four decisions:</p>
+<ol>
+<li><strong>What a "thought" is.</strong> A unit of progress small enough to evaluate — one equation in a maths puzzle, one line of a plan, one paragraph outline.</li>
+<li><strong>How to generate candidates.</strong> Sample <em>b</em> different next thoughts from the current state, or ask the model to propose <em>b</em> options in one call.</li>
+<li><strong>How to evaluate them.</strong> Ask the model to rate each partial solution — "sure / likely / impossible" — or to vote on which is most promising. Sometimes a program can check directly.</li>
+<li><strong>How to search.</strong> Breadth-first, keeping the best <em>k</em> states at each level (a beam), or depth-first with backtracking when a branch is judged hopeless.</li>
+</ol>
+<h2 id="why-it-helps-the-arithmetic"><a class="heading-anchor" href="#why-it-helps-the-arithmetic">Why it helps: the arithmetic</a></h2>
+<p>Suppose a problem needs three steps and the model gets each step right with probability 0.6 when it writes one attempt.</p>
+<p><strong>One chain:</strong> all three must be right. <code>0.6³ =</code> <strong>21.6%</strong>.</p>
+<p><strong>A tree with 5 candidates per step:</strong> the chance at least one of five candidates is right is <code>1 − 0.4⁵ = 98.98%</code>. If the evaluator always recognises the right one, three steps succeed with probability <code>0.9898³ =</code> <strong>97.0%</strong>.</p>
+<p>That is the promise: generate several options at each step, and the search almost always contains a correct path even when any single attempt usually fails.</p>
+<h2 id="the-catch-the-judge"><a class="heading-anchor" href="#the-catch-the-judge">The catch: the judge</a></h2>
+<p>But the evaluator is the same model, and it is not perfect. If it picks the correct candidate — when one exists — with probability <em>e</em>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>judge accuracy</th><th>per step</th><th>three steps</th></tr></thead><tbody><tr><td>perfect</td><td>0.990</td><td><strong>97.0%</strong></td></tr><tr><td>0.9</td><td>0.891</td><td>70.7%</td></tr><tr><td>0.8</td><td>0.792</td><td><strong>49.6%</strong></td></tr><tr><td>0.7</td><td>0.693</td><td>33.3%</td></tr></tbody></table>
+<p>With an 80%-accurate judge, the tree solves the problem about half the time — still more than double the single chain, but nowhere near 97%. The generation side is almost never the bottleneck; recognising the good branch is. Tree of Thoughts works best where evaluation is easier than generation, or where a program can verify partial answers outright.</p>
+<figure>
+<svg viewBox="0 0 560 280" width="560" role="img" aria-label="A search tree three levels deep with five candidates at each level; one path is highlighted as the kept branch and others are crossed out as pruned." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">PROPOSE, JUDGE, PRUNE, REPEAT</text>
+<circle cx="280" cy="44" r="9" fill="var(--primary)"></circle>
+<g stroke="var(--muted-foreground)" stroke-opacity="0.4"><path d="M280 53 L120 92"></path><path d="M280 53 L200 92"></path><path d="M280 53 L360 92"></path><path d="M280 53 L440 92"></path></g>
+<path d="M280 53 L280 92" stroke="var(--primary)" stroke-width="2"></path>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.6"><circle cx="120" cy="100" r="8"></circle><circle cx="200" cy="100" r="8"></circle><circle cx="360" cy="100" r="8"></circle><circle cx="440" cy="100" r="8"></circle></g>
+<circle cx="280" cy="100" r="8" fill="var(--primary)"></circle>
+<g stroke="var(--muted-foreground)" stroke-opacity="0.6"><path d="M114 94 L126 106 M126 94 L114 106"></path><path d="M434 94 L446 106 M446 94 L434 106"></path></g>
+<g stroke="var(--muted-foreground)" stroke-opacity="0.4"><path d="M280 108 L200 148"></path><path d="M280 108 L240 148"></path><path d="M280 108 L320 148"></path><path d="M280 108 L360 148"></path></g>
+<path d="M280 108 L280 148" stroke="var(--primary)" stroke-width="2"></path>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.6"><circle cx="200" cy="156" r="8"></circle><circle cx="240" cy="156" r="8"></circle><circle cx="320" cy="156" r="8"></circle><circle cx="360" cy="156" r="8"></circle></g>
+<circle cx="280" cy="156" r="8" fill="var(--primary)"></circle>
+<path d="M280 164 L280 196" stroke="var(--primary)" stroke-width="2"></path>
+<rect x="250" y="196" width="60" height="20" rx="4" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)"></rect>
+<text class="b" x="280" y="210" text-anchor="middle">answer</text>
+<text class="l" x="470" y="104">5 per step</text>
+<text class="l" x="400" y="160">judge keeps best</text>
+<path d="M20 234 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="256">one chain: 21.6% · tree + perfect judge: 97.0% · tree + 80% judge: 49.6%</text>
+<text class="l" x="20" y="274">the good branch is nearly always generated; the question is whether it is chosen</text>
+</svg>
+<figcaption>Search turns a weak generator into a strong one only if the evaluator is strong.</figcaption>
+</figure>
+<h2 id="what-it-costs"><a class="heading-anchor" href="#what-it-costs">What it costs</a></h2>
+<p>A beam search keeping <em>k</em> = 5 states, generating <em>b</em> = 5 candidates from each, over <em>d</em> = 3 levels, makes:</p>
+<ul>
+<li><code>3 × 5 × 5 = 75</code> generation calls</li>
+<li><code>75</code> evaluation calls</li>
+</ul>
+<p><strong>150 model calls</strong> where chain-of-thought made one. Batching and asking for several candidates in one call reduce this, but Tree of Thoughts is fundamentally a way of spending much more inference compute for better answers on hard problems.</p>
+<p>The original paper's showcase was the Game of 24 — combine four numbers with arithmetic to make 24 — where GPT-4 with chain-of-thought solved 4% of puzzles and with Tree of Thoughts 74%. That task is close to ideal: each step is one equation, partial states are easy to judge ("can 10 and 14 still make 24? yes"), and errors early are fatal to a single chain.</p>
+<h2 id="where-it-fits-now"><a class="heading-anchor" href="#where-it-fits-now">Where it fits now</a></h2>
+<p>Reasoning models trained with reinforcement learning do a version of this internally: they explore, notice mistakes and backtrack within one long chain of thought, without an external search harness. For many problems that has replaced explicit Tree of Thoughts.</p>
+<p>The explicit version is still useful when:</p>
+<ul>
+<li><strong>a program can verify partial work</strong> — tests for code, a checker for a puzzle, a solver for constraints;</li>
+<li><strong>the search should be inspectable</strong> — every branch and every judgement is logged;</li>
+<li><strong>you want to control the budget</strong> — width and depth are parameters, not something the model decides.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Tree of Thoughts turns reasoning into search: propose several next steps, judge them, keep the best, repeat. Generating five candidates per step makes it very likely the right path exists — 97% versus 21.6% for a single chain on a three-step problem with a perfect judge.</p>
+<p>The judge is the limit. At 80% accuracy the same tree solves about half the problems, at roughly 150 calls instead of one. Use it where evaluating a step is much easier than producing it, ideally with a program doing the checking.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Tree of Thoughts"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T11:50","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Chain-of-thought commits to one line of reasoning; Tree of Thoughts explores several and keeps the best. A three-step problem solved 21.6% of the time in one chain becomes 97.0% with five candidates per step and a perfect judge — and 49.6% with a judge that is right 80% of the time."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/tree-of-thoughts.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/contextual-retrieval/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Contextual retrieval"}]]}],["$","$L2",null,{"href":"/blog/query-rewriting-and-multi-query-retrieval/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Query rewriting and multi-query retrieval"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-parts","text":"The parts","level":2},{"id":"why-it-helps-the-arithmetic","text":"Why it helps: the arithmetic","level":2},{"id":"the-catch-the-judge","text":"The catch: the judge","level":2},{"id":"what-it-costs","text":"What it costs","level":2},{"id":"where-it-fits-now","text":"Where it fits now","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

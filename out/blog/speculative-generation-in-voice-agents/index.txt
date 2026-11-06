@@ -1,0 +1,126 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","speculative-generation-in-voice-agents",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","speculative-generation-in-voice-agents","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/speculative-generation-in-voice-agents.svg","image"]
+12:T1ed7,<p>A cascaded voice agent normally works in sequence: wait until it is confident the user has finished, then send the transcript to the language model, then speak. The waiting is the problem. To avoid cutting people off, endpointing has to hold out for a fairly long silence — and the model does nothing during it.</p>
+<p>Speculative generation uses that time. As soon as the user <em>might</em> have finished, the agent starts generating a reply from the transcript so far. If the user really has finished, the reply is already under way. If they carry on, the draft is thrown away and the agent tries again at the next pause.</p>
+<h2 id="the-saving"><a class="heading-anchor" href="#the-saving">The saving</a></h2>
+<p>Suppose the agent's endpointing commits after 500 ms of silence, and the language model needs about 410 ms — first token plus the first sentence — before there is anything to speak.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>reply ready after the user stops</th></tr></thead><tbody><tr><td>wait, then generate</td><td>500 + 410 = <strong>910 ms</strong></td></tr><tr><td>start speculatively at 150 ms of silence</td><td>150 + 410 = <strong>560 ms</strong></td></tr></tbody></table>
+<p><strong>350 ms</strong> earlier, on every turn where the guess was right — which is a large share of a voice agent's entire budget. The audio is not played until endpointing actually commits, so the user is never interrupted; the reply is simply ready the moment it is allowed to start.</p>
+<p>The expected saving depends on how often the early guess holds:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>early guess correct</th><th>average saving per turn</th></tr></thead><tbody><tr><td>60%</td><td>210 ms</td></tr><tr><td>80%</td><td>280 ms</td></tr><tr><td>90%</td><td>315 ms</td></tr></tbody></table>
+<h2 id="the-cost-discarded-work"><a class="heading-anchor" href="#the-cost-discarded-work">The cost: discarded work</a></h2>
+<p>Every wrong guess is generation that gets thrown away. If a typical turn contains two pauses that look like endings but are not, and each speculative run gets about 20 tokens in before being cancelled, that is 40 discarded tokens per turn — against a reply of around 78. Roughly <strong>half again</strong> as much generation.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="Timeline of a user turn with two mid-turn pauses that trigger and then cancel speculative drafts, and a final pause whose draft is kept and ready 350 ms earlier than waiting." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">DRAFT EARLY, DISCARD OFTEN</text>
+<text class="l" x="20" y="54">user</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.5"><rect x="80" y="42" width="90" height="18" rx="3"></rect><rect x="190" y="42" width="110" height="18" rx="3"></rect><rect x="320" y="42" width="70" height="18" rx="3"></rect></g>
+<text class="l" x="20" y="94">drafts</text>
+<g fill="none" stroke="var(--muted-foreground)" stroke-dasharray="3 3"><rect x="174" y="82" width="16" height="16" rx="2"></rect><rect x="304" y="82" width="16" height="16" rx="2"></rect></g>
+<g stroke="var(--muted-foreground)"><path d="M174 82 L190 98 M190 82 L174 98"></path><path d="M304 82 L320 98 M320 82 L304 98"></path></g>
+<rect x="398" y="82" width="70" height="16" rx="2" fill="var(--primary)" fill-opacity="0.75"></rect>
+<text class="b" x="474" y="95">kept</text>
+<text class="l" x="20" y="134">speech</text>
+<rect x="456" y="122" width="84" height="16" rx="2" fill="var(--primary)" fill-opacity="0.35"></rect>
+<path d="M390 36 V150" stroke="var(--primary)" stroke-dasharray="3 3"></path>
+<path d="M456 110 V150" stroke="var(--primary)"></path>
+<text class="l" x="392" y="164">user stops</text>
+<text class="b" x="456" y="176">plays when endpointing commits</text>
+<path d="M20 196 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="218">ready at 560 ms instead of 910 ms — 350 ms saved when the guess holds</text>
+<text class="l" x="20" y="238">two cancelled drafts ≈ 40 tokens of wasted work for a 78-token reply</text>
+</svg>
+<figcaption>Speculation decides when to start thinking, not when to start talking.</figcaption>
+</figure>
+<p>How much that matters depends on where the cost lands:</p>
+<ul>
+<li><strong>Prefill is mostly cached.</strong> Each speculative run shares the long prefix — system prompt and conversation so far — with the previous one. With prompt caching, only the new words of the transcript are processed again.</li>
+<li><strong>Decode stops early.</strong> A cancelled run is stopped the moment the user speaks again, so it rarely produces more than a sentence.</li>
+<li><strong>Capacity is the real cost.</strong> Under heavy load, speculative runs compete with real ones for GPU time. Systems often speculate less, or not at all, when servers are busy.</li>
+</ul>
+<h2 id="when-the-transcript-changes"><a class="heading-anchor" href="#when-the-transcript-changes">When the transcript changes</a></h2>
+<p>The subtle case is a user who stops, the agent speculates, and the <em>final</em> transcript differs slightly from the partial one used — a word corrected by the recogniser, a last word that arrived late. Two options:</p>
+<ol>
+<li><strong>Discard and regenerate</strong> whenever the final transcript differs at all. Safe, and gives up the saving on those turns.</li>
+<li><strong>Keep the draft if the difference is immaterial</strong> — punctuation, casing, a filler word. Requires a judgement about what "immaterial" means, which is easy to get wrong for numbers and names.</li>
+</ol>
+<p>Most systems take option 1 for anything beyond trivial differences.</p>
+<h2 id="making-the-guesses-better"><a class="heading-anchor" href="#making-the-guesses-better">Making the guesses better</a></h2>
+<p>The value of speculation rises with the accuracy of the early guess, so it pairs naturally with better turn detection:</p>
+<ul>
+<li>A <strong>turn-detection model</strong> that reads the partial transcript can tell "I'd like to book a table for" (clearly unfinished — do not speculate) from "that's all, thanks" (clearly finished — speculate immediately).</li>
+<li>Speculate <strong>only above a confidence threshold</strong>, trading a little saving for much less waste.</li>
+<li>Allow <strong>more than one speculative run at once</strong> only when capacity is plentiful.</li>
+</ul>
+<h2 id="speculation-beyond-the-reply"><a class="heading-anchor" href="#speculation-beyond-the-reply">Speculation beyond the reply</a></h2>
+<p>The same idea applies to other slow steps. If the user's intent is clear early — "what's my balance" — the agent can start the account lookup before they finish speaking. If they say something else, the result is discarded. Tool calls with no side effects are ideal for this; anything that changes state must never be started speculatively.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Speculative generation starts the language model when the user seems to have stopped, and discards the draft if they continue. Starting at 150 ms of silence instead of 500 ms has the reply ready 350 ms sooner on every correct guess — about 280 ms on average at 80% accuracy.</p>
+<p>The price is discarded generation, roughly half again as many tokens, softened by prompt caching and early cancellation. Use a turn-detection model to decide when to speculate, never speculate actions with side effects, and scale speculation back when the servers are busy.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Speculative generation in voice agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T14:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Start writing the reply when the user merely seems to have finished, and throw it away if they keep talking. Starting at 150 ms of silence instead of 500 saves 350 ms on every turn it guesses right — at the cost of about half again as many generated tokens."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/speculative-generation-in-voice-agents.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/filler-phrases-in-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Filler phrases in voice agents"}]]}],["$","$Lf",null,{"href":"/blog/multilayer-perceptron/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"The multilayer perceptron"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"the-saving","text":"The saving","level":2},{"id":"the-cost-discarded-work","text":"The cost: discarded work","level":2},{"id":"when-the-transcript-changes","text":"When the transcript changes","level":2},{"id":"making-the-guesses-better","text":"Making the guesses better","level":2},{"id":"speculation-beyond-the-reply","text":"Speculation beyond the reply","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Speculative generation in voice agents · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Start writing the reply when the user merely seems to have finished, and throw it away if they keep talking. Starting at 150 ms of silence instead of 500 saves 350 ms on every turn it guesses right — at the cost of about half again as many generated tokens."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"voice-agents,latency,speculation,endpointing,llm"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/speculative-generation-in-voice-agents/"}],["$","meta","6",{"property":"og:title","content":"Speculative generation in voice agents"}],["$","meta","7",{"property":"og:description","content":"Start writing the reply when the user merely seems to have finished, and throw it away if they keep talking. Starting at 150 ms of silence instead of 500 saves 350 ms on every turn it guesses right — at the cost of about half again as many generated tokens."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/speculative-generation-in-voice-agents/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T14:30"}],["$","meta","11",{"property":"article:tag","content":"voice-agents"}],["$","meta","12",{"property":"article:tag","content":"latency"}],["$","meta","13",{"property":"article:tag","content":"speculation"}],["$","meta","14",{"property":"article:tag","content":"endpointing"}],["$","meta","15",{"property":"article:tag","content":"llm"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Speculative generation in voice agents"}],["$","meta","18",{"name":"twitter:description","content":"Start writing the reply when the user merely seems to have finished, and throw it away if they keep talking. Starting at 150 ms of silence instead of 500 saves 350 ms on every turn it guesses right — at the cost of about half again as many generated tokens."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

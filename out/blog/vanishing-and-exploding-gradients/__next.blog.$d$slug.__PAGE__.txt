@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/vanishing-and-exploding-gradients.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T227f,<p>Training a neural network depends on gradients: for every weight, a number saying which way to change it to reduce the error. Backpropagation computes them by starting at the output and working backward, layer by layer, applying the chain rule. At each layer, the gradient is multiplied by that layer's local derivative.</p>
+<p>That repeated multiplication is the whole problem. Multiply many numbers together and the result either collapses toward zero or blows up — unless every one of them is very close to 1.</p>
+<h2 id="the-arithmetic-of-depth"><a class="heading-anchor" href="#the-arithmetic-of-depth">The arithmetic of depth</a></h2>
+<p>Suppose each layer multiplies the gradient by roughly the same factor:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>factor per layer</th><th>after 50 layers</th><th>after 100 steps</th></tr></thead><tbody><tr><td>0.9</td><td>0.00515</td><td>2.66 × 10⁻⁵</td></tr><tr><td>1.0</td><td>1</td><td>1</td></tr><tr><td>1.1</td><td><strong>117</strong></td><td><strong>13,781</strong></td></tr></tbody></table>
+<p>A factor only 10% below 1 leaves half a per cent of the gradient after 50 layers: the early layers barely learn. <strong>Vanishing gradients.</strong> A factor 10% above 1 makes the gradient 117 times larger: updates become enormous, weights jump to absurd values, and the loss turns into <code>NaN</code>. <strong>Exploding gradients.</strong></p>
+<p>The "100 steps" column is the recurrent case. An RNN applies the same weights at every time step, so a sequence of 100 tokens is effectively 100 layers deep, with the <em>same</em> factor each time. That is why plain RNNs could not learn dependencies across long sequences.</p>
+<h2 id="where-the-factors-come-from"><a class="heading-anchor" href="#where-the-factors-come-from">Where the factors come from</a></h2>
+<p>Two things set each layer's factor.</p>
+<p><strong>The activation function's slope.</strong> A sigmoid's slope is at most 0.25, so a stack of sigmoid layers vanishes almost by construction. ReLU's slope is 1 for active units and 0 for inactive ones, which is far better behaved.</p>
+<p><strong>The scale of the weights.</strong> A layer with <em>n</em> inputs sums <em>n</em> weighted terms. If the weights are too small, the sum shrinks layer after layer; too large, it grows. The same scale governs the signal going forward and the gradient going back.</p>
+<h2 id="a-simulation"><a class="heading-anchor" href="#a-simulation">A simulation</a></h2>
+<p>I passed a random input through 50 fully connected ReLU layers of width 256, with weights drawn from a normal distribution, and measured the size (root mean square) of the activations at depth 10, 25 and 50:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>weight standard deviation</th><th>depth 10</th><th>depth 25</th><th>depth 50</th></tr></thead><tbody><tr><td>0.05 — too small</td><td>0.00386</td><td>7.94 × 10⁻⁷</td><td><strong>2.7 × 10⁻¹³</strong></td></tr><tr><td>0.0884 — He, √(2/n)</td><td>1.09</td><td>0.512</td><td><strong>0.466</strong></td></tr><tr><td>0.12 — too large</td><td>25.4</td><td>2,960</td><td><strong>5.65 × 10⁶</strong></td></tr></tbody></table>
+<p>The three settings differ by less than a factor of 2.5 in weight scale. After 50 layers, the outputs differ by <strong>nineteen orders of magnitude</strong>. With the small weights, the network's output is numerically indistinguishable from zero regardless of the input; with the large ones, it overflows half-precision arithmetic long before depth 50.</p>
+<figure>
+<svg viewBox="0 0 560 270" width="560" role="img" aria-label="Log-scale chart of activation size against depth for three weight scales: too small falling to 1e-13, He initialisation staying near 1, too large rising to 1e6." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">50 RELU LAYERS, THREE WEIGHT SCALES</text>
+<path d="M70 32 V206 H480" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<text class="l" x="64" y="38" text-anchor="end">10⁷</text><text class="l" x="64" y="78" text-anchor="end">10²</text><text class="l" x="64" y="96" text-anchor="end">1</text><text class="l" x="64" y="210" text-anchor="end">10⁻¹³</text>
+<path d="M70 92.9 H480" stroke="var(--muted-foreground)" stroke-opacity="0.2" stroke-dasharray="3 3"></path>
+<path d="M70 92.9 L152 80.7 L275 62.7 L480 34.2" stroke="var(--muted-foreground)" stroke-width="2.2" fill="none"></path>
+<text class="l" x="486" y="40">σ 0.12 → 5.65 × 10⁶</text>
+<path d="M70 92.9 L152 92.6 L275 95.4 L480 95.8" stroke="var(--primary)" stroke-width="2.6" fill="none"></path>
+<text class="b" x="486" y="99">He → 0.466</text>
+<path d="M70 92.9 L152 113.9 L275 146.0 L480 202.2" stroke="var(--muted-foreground)" stroke-opacity="0.7" stroke-width="2.2" stroke-dasharray="5 3" fill="none"></path>
+<text class="l" x="486" y="208">σ 0.05 → 2.7 × 10⁻¹³</text>
+<text class="l" x="70" y="222">depth 0</text><text class="l" x="152" y="222">10</text><text class="l" x="275" y="222">25</text><text class="l" x="480" y="222" text-anchor="end">50</text>
+<path d="M20 236 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="258">less than 2.5× apart in weight scale; nineteen orders of magnitude apart in output</text>
+</svg>
+<figcaption>Log scale. The same mechanism governs gradients flowing backward.</figcaption>
+</figure>
+<h2 id="the-fixes"><a class="heading-anchor" href="#the-fixes">The fixes</a></h2>
+<p><strong>Careful initialisation.</strong> Choose the weight scale so each layer preserves the size of the signal. For ReLU layers that is <strong>He initialisation</strong>: standard deviation √(2 / fan-in). (The 2 compensates for ReLU zeroing half its inputs.) For tanh and similar, <strong>Xavier/Glorot</strong> initialisation uses √(1 / fan-in) or the average of fan-in and fan-out. In the simulation, He initialisation is the only row that stays near 1 at depth 50.</p>
+<p><strong>Non-saturating activations.</strong> ReLU and its smooth relatives keep slopes near 1 where units are active, unlike sigmoid and tanh.</p>
+<p><strong>Normalisation layers.</strong> Batch normalisation and layer normalisation rescale activations at each layer to a standard size, so small drifts in scale cannot compound. Transformers apply a normalisation before every attention and feed-forward block.</p>
+<p><strong>Residual connections.</strong> Each block computes <code>x + f(x)</code> instead of <code>f(x)</code>. The gradient then has a direct path through the addition, with a factor of exactly 1, alongside whatever passes through <code>f</code>. Depth stops being a product of many factors and becomes, roughly, a sum. This is what made networks with hundreds of layers trainable, and every transformer uses it.</p>
+<p><strong>Gradient clipping.</strong> For exploding gradients specifically, cap the gradient's overall size before each update. It does not fix the cause, but stops one bad batch from wrecking the weights. It is standard in language model training.</p>
+<p><strong>Gated recurrent units.</strong> For RNNs, LSTMs and GRUs add a memory path whose factor the network can hold near 1, letting gradients survive across many steps. Transformers sidestep the problem by connecting every position to every other directly through attention.</p>
+<h2 id="spotting-it-in-practice"><a class="heading-anchor" href="#spotting-it-in-practice">Spotting it in practice</a></h2>
+<ul>
+<li><strong>Vanishing:</strong> early layers' weights barely change; loss plateaus early; gradient norms for the first layers are orders of magnitude smaller than for the last.</li>
+<li><strong>Exploding:</strong> loss spikes or becomes <code>NaN</code>; gradient norms jump suddenly; weights grow without bound.</li>
+</ul>
+<p>Logging per-layer gradient norms during training catches both early.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Backpropagation multiplies a gradient by one factor per layer, so depth turns small deviations from 1 into enormous ones: 0.9 per layer leaves 0.5% after 50 layers, 1.1 multiplies it by 117. In a simulated 50-layer ReLU network, weight scales 2.5× apart produced outputs nineteen orders of magnitude apart.</p>
+<p>He or Xavier initialisation, non-saturating activations, normalisation layers, residual connections and gradient clipping each keep the per-layer factor near 1 — and together they are why very deep networks train at all.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Vanishing and exploding gradients"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T16:40","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Backpropagation multiplies a gradient by one factor per layer. At 0.9 per layer, 50 layers leave 0.5% of it; at 1.1, it grows 117-fold. In a simulated 50-layer ReLU network, weights drawn slightly too small shrink the signal to 2.7 × 10⁻¹³, slightly too large grow it to 5.65 million, and He initialisation keeps it near 0.5."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/vanishing-and-exploding-gradients.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/one-hot-encoding/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"One-hot encoding"}]]}],["$","$L2",null,{"href":"/blog/vision-language-models/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"How a vision-language model works"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-arithmetic-of-depth","text":"The arithmetic of depth","level":2},{"id":"where-the-factors-come-from","text":"Where the factors come from","level":2},{"id":"a-simulation","text":"A simulation","level":2},{"id":"the-fixes","text":"The fixes","level":2},{"id":"spotting-it-in-practice","text":"Spotting it in practice","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

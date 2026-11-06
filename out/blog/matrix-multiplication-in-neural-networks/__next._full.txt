@@ -1,0 +1,111 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","matrix-multiplication-in-neural-networks",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","matrix-multiplication-in-neural-networks","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/matrix-multiplication-in-neural-networks.svg","image"]
+12:T21e3,<p>Open up any neural network — an image classifier, a speech recogniser, a large language model — and nearly all of the computation is the same operation repeated: a matrix multiplication. Attention, feed-forward layers, embeddings, output projections: each is, at its core, inputs multiplied by weights.</p>
+<p>Understanding that one operation explains why networks are written the way they are, why GPUs suit them, and why batching requests together makes serving so much cheaper.</p>
+<h2 id="one-layer-is-one-multiplication"><a class="heading-anchor" href="#one-layer-is-one-multiplication">One layer is one multiplication</a></h2>
+<p>A layer of neurons computes, for each neuron, a weighted sum of all inputs. Write the weights of all the neurons as a matrix and the whole layer becomes a single multiplication:</p>
+<p><code>y = x W + b</code></p>
+<p>If the input has 3 numbers and the layer has 2 neurons, <code>W</code> is 3 × 2: each column holds one neuron's weights. Feeding two examples at once — a batch — stacks them as rows of <code>X</code>:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="text" data-theme="github-light github-dark-default"><code data-language="text" data-theme="github-light github-dark-default" style="display: grid;"><span data-line=""><span>X (2×3)        W (3×2)          XW (2×2)</span></span>
+<span data-line=""><span>[1 2 3]        [0.1 0.4]        [1.4 3.2]</span></span>
+<span data-line=""><span>[4 5 6]   ×    [0.2 0.5]   =    [3.2 7.7]</span></span>
+<span data-line=""><span>               [0.3 0.6]</span></span></code></pre></figure>
+<p>Each output entry is a row of <code>X</code> dotted with a column of <code>W</code>. The top-left is <code>1×0.1 + 2×0.2 + 3×0.3 = 1.4</code>: example one, neuron one. The bottom-right is <code>4×0.4 + 5×0.5 + 6×0.6 = 7.7</code>: example two, neuron two. Every example meets every neuron in one operation.</p>
+<h2 id="how-much-arithmetic"><a class="heading-anchor" href="#how-much-arithmetic">How much arithmetic</a></h2>
+<p>Multiplying an <em>m × k</em> matrix by a <em>k × n</em> matrix takes <em>m × n × k</em> multiplications and about as many additions: <strong>2mnk</strong> floating-point operations.</p>
+<p>For a language model, every parameter is used in one multiply and one add for each token processed. So a forward pass costs about <strong>2 × parameters</strong> operations per token. For a 70B-parameter model, that is roughly <strong>140 billion operations per token</strong>. Generating a 500-token answer is 70 trillion.</p>
+<p>That volume is only practical because matrix multiplication is the operation hardware has been built around: GPUs and TPUs have dedicated units that multiply small tiles of matrices in a single instruction.</p>
+<h2 id="the-catch-reuse"><a class="heading-anchor" href="#the-catch-reuse">The catch: reuse</a></h2>
+<p>How fast a matrix multiplication runs depends on how many times each number loaded from memory gets used.</p>
+<p>When a language model generates text for a single user, each step processes one token. The "batch" is one row. The layer is a matrix times a <em>vector</em>: every weight is loaded from memory, used for exactly one multiply-add, and discarded. With 16-bit weights that is 2 operations per 2 bytes — <strong>1 operation per byte</strong>.</p>
+<p>An H100-class GPU needs about 295 operations per byte to keep its arithmetic units busy (its compute divided by its memory bandwidth). At 1, it is idle almost all the time, waiting for weights to arrive.</p>
+<p>Now serve many users at once. With a batch of <em>B</em> tokens, each weight loaded is used <em>B</em> times — once per row:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>batch size</th><th>operations per byte</th><th>share of peak compute</th></tr></thead><tbody><tr><td>1</td><td>1</td><td><strong>0.34%</strong></td></tr><tr><td>8</td><td>8</td><td>2.71%</td></tr><tr><td>64</td><td>64</td><td>21.7%</td></tr><tr><td>295</td><td>295</td><td><strong>100%</strong></td></tr></tbody></table>
+<p>Up to that point, adding users costs almost nothing extra: the weights are being streamed from memory anyway, and the arithmetic units had spare capacity. This one fact is why inference servers batch requests together, and why the cost per token falls so steeply with traffic.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="A weight matrix multiplied by a single input row versus by a tall batch of rows, with the share of GPU compute used rising from 0.34% at batch 1 to 100% at batch 295." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">EACH WEIGHT LOADED, USED B TIMES</text>
+<rect x="20" y="70" width="80" height="8" fill="var(--muted-foreground)" fill-opacity="0.7"></rect>
+<text class="l" x="108" y="78">×</text>
+<rect x="122" y="40" width="70" height="70" fill="var(--muted-foreground)" fill-opacity="0.25" stroke="var(--muted-foreground)" stroke-opacity="0.5"></rect>
+<text class="l" x="20" y="130">batch 1: 1 op per byte</text>
+<rect x="290" y="40" width="80" height="70" fill="var(--primary)" fill-opacity="0.6"></rect>
+<text class="l" x="378" y="78">×</text>
+<rect x="392" y="40" width="70" height="70" fill="var(--muted-foreground)" fill-opacity="0.25" stroke="var(--muted-foreground)" stroke-opacity="0.5"></rect>
+<text class="b" x="290" y="130">batch B: B ops per byte</text>
+<text class="l" x="20" y="162">1</text><rect x="70" y="152" width="2" height="12" fill="var(--muted-foreground)"></rect><text class="l" x="80" y="162">0.34%</text>
+<text class="l" x="20" y="182">64</text><rect x="70" y="172" width="98" height="12" fill="var(--muted-foreground)" fill-opacity="0.6"></rect><text class="l" x="176" y="182">21.7%</text>
+<text class="b" x="20" y="202">295</text><rect x="70" y="192" width="450" height="12" fill="var(--primary)" fill-opacity="0.8"></rect><text class="b" x="470" y="202" text-anchor="end" fill="var(--background)">100%</text>
+<path d="M20 220 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="242">serving one user, the GPU mostly waits for weights; serving 295, it computes</text>
+</svg>
+<figcaption>The same weights, read once from memory, can serve one row or hundreds.</figcaption>
+</figure>
+<h2 id="where-else-it-appears"><a class="heading-anchor" href="#where-else-it-appears">Where else it appears</a></h2>
+<p><strong>Training</strong> processes large batches of long sequences, so its matrices are big on every side and it runs close to peak. That is why training throughput numbers look so much better than single-user inference numbers on the same hardware.</p>
+<p><strong>Prefill</strong>, the first pass over a prompt, multiplies the weights by every prompt token at once — a tall matrix — and is compute-bound even for one user. <strong>Decode</strong>, one token at a time, is the matrix-times-vector case, bandwidth-bound unless batched.</p>
+<p><strong>Attention</strong> contains matrix multiplications of its own: queries times keys to score every pair of positions, and scores times values to mix them. These grow with sequence length rather than with parameter count, which is why long contexts get expensive.</p>
+<h2 id="why-the-shapes-are-what-they-are"><a class="heading-anchor" href="#why-the-shapes-are-what-they-are">Why the shapes are what they are</a></h2>
+<p>Hardware multiplies matrices in fixed-size tiles — often 16 × 16 or larger. Matrices whose dimensions are multiples of the tile size fill the hardware exactly; awkward sizes waste part of each tile. This is why model widths are numbers like 4,096 and 8,192, head dimensions are 64 or 128, and vocabularies are often padded up to a round multiple.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>A neural network layer is a matrix multiplication: inputs times weights, every example meeting every neuron at once, at a cost of 2mnk operations. A language model does about 2 × parameters operations per token — 140 billion for a 70B model.</p>
+<p>How fast it runs depends on reuse. One token at a time, each weight is used once per load and the GPU reaches 0.34% of its compute. Batch 295 tokens together and the same loads feed the arithmetic fully. Most of the economics of serving models follow from that.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Matrix multiplication in neural networks"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T13:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Almost all the arithmetic in a neural network is one operation: multiply a matrix of inputs by a matrix of weights. A 70B model does about 140 GFLOPs of it per token — and serving one user at a time uses 0.34% of a GPU's compute, because a matrix times a single vector reuses nothing."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/matrix-multiplication-in-neural-networks.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/voice-agent-latency-budget/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"A latency budget for voice agents"}]]}],["$","$Lf",null,{"href":"/blog/time-to-first-audio/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Time to first audio"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"one-layer-is-one-multiplication","text":"One layer is one multiplication","level":2},{"id":"how-much-arithmetic","text":"How much arithmetic","level":2},{"id":"the-catch-reuse","text":"The catch: reuse","level":2},{"id":"where-else-it-appears","text":"Where else it appears","level":2},{"id":"why-the-shapes-are-what-they-are","text":"Why the shapes are what they are","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Matrix multiplication in neural networks · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Almost all the arithmetic in a neural network is one operation: multiply a matrix of inputs by a matrix of weights. A 70B model does about 140 GFLOPs of it per token — and serving one user at a time uses 0.34% of a GPU's compute, because a matrix times a single vector reuses nothing."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"matrix-multiplication,linear-algebra,gpu,batching,fundamentals"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/matrix-multiplication-in-neural-networks/"}],["$","meta","6",{"property":"og:title","content":"Matrix multiplication in neural networks"}],["$","meta","7",{"property":"og:description","content":"Almost all the arithmetic in a neural network is one operation: multiply a matrix of inputs by a matrix of weights. A 70B model does about 140 GFLOPs of it per token — and serving one user at a time uses 0.34% of a GPU's compute, because a matrix times a single vector reuses nothing."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/matrix-multiplication-in-neural-networks/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T13:30"}],["$","meta","11",{"property":"article:tag","content":"matrix-multiplication"}],["$","meta","12",{"property":"article:tag","content":"linear-algebra"}],["$","meta","13",{"property":"article:tag","content":"gpu"}],["$","meta","14",{"property":"article:tag","content":"batching"}],["$","meta","15",{"property":"article:tag","content":"fundamentals"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Matrix multiplication in neural networks"}],["$","meta","18",{"name":"twitter:description","content":"Almost all the arithmetic in a neural network is one operation: multiply a matrix of inputs by a matrix of weights. A 70B model does about 140 GFLOPs of it per token — and serving one user at a time uses 0.34% of a GPU's compute, because a matrix times a single vector reuses nothing."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

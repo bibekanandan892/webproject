@@ -1,0 +1,109 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","jailbreaking-in-llms",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","jailbreaking-in-llms","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+15:I[1577,[],"IconMark"]
+:HL["/blog/jailbreaking-in-llms.svg","image"]
+12:T20d5,<p>Models are trained to refuse certain requests — detailed instructions for serious harm, content that targets individuals, material the deployer has ruled out. A <strong>jailbreak</strong> is an input designed to get the model to comply anyway, by exploiting gaps between the behaviour it was trained on and the situations it can be put in.</p>
+<p>It is related to, but different from, <strong>prompt injection</strong>. Prompt injection hides instructions in content the model reads — a web page, an email, a document — so that it acts against its user. Jailbreaking is usually the user themselves trying to get past the model's own limits. Both exploit the same fact: a language model's instructions and its data arrive as the same kind of text.</p>
+<p>This post describes the categories at a high level and focuses on defence. It does not include working prompts.</p>
+<h2 id="why-jailbreaks-work-at-all"><a class="heading-anchor" href="#why-jailbreaks-work-at-all">Why jailbreaks work at all</a></h2>
+<p>Safety behaviour is learned, not hard-coded. During training, a model sees many examples of harmful requests and learns to decline them. Jailbreaks look for inputs that are unlike those examples while still carrying the harmful request:</p>
+<ul>
+<li><strong>Reframing</strong> the request as fiction, role-play, a hypothetical or a research exercise, so it no longer resembles the refused examples.</li>
+<li><strong>Obfuscation</strong> — encodings, other languages, deliberate misspellings, or splitting a request into innocent-looking pieces.</li>
+<li><strong>Many-shot pressure</strong> — filling a long context with fabricated examples of the model complying, so the pattern to continue is compliance.</li>
+<li><strong>Gradual escalation</strong> across many turns, each step only slightly beyond the last.</li>
+<li><strong>Optimised inputs</strong> — strings found by automated search that happen to shift the model's behaviour, often meaningless to a human reader.</li>
+</ul>
+<p>Each exploits generalisation: the model learned "refuse things that look like this", and the attack makes the request not look like this.</p>
+<h2 id="the-attackers-advantage-retries"><a class="heading-anchor" href="#the-attackers-advantage-retries">The attacker's advantage: retries</a></h2>
+<p>A jailbreak that works only occasionally is still a jailbreak, because the attacker can keep trying at almost no cost. If a technique succeeds with probability <em>p</em> per attempt, the chance of at least one success in <em>n</em> attempts is <code>1 − (1 − p)ⁿ</code>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>per-attempt success</th><th>within 100 attempts</th><th>within 1,000 attempts</th></tr></thead><tbody><tr><td>2%</td><td><strong>86.7%</strong></td><td>~100%</td></tr><tr><td>0.5%</td><td>39.4%</td><td>99.3%</td></tr></tbody></table>
+<p>A defence that blocks 98% of attempts sounds strong and, against a determined attacker, is close to useless. What matters is how hard it is to find <em>any</em> working input — and what happens when one is found.</p>
+<h2 id="defence-in-depth"><a class="heading-anchor" href="#defence-in-depth">Defence in depth</a></h2>
+<p>No single layer is reliable, so systems stack independent ones. If three layers each miss 10% of attempts and fail independently, the combined miss rate is <code>0.1³ =</code> <strong>0.1%</strong>. Independence is the key word: three filters built the same way fail on the same inputs, and give little more than one.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="Three stacked defence layers — input classifier, the model&#x27;s own training, output classifier — each letting through 10% of attempts, combining to 0.1% if independent." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">INDEPENDENT LAYERS MULTIPLY</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.18" stroke="var(--muted-foreground)" stroke-opacity="0.5">
+<rect x="120" y="36" width="80" height="120" rx="6"></rect><rect x="250" y="36" width="80" height="120" rx="6"></rect><rect x="380" y="36" width="80" height="120" rx="6"></rect>
+</g>
+<text class="l" x="160" y="172" text-anchor="middle">input check</text><text class="l" x="290" y="172" text-anchor="middle">model training</text><text class="l" x="420" y="172" text-anchor="middle">output check</text>
+<rect x="20" y="56" width="100" height="80" fill="var(--primary)" fill-opacity="0.25"></rect>
+<text class="b" x="30" y="100">100%</text>
+<rect x="200" y="88" width="50" height="16" fill="var(--primary)" fill-opacity="0.5"></rect>
+<text class="b" x="206" y="84">10%</text>
+<rect x="330" y="94" width="50" height="4" fill="var(--primary)" fill-opacity="0.7"></rect>
+<text class="b" x="340" y="88">1%</text>
+<rect x="460" y="95" width="60" height="2" fill="var(--primary)"></rect>
+<text class="b" x="466" y="88">0.1%</text>
+<path d="M20 194 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="216">only if they fail on different inputs — copies of one filter add little</text>
+<text class="l" x="20" y="236">and against retries, what matters is the cost of finding any input that passes all three</text>
+</svg>
+<figcaption>Layers built differently — classifiers, training, monitoring — fail differently, which is what makes stacking them work.</figcaption>
+</figure>
+<p>The layers commonly used:</p>
+<p><strong>Model training.</strong> Safety training on diverse adversarial examples, including role-play, multi-turn and encoded variants, so that refusals generalise to unseen phrasings. Training the model to recognise <em>intent</em> rather than surface wording is what makes reframing attacks harder.</p>
+<p><strong>Input classifiers.</strong> A separate, smaller model screens requests for harmful intent before they reach the main model. It can be updated quickly when new attack patterns appear.</p>
+<p><strong>Output classifiers.</strong> A second check on what the model actually produced, catching harmful content regardless of how the request was phrased. Output checks are robust to obfuscated inputs because they judge the result.</p>
+<p><strong>System design.</strong> Limit what the model can do — tools, data access, actions — to what the application needs. A jailbroken model with no dangerous capabilities can do little harm.</p>
+<p><strong>Monitoring and rate limits.</strong> Repeated refused or flagged requests from one account are a signal. Since attackers rely on retries, making retries visible and costly removes their main advantage.</p>
+<p><strong>Red-teaming.</strong> Deliberately attacking your own system — with people and automated tools — before release and continuously after, feeding what is found back into training and filters.</p>
+<h2 id="for-application-builders"><a class="heading-anchor" href="#for-application-builders">For application builders</a></h2>
+<ul>
+<li>Do not rely on the system prompt alone to enforce policy; it is guidance to the model, not a security boundary.</li>
+<li>Treat any content the model reads from outside sources as untrusted.</li>
+<li>Add output-side checks for the specific harms your application could cause.</li>
+<li>Log and review refusals and flagged outputs; they show what people are trying.</li>
+<li>Assume some jailbreaks will succeed, and limit the damage a successful one can do.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>A jailbreak is an input that gets a model to do what its safety training was meant to prevent, usually by making a harmful request look unlike anything it learned to refuse. Because attackers can retry freely, a 2% success rate becomes 86.7% within 100 attempts, so per-attempt block rates are a weak measure of safety.</p>
+<p>Defence is layered and diverse: robust safety training, input and output classifiers, minimal capabilities, monitoring of repeated attempts, and continuous red-teaming. Three independent layers that each miss 10% let through 0.1% — provided they really fail independently.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Jailbreaking in LLMs"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T19:20","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A jailbreak is an input crafted to get a model to do what its training told it not to. Attackers get unlimited retries: a trick that works 2% of the time succeeds within 100 attempts 86.7% of the time. That is why defence is layered — three independent filters that each miss 10% let through 0.1%."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/jailbreaking-in-llms.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+7:null
+c:[["$","title","0",{"children":"Jailbreaking in LLMs · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"A jailbreak is an input crafted to get a model to do what its training told it not to. Attackers get unlimited retries: a trick that works 2% of the time succeeds within 100 attempts 86.7% of the time. That is why defence is layered — three independent filters that each miss 10% let through 0.1%."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"jailbreaking,llm-safety,guardrails,red-teaming,security"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/jailbreaking-in-llms/"}],["$","meta","6",{"property":"og:title","content":"Jailbreaking in LLMs"}],["$","meta","7",{"property":"og:description","content":"A jailbreak is an input crafted to get a model to do what its training told it not to. Attackers get unlimited retries: a trick that works 2% of the time succeeds within 100 attempts 86.7% of the time. That is why defence is layered — three independent filters that each miss 10% let through 0.1%."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/jailbreaking-in-llms/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T19:20"}],["$","meta","11",{"property":"article:tag","content":"jailbreaking"}],["$","meta","12",{"property":"article:tag","content":"llm-safety"}],["$","meta","13",{"property":"article:tag","content":"guardrails"}],["$","meta","14",{"property":"article:tag","content":"red-teaming"}],["$","meta","15",{"property":"article:tag","content":"security"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Jailbreaking in LLMs"}],["$","meta","18",{"name":"twitter:description","content":"A jailbreak is an input crafted to get a model to do what its training told it not to. Attackers get unlimited retries: a trick that works 2% of the time succeeds within 100 attempts 86.7% of the time. That is why defence is layered — three independent filters that each miss 10% let through 0.1%."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L15","21",{}]]
+16:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/logprobs-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Log probabilities (logprobs) in LLMs"}]]}],["$","$Lf",null,{"href":"/blog/backchannels-in-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Backchannels in voice agents"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L16",null,{"headings":[{"id":"why-jailbreaks-work-at-all","text":"Why jailbreaks work at all","level":2},{"id":"the-attackers-advantage-retries","text":"The attacker's advantage: retries","level":2},{"id":"defence-in-depth","text":"Defence in depth","level":2},{"id":"for-application-builders","text":"For application builders","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Half-duplex vs full-duplex: a single arrow alternating direction above two parallel arrows pointing both ways at once.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="60" y="90" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">half-duplex — one way at a time</text>
+<path d="M60 130 H360" stroke="#5E5D59" stroke-width="5"/><path d="M346 120 L362 130 L346 140" fill="none" stroke="#5E5D59" stroke-width="5"/>
+<path d="M440 130 H740" stroke="#5E5D59" stroke-opacity="0.35" stroke-width="5" stroke-dasharray="10 8"/><path d="M454 120 L438 130 L454 140" fill="none" stroke="#5E5D59" stroke-opacity="0.35" stroke-width="5"/>
+<text x="60" y="210" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">full-duplex — both at once</text>
+<path d="M60 250 H740" stroke="#141413" stroke-width="5"/><path d="M724 240 L740 250 L724 260" fill="none" stroke="#141413" stroke-width="5"/>
+<path d="M60 290 H740" stroke="#141413" stroke-width="5"/><path d="M76 280 L60 290 L76 300" fill="none" stroke="#141413" stroke-width="5"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">turns and gaps, or a decision every 80 ms</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">half vs full duplex</text>
+</svg>

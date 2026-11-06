@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Vanishing and exploding gradients: three lines leaving the same point, one shrinking to nothing, one exploding upward, one staying level.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 200 C300 190 500 120 740 50" stroke="#5E5D59" stroke-width="5" fill="none"/>
+<path d="M60 200 H740" stroke="#141413" stroke-width="6" fill="none"/>
+<path d="M60 200 C300 210 500 280 740 320" stroke="#5E5D59" stroke-opacity="0.6" stroke-width="5" stroke-dasharray="10 7" fill="none"/>
+<circle cx="60" cy="200" r="9" fill="#141413"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">
+<text x="560" y="74" fill="#5E5D59">×1.1 per layer</text><text x="620" y="190" fill="#141413">×1.0</text><text x="560" y="300" fill="#5E5D59">×0.9 per layer</text>
+</g>
+<text x="60" y="380" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">50 layers: ×117 or ×0.005</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">vanishing &amp; exploding gradients</text>
+</svg>

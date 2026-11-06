@@ -1,0 +1,219 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","voice-agent-latency-budget",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","voice-agent-latency-budget","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/voice-agent-latency-budget.svg","image"]
+12:T205e,<p>A latency budget divides a target response time among the stages that make up a voice agent's reply, so that each component has a number to hit. It is the main planning tool for making an agent feel conversational.</p>
+<p>It is also easy to get subtly wrong, because latencies are not fixed numbers. Each stage varies from turn to turn, and the way variable stages add up is not the way their averages suggest.</p>
+<h2 id="the-stages"><a class="heading-anchor" href="#the-stages">The stages</a></h2>
+<p>Measured from the instant the user stops speaking to the instant they hear the first audio:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>stage</th><th>median</th><th>95th percentile</th></tr></thead><tbody><tr><td>network in</td><td>40 ms</td><td>70 ms</td></tr><tr><td>endpointing</td><td>150</td><td>400</td></tr><tr><td>speech-to-text finalisation</td><td>50</td><td>120</td></tr><tr><td>LLM time to first token</td><td>250</td><td>700</td></tr><tr><td>LLM to end of first sentence</td><td>160</td><td>260</td></tr><tr><td>TTS time to first audio</td><td>90</td><td>200</td></tr><tr><td>network out and playback buffer</td><td>80</td><td>140</td></tr><tr><td><strong>sum</strong></td><td><strong>820 ms</strong></td><td><strong>1,890 ms</strong></td></tr></tbody></table>
+<p>The medians are a well-tuned cascade. The 95th percentiles reflect what each stage looks like on a bad turn: a hesitant user making endpointing wait, a long conversation history slowing the model's first token, a busy TTS server.</p>
+<h2 id="how-the-stages-actually-add-up"><a class="heading-anchor" href="#how-the-stages-actually-add-up">How the stages actually add up</a></h2>
+<p>Neither column's sum is the answer. To see what users experience, I modelled each stage as a skewed (log-normal) distribution matching those medians and 95th percentiles, and simulated 200,000 turns:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>total latency</th></tr></thead><tbody><tr><td>sum of stage medians</td><td>820 ms</td></tr><tr><td><strong>actual median turn</strong></td><td><strong>891 ms</strong></td></tr><tr><td><strong>actual 95th percentile</strong></td><td><strong>1,407 ms</strong></td></tr><tr><td>actual 99th percentile</td><td>1,782 ms</td></tr><tr><td>sum of stage 95th percentiles</td><td>1,890 ms</td></tr><tr><td>turns over 800 ms</td><td>67.6%</td></tr><tr><td>turns over 1,000 ms</td><td><strong>32.2%</strong></td></tr></tbody></table>
+<p>Two lessons are in that table.</p>
+<p><strong>The median total is worse than the sum of medians.</strong> Latencies are skewed — they can be much slower than usual, but not much faster — so each stage's average sits above its median, and the averages add up. An agent built from 820 ms of medians gives a median turn of 891 ms, and two-thirds of turns miss an 800 ms target.</p>
+<p><strong>The 95th percentile total is better than the sum of 95th percentiles.</strong> It is unlikely that every stage has a bad turn at once. Budgeting each stage at its p95 and adding them up predicts 1,890 ms; the real p95 is 1,407 ms. A budget built that way is too pessimistic and leads to over-engineering the wrong stages.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="A right-skewed distribution of simulated total latency with markers at the sum of medians 820, actual median 891, 1,000 ms, actual p95 1,407 and sum of p95s 1,890." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">200,000 SIMULATED TURNS</text>
+<path d="M40 170 H540" stroke="var(--muted-foreground)" stroke-opacity="0.4"></path>
+<path d="M60 170 C120 168 170 60 210 52 C240 46 262 80 300 110 C350 140 420 158 540 167 V170 H60 Z" fill="var(--muted-foreground)" fill-opacity="0.25"></path>
+<path d="M252 125 C312 148 420 158 540 167 V170 H252 Z" fill="var(--primary)" fill-opacity="0.25"></path>
+<g stroke-dasharray="3 3">
+<path d="M194 40 V178" stroke="var(--muted-foreground)"></path>
+<path d="M217 40 V178" stroke="var(--primary)"></path>
+<path d="M252 40 V178" stroke="var(--primary)"></path>
+<path d="M382 40 V178" stroke="var(--primary)"></path>
+<path d="M537 40 V178" stroke="var(--muted-foreground)"></path>
+</g>
+<text class="l" x="190" y="192" text-anchor="end">820 Σ medians</text>
+<text class="b" x="221" y="36">891 median</text>
+<text class="b" x="256" y="70">1,000 ms</text><text class="b" x="256" y="84">32.2% beyond</text>
+<text class="b" x="386" y="120">1,407 p95</text>
+<text class="l" x="533" y="192" text-anchor="end">1,890 Σ p95s</text>
+<path d="M20 212 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="234">medians add up to too little; p95s add up to too much</text>
+<text class="l" x="20" y="252">budget on simulated or measured totals, not on sums of per-stage numbers</text>
+</svg>
+<figcaption>Skew pushes the typical turn above the sum of typical stages; independence pulls the tail below the sum of tails.</figcaption>
+</figure>
+<h2 id="where-to-spend-effort-the-variance"><a class="heading-anchor" href="#where-to-spend-effort-the-variance">Where to spend effort: the variance</a></h2>
+<p>The same model shows which stages make the tail. Ranked by how much they vary:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>stage</th><th>mean</th><th>standard deviation</th></tr></thead><tbody><tr><td>LLM time to first token</td><td>304 ms</td><td><strong>211 ms</strong></td></tr><tr><td>endpointing</td><td>179 ms</td><td><strong>117 ms</strong></td></tr><tr><td>TTS time to first audio</td><td>101 ms</td><td>52 ms</td></tr><tr><td>LLM to first sentence</td><td>167 ms</td><td>50 ms</td></tr><tr><td>speech-to-text finalisation</td><td>58 ms</td><td>33 ms</td></tr><tr><td>network out</td><td>85 ms</td><td>30 ms</td></tr><tr><td>network in</td><td>42 ms</td><td>15 ms</td></tr></tbody></table>
+<p>Two stages account for most of the spread: the language model's time to first token and endpointing. That is where the slow turns come from, and where work pays off:</p>
+<ul>
+<li><strong>First token:</strong> keep prompts short and stable so prompt caching works, use a smaller or faster model for simple turns, keep inference servers below saturation, start generating speculatively before the user finishes.</li>
+<li><strong>Endpointing:</strong> model-based turn detection, so clear endings are answered quickly and only ambiguous ones wait.</li>
+</ul>
+<p>Shaving 20 ms off network-in will never be noticed. Cutting the LLM's p95 from 700 ms to 400 ms will.</p>
+<h2 id="building-the-budget-properly"><a class="heading-anchor" href="#building-the-budget-properly">Building the budget properly</a></h2>
+<ol>
+<li><strong>Set targets on the total, at a percentile.</strong> For example: median under 800 ms, p95 under 1,200 ms. Users remember the slow turns.</li>
+<li><strong>Measure every stage on every turn,</strong> with timestamps, in production. Lab numbers on short prompts and idle servers are optimistic.</li>
+<li><strong>Combine by simulation or from real totals,</strong> not by adding columns.</li>
+<li><strong>Attack variance first,</strong> in the stages that have the most of it.</li>
+<li><strong>Hide what you cannot remove.</strong> Fillers, acknowledgements and speculative starts move the <em>perceived</em> response earlier even when the full answer is not ready.</li>
+</ol>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>A latency budget splits the time from "user stops" to "agent speaks" across seven or so stages. Because each stage varies, the totals behave unintuitively: medians summing to 820 ms gave a median turn of 891 ms and a third of turns over a second, while p95s summing to 1,890 ms gave a real p95 of 1,407 ms.</p>
+<p>Set targets on the total at a percentile, measure every stage in production, and spend effort where the variance is — almost always the model's first token and endpointing.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"A latency budget for voice agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T13:20","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Seven stages with medians adding up to 820 ms do not give an 820 ms agent. Simulated with realistic spread, the median turn takes 891 ms, the 95th percentile 1,407 ms, and a third of all replies take over a second. Adding up per-stage p95s would have predicted 1,890."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/voice-agent-latency-budget.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/cascaded-vs-speech-to-speech/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Cascaded vs speech-to-speech voice agents"}]]}],["$","$Lf",null,{"href":"/blog/matrix-multiplication-in-neural-networks/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Matrix multiplication in neural networks"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"the-stages","text":"The stages","level":2},{"id":"how-the-stages-actually-add-up","text":"How the stages actually add up","level":2},{"id":"where-to-spend-effort-the-variance","text":"Where to spend effort: the variance","level":2},{"id":"building-the-budget-properly","text":"Building the budget properly","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"A latency budget for voice agents · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Seven stages with medians adding up to 820 ms do not give an 820 ms agent. Simulated with realistic spread, the median turn takes 891 ms, the 95th percentile 1,407 ms, and a third of all replies take over a second. Adding up per-stage p95s would have predicted 1,890."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"voice-agents,latency,percentiles,performance,budget"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/voice-agent-latency-budget/"}],["$","meta","6",{"property":"og:title","content":"A latency budget for voice agents"}],["$","meta","7",{"property":"og:description","content":"Seven stages with medians adding up to 820 ms do not give an 820 ms agent. Simulated with realistic spread, the median turn takes 891 ms, the 95th percentile 1,407 ms, and a third of all replies take over a second. Adding up per-stage p95s would have predicted 1,890."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/voice-agent-latency-budget/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T13:20"}],["$","meta","11",{"property":"article:tag","content":"voice-agents"}],["$","meta","12",{"property":"article:tag","content":"latency"}],["$","meta","13",{"property":"article:tag","content":"percentiles"}],["$","meta","14",{"property":"article:tag","content":"performance"}],["$","meta","15",{"property":"article:tag","content":"budget"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"A latency budget for voice agents"}],["$","meta","18",{"name":"twitter:description","content":"Seven stages with medians adding up to 820 ms do not give an 820 ms agent. Simulated with realistic spread, the median turn takes 891 ms, the 95th percentile 1,407 ms, and a third of all replies take over a second. Adding up per-stage p95s would have predicted 1,890."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Markov decision process: two state circles connected by curved action arrows, with a third terminal state off to one side.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<circle cx="190" cy="190" r="70" fill="#FFFFFF" stroke="#141413" stroke-width="3"/>
+<circle cx="450" cy="190" r="70" fill="#FFFFFF" stroke="#141413" stroke-width="3"/>
+<rect x="610" y="150" width="140" height="80" rx="10" fill="#5E5D59" fill-opacity="0.3"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" text-anchor="middle"><text x="190" y="198" fill="#141413">cool</text><text x="450" y="198" fill="#141413">warm</text><text x="680" y="198" fill="#5E5D59" font-size="17">overheat</text></g>
+<path d="M245 150 C290 105 350 105 395 150" stroke="#141413" stroke-width="4" fill="none"/>
+<path d="M383 140 L397 152 L380 157" fill="none" stroke="#141413" stroke-width="4"/>
+<path d="M395 230 C350 275 290 275 245 230" stroke="#141413" stroke-width="4" fill="none"/>
+<path d="M257 240 L243 228 L260 223" fill="none" stroke="#141413" stroke-width="4"/>
+<path d="M520 190 H606" stroke="#5E5D59" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">fast when cool, slow when warm: 15.5</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">markov decision process</text>
+</svg>

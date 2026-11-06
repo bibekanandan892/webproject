@@ -1,0 +1,81 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/half-duplex-vs-full-duplex-voice-agents.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T2229,<p>The terms come from communications. A <strong>half-duplex</strong> channel carries one direction at a time, like a walkie-talkie: one side talks, says "over", and the other replies. A <strong>full-duplex</strong> channel carries both directions at once, like a phone call.</p>
+<p>Voice agents can be built either way, and the choice shapes how natural they can feel.</p>
+<h2 id="half-duplex-taking-turns"><a class="heading-anchor" href="#half-duplex-taking-turns">Half-duplex: taking turns</a></h2>
+<p>Most voice agents are, at heart, half-duplex. The conversation is a sequence of turns:</p>
+<ol>
+<li>Listen until the user has finished.</li>
+<li>Think.</li>
+<li>Speak until done — or until interrupted.</li>
+<li>Repeat.</li>
+</ol>
+<p>Everything is organised around turn boundaries. Endpointing decides when a turn ends; barge-in logic decides when to abandon the agent's turn early. The language model sees a clean transcript of alternating turns, which is exactly the format it was trained on.</p>
+<p>This is simple, debuggable, and works with any text LLM. Its limits all come from the turn structure:</p>
+<ul>
+<li><strong>Overlap is an error condition.</strong> If the user speaks while the agent is speaking, the system must decide: interruption (stop) or noise (ignore). Real conversation is full of overlap that is neither.</li>
+<li><strong>Backchannels are awkward.</strong> "Mm-hmm" mid-sentence either halts the agent or is discarded; it is never simply <em>heard</em>.</li>
+<li><strong>The agent cannot backchannel either.</strong> It cannot say "right" while the user talks, because it is not allowed to speak during their turn.</li>
+<li><strong>Every decision is at a boundary.</strong> Latency depends on detecting the boundary, so the system is always waiting for silence.</li>
+</ul>
+<h2 id="full-duplex-always-listening-sometimes-speaking"><a class="heading-anchor" href="#full-duplex-always-listening-sometimes-speaking">Full-duplex: always listening, sometimes speaking</a></h2>
+<p>A full-duplex agent processes the incoming audio stream and its own outgoing stream continuously and simultaneously. There are no turns as such. At every moment — every frame, perhaps every 80 ms — the model decides what to output: silence, a backchannel, the start of a reply, or more of a reply in progress.</p>
+<p>This is typically done with speech-native models that consume and produce audio tokens in parallel streams. The model learns turn-taking behaviour from data of real conversations, rather than having it imposed by endpointing rules.</p>
+<p>What becomes possible:</p>
+<ul>
+<li><strong>Natural overlap.</strong> Starting a reply a fraction before the user quite finishes, as people do.</li>
+<li><strong>Real backchannels.</strong> The agent can say "mm-hmm" or "right" while the user speaks, signalling it is following.</li>
+<li><strong>Instant yielding.</strong> If the user cuts in, the model hears it in the very next frame and can stop — no separate barge-in pipeline.</li>
+<li><strong>No silence threshold.</strong> The decision to speak comes from what was said and how, not from a timer.</li>
+</ul>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="Two pairs of timelines: half-duplex with user and agent bars strictly alternating separated by gaps; full-duplex with bars overlapping, including short agent backchannels during the user&#x27;s speech." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">TAKING TURNS vs TALKING TOGETHER</text>
+<text class="b" x="20" y="44">half-duplex</text>
+<text class="l" x="20" y="66">user</text><text class="l" x="20" y="86">agent</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.5"><rect x="80" y="56" width="120" height="14" rx="3"></rect><rect x="330" y="56" width="90" height="14" rx="3"></rect></g>
+<g fill="var(--primary)" fill-opacity="0.75"><rect x="230" y="76" width="80" height="14" rx="3"></rect><rect x="450" y="76" width="80" height="14" rx="3"></rect></g>
+<text class="l" x="200" y="104">gap</text><text class="l" x="420" y="104">gap</text>
+<text class="b" x="20" y="134">full-duplex</text>
+<text class="l" x="20" y="156">user</text><text class="l" x="20" y="176">agent</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.5"><rect x="80" y="146" width="160" height="14" rx="3"></rect><rect x="320" y="146" width="40" height="14" rx="3"></rect><rect x="400" y="146" width="100" height="14" rx="3"></rect></g>
+<g fill="var(--primary)" fill-opacity="0.75"><rect x="150" y="166" width="16" height="14" rx="3"></rect><rect x="232" y="166" width="110" height="14" rx="3"></rect><rect x="470" y="166" width="60" height="14" rx="3"></rect></g>
+<text class="l" x="146" y="196">"mm-hmm"</text><text class="l" x="300" y="196">overlap, yields</text>
+<path d="M20 210 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="232">full-duplex decides every frame; half-duplex decides at the boundaries</text>
+</svg>
+<figcaption>Half-duplex conversation is a sequence of turns. Full-duplex is two streams that happen to interleave.</figcaption>
+</figure>
+<h2 id="what-full-duplex-costs"><a class="heading-anchor" href="#what-full-duplex-costs">What full-duplex costs</a></h2>
+<p><strong>Compute that never stops.</strong> A half-duplex agent does heavy work around each turn. A full-duplex model runs on every frame, including silences. At 12.5 frames a second, a 10-minute call is <strong>7,500 model steps</strong>. A half-duplex agent producing twelve replies of about 78 tokens generates roughly <strong>936</strong> tokens of output. Even allowing for its transcription and prefill work, the always-on model costs several times as much per call — about 8× in steps alone.</p>
+<p><strong>Control.</strong> There is no clean transcript between hearing and speaking for rules, tools and guardrails to act on. Production designs often pair a full-duplex speech front-end with a text model for reasoning and tool calls, which reintroduces some turn structure behind the scenes.</p>
+<p><strong>Behaviour you have to train, not configure.</strong> How often to backchannel, when to overlap, how assertive to be — these become properties of the model learned from data. Adjusting them means retraining or fine-tuning, not changing a threshold.</p>
+<p><strong>Evaluation.</strong> Overlap that is natural in one culture or context is rude in another. Measuring "good" turn-taking is harder than measuring latency.</p>
+<h2 id="between-the-two"><a class="heading-anchor" href="#between-the-two">Between the two</a></h2>
+<p>Most production systems in practice sit in between: a half-duplex core with full-duplex features bolted on.</p>
+<ul>
+<li><strong>Barge-in</strong> lets the user interrupt the agent's turn.</li>
+<li><strong>Backchannel detection</strong> lets the agent keep talking through "mm-hmm".</li>
+<li><strong>Speculative generation</strong> starts thinking before the turn boundary.</li>
+<li><strong>Filler phrases</strong> let the agent take the turn before its answer is ready.</li>
+</ul>
+<p>Each approximates something full-duplex models do natively. Together they get much of the naturalness while keeping the text pipeline's control.</p>
+<h2 id="how-to-choose"><a class="heading-anchor" href="#how-to-choose">How to choose</a></h2>
+<p><strong>Half-duplex (with extensions)</strong> for task-oriented agents: customer service, booking, support, anything with tools, rules and audits. Turn structure is an asset there — it gives clean points to check, log and constrain.</p>
+<p><strong>Full-duplex</strong> where conversational feel is the product: companions, language tutors, interactive characters, casual assistants. The cost and reduced control buy something users notice immediately.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Half-duplex agents take turns — listen, think, speak — and handle overlap as an exception through barge-in and backchannel rules. Full-duplex agents listen and speak at once, deciding every frame whether to talk, which makes overlap, backchannels and instant yielding natural.</p>
+<p>The price is constant compute — about 7,500 model steps in a 10-minute call against roughly 936 generated tokens for a turn-based agent — and less room for explicit control. Most production systems today are half-duplex cores with full-duplex behaviours added piece by piece.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Half-duplex vs full-duplex voice agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T18:00","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A half-duplex agent takes turns: it listens, then speaks. A full-duplex one listens and speaks at once, deciding every 80 ms whether to talk. That makes overlap, backchannels and instant yielding natural — and means running the model 7,500 times in a 10-minute call instead of about 936."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/half-duplex-vs-full-duplex-voice-agents.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/data-augmentation/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Data augmentation"}]]}],["$","$L2",null,{"href":"/blog/optimizers-in-deep-learning/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Optimizers: SGD, momentum, RMSProp and Adam"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"half-duplex-taking-turns","text":"Half-duplex: taking turns","level":2},{"id":"full-duplex-always-listening-sometimes-speaking","text":"Full-duplex: always listening, sometimes speaking","level":2},{"id":"what-full-duplex-costs","text":"What full-duplex costs","level":2},{"id":"between-the-two","text":"Between the two","level":2},{"id":"how-to-choose","text":"How to choose","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

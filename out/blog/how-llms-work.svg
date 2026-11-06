@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="How an LLM works: a row of tokens entering a stack of layers, a probability bar emerging, and one token looping back to the end of the row.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="#5E5D59" fill-opacity="0.3"><rect x="60" y="250" width="56" height="40" rx="6"/><rect x="124" y="250" width="56" height="40" rx="6"/><rect x="188" y="250" width="56" height="40" rx="6"/><rect x="252" y="250" width="56" height="40" rx="6"/><rect x="316" y="250" width="56" height="40" rx="6"/></g>
+<rect x="380" y="250" width="56" height="40" rx="6" fill="#141413" fill-opacity="0.8"/>
+<g fill="#FFFFFF" stroke="#141413" stroke-width="2"><rect x="470" y="80" width="150" height="26" rx="5"/><rect x="470" y="112" width="150" height="26" rx="5"/><rect x="470" y="144" width="150" height="26" rx="5"/><rect x="470" y="176" width="150" height="26" rx="5"/></g>
+<path d="M372 250 C400 210 440 210 470 190" stroke="#5E5D59" stroke-opacity="0.5" stroke-width="2.5" fill="none"/>
+<g fill="#141413"><rect x="650" y="80" width="90" height="16" rx="3" fill-opacity="0.8"/><rect x="650" y="102" width="40" height="16" rx="3" fill-opacity="0.45"/><rect x="650" y="124" width="26" height="16" rx="3" fill-opacity="0.3"/></g>
+<path d="M695 150 C695 240 520 270 444 270" stroke="#141413" stroke-width="3" fill="none"/>
+<path d="M454 262 L442 270 L454 278" fill="none" stroke="#141413" stroke-width="3"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">predict the next token, append, repeat</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">how llms work</text>
+</svg>

@@ -1,0 +1,111 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","context-window",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","context-window","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/context-window.svg","image"]
+12:T2207,<p>A language model has no memory between requests. Everything it can use to produce an answer — the system prompt, the conversation so far, retrieved documents, tool results, and the answer it is writing — has to be present, as tokens, in a single input. That input has a maximum size: the <strong>context window</strong>.</p>
+<h2 id="what-fits"><a class="heading-anchor" href="#what-fits">What fits</a></h2>
+<p>Context windows are measured in tokens. At roughly 1.3 tokens per English word and about 330 words to a printed page:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>context window</th><th>words</th><th>pages</th></tr></thead><tbody><tr><td>8,192 tokens</td><td>6,302</td><td>19</td></tr><tr><td>131,072 tokens</td><td><strong>100,825</strong></td><td><strong>306</strong></td></tr><tr><td>1,000,000 tokens</td><td>769,231</td><td>2,331</td></tr></tbody></table>
+<p>A 128k window holds a long novel or a substantial codebase module. A million-token window holds several books. The output counts against the same budget: if the window is 128k and the prompt is 120k, at most 8k tokens remain for the reply.</p>
+<h2 id="why-it-is-limited"><a class="heading-anchor" href="#why-it-is-limited">Why it is limited</a></h2>
+<p>Two costs grow with context length.</p>
+<p><strong>Attention arithmetic.</strong> Each token attends to every earlier token, so the number of pairs grows with the square of the length. Going from 8k to 128k tokens multiplies the pairs by <strong>256</strong> — from 67 million to 17 billion per layer and head. Kernels like Flash Attention make this fast in practice, but the growth is still quadratic.</p>
+<p><strong>Memory for the KV cache.</strong> Every token in context leaves keys and values at every layer, held for the rest of the generation. For a 70B-class model with grouped-query attention, about 320 KB per token: <strong>42.9 GB</strong> for a single 131k-token conversation. That memory decides how many conversations a GPU can serve at once, and therefore the cost.</p>
+<p>Training matters too. A model trained mostly on short sequences does not automatically handle long ones well; long-context ability has to be trained, often in a late stage with position-encoding adjustments.</p>
+<h2 id="bigger-is-not-the-same-as-better"><a class="heading-anchor" href="#bigger-is-not-the-same-as-better">Bigger is not the same as better</a></h2>
+<p>A model that <em>accepts</em> 128k tokens does not necessarily <em>use</em> all of them equally well.</p>
+<ul>
+<li><strong>Lost in the middle.</strong> Many models recall information near the start and end of a long context better than information buried in the middle.</li>
+<li><strong>Distraction.</strong> Irrelevant material competes for attention. Adding loosely related documents can lower accuracy compared with adding only the relevant one.</li>
+<li><strong>Latency.</strong> Processing a long prompt takes time before the first output token appears, even with fast hardware.</li>
+<li><strong>Cost.</strong> Input tokens are billed. A full window on every request is expensive.</li>
+</ul>
+<p>The practical lesson is to treat context as a scarce resource to be spent deliberately, not a container to be filled.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="A context window bar divided into system prompt, retrieved documents, conversation history, and space reserved for the answer; below, a staircase showing each chat turn re-sending all previous turns." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ONE BUDGET, EVERYTHING IN IT</text>
+<rect x="20" y="34" width="520" height="28" rx="4" fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.6"></rect>
+<rect x="20" y="34" width="60" height="28" fill="var(--muted-foreground)" fill-opacity="0.5"></rect>
+<rect x="80" y="34" width="190" height="28" fill="var(--muted-foreground)" fill-opacity="0.3"></rect>
+<rect x="270" y="34" width="190" height="28" fill="var(--primary)" fill-opacity="0.35"></rect>
+<rect x="460" y="34" width="80" height="28" fill="none" stroke="var(--primary)" stroke-dasharray="4 3"></rect>
+<text class="l" x="26" y="52">system</text><text class="l" x="90" y="52">retrieved documents</text><text class="b" x="280" y="52">conversation</text><text class="b" x="468" y="52">answer</text>
+<text class="l" x="20" y="80">131,072 tokens ≈ 100,825 words ≈ 306 pages · output shares the budget</text>
+<text class="b" x="20" y="108">a chat re-sends its history every turn</text>
+<g fill="var(--primary)" fill-opacity="0.55">
+<rect x="20" y="186" width="20" height="4"></rect><rect x="44" y="182" width="20" height="8"></rect><rect x="68" y="178" width="20" height="12"></rect><rect x="92" y="174" width="20" height="16"></rect><rect x="116" y="170" width="20" height="20"></rect><rect x="140" y="166" width="20" height="24"></rect><rect x="164" y="162" width="20" height="28"></rect><rect x="188" y="158" width="20" height="32"></rect><rect x="212" y="154" width="20" height="36"></rect><rect x="236" y="150" width="20" height="40"></rect>
+<rect x="260" y="146" width="20" height="44"></rect><rect x="284" y="142" width="20" height="48"></rect><rect x="308" y="138" width="20" height="52"></rect><rect x="332" y="134" width="20" height="56"></rect><rect x="356" y="130" width="20" height="60"></rect><rect x="380" y="126" width="20" height="64"></rect><rect x="404" y="122" width="20" height="68"></rect><rect x="428" y="118" width="20" height="72"></rect><rect x="452" y="114" width="20" height="76"></rect><rect x="476" y="110" width="20" height="80"></rect>
+</g>
+<text class="l" x="20" y="206">turn 1</text><text class="l" x="496" y="206" text-anchor="end">turn 20</text>
+<path d="M20 216 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="238">20 turns × 500 tokens: 10,000 in context, 105,000 sent in total</text>
+</svg>
+<figcaption>Every request carries the whole conversation again; prompt caching is what keeps that affordable.</figcaption>
+</figure>
+<h2 id="conversations-re-send-everything"><a class="heading-anchor" href="#conversations-re-send-everything">Conversations re-send everything</a></h2>
+<p>Because the model is stateless, a chat application sends the entire conversation with every new message. If each turn adds 500 tokens, turn 20 sends 10,000 tokens — and the total sent over the whole conversation is <code>500 × (1 + 2 + … + 20) =</code> <strong>105,000 tokens</strong>, more than ten times what is finally in context.</p>
+<p>Prompt caching softens this: a provider can reuse the computation for a prefix it has already processed, charging a fraction of the price and skipping most of the prefill time. Keeping the stable part of the prompt — system instructions, tool definitions, early history — unchanged and at the front is what makes caching effective.</p>
+<h2 id="managing-context"><a class="heading-anchor" href="#managing-context">Managing context</a></h2>
+<p>When conversations or documents outgrow the window, or simply grow expensive, systems choose what to keep:</p>
+<ul>
+<li><strong>Retrieval</strong> — store documents outside the context and bring in only the passages relevant to the current question.</li>
+<li><strong>Summarisation and compaction</strong> — replace old turns with a summary that preserves decisions, facts and open tasks.</li>
+<li><strong>Truncation</strong> — drop the oldest turns, keeping the system prompt and recent exchanges.</li>
+<li><strong>Structured memory</strong> — save key facts to an external store and reinsert only those that matter.</li>
+<li><strong>Ordering</strong> — place the most important material at the start or end, where it is most reliably used.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>The context window is the single input that holds everything a model can see: instructions, history, documents, tool results and its own answer. At 128k tokens it is about 306 pages, but filling it costs 256 times the attention arithmetic of an 8k context and about 42.9 GB of cache on a 70B-class model.</p>
+<p>Models do not use long contexts uniformly, and chats re-send their whole history each turn — 105,000 tokens over 20 turns for 10,000 in context. Spend context deliberately: retrieve, summarise, order carefully and keep stable prefixes cacheable.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"How the context window works"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T19:00","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"The context window is everything a model can see at once — about 100,825 words, or 306 pages, at 128k tokens. Filling it costs 256 times the attention arithmetic of an 8k context and 42.9 GB of cache on a 70B model, and a 20-turn chat re-sends 105,000 tokens to hold a 10,000-token conversation."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/context-window.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/kl-divergence/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"KL divergence, step by step"}]]}],["$","$Lf",null,{"href":"/blog/logprobs-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Log probabilities (logprobs) in LLMs"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"what-fits","text":"What fits","level":2},{"id":"why-it-is-limited","text":"Why it is limited","level":2},{"id":"bigger-is-not-the-same-as-better","text":"Bigger is not the same as better","level":2},{"id":"conversations-re-send-everything","text":"Conversations re-send everything","level":2},{"id":"managing-context","text":"Managing context","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"How the context window works · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"The context window is everything a model can see at once — about 100,825 words, or 306 pages, at 128k tokens. Filling it costs 256 times the attention arithmetic of an 8k context and 42.9 GB of cache on a 70B model, and a 20-turn chat re-sends 105,000 tokens to hold a 10,000-token conversation."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"context-window,llm,kv-cache,attention,tokens"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/context-window/"}],["$","meta","6",{"property":"og:title","content":"How the context window works"}],["$","meta","7",{"property":"og:description","content":"The context window is everything a model can see at once — about 100,825 words, or 306 pages, at 128k tokens. Filling it costs 256 times the attention arithmetic of an 8k context and 42.9 GB of cache on a 70B model, and a 20-turn chat re-sends 105,000 tokens to hold a 10,000-token conversation."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/context-window/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T19:00"}],["$","meta","11",{"property":"article:tag","content":"context-window"}],["$","meta","12",{"property":"article:tag","content":"llm"}],["$","meta","13",{"property":"article:tag","content":"kv-cache"}],["$","meta","14",{"property":"article:tag","content":"attention"}],["$","meta","15",{"property":"article:tag","content":"tokens"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"How the context window works"}],["$","meta","18",{"name":"twitter:description","content":"The context window is everything a model can see at once — about 100,825 words, or 306 pages, at 128k tokens. Filling it costs 256 times the attention arithmetic of an 8k context and 42.9 GB of cache on a 70B model, and a 20-turn chat re-sends 105,000 tokens to hold a 10,000-token conversation."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

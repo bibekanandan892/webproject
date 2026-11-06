@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Latency budget: a horizontal bar divided into seven stage segments, with a skewed spread of totals beneath it.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g stroke="#F0EEE6" stroke-width="3">
+<rect x="60" y="100" width="33" height="56" fill="#5E5D59" fill-opacity="0.3"/>
+<rect x="93" y="100" width="124" height="56" fill="#141413" fill-opacity="0.6"/>
+<rect x="217" y="100" width="41" height="56" fill="#5E5D59" fill-opacity="0.3"/>
+<rect x="258" y="100" width="207" height="56" fill="#141413" fill-opacity="0.75"/>
+<rect x="465" y="100" width="132" height="56" fill="#5E5D59" fill-opacity="0.35"/>
+<rect x="597" y="100" width="74" height="56" fill="#5E5D59" fill-opacity="0.3"/>
+<rect x="671" y="100" width="66" height="56" fill="#5E5D59" fill-opacity="0.25"/>
+</g>
+<path d="M60 300 C120 298 180 200 240 190 C300 180 360 240 440 270 C520 292 620 298 740 300 Z" fill="#5E5D59" fill-opacity="0.22"/>
+<path d="M440 270 C520 292 620 298 740 300 H440 Z" fill="#141413" fill-opacity="0.3"/>
+<path d="M60 300 H740" stroke="#141413" stroke-opacity="0.35" stroke-width="2"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">820 ms of medians, 891 ms median turn</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">voice agent latency budget</text>
+</svg>

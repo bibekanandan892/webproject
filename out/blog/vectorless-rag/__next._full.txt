@@ -1,0 +1,154 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","vectorless-rag",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","vectorless-rag","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/vectorless-rag.svg","image"]
+12:T2610,<p>Ordinary RAG answers a question by turning it into a vector and fetching the chunks whose vectors are nearest. Vectorless RAG removes the vectors. The document is organised into a tree — chapters, sections, pages — and a language model reads its way down that tree, choosing a branch at each level, the way a person uses a table of contents.</p>
+<p>No embedding model, no vector database, no chunking. The retrieval step is itself a sequence of reasoning calls.</p>
+<p>It sounds like a regression. For a particular kind of document it is not.</p>
+<h2 id="why-similarity-is-not-relevance"><a class="heading-anchor" href="#why-similarity-is-not-relevance">Why similarity is not relevance</a></h2>
+<p>Ask a vector index over an annual report: <em>"What was operating margin in the third quarter?"</em></p>
+<p>Every section that discusses margins is close to that question in embedding space — the CFO's letter, the risk factors, the segment analysis, last year's comparison, the glossary entry for "operating margin". The phrase that would actually decide the matter, <em>third quarter</em>, is a small part of the question's vector and an even smaller part of each chunk's.</p>
+<p>The search returns five plausible chunks, ranked by how much they <em>sound like</em> the question. The one with the number may be sixth.</p>
+<p>A person would not search this way. They would open the contents page, go to <em>Quarterly results</em>, then <em>Q3</em>, then the income statement. Each step uses the structure of the document, which an embedding throws away.</p>
+<h2 id="how-the-navigation-works"><a class="heading-anchor" href="#how-the-navigation-works">How the navigation works</a></h2>
+<p>The document is first turned into a tree, once, at indexing time. Each node stores a title and a short summary — a sentence or two of what is underneath it.</p>
+<p>Take a 300-page report: 12 chapters, about 5 sections each, about 5 pages per section. At query time:</p>
+<ol>
+<li>The model reads the 12 chapter summaries and picks one.</li>
+<li>It reads that chapter's 5 section summaries and picks one.</li>
+<li>It reads that section's 5 page summaries and picks one or two.</li>
+<li>It reads those pages in full and answers.</li>
+</ol>
+<p>With summaries of 60 tokens and pages of 500:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>tokens read</th></tr></thead><tbody><tr><td>12 chapter summaries</td><td>720</td></tr><tr><td>5 section summaries</td><td>300</td></tr><tr><td>5 page summaries</td><td>300</td></tr><tr><td>2 full pages</td><td>1,000</td></tr><tr><td><strong>total</strong></td><td><strong>2,320</strong></td></tr><tr><td>the whole document</td><td>150,000</td></tr></tbody></table>
+<p>That is a <strong>65×</strong> reduction against stuffing the document into context, with no index other than the tree itself — and the tree is something many documents already have in their headings.</p>
+<figure>
+<svg viewBox="0 0 560 300" width="560" role="img" aria-label="A document tree three levels deep, with one highlighted path from root to a page and the per-level success rate multiplying along it." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">NAVIGATE, DON'T SEARCH</text>
+<rect x="240" y="34" width="80" height="24" rx="5" fill="none" stroke="var(--primary)" stroke-width="1.6"></rect>
+<text class="b" x="280" y="50" text-anchor="middle">report</text>
+<g stroke="var(--muted-foreground)" stroke-opacity="0.4">
+<path d="M280 58 L80 92"></path><path d="M280 58 L180 92"></path><path d="M280 58 L380 92"></path><path d="M280 58 L480 92"></path>
+</g>
+<path d="M280 58 L280 92" stroke="var(--primary)" stroke-width="2.2"></path>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.5">
+<rect x="50" y="92" width="60" height="22" rx="4"></rect><rect x="150" y="92" width="60" height="22" rx="4"></rect><rect x="350" y="92" width="60" height="22" rx="4"></rect><rect x="450" y="92" width="60" height="22" rx="4"></rect>
+</g>
+<rect x="250" y="92" width="60" height="22" rx="4" fill="none" stroke="var(--primary)" stroke-width="1.6"></rect>
+<text class="l" x="80" y="107" text-anchor="middle">ch 1</text><text class="l" x="180" y="107" text-anchor="middle">ch 2</text>
+<text class="b" x="280" y="107" text-anchor="middle">results</text>
+<text class="l" x="380" y="107" text-anchor="middle">risk</text><text class="l" x="480" y="107" text-anchor="middle">ch 12</text>
+<g stroke="var(--muted-foreground)" stroke-opacity="0.4"><path d="M280 114 L200 148"></path><path d="M280 114 L360 148"></path></g>
+<path d="M280 114 L280 148" stroke="var(--primary)" stroke-width="2.2"></path>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.5"><rect x="175" y="148" width="50" height="22" rx="4"></rect><rect x="335" y="148" width="50" height="22" rx="4"></rect></g>
+<rect x="255" y="148" width="50" height="22" rx="4" fill="none" stroke="var(--primary)" stroke-width="1.6"></rect>
+<text class="l" x="200" y="163" text-anchor="middle">Q2</text><text class="b" x="280" y="163" text-anchor="middle">Q3</text><text class="l" x="360" y="163" text-anchor="middle">Q4</text>
+<path d="M280 170 L280 200" stroke="var(--primary)" stroke-width="2.2"></path>
+<rect x="230" y="200" width="100" height="22" rx="4" fill="var(--primary)" fill-opacity="0.15" stroke="var(--primary)" stroke-width="1.6"></rect>
+<text class="b" x="280" y="215" text-anchor="middle">income stmt</text>
+<text class="l" x="420" y="140">0.95</text><text class="l" x="420" y="163">× 0.95</text><text class="l" x="420" y="186">× 0.95</text>
+<text class="b" x="420" y="210">= 0.857</text>
+<path d="M20 240 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="262">2,320 tokens read instead of 150,000 — and one wrong turn ends the search</text>
+<text class="l" x="20" y="282">a vector index has no path to get wrong, but it cannot tell Q3 from Q2</text>
+</svg>
+<figcaption>Each level is a decision. The cost is low; the errors multiply.</figcaption>
+</figure>
+<h2 id="where-it-breaks-the-errors-multiply"><a class="heading-anchor" href="#where-it-breaks-the-errors-multiply">Where it breaks: the errors multiply</a></h2>
+<p>A vector search makes one decision — the ranking — and returns several candidates, so a near miss is often still in the top five.</p>
+<p>Tree navigation makes one decision per level, and each one is final unless the system is built to back up. If the model picks the right branch with probability <em>p</em> at each level, it reaches the right page with probability <em>p</em> to the power of the depth:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>per-level accuracy</th><th>after 3 levels</th></tr></thead><tbody><tr><td>98%</td><td>94.1%</td></tr><tr><td>95%</td><td><strong>85.7%</strong></td></tr><tr><td>90%</td><td>72.9%</td></tr></tbody></table>
+<p>A model that is right 19 times in 20 at every choice still loses one question in seven. The mitigations are the obvious ones: let the model pick two branches at the uncertain levels, let it back up when a page turns out not to contain the answer, and write summaries that state what a section <em>contains</em>, not what it is <em>called</em>.</p>
+<p>The other costs are latency and money. Three or four sequential model calls before the answer starts is seconds, against tens of milliseconds for a vector lookup. Every query pays for reasoning that an embedding search did once at indexing time.</p>
+<h2 id="when-it-is-the-right-tool"><a class="heading-anchor" href="#when-it-is-the-right-tool">When it is the right tool</a></h2>
+<p><strong>Long, structured, high-stakes documents.</strong> Financial filings, contracts, regulations, technical manuals. They have real hierarchy, the questions reference that hierarchy ("in section 4.2", "for Q3", "under the indemnity clause"), and a wrong answer is expensive enough to justify a few seconds and a few cents.</p>
+<p><strong>Questions where wording is shared across sections.</strong> When every chapter uses the same vocabulary, similarity has nothing to distinguish them by. Structure does.</p>
+<p><strong>Small collections.</strong> Ten documents can each have a tree. A model can even choose the document first.</p>
+<h2 id="when-it-is-not"><a class="heading-anchor" href="#when-it-is-not">When it is not</a></h2>
+<p><strong>Many short, unstructured documents.</strong> A million support tickets have no table of contents. The top level of the tree would be a million summaries.</p>
+<p><strong>Latency-sensitive paths.</strong> Autocomplete, chat over a knowledge base with a sub-second budget.</p>
+<p><strong>Broad questions.</strong> "What are the main risks?" wants material from many branches at once — something a vector search returning many chunks handles naturally, and a single path through a tree does not.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Vectorless RAG swaps similarity search for navigation: the model reads summaries down a document tree and opens only the pages it chose. On a 300-page report that is about 2,320 tokens instead of 150,000, and it uses the one thing embeddings discard — the document's own structure.</p>
+<p>The cost is that the search is now a chain of decisions, and accuracy is the product of them. Use it where structure is real and wrong answers are expensive; keep vectors where documents are many, short and flat.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Vectorless RAG"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T09:10","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Instead of embedding chunks, give the model a table of contents and let it navigate. A 300-page report is answered by reading 2,320 tokens instead of 150,000 — but every level of the tree is a chance to take the wrong branch, and 95% per step is 85.7% after three."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/vectorless-rag.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/chunking-strategies-for-rag/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Chunking strategies for RAG"}]]}],["$","$Lf",null,{"href":"/blog/kv-cache-compression/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"KV cache compression"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"why-similarity-is-not-relevance","text":"Why similarity is not relevance","level":2},{"id":"how-the-navigation-works","text":"How the navigation works","level":2},{"id":"where-it-breaks-the-errors-multiply","text":"Where it breaks: the errors multiply","level":2},{"id":"when-it-is-the-right-tool","text":"When it is the right tool","level":2},{"id":"when-it-is-not","text":"When it is not","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Vectorless RAG · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Instead of embedding chunks, give the model a table of contents and let it navigate. A 300-page report is answered by reading 2,320 tokens instead of 150,000 — but every level of the tree is a chance to take the wrong branch, and 95% per step is 85.7% after three."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"rag,retrieval,reasoning,document-tree,long-documents"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/vectorless-rag/"}],["$","meta","6",{"property":"og:title","content":"Vectorless RAG"}],["$","meta","7",{"property":"og:description","content":"Instead of embedding chunks, give the model a table of contents and let it navigate. A 300-page report is answered by reading 2,320 tokens instead of 150,000 — but every level of the tree is a chance to take the wrong branch, and 95% per step is 85.7% after three."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/vectorless-rag/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T09:10"}],["$","meta","11",{"property":"article:tag","content":"rag"}],["$","meta","12",{"property":"article:tag","content":"retrieval"}],["$","meta","13",{"property":"article:tag","content":"reasoning"}],["$","meta","14",{"property":"article:tag","content":"document-tree"}],["$","meta","15",{"property":"article:tag","content":"long-documents"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Vectorless RAG"}],["$","meta","18",{"name":"twitter:description","content":"Instead of embedding chunks, give the model a table of contents and let it navigate. A 300-page report is answered by reading 2,320 tokens instead of 150,000 — but every level of the tree is a chance to take the wrong branch, and 95% per step is 85.7% after three."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

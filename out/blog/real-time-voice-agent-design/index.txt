@@ -1,0 +1,148 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","real-time-voice-agent-design",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","real-time-voice-agent-design","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/real-time-voice-agent-design.svg","image"]
+12:T2756,<p>A voice agent is a program you talk to on a phone or in an app, which answers out loud and can take actions — book the appointment, check the order, transfer the call. Building one that works is not hard. Building one that feels like a conversation is, and the reason is time.</p>
+<p>In conversation between people, the gap between one person finishing and the other starting is around 200 milliseconds. Gaps over about a second register as awkward; over two, as a failure. Every design choice in a voice agent is judged against that clock.</p>
+<h2 id="the-five-components"><a class="heading-anchor" href="#the-five-components">The five components</a></h2>
+<p><strong>1. Audio transport.</strong> Audio comes in from a phone line or a browser, usually over WebRTC or a telephony bridge. It must be streamed in small frames — 20 ms at a time — not uploaded as files. Compressed with Opus at about 24 kbps per direction, 10,000 concurrent calls are about 480 Mbps of traffic; uncompressed 16 kHz audio would be over 5 Gbps.</p>
+<p><strong>2. Voice activity and turn detection.</strong> Something has to decide that the user is speaking, and — much harder — that they have <em>finished</em>. This is endpointing, and it is the single largest delay in most agents.</p>
+<p><strong>3. Speech-to-text (STT).</strong> Streaming recognition turns the audio into text while the user is still talking, so that when they stop, only the last fraction of a second remains to be transcribed.</p>
+<p><strong>4. The language model, with tools.</strong> Reads the transcript and the conversation so far, decides what to say, and calls tools when it needs data or to take an action.</p>
+<p><strong>5. Text-to-speech (TTS).</strong> Turns the reply into audio — streaming, so that speech starts before the whole reply exists.</p>
+<p>This arrangement, STT → LLM → TTS, is the <strong>cascaded</strong> design. The alternative is a single <strong>speech-to-speech</strong> model that takes audio in and produces audio out. Cascaded systems are easier to debug, can use any LLM and give a transcript for free; speech-to-speech models are faster and keep tone of voice, but are harder to control and to attach tools to. Most production systems today are cascaded, sometimes with speech-to-speech pieces.</p>
+<h2 id="where-the-time-goes"><a class="heading-anchor" href="#where-the-time-goes">Where the time goes</a></h2>
+<p>Assemble the cascade straightforwardly and measure from the moment the user stops talking to the moment they hear audio:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>stage</th><th>naive</th><th>tuned</th></tr></thead><tbody><tr><td>network in</td><td>40 ms</td><td>40 ms</td></tr><tr><td>endpointing — waiting for silence</td><td><strong>300</strong></td><td>150</td></tr><tr><td>STT finalisation</td><td>100</td><td>50</td></tr><tr><td>LLM time to first token</td><td>300</td><td>250</td></tr><tr><td>LLM to the end of the first sentence</td><td>160</td><td>160</td></tr><tr><td>TTS time to first audio</td><td>120</td><td>90</td></tr><tr><td>network out and jitter buffer</td><td>80</td><td>80</td></tr><tr><td><strong>total</strong></td><td><strong>1,100 ms</strong></td><td><strong>820 ms</strong></td></tr></tbody></table>
+<p>1.1 seconds is noticeably slow. Every row in the tuned column is a separate piece of engineering, and even after all of them the total is four times the human gap. That is why the remaining tricks exist.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="Two stacked horizontal bars of latency by stage, naive totalling 1,100 ms and tuned 820 ms, with a marker at the 200 ms human gap." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">FROM "USER STOPS" TO "AGENT SPEAKS"</text>
+<text class="l" x="20" y="54">naive</text>
+<g stroke="var(--background)" stroke-width="1">
+<rect x="80" y="40" width="17" height="22" fill="var(--muted-foreground)" fill-opacity="0.4"></rect>
+<rect x="97" y="40" width="129" height="22" fill="var(--primary)" fill-opacity="0.8"></rect>
+<rect x="226" y="40" width="43" height="22" fill="var(--muted-foreground)" fill-opacity="0.55"></rect>
+<rect x="269" y="40" width="129" height="22" fill="var(--muted-foreground)" fill-opacity="0.7"></rect>
+<rect x="398" y="40" width="69" height="22" fill="var(--muted-foreground)" fill-opacity="0.55"></rect>
+<rect x="467" y="40" width="51" height="22" fill="var(--muted-foreground)" fill-opacity="0.4"></rect>
+<rect x="518" y="40" width="34" height="22" fill="var(--muted-foreground)" fill-opacity="0.3"></rect>
+</g>
+<text class="l" x="20" y="98">tuned</text>
+<g stroke="var(--background)" stroke-width="1">
+<rect x="80" y="84" width="17" height="22" fill="var(--muted-foreground)" fill-opacity="0.4"></rect>
+<rect x="97" y="84" width="64" height="22" fill="var(--primary)" fill-opacity="0.8"></rect>
+<rect x="161" y="84" width="21" height="22" fill="var(--muted-foreground)" fill-opacity="0.55"></rect>
+<rect x="182" y="84" width="107" height="22" fill="var(--muted-foreground)" fill-opacity="0.7"></rect>
+<rect x="289" y="84" width="69" height="22" fill="var(--muted-foreground)" fill-opacity="0.55"></rect>
+<rect x="358" y="84" width="39" height="22" fill="var(--muted-foreground)" fill-opacity="0.4"></rect>
+<rect x="397" y="84" width="34" height="22" fill="var(--muted-foreground)" fill-opacity="0.3"></rect>
+</g>
+<path d="M166 30 V118" stroke="var(--primary)" stroke-dasharray="4 3"></path>
+<text class="b" x="170" y="130">200 ms — a human reply</text>
+<text class="b" x="97" y="34">endpointing</text><text class="l" x="269" y="34">LLM first token</text>
+<text class="l" x="520" y="78" text-anchor="end">1,100</text><text class="l" x="436" y="100">820</text>
+<path d="M20 152 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="176">the biggest single block is waiting to be sure the user has finished</text>
+<text class="l" x="20" y="196">the second biggest is the model starting to think</text>
+<text class="l" x="20" y="216">neither can be removed — only overlapped with something else</text>
+</svg>
+<figcaption>Tuning every stage still leaves a gap four times longer than a person's. Overlap is the rest of the answer.</figcaption>
+</figure>
+<h2 id="closing-the-rest-of-the-gap"><a class="heading-anchor" href="#closing-the-rest-of-the-gap">Closing the rest of the gap</a></h2>
+<p>The remaining tricks work by <strong>overlapping</strong> stages instead of shortening them.</p>
+<ul>
+<li><strong>Stream everything.</strong> STT emits words as they are recognised; the LLM emits tokens as they are generated; TTS speaks sentence by sentence as soon as the first sentence is complete. No stage waits for the previous one to finish.</li>
+<li><strong>Start the LLM early.</strong> Begin generating on the partial transcript when the user <em>seems</em> to be finishing, and discard the result if they keep talking. Wasted compute buys hundreds of milliseconds.</li>
+<li><strong>Fill when slow.</strong> If a tool call will take a second, say "Let me check that for you" immediately. The user hears speech within the human gap while the slow work runs.</li>
+<li><strong>Smarter endpointing.</strong> A model that listens to wording and intonation can tell "my number is four-one-five…" (not finished) from "that's all" (finished), and cut the silence wait on the clear cases.</li>
+</ul>
+<h2 id="interruptions"><a class="heading-anchor" href="#interruptions">Interruptions</a></h2>
+<p>People interrupt. A voice agent must hear the user while it is speaking — <em>barge-in</em> — stop talking within a couple of hundred milliseconds, throw away the rest of its planned reply, and record in the conversation history only what was actually said aloud. Otherwise the model believes the user heard sentences they cut off.</p>
+<p>The hard part is telling an interruption from a cough, a "mm-hmm", or the agent's own voice echoing back through the user's speaker. Echo cancellation and a classifier for backchannels sit in front of the barge-in logic.</p>
+<h2 id="everything-else-that-makes-it-a-system"><a class="heading-anchor" href="#everything-else-that-makes-it-a-system">Everything else that makes it a system</a></h2>
+<p><strong>Tools.</strong> Reading a balance, booking a slot, transferring to a human. Calls should be fast or masked with a filler phrase, and anything that changes state should be confirmed out loud first.</p>
+<p><strong>Memory.</strong> The conversation transcript, plus anything known about the caller. Long calls need summarisation like any other agent.</p>
+<p><strong>Telephony.</strong> Real phone lines bring 8 kHz audio, line noise, keypad tones and voicemail detection.</p>
+<p><strong>Scaling.</strong> Each call holds a stateful stream for minutes. Calls must be pinned to a worker, and the STT, LLM and TTS services scaled separately according to how much of each a minute of conversation consumes.</p>
+<p><strong>Observability.</strong> Record per-turn latency for every stage, interruptions, and transcripts. "It felt slow" is not debuggable; "endpointing p95 was 640 ms" is.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>A voice agent is transport, turn detection, speech recognition, a language model with tools and speech synthesis — and a deadline. Built straightforwardly, it answers 1,100 ms after the user stops; careful tuning of each stage reaches about 820; people expect 200.</p>
+<p>The design work is closing that gap by overlapping stages — streaming every component, starting generation early, filling silence while tools run — and by handling interruptions as a first-class event rather than an edge case.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Designing a real-time voice agent"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T10:10","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A voice agent is five components in a pipeline with a deadline. Assembled naively, the gap after the user stops speaking is 1,100 ms; people expect about 200. The design is mostly the work of taking those 900 milliseconds back."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/real-time-voice-agent-design.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/recursive-self-improvement/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Recursive self-improvement"}]]}],["$","$Lf",null,{"href":"/blog/system-one-models/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"System One models"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"the-five-components","text":"The five components","level":2},{"id":"where-the-time-goes","text":"Where the time goes","level":2},{"id":"closing-the-rest-of-the-gap","text":"Closing the rest of the gap","level":2},{"id":"interruptions","text":"Interruptions","level":2},{"id":"everything-else-that-makes-it-a-system","text":"Everything else that makes it a system","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Designing a real-time voice agent · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"A voice agent is five components in a pipeline with a deadline. Assembled naively, the gap after the user stops speaking is 1,100 ms; people expect about 200. The design is mostly the work of taking those 900 milliseconds back."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"voice-agents,system-design,latency,stt,tts"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/real-time-voice-agent-design/"}],["$","meta","6",{"property":"og:title","content":"Designing a real-time voice agent"}],["$","meta","7",{"property":"og:description","content":"A voice agent is five components in a pipeline with a deadline. Assembled naively, the gap after the user stops speaking is 1,100 ms; people expect about 200. The design is mostly the work of taking those 900 milliseconds back."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/real-time-voice-agent-design/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T10:10"}],["$","meta","11",{"property":"article:tag","content":"voice-agents"}],["$","meta","12",{"property":"article:tag","content":"system-design"}],["$","meta","13",{"property":"article:tag","content":"latency"}],["$","meta","14",{"property":"article:tag","content":"stt"}],["$","meta","15",{"property":"article:tag","content":"tts"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Designing a real-time voice agent"}],["$","meta","18",{"name":"twitter:description","content":"A voice agent is five components in a pipeline with a deadline. Assembled naively, the gap after the user stops speaking is 1,100 ms; people expect about 200. The design is mostly the work of taking those 900 milliseconds back."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

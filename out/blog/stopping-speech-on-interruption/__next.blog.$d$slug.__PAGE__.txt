@@ -1,0 +1,90 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/stopping-speech-on-interruption.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T23e3,<p>When a user interrupts a voice agent, two things must happen. The system must <strong>decide</strong> that it was a real interruption — not a cough, not "mm-hmm", not its own echo. And then the speech must <strong>actually stop</strong>, at the user's ear, quickly.</p>
+<p>The second part is often treated as trivial: stop the TTS, done. In practice the audio the user hears was generated well before they hear it, and it sits in a chain of buffers between the speech engine and the loudspeaker. Stopping the source does nothing about what is already in the pipe.</p>
+<h2 id="where-the-audio-is-when-you-decide-to-stop"><a class="heading-anchor" href="#where-the-audio-is-when-you-decide-to-stop">Where the audio is when you decide to stop</a></h2>
+<p>Follow the audio from synthesis to sound:</p>
+<ol>
+<li><strong>TTS engine</strong> — generating audio, often faster than real time.</li>
+<li><strong>Server send queue</strong> — audio waiting to be written to the network.</li>
+<li><strong>Network in flight</strong> — packets travelling to the client.</li>
+<li><strong>Client jitter buffer</strong> — a small buffer that smooths out network variation, typically 40–200 ms.</li>
+<li><strong>Client playback buffer</strong> — audio handed to the operating system's audio output.</li>
+<li><strong>Loudspeaker.</strong></li>
+</ol>
+<p>Every buffer between the decision and the speaker keeps playing unless it is explicitly cleared. The worst offender is usually the server sending audio far ahead of real time. A fast TTS engine can produce a whole sentence in a fraction of a second, and a naive server forwards it immediately, so the client ends up holding several seconds of speech.</p>
+<h2 id="three-designs-three-stop-times"><a class="heading-anchor" href="#three-designs-three-stop-times">Three designs, three stop times</a></h2>
+<p>Assume detecting a real interruption takes about 200 ms, and the network is 40 ms each way.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>design</th><th>how the stop happens</th><th>user hears the agent for</th></tr></thead><tbody><tr><td>server stops generating; audio pushed ahead as fast as produced (3 s queued at the client)</td><td>only new audio stops</td><td>200 + 3,000 = <strong>~3.2 s</strong></td></tr><tr><td>server paces audio near real time and sends a "clear" message; client flushes its buffers</td><td>detection → server → client</td><td>200 + 40 + 40 = <strong>~280 ms</strong></td></tr><tr><td>client detects speech locally and mutes immediately; server notified in parallel</td><td>on the device</td><td>200 + ~10 = <strong>~210 ms</strong></td></tr></tbody></table>
+<p>Three seconds of the agent talking over someone who has said "stop" feels like being ignored. A quarter of a second feels like being heard.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="The chain from TTS to speaker with buffers along it, and three bars for how long the agent keeps talking after the decision to stop: 3.2 seconds, 280 ms and 210 ms." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE AUDIO IS ALREADY ON ITS WAY</text>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.6">
+<rect x="20" y="34" width="70" height="26" rx="4"></rect><rect x="110" y="34" width="80" height="26" rx="4"></rect><rect x="210" y="34" width="70" height="26" rx="4"></rect><rect x="300" y="34" width="90" height="26" rx="4"></rect><rect x="410" y="34" width="70" height="26" rx="4"></rect>
+</g>
+<text class="l" x="55" y="51" text-anchor="middle">TTS</text><text class="l" x="150" y="51" text-anchor="middle">send queue</text><text class="l" x="245" y="51" text-anchor="middle">network</text><text class="l" x="345" y="51" text-anchor="middle">jitter buffer</text><text class="l" x="445" y="51" text-anchor="middle">playback</text>
+<path d="M90 47 H110 M190 47 H210 M280 47 H300 M390 47 H410 M480 47 H500" stroke="var(--muted-foreground)"></path>
+<path d="M500 38 L512 32 V62 L500 56 Z" fill="var(--muted-foreground)"></path>
+<text class="l" x="20" y="96">push ahead</text><rect x="120" y="86" width="400" height="14" rx="3" fill="var(--muted-foreground)" fill-opacity="0.5"></rect><text class="l" x="514" y="97" text-anchor="end" fill="var(--background)">~3.2 s</text>
+<text class="b" x="20" y="122">pace + flush</text><rect x="120" y="112" width="35" height="14" rx="3" fill="var(--primary)" fill-opacity="0.7"></rect><text class="b" x="162" y="123">~280 ms</text>
+<text class="b" x="20" y="148">mute on device</text><rect x="120" y="138" width="26" height="14" rx="3" fill="var(--primary)" fill-opacity="0.9"></rect><text class="b" x="153" y="149">~210 ms</text>
+<path d="M20 172 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="196">stopping the generator does not stop the speaker</text>
+<text class="l" x="20" y="216">keep little audio in flight, and make "clear" reach every buffer down to the device</text>
+<text class="l" x="20" y="236">bars: time the user hears the agent after starting to interrupt (detection ~200 ms)</text>
+</svg>
+<figcaption>Whatever has left the server keeps playing unless something on the client throws it away.</figcaption>
+</figure>
+<h2 id="how-to-make-it-fast"><a class="heading-anchor" href="#how-to-make-it-fast">How to make it fast</a></h2>
+<p><strong>Pace the stream.</strong> Send audio to the client at roughly real-time speed, keeping only a small lead — a few hundred milliseconds — over what is playing. That bounds how much can ever be in flight. The TTS can still run ahead on the server, where its output can be discarded instantly.</p>
+<p><strong>Make "clear" a first-class message.</strong> The protocol between server and client needs an explicit instruction to drop all queued audio <em>now</em>, separate from simply sending no more. WebRTC-based and telephony stacks each need their own way of doing this; on a phone line, it may mean the media server cutting the outgoing stream.</p>
+<p><strong>Detect on the device where possible.</strong> A lightweight voice activity detector running on the client can duck or mute playback the moment the user starts talking, without waiting for a round trip. The server still makes the final decision — resume if it was only a backchannel, stop for good if it was a real interruption — but the user hears the response to their voice immediately.</p>
+<p><strong>Duck before you stop.</strong> Lowering the volume instantly on possible speech, then stopping or resuming once the classification is confident, gives the responsiveness of immediate action without the cost of stopping for every cough.</p>
+<p><strong>Cancel everything upstream.</strong> Stop the TTS, cancel the language model's generation, and abort any in-progress tool call that only existed to finish that reply. Leftover work wastes compute and, if not cancelled, can produce audio that leaks out later.</p>
+<h2 id="remember-exactly-what-was-said"><a class="heading-anchor" href="#remember-exactly-what-was-said">Remember exactly what was said</a></h2>
+<p>Once stopped, the agent's record of its own turn must match what the user actually heard. If it generated 120 words and was cut off after 35, the conversation history should contain those 35 — otherwise the model will later refer to things the user never heard.</p>
+<p>To do that precisely, the system needs to know which audio reached the speaker. <strong>Word-level timestamps</strong> from the TTS, combined with the playback position reported by the client at the moment of the stop, let the agent truncate its turn to the last word played. Marking the turn as interrupted helps the model respond naturally to whatever the user said.</p>
+<h2 id="test-it-end-to-end"><a class="heading-anchor" href="#test-it-end-to-end">Test it end to end</a></h2>
+<p>Measure stop latency the way the user experiences it: record both the user's audio and what comes out of the client's speaker, interrupt at random moments, and measure from the start of the user's speech to the agent's silence. Do it on real networks and real devices — speakerphones, Bluetooth headsets and phone lines all add buffering that never shows up on a developer's laptop.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Deciding to stop is only half of handling an interruption; the other half is that audio is already in buffers between the TTS and the user's ear. A server that pushes speech ahead as fast as it is produced can keep talking for about 3.2 s after deciding to stop.</p>
+<p>Pace audio near real time, send an explicit clear that reaches every buffer, mute or duck on the device itself — bringing the stop to about 280 ms, or about 210 with local detection — cancel all upstream work, and truncate the agent's turn to the words that were actually played.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Stopping speech the instant the user interrupts"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T20:00","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Deciding to stop is only half of barge-in; the audio already on its way keeps playing. A server that pushed 3 s of speech ahead talks over the user for 3.2 s after it decides to stop. Pace the stream and flush the client and it is 280 ms; mute on the device itself and it is about 210."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/stopping-speech-on-interruption.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/markov-decision-process/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Markov decision processes"}]]}],null]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"where-the-audio-is-when-you-decide-to-stop","text":"Where the audio is when you decide to stop","level":2},{"id":"three-designs-three-stop-times","text":"Three designs, three stop times","level":2},{"id":"how-to-make-it-fast","text":"How to make it fast","level":2},{"id":"remember-exactly-what-was-said","text":"Remember exactly what was said","level":2},{"id":"test-it-end-to-end","text":"Test it end to end","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

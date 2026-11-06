@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Data augmentation: one central image tile surrounded by shifted, flipped, tilted and darker copies of itself.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="330" y="110" width="140" height="140" rx="10" fill="#FFFFFF" stroke="#141413" stroke-width="3"/>
+<path d="M350 230 L390 160 L420 200 L440 180 L455 230 Z" fill="#141413" fill-opacity="0.7"/>
+<g fill="#FFFFFF" stroke="#5E5D59" stroke-opacity="0.6" stroke-width="2">
+<rect x="130" y="70" width="110" height="110" rx="8"/><rect x="130" y="200" width="110" height="110" rx="8"/>
+<rect x="560" y="70" width="110" height="110" rx="8" transform="rotate(8 615 125)"/><rect x="560" y="200" width="110" height="110" rx="8"/>
+</g>
+<g fill="#5E5D59" fill-opacity="0.55">
+<path d="M150 165 L178 110 L200 140 L214 126 L224 165 Z"/>
+<path d="M220 295 L192 240 L170 270 L156 256 L146 295 Z"/>
+<path d="M578 165 L606 110 L628 140 L642 126 L652 165 Z" transform="rotate(8 615 125)"/>
+</g>
+<path d="M578 295 L606 240 L628 270 L642 256 L652 295 Z" fill="#141413" fill-opacity="0.9"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">162 variants per image, same label</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">data augmentation</text>
+</svg>

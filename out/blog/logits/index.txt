@@ -1,0 +1,113 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","logits",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","logits","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/logits.svg","image"]
+12:T1f4e,<p>At the end of almost every neural network that makes a choice, there is a layer that produces one number per possible answer. A cat-or-dog classifier produces two; a language model produces one for every token in its vocabulary. Those numbers are <strong>logits</strong>: raw, unbounded scores, before anything turns them into probabilities.</p>
+<p>They are worth understanding on their own, because a lot of practical work with models — sampling, constrained output, calibration, debugging — happens on logits rather than probabilities.</p>
+<h2 id="from-logits-to-probabilities"><a class="heading-anchor" href="#from-logits-to-probabilities">From logits to probabilities</a></h2>
+<p>For a single yes/no output, the logit becomes a probability through the sigmoid, <code>p = 1 / (1 + e⁻ᶻ)</code>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>logit</th><th>probability</th></tr></thead><tbody><tr><td>−2.2</td><td>10%</td></tr><tr><td>0</td><td><strong>50%</strong></td></tr><tr><td>1</td><td>73.1%</td></tr><tr><td>2.2</td><td>90%</td></tr><tr><td>4.6</td><td><strong>99%</strong></td></tr></tbody></table>
+<p>For many classes, the softmax does the same job across all of them at once: exponentiate each logit and divide by the total.</p>
+<h2 id="what-a-logit-actually-measures"><a class="heading-anchor" href="#what-a-logit-actually-measures">What a logit actually measures</a></h2>
+<p>The name comes from statistics, where the logit of a probability is its <strong>log-odds</strong>: <code>log(p / (1 − p))</code>. A probability of 90% is odds of 9 to 1, and <code>log 9 ≈ 2.2</code>. So a binary logit has a direct meaning:</p>
+<ul>
+<li><strong>0</strong> means even odds.</li>
+<li><strong>Each +2.3</strong> multiplies the odds by 10 (because <code>ln 10 ≈ 2.3</code>): 2.2 is about 9:1, 4.6 about 99:1.</li>
+<li><strong>Negative</strong> logits favour "no" by the same amounts.</li>
+</ul>
+<p>For softmax over many classes, only <em>differences</em> between logits matter. If one token's logit is 2.3 above another's, it is 10 times as likely, regardless of the logits' absolute values. That is why adding a constant to all logits changes nothing, and why logits are compared, not read in isolation.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="Sigmoid curve mapping logits from -6 to 6 onto probabilities, with marked points at 0 for 50%, 2.2 for 90% and 4.6 for 99%." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">EVERY 2.3 IS ANOTHER ×10 IN THE ODDS</text>
+<path d="M60 176 H500 M280 36 V176" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<path d="M60.0 175.7 L69.2 175.6 L78.3 175.4 L87.5 175.3 L96.7 175.1 L105.8 174.8 L115.0 174.5 L124.2 174.0 L133.3 173.5 L142.5 172.8 L151.7 171.9 L160.8 170.8 L170.0 169.4 L179.2 167.6 L188.3 165.4 L197.5 162.7 L206.7 159.3 L215.8 155.3 L225.0 150.5 L234.2 144.8 L243.3 138.3 L252.5 131.1 L261.7 123.1 L270.8 114.7 L280.0 106.0 L289.2 97.3 L298.3 88.9 L307.5 80.9 L316.7 73.7 L325.8 67.2 L335.0 61.5 L344.2 56.7 L353.3 52.7 L362.5 49.3 L371.7 46.6 L380.8 44.4 L390.0 42.6 L399.2 41.2 L408.3 40.1 L417.5 39.2 L426.7 38.5 L435.8 38.0 L445.0 37.5 L454.2 37.2 L463.3 36.9 L472.5 36.7 L481.7 36.6 L490.8 36.4 L500.0 36.3" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<g fill="var(--primary)"><circle cx="280" cy="106" r="4"></circle><circle cx="361" cy="50" r="4"></circle><circle cx="449" cy="37.4" r="4"></circle></g>
+<text class="b" x="288" y="122">0 → 50%</text>
+<text class="b" x="366" y="66">2.2 → 90%</text>
+<text class="b" x="440" y="30">4.6 → 99%</text>
+<text class="l" x="60" y="192">−6</text><text class="l" x="276" y="192">0</text><text class="l" x="500" y="192" text-anchor="end">6  logit</text>
+<text class="l" x="54" y="40" text-anchor="end">1</text><text class="l" x="54" y="180" text-anchor="end">0</text>
+<path d="M20 208 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="230">logits are additive and unbounded; probabilities squash at both ends</text>
+</svg>
+<figcaption>Between 90% and 99% the probability barely moves; the logit moves a lot. Logits keep confidence readable.</figcaption>
+</figure>
+<h2 id="why-models-output-logits-not-probabilities"><a class="heading-anchor" href="#why-models-output-logits-not-probabilities">Why models output logits, not probabilities</a></h2>
+<p><strong>Numerical stability.</strong> Probabilities near 0 and 1 squash huge differences into tiny ones — 99% and 99.99% look similar but are odds of 99:1 and 9,999:1. Logits keep those differences on an even scale, and loss functions computed from logits directly (cross-entropy "with logits") avoid the rounding errors of taking the log of a near-zero probability.</p>
+<p><strong>Flexibility.</strong> The same logits can be turned into different distributions: divided by a temperature, filtered by top-k, biased, masked. All of these are simple operations on logits.</p>
+<h2 id="logits-in-a-language-model"><a class="heading-anchor" href="#logits-in-a-language-model">Logits in a language model</a></h2>
+<p>At each step, the final hidden vector — say 4,096 numbers — is multiplied by an output matrix with one row per vocabulary entry. For a 128,000-token vocabulary that is 524 million multiply-adds, producing <strong>128,000 logits</strong>: 500 KB in 32-bit floats, every token. In an 8B-parameter model, that output projection alone is about 6.6% of the per-token arithmetic.</p>
+<p>Everything about how the next token is chosen happens here:</p>
+<ul>
+<li><strong>Temperature</strong> divides every logit by <em>T</em> before the softmax.</li>
+<li><strong>Top-k and top-p</strong> discard the logits outside the chosen set.</li>
+<li><strong>Logit bias</strong> adds a fixed amount to specific tokens — +5 to encourage one, −100 to effectively ban it.</li>
+<li><strong>Constrained decoding</strong> sets the logits of every token that would break a required format — invalid JSON, a value not in a list — to −∞, so they have exactly zero probability. This is how structured outputs are guaranteed rather than requested.</li>
+<li><strong>Repetition penalties</strong> lower the logits of tokens that have already appeared.</li>
+</ul>
+<h2 id="reading-logits-for-insight"><a class="heading-anchor" href="#reading-logits-for-insight">Reading logits for insight</a></h2>
+<p>Because they are on an additive scale, logits are useful diagnostics:</p>
+<ul>
+<li><strong>The gap between the top two logits</strong> says how decisive a prediction was. A gap of 0.1 is a near coin flip between them; a gap of 7 is over a thousand to one.</li>
+<li><strong>Log-probabilities</strong> — logits after a log-softmax — are what APIs return as "logprobs", and are used to score answers, detect uncertainty, and estimate how surprising a piece of text is to the model.</li>
+<li><strong>Intermediate layers' logits</strong> — projecting a middle layer's vector through the output matrix — show what the model "would" predict partway through its computation, a common interpretability technique.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Logits are the raw, unbounded scores a model produces before softmax or sigmoid turns them into probabilities. A binary logit is log-odds: 0 is 50%, 2.2 is 90%, 4.6 is 99%, and every 2.3 is another factor of ten. Only differences between logits matter.</p>
+<p>Language models produce one logit per vocabulary token — 128,000 per step — and almost every decoding technique, from temperature to guaranteed JSON, is an operation on those numbers before a token is chosen.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Logits"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T16:20","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Logits are a model's raw scores before they become probabilities. A logit of 0 is a coin flip, 2.2 is 90% and 4.6 is 99% — every 2.3 is another factor of ten in the odds. A language model produces 128,000 of them per token, and editing them directly is how constrained decoding works."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/logits.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/long-pauses-in-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Long pauses in voice agents"}]]}],["$","$Lf",null,{"href":"/blog/one-hot-encoding/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"One-hot encoding"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"from-logits-to-probabilities","text":"From logits to probabilities","level":2},{"id":"what-a-logit-actually-measures","text":"What a logit actually measures","level":2},{"id":"why-models-output-logits-not-probabilities","text":"Why models output logits, not probabilities","level":2},{"id":"logits-in-a-language-model","text":"Logits in a language model","level":2},{"id":"reading-logits-for-insight","text":"Reading logits for insight","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Logits · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Logits are a model's raw scores before they become probabilities. A logit of 0 is a coin flip, 2.2 is 90% and 4.6 is 99% — every 2.3 is another factor of ten in the odds. A language model produces 128,000 of them per token, and editing them directly is how constrained decoding works."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"logits,softmax,classification,llm,fundamentals"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/logits/"}],["$","meta","6",{"property":"og:title","content":"Logits"}],["$","meta","7",{"property":"og:description","content":"Logits are a model's raw scores before they become probabilities. A logit of 0 is a coin flip, 2.2 is 90% and 4.6 is 99% — every 2.3 is another factor of ten in the odds. A language model produces 128,000 of them per token, and editing them directly is how constrained decoding works."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/logits/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T16:20"}],["$","meta","11",{"property":"article:tag","content":"logits"}],["$","meta","12",{"property":"article:tag","content":"softmax"}],["$","meta","13",{"property":"article:tag","content":"classification"}],["$","meta","14",{"property":"article:tag","content":"llm"}],["$","meta","15",{"property":"article:tag","content":"fundamentals"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Logits"}],["$","meta","18",{"name":"twitter:description","content":"Logits are a model's raw scores before they become probabilities. A logit of 0 is a coin flip, 2.2 is 90% and 4.6 is 99% — every 2.3 is another factor of ten in the odds. A language model produces 128,000 of them per token, and editing them directly is how constrained decoding works."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

@@ -1,0 +1,96 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/cascaded-vs-speech-to-speech.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T24c3,<p>There are two ways to build a voice agent, and the choice shapes everything after it.</p>
+<p>A <strong>cascaded</strong> agent chains three models: speech-to-text turns the user's audio into words, a text language model writes a reply, and text-to-speech reads the reply aloud. Each piece can be chosen, tested and replaced on its own.</p>
+<p>A <strong>speech-to-speech</strong> agent uses one model that takes audio in and produces audio out. There is no transcript in the middle, unless one is produced on the side.</p>
+<h2 id="what-the-cascade-does-well"><a class="heading-anchor" href="#what-the-cascade-does-well">What the cascade does well</a></h2>
+<p><strong>It is built from the best parts.</strong> The strongest reasoning and tool-calling models are text models. A cascade can use any of them, and switch when a better one appears, without touching the speech components.</p>
+<p><strong>Everything is inspectable.</strong> The transcript of what the user said and the text of what the agent decided to say are explicit, logged and searchable. When a call goes wrong, you can see whether recognition misheard, the model reasoned badly, or the voice mispronounced something.</p>
+<p><strong>Control is easy.</strong> Tool calls, guardrails, prompt rules, redaction of personal data, required disclosures — all of these are well-understood operations on text, applied between the speech stages.</p>
+<p><strong>It is predictable to run.</strong> Each component scales on its own and has a known cost per second of audio or per token.</p>
+<h2 id="what-the-cascade-loses"><a class="heading-anchor" href="#what-the-cascade-loses">What the cascade loses</a></h2>
+<p><strong>Time.</strong> Each hand-off costs latency: the recogniser must finalise, the language model must start, the voice must start. Streaming overlaps much of it, but a tuned cascade still typically answers in the region of 800 ms after the user stops.</p>
+<p><strong>Everything that is not words.</strong> The transcript of <em>"oh, great"</em> is the same whether it was said with delight or with sarcasm. Hesitation, frustration, a laugh, an accent — all discarded at the first stage. On the way out, the voice has to guess intonation from text alone.</p>
+<p><strong>Natural overlap.</strong> A cascade naturally works in turns. Backchannels, quick interjections and talking over each other have to be engineered around it.</p>
+<h2 id="what-speech-to-speech-does-well"><a class="heading-anchor" href="#what-speech-to-speech-does-well">What speech-to-speech does well</a></h2>
+<p><strong>Lower latency.</strong> Fewer hand-offs, and the model can begin producing audio as soon as it has decided how to respond.</p>
+<p><strong>Paralinguistics both ways.</strong> The model hears tone and can respond to it — slowing down for a confused caller, matching an excited one — and produces speech whose emphasis comes from understanding rather than from punctuation.</p>
+<p><strong>More natural interaction.</strong> Some speech-to-speech systems listen and speak at the same time, handling backchannels and interruptions as part of the model rather than as rules around it.</p>
+<h2 id="what-it-costs"><a class="heading-anchor" href="#what-it-costs">What it costs</a></h2>
+<p><strong>Control and visibility.</strong> With no text in the middle, there is less to inspect and fewer places to insert rules. Many speech-to-speech systems produce a transcript alongside the audio for this reason, but the transcript is now a side output, not the thing the model reasoned over.</p>
+<p><strong>Reasoning and tools.</strong> Speech-native models have generally trailed the strongest text models at complex reasoning and multi-step tool use, though the gap is closing.</p>
+<p><strong>Context size.</strong> Audio is represented as tokens too, and there are far more of them per second of conversation than text tokens. Speech tokenizers typically produce somewhere between about 12.5 and 50 tokens per second. For a 10-minute call, tokenising both sides continuously:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>audio tokens per second</th><th>10-minute call, both directions</th></tr></thead><tbody><tr><td>12.5</td><td>15,000 tokens</td></tr><tr><td>25</td><td><strong>30,000 tokens</strong></td></tr><tr><td>50</td><td>60,000 tokens</td></tr><tr><td>as text (~150 words per minute, both speakers)</td><td><strong>~1,950 tokens</strong></td></tr></tbody></table>
+<p>At 25 tokens per second the conversation fills context about <strong>15×</strong> faster than its transcript would. Long calls need summarisation or truncation sooner, and each turn costs more to process.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="Two pipelines: a cascade of three boxes with text between them, and a single speech-to-speech box; below, a bar comparison of context use for a 10-minute call." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THREE MODELS OR ONE</text>
+<text class="l" x="20" y="52">cascade</text>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.6"><rect x="100" y="36" width="80" height="26" rx="5"></rect><rect x="250" y="36" width="80" height="26" rx="5"></rect><rect x="400" y="36" width="80" height="26" rx="5"></rect></g>
+<text class="l" x="140" y="53" text-anchor="middle">STT</text><text class="l" x="290" y="53" text-anchor="middle">LLM</text><text class="l" x="440" y="53" text-anchor="middle">TTS</text>
+<path d="M180 49 H250 M330 49 H400" stroke="var(--muted-foreground)" stroke-opacity="0.6"></path>
+<text class="l" x="196" y="44">text</text><text class="l" x="346" y="44">text</text>
+<text class="b" x="20" y="98">speech-to-speech</text>
+<rect x="160" y="82" width="260" height="26" rx="5" fill="var(--primary)" fill-opacity="0.12" stroke="var(--primary)" stroke-width="1.6"></rect>
+<text class="b" x="290" y="99" text-anchor="middle">audio in → audio out</text>
+<text class="l" x="20" y="142">context for a 10-minute call</text>
+<text class="l" x="20" y="166">as text</text><rect x="150" y="154" width="21" height="16" rx="3" fill="var(--muted-foreground)" fill-opacity="0.6"></rect><text class="l" x="178" y="167">~1,950</text>
+<text class="b" x="20" y="190">audio, 25 tok/s</text><rect x="150" y="178" width="320" height="16" rx="3" fill="var(--primary)" fill-opacity="0.8"></rect><text class="b" x="478" y="191">30,000</text>
+<path d="M20 212 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="234">one model keeps tone and saves hand-offs; it also spends ~15× the context</text>
+<text class="l" x="20" y="252">the cascade's text is both its weakness (lost tone) and its strength (control)</text>
+</svg>
+<figcaption>Removing the text step removes its losses and its handles at the same time.</figcaption>
+</figure>
+<h2 id="hybrids"><a class="heading-anchor" href="#hybrids">Hybrids</a></h2>
+<p>The choice is not strictly binary. Common middle grounds:</p>
+<ul>
+<li><strong>Cascade with an expressive voice.</strong> A text LLM decides what to say and emits light markup for emotion or emphasis, and a modern TTS model renders it. Tone in the output, text control in the middle.</li>
+<li><strong>Cascade with audio features.</strong> The recogniser passes along signals beyond words — detected emotion, speaking rate, confidence — so the LLM can respond to how something was said.</li>
+<li><strong>Speech-to-speech front, text back.</strong> A speech-native model handles the conversation and turn-taking, and calls a text model as a tool for reasoning-heavy or high-stakes steps.</li>
+</ul>
+<h2 id="how-to-choose"><a class="heading-anchor" href="#how-to-choose">How to choose</a></h2>
+<p><strong>Choose a cascade when</strong> the agent has to follow procedures, call many tools, satisfy compliance rules, or be audited — customer service, bookings, finance, healthcare intake. Control and visibility matter more than the last few hundred milliseconds.</p>
+<p><strong>Choose speech-to-speech when</strong> the conversation itself is the product — companionship, language practice, casual assistants, interactive characters — and naturalness, emotion and speed matter more than strict procedure.</p>
+<p><strong>Measure both</strong> on your own calls if you can. Latency, task completion, and how often users repeat themselves usually decide it faster than architecture arguments do.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>A cascade chains speech recognition, a text model and speech synthesis: more hand-offs and lost tone, but the best reasoning models, full transcripts and easy control. A speech-to-speech model hears and speaks audio directly: faster and more natural, but harder to steer and inspect, and it consumes context about 15× faster — roughly 30,000 tokens for a 10-minute call against about 1,950 as text.</p>
+<p>Pick by what the agent must guarantee. Procedures and audits favour the cascade; conversation as the product favours speech-to-speech; hybrids are increasingly how systems get some of both.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Cascaded vs speech-to-speech voice agents"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T13:10","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A cascade chains speech-to-text, a text LLM and text-to-speech; a speech-to-speech model hears audio and speaks audio. The second keeps tone and cuts hand-offs, but a 10-minute call at 25 audio tokens a second is about 30,000 tokens of context against roughly 1,950 as text."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/cascaded-vs-speech-to-speech.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/neural-networks/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"What a neural network is"}]]}],["$","$L2",null,{"href":"/blog/voice-agent-latency-budget/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"A latency budget for voice agents"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"what-the-cascade-does-well","text":"What the cascade does well","level":2},{"id":"what-the-cascade-loses","text":"What the cascade loses","level":2},{"id":"what-speech-to-speech-does-well","text":"What speech-to-speech does well","level":2},{"id":"what-it-costs","text":"What it costs","level":2},{"id":"hybrids","text":"Hybrids","level":2},{"id":"how-to-choose","text":"How to choose","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

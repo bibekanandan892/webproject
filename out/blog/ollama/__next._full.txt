@@ -1,0 +1,123 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","ollama",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","ollama","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/ollama.svg","image"]
+12:T2408,<p>Running a language model on your own machine used to mean choosing a model format, compiling an inference engine, picking a quantization, and writing a server around it. Ollama turns all of that into:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="bash" data-theme="github-light github-dark-default"><code data-language="bash" data-theme="github-light github-dark-default" style="display: grid;"><span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFA657">ollama</span><span style="--shiki-light:#032F62;--shiki-dark:#A5D6FF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#A5D6FF"> llama3.1</span></span></code></pre></figure>
+<p>The first time, it downloads the model. Then you are talking to it. Under that single command there are four separate pieces, and knowing what they are explains what Ollama can and cannot do for you.</p>
+<h2 id="the-four-pieces"><a class="heading-anchor" href="#the-four-pieces">The four pieces</a></h2>
+<p><strong>1. A model registry.</strong> <code>llama3.1</code> is a name in Ollama's library, like an image name in Docker. Pulling it fetches a set of layers — the weights, a prompt template, default parameters, a licence — and stores them locally by content hash, so models that share layers share disk.</p>
+<p><strong>2. Quantized weights in GGUF.</strong> The weights are not the original 16-bit release. They are quantized, typically to about 4–5 bits per weight, and stored as GGUF: a single file holding the tensors, the tokenizer and the metadata needed to run them. This is what makes models fit on ordinary hardware.</p>
+<p><strong>3. An inference engine.</strong> Ollama's runtime is built on the llama.cpp lineage of engines: optimised CPU code, plus GPU back-ends for Apple Metal, NVIDIA CUDA and AMD ROCm. It detects the hardware, puts as many layers on the GPU as will fit, and runs the rest on the CPU.</p>
+<p><strong>4. A local server.</strong> Ollama runs a background service on port 11434 with a REST API, including an OpenAI-compatible endpoint. Anything that can call an LLM API can be pointed at <code>http://localhost:11434</code> instead.</p>
+<h2 id="the-modelfile"><a class="heading-anchor" href="#the-modelfile">The Modelfile</a></h2>
+<p>Customising a model is done with a Modelfile, deliberately modelled on a Dockerfile:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="text" data-theme="github-light github-dark-default"><code data-language="text" data-theme="github-light github-dark-default" style="display: grid;"><span data-line=""><span>FROM llama3.1</span></span>
+<span data-line=""><span>PARAMETER temperature 0.2</span></span>
+<span data-line=""><span>PARAMETER num_ctx 8192</span></span>
+<span data-line=""><span>SYSTEM You are a terse assistant that answers in one sentence.</span></span></code></pre></figure>
+<p><code>ollama create terse -f Modelfile</code> produces a new named model that shares the base weights and adds the new layers on top. Nothing is retrained; it is the same weights with a different default prompt and settings.</p>
+<h2 id="what-decides-the-speed"><a class="heading-anchor" href="#what-decides-the-speed">What decides the speed</a></h2>
+<p>Generating each token means reading every weight once. On a laptop or desktop that is limited not by arithmetic but by how fast weights can be streamed from memory. So the ceiling is easy to estimate:</p>
+<p><code>tokens per second ≈ memory bandwidth ÷ model size in bytes</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>model</th><th>quantization</th><th>size</th><th>100 GB/s</th><th>400 GB/s</th><th>1,000 GB/s</th></tr></thead><tbody><tr><td>8B</td><td>~4.85 bits</td><td>4.8 GB</td><td><strong>20.6</strong></td><td>82.5</td><td>206</td></tr><tr><td>8B</td><td>8-bit</td><td>8.5 GB</td><td>11.8</td><td>47.1</td><td>118</td></tr><tr><td>8B</td><td>16-bit</td><td>16.0 GB</td><td>6.2</td><td>25.0</td><td>62.5</td></tr><tr><td>70B</td><td>~4.85 bits</td><td>42.4 GB</td><td><strong>2.4</strong></td><td>9.4</td><td>23.6</td></tr></tbody></table>
+<p>100 GB/s is a typical laptop with ordinary RAM. 400 GB/s is a high-end unified-memory laptop. 1,000 GB/s is a desktop GPU. Real speeds land somewhat below these ceilings.</p>
+<p>Two consequences follow. First, quantization is not only about fitting: a 4-bit model is about <strong>3.3×</strong> faster than the same model at 16 bits, because there are fewer bytes to read. Second, a 70B model on a laptop is possible but slow — a couple of tokens a second, slower than reading speed.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="Bar chart of estimated tokens per second at 100 GB/s memory bandwidth: 8B at 4.85 bits 20.6, 8B at 8 bits 11.8, 8B at 16 bits 6.2, 70B at 4.85 bits 2.4." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">TOKENS PER SECOND ON A 100 GB/S LAPTOP</text>
+<text class="b" x="20" y="54">8B · 4.85-bit</text><rect x="140" y="42" width="371" height="18" rx="3" fill="var(--primary)" fill-opacity="0.8"></rect><text class="b" x="518" y="55">20.6</text>
+<text class="l" x="20" y="84">8B · 8-bit</text><rect x="140" y="72" width="212" height="18" rx="3" fill="var(--muted-foreground)" fill-opacity="0.55"></rect><text class="l" x="359" y="85">11.8</text>
+<text class="l" x="20" y="114">8B · 16-bit</text><rect x="140" y="102" width="112" height="18" rx="3" fill="var(--muted-foreground)" fill-opacity="0.55"></rect><text class="l" x="259" y="115">6.2</text>
+<text class="l" x="20" y="144">70B · 4.85-bit</text><rect x="140" y="132" width="43" height="18" rx="3" fill="var(--muted-foreground)" fill-opacity="0.55"></rect><text class="l" x="190" y="145">2.4</text>
+<path d="M20 172 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="196">speed ≈ bandwidth ÷ bytes of weights</text>
+<text class="l" x="20" y="216">fewer bits are faster, not just smaller; more parameters are slower in proportion</text>
+<text class="l" x="20" y="236">a model that spills from GPU to CPU memory runs at the slower memory's speed</text>
+</svg>
+<figcaption>On local hardware, the size of the file is the speed limit.</figcaption>
+</figure>
+<h2 id="memory-what-must-fit"><a class="heading-anchor" href="#memory-what-must-fit">Memory: what must fit</a></h2>
+<p>The weights must fit, plus the KV cache for the context, plus some working space. An 8B model at 4-bit needs roughly 5 GB for weights and a few hundred megabytes to a few gigabytes of cache depending on context length. Ollama's context default is modest for exactly this reason; raising <code>num_ctx</code> raises memory use.</p>
+<p>When a model does not fit entirely on the GPU, Ollama splits it: some layers on the GPU, the rest on the CPU. That works, but the CPU layers run at system-RAM bandwidth, and the whole token waits for the slowest part. A model that is 80% on the GPU is often much closer to CPU speed than GPU speed.</p>
+<h2 id="loading-and-unloading"><a class="heading-anchor" href="#loading-and-unloading">Loading and unloading</a></h2>
+<p>Loading a model means reading it from disk into memory: an 8B 4-bit model is about 1.6 seconds from a 3 GB/s SSD, a 70B model tens of seconds. To avoid paying that on every request, Ollama keeps a model loaded after use — five minutes by default, adjustable with <code>keep_alive</code> — and unloads it afterwards to free memory. The first request after a pause is slow; the rest are not.</p>
+<p>Several models can be loaded at once if memory allows, and requests to the same model can be processed in parallel, which is what lets a local server back a small team or a set of agents.</p>
+<h2 id="when-to-use-it-and-when-not"><a class="heading-anchor" href="#when-to-use-it-and-when-not">When to use it, and when not</a></h2>
+<p><strong>Use it</strong> for private data that should not leave the machine, offline work, development against a local API, experimenting with many open models, and running small models for cheap, frequent tasks.</p>
+<p><strong>Do not expect</strong> server-grade throughput. Ollama is optimised for a single machine and a modest number of users. Serving many concurrent users at high throughput is the job of engines built for batching on data-centre GPUs, like vLLM or SGLang.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Ollama is a registry, a set of quantized GGUF models, a llama.cpp-style inference engine and a local HTTP server, wrapped in one command. The Modelfile customises a model without retraining it.</p>
+<p>Locally, speed is bandwidth divided by model size: an 8B model at about 4.85 bits runs near 20 tokens a second on a 100 GB/s laptop, a 70B model near 2. Pick the model size and quantization from that division, and keep the model entirely on the GPU if you can.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"How Ollama works"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T11:30","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Ollama packages a quantized model, an inference engine and an HTTP server behind one command. On a laptop, the speed you get is set by one division: memory bandwidth over model size — 20.6 tokens a second for an 8B model at 100 GB/s, 2.4 for a 70B."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/ollama.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/stop-tokens-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Stop tokens in LLMs"}]]}],["$","$Lf",null,{"href":"/blog/contextual-retrieval/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Contextual retrieval"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"the-four-pieces","text":"The four pieces","level":2},{"id":"the-modelfile","text":"The Modelfile","level":2},{"id":"what-decides-the-speed","text":"What decides the speed","level":2},{"id":"memory-what-must-fit","text":"Memory: what must fit","level":2},{"id":"loading-and-unloading","text":"Loading and unloading","level":2},{"id":"when-to-use-it-and-when-not","text":"When to use it, and when not","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"How Ollama works · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Ollama packages a quantized model, an inference engine and an HTTP server behind one command. On a laptop, the speed you get is set by one division: memory bandwidth over model size — 20.6 tokens a second for an 8B model at 100 GB/s, 2.4 for a 70B."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"ollama,local-llm,gguf,quantization,inference"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/ollama/"}],["$","meta","6",{"property":"og:title","content":"How Ollama works"}],["$","meta","7",{"property":"og:description","content":"Ollama packages a quantized model, an inference engine and an HTTP server behind one command. On a laptop, the speed you get is set by one division: memory bandwidth over model size — 20.6 tokens a second for an 8B model at 100 GB/s, 2.4 for a 70B."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/ollama/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T11:30"}],["$","meta","11",{"property":"article:tag","content":"ollama"}],["$","meta","12",{"property":"article:tag","content":"local-llm"}],["$","meta","13",{"property":"article:tag","content":"gguf"}],["$","meta","14",{"property":"article:tag","content":"quantization"}],["$","meta","15",{"property":"article:tag","content":"inference"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"How Ollama works"}],["$","meta","18",{"name":"twitter:description","content":"Ollama packages a quantized model, an inference engine and an HTTP server behind one command. On a laptop, the speed you get is set by one division: memory bandwidth over model size — 20.6 tokens a second for an 8B model at 100 GB/s, 2.4 for a 70B."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

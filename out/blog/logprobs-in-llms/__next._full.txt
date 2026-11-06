@@ -1,0 +1,115 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","logprobs-in-llms",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","logprobs-in-llms","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/logprobs-in-llms.svg","image"]
+12:T1eb6,<p>When a language model writes a token, it first computes a probability for every token in its vocabulary, then picks one. The text you see keeps only the choice. <strong>Log probabilities</strong> — logprobs — keep the number: how likely the model considered each token it produced, and optionally the alternatives it considered.</p>
+<p>Many APIs return them on request. They are one of the most useful and least used diagnostics a model offers.</p>
+<h2 id="why-logs"><a class="heading-anchor" href="#why-logs">Why logs?</a></h2>
+<p>Probabilities of whole sequences are products of per-token probabilities, and products of many numbers below 1 underflow quickly — a 500-token answer's probability can be smaller than any float can represent. Logs turn products into sums, which stay well behaved:</p>
+<p><code>log P(sequence) = Σ log P(token)</code></p>
+<p>A logprob is always 0 or negative. 0 means certainty (probability 1). −0.1 is about 90%. −0.69 is 50%. −2.3 is 10%. −4.6 is 1%. More negative means less likely.</p>
+<h2 id="a-worked-example"><a class="heading-anchor" href="#a-worked-example">A worked example</a></h2>
+<p>Suppose a model writes four tokens with these probabilities:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>token</th><th>probability</th><th>logprob (natural log)</th></tr></thead><tbody><tr><td>"The"</td><td>0.90</td><td>−0.105</td></tr><tr><td>" meeting"</td><td>0.60</td><td>−0.511</td></tr><tr><td>" is"</td><td>0.95</td><td>−0.051</td></tr><tr><td>" Thursday"</td><td><strong>0.05</strong></td><td><strong>−2.996</strong></td></tr><tr><td><strong>sequence</strong></td><td><strong>0.0257</strong></td><td><strong>−3.663</strong></td></tr></tbody></table>
+<p>The total logprob is −3.663, so the model assigned this exact sequence a probability of about 2.6%.</p>
+<p>More useful than the total is the shape. Three tokens are confident; one is not. The model was sure it was writing "The meeting is" and had only a 5% belief in "Thursday". If that day came from nowhere in the context, this is precisely where a hallucination would be. The text reads equally confidently throughout; the logprobs do not.</p>
+<figure>
+<svg viewBox="0 0 560 250" width="560" role="img" aria-label="Four tokens with bars showing their logprobs: three short bars near zero and one long bar at -2.996 for the token Thursday." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE TEXT IS EVEN; THE CONFIDENCE ISN'T</text>
+<path d="M60 40 H520" stroke="var(--muted-foreground)" stroke-opacity="0.5"></path>
+<text class="l" x="56" y="44" text-anchor="end">0</text>
+<g fill="var(--muted-foreground)" fill-opacity="0.55">
+<rect x="80" y="40" width="70" height="5"></rect><rect x="190" y="40" width="70" height="20"></rect><rect x="300" y="40" width="70" height="2"></rect>
+</g>
+<rect x="410" y="40" width="70" height="118" fill="var(--primary)" fill-opacity="0.8"></rect>
+<text class="l" x="115" y="60" text-anchor="middle">−0.105</text><text class="l" x="225" y="74" text-anchor="middle">−0.511</text><text class="l" x="335" y="58" text-anchor="middle">−0.051</text>
+<text class="b" x="445" y="172" text-anchor="middle">−2.996</text>
+<text class="l" x="115" y="196" text-anchor="middle">The</text><text class="l" x="225" y="196" text-anchor="middle">meeting</text><text class="l" x="335" y="196" text-anchor="middle">is</text><text class="b" x="445" y="196" text-anchor="middle">Thursday</text>
+<text class="l" x="115" y="210" text-anchor="middle">90%</text><text class="l" x="225" y="210" text-anchor="middle">60%</text><text class="l" x="335" y="210" text-anchor="middle">95%</text><text class="b" x="445" y="210" text-anchor="middle">5%</text>
+<path d="M20 222 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="242">sum −3.663 → sequence probability 2.6% · perplexity 2.50</text>
+</svg>
+<figcaption>Bars hang down from 0 (certainty). The one long bar is the token worth checking.</figcaption>
+</figure>
+<h2 id="perplexity"><a class="heading-anchor" href="#perplexity">Perplexity</a></h2>
+<p>Averaging logprobs over a sequence and exponentiating the negative gives <strong>perplexity</strong>:</p>
+<p><code>perplexity = exp(−mean logprob)</code></p>
+<p>For the example, <code>exp(3.663 / 4) =</code> <strong>2.50</strong>. Read it as the effective number of equally likely choices the model was making at each step. A perplexity of 1 means total certainty; 2.5 means, on average, the model was choosing among two or three plausible tokens. Perplexity is the standard intrinsic measure of how well a language model fits a body of text: lower is better.</p>
+<h2 id="what-logprobs-are-good-for"><a class="heading-anchor" href="#what-logprobs-are-good-for">What logprobs are good for</a></h2>
+<p><strong>Confidence for classification.</strong> Ask a yes/no question and read the logprobs of "yes" and "no" rather than the text. If P(yes) = 0.82 and P(no) = 0.15, the normalised confidence is <code>0.82 / (0.82 + 0.15) = 0.845</code>. That is a usable score — thresholds, ranking, routing low-confidence cases to a human — instead of a binary string.</p>
+<p><strong>Flagging likely hallucinations.</strong> Low-probability tokens inside names, numbers, dates and citations are where invented details tend to appear. Highlighting them, or checking them against a source, catches a large share of errors cheaply.</p>
+<p><strong>Ranking and choosing.</strong> Score several candidate answers, or several retrieved passages, by the logprob the model assigns to them. Normalise by length, or long candidates lose by default.</p>
+<p><strong>Evaluation.</strong> Multiple-choice benchmarks are often scored by which option has the highest logprob, avoiding the need to parse generated text.</p>
+<p><strong>Detecting surprise.</strong> Text with unusually low logprobs under a model is unusual to it: useful for spotting out-of-distribution inputs, data quality problems, or text that the model did not itself write.</p>
+<h2 id="caveats"><a class="heading-anchor" href="#caveats">Caveats</a></h2>
+<ul>
+<li><strong>Logprobs are not calibrated by default.</strong> Instruction-tuned and preference-tuned models are often overconfident; a 0.95 token is not right 95% of the time. Calibrate on labelled data before treating them as probabilities.</li>
+<li><strong>They reflect the sampling settings only partly.</strong> APIs typically report the model's raw distribution, before temperature or top-p filtering changed which token was actually picked.</li>
+<li><strong>Tokenisation splits meaning.</strong> A name split into three tokens has three logprobs; the uncertainty may sit in the first piece and the rest follow confidently once it is chosen.</li>
+<li><strong>Not every model or API exposes them</strong>, and reasoning models may expose them only for the final answer.</li>
+</ul>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Logprobs are the log of the probability the model assigned to each token it produced. Summing them gives a sequence's log-probability — −3.663 for four tokens at 0.9, 0.6, 0.95 and 0.05, or 2.6% — and the exponentiated negative mean gives perplexity, 2.50.</p>
+<p>Their real value is in showing where the model was unsure: the one token at −2.996 in an otherwise confident sentence. Use them for classification confidence, hallucination flags, ranking and evaluation — after calibrating, because a tuned model's 95% is rarely a true 95%.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Log probabilities (logprobs) in LLMs"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T19:10","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Logprobs are the model's own probability for each token it wrote, on a log scale. Four tokens at 0.9, 0.6, 0.95 and 0.05 sum to −3.663 — a sequence probability of 2.6% — and the single −2.996 is where to look for a guess. They turn a fluent answer back into a measure of how sure the model was."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/logprobs-in-llms.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/context-window/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"How the context window works"}]]}],["$","$Lf",null,{"href":"/blog/jailbreaking-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Jailbreaking in LLMs"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"why-logs","text":"Why logs?","level":2},{"id":"a-worked-example","text":"A worked example","level":2},{"id":"perplexity","text":"Perplexity","level":2},{"id":"what-logprobs-are-good-for","text":"What logprobs are good for","level":2},{"id":"caveats","text":"Caveats","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Log probabilities (logprobs) in LLMs · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Logprobs are the model's own probability for each token it wrote, on a log scale. Four tokens at 0.9, 0.6, 0.95 and 0.05 sum to −3.663 — a sequence probability of 2.6% — and the single −2.996 is where to look for a guess. They turn a fluent answer back into a measure of how sure the model was."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"logprobs,llm,uncertainty,perplexity,classification"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/logprobs-in-llms/"}],["$","meta","6",{"property":"og:title","content":"Log probabilities (logprobs) in LLMs"}],["$","meta","7",{"property":"og:description","content":"Logprobs are the model's own probability for each token it wrote, on a log scale. Four tokens at 0.9, 0.6, 0.95 and 0.05 sum to −3.663 — a sequence probability of 2.6% — and the single −2.996 is where to look for a guess. They turn a fluent answer back into a measure of how sure the model was."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/logprobs-in-llms/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T19:10"}],["$","meta","11",{"property":"article:tag","content":"logprobs"}],["$","meta","12",{"property":"article:tag","content":"llm"}],["$","meta","13",{"property":"article:tag","content":"uncertainty"}],["$","meta","14",{"property":"article:tag","content":"perplexity"}],["$","meta","15",{"property":"article:tag","content":"classification"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Log probabilities (logprobs) in LLMs"}],["$","meta","18",{"name":"twitter:description","content":"Logprobs are the model's own probability for each token it wrote, on a log scale. Four tokens at 0.9, 0.6, 0.95 and 0.05 sum to −3.663 — a sequence probability of 2.6% — and the single −2.996 is where to look for a guess. They turn a fluent answer back into a measure of how sure the model was."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

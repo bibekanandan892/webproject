@@ -1,0 +1,180 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","temperature-in-llms",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","temperature-in-llms","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/temperature-in-llms.svg","image"]
+12:T1f6b,<p>At every step a language model produces a score — a logit — for every token in its vocabulary. A softmax turns the scores into probabilities, and one token is drawn from them.</p>
+<p>Temperature is a single number applied in between. The logits are divided by it before the softmax:</p>
+<p><code>p(token) = softmax(logit / T)</code></p>
+<p>That is all it does. Everything people describe as "creativity" or "randomness" is the consequence of that one division.</p>
+<h2 id="what-the-division-does"><a class="heading-anchor" href="#what-the-division-does">What the division does</a></h2>
+<p>Dividing by a number below 1 pushes the scores apart. Dividing by a number above 1 pulls them together. Since the softmax is exponential, small changes in the gaps become large changes in the probabilities.</p>
+<p>Take the prompt <em>"The capital of France is"</em> and suppose the four top candidates score:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>token</th><th>logit</th></tr></thead><tbody><tr><td>Paris</td><td>4.0</td></tr><tr><td>the</td><td>3.0</td></tr><tr><td>a</td><td>2.0</td></tr><tr><td>Lyon</td><td>0.5</td></tr></tbody></table>
+<p>"the" and "a" are harmless — they lead to "the city of Paris" or "a city called Paris". "Lyon" is wrong.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>temperature</th><th>Paris</th><th>the</th><th>a</th><th>Lyon</th><th>entropy</th></tr></thead><tbody><tr><td>0.2</td><td><strong>99.3%</strong></td><td>0.7%</td><td>0.0%</td><td>0.0%</td><td>0.06 bits</td></tr><tr><td>0.7</td><td>76.7%</td><td>18.4%</td><td>4.4%</td><td>0.5%</td><td>0.98 bits</td></tr><tr><td>1.0</td><td>65.2%</td><td>24.0%</td><td>8.8%</td><td>2.0%</td><td>1.32 bits</td></tr><tr><td>1.5</td><td>53.4%</td><td>27.4%</td><td>14.1%</td><td><strong>5.2%</strong></td><td>1.61 bits</td></tr></tbody></table>
+<p>At 1.0 the model's own distribution is used unchanged. At 0.2 it is almost deterministic: the top token takes 99.3%. At 1.5 the distribution is flattened enough that the wrong answer gets one draw in twenty.</p>
+<p>As <em>T</em> approaches 0 the top token's share approaches 100% and sampling becomes greedy decoding — always take the highest logit. That is why "temperature 0" is the usual setting for reproducible output, although in practice tiny numerical differences on the hardware can still occasionally flip a near-tie.</p>
+<figure>
+<svg viewBox="0 0 560 270" width="560" role="img" aria-label="Four bar groups showing the probability of Paris, the, a and Lyon at temperatures 0.2, 0.7, 1.0 and 1.5; the distribution flattens as temperature rises." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">SAME LOGITS, FOUR TEMPERATURES</text>
+<path d="M30 170 H540" stroke="var(--muted-foreground)" stroke-opacity="0.4"></path>
+<g fill="var(--primary)" fill-opacity="0.8">
+<rect x="40" y="51" width="22" height="119"></rect><rect x="170" y="78" width="22" height="92"></rect><rect x="300" y="92" width="22" height="78"></rect><rect x="430" y="106" width="22" height="64"></rect>
+</g>
+<g fill="var(--muted-foreground)" fill-opacity="0.5">
+<rect x="64" y="169" width="22" height="1"></rect><rect x="194" y="148" width="22" height="22"></rect><rect x="324" y="141" width="22" height="29"></rect><rect x="454" y="137" width="22" height="33"></rect>
+<rect x="88" y="170" width="22" height="0"></rect><rect x="218" y="165" width="22" height="5"></rect><rect x="348" y="159" width="22" height="11"></rect><rect x="478" y="153" width="22" height="17"></rect>
+</g>
+<g fill="none" stroke="var(--primary)" stroke-width="1.6">
+<rect x="112" y="169" width="22" height="1"></rect><rect x="242" y="169" width="22" height="1"></rect><rect x="372" y="168" width="22" height="2"></rect><rect x="502" y="164" width="22" height="6"></rect>
+</g>
+<text class="l" x="88" y="190" text-anchor="middle">T = 0.2</text><text class="l" x="218" y="190" text-anchor="middle">T = 0.7</text><text class="l" x="348" y="190" text-anchor="middle">T = 1.0</text><text class="l" x="478" y="190" text-anchor="middle">T = 1.5</text>
+<text class="b" x="51" y="45" text-anchor="middle">99%</text><text class="b" x="441" y="100" text-anchor="middle">53%</text>
+<text class="l" x="513" y="158" text-anchor="middle">5.2%</text>
+<path d="M20 210 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="232">bars: Paris · the · a · Lyon (outlined — the wrong answer)</text>
+<text class="l" x="20" y="252">dividing by T scales every gap between logits, and softmax exponentiates the gaps</text>
+</svg>
+<figcaption>Raising the temperature does not add new options; it gives the existing weak ones more of the share.</figcaption>
+</figure>
+<h2 id="the-number-that-matters-at-scale"><a class="heading-anchor" href="#the-number-that-matters-at-scale">The number that matters: at scale</a></h2>
+<p>5.2% sounds small. But a deployed model answers the same kind of question many times. The chance that "Lyon" appears at least once across 100 requests is <code>1 − (1 − p)^100</code>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>temperature</th><th>P(Lyon) per request</th><th>at least once in 100 requests</th></tr></thead><tbody><tr><td>0.2</td><td>~0.0%</td><td>0.0%</td></tr><tr><td>0.7</td><td>0.5%</td><td><strong>40.4%</strong></td></tr><tr><td>1.0</td><td>2.0%</td><td>86.3%</td></tr><tr><td>1.5</td><td>5.2%</td><td><strong>99.5%</strong></td></tr></tbody></table>
+<p>At the model's default temperature, a hundred users asking a factual question almost certainly produces at least one wrong answer — not because the model does not know, but because the sampler was told to sometimes pick a token the model considered unlikely.</p>
+<p>And this is one token. A long answer makes hundreds of such draws. A low-probability token early on changes the context for every token after it, so the effect compounds over the length of the reply.</p>
+<h2 id="choosing-a-temperature"><a class="heading-anchor" href="#choosing-a-temperature">Choosing a temperature</a></h2>
+<p><strong>Facts, extraction, classification, code: low.</strong> 0 to 0.3. There is one right answer, the model's top choice is usually it, and variation is a defect.</p>
+<p><strong>Writing, brainstorming, dialogue: moderate.</strong> 0.7 to 1.0. Here the top token is often bland — the most predictable word — and sampling from the rest produces more natural, varied text. Ten drafts that are all identical are useless.</p>
+<p><strong>Above 1.0: rarely.</strong> The tail of the distribution is mostly tokens the model rated low for good reason. Text degrades into non sequiturs quickly.</p>
+<p><strong>Sampling several answers to pick from:</strong> a higher temperature on purpose, because the point is to get answers that differ. Self-consistency — sampling many reasoning paths and taking the majority answer — relies on this.</p>
+<p>Temperature is usually combined with top-k or top-p, which cut off the long tail entirely before sampling. That pairing makes moderate temperatures safer: the distribution is flattened only among tokens that were plausible to begin with.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Temperature divides the logits before the softmax. Below 1 it sharpens the distribution toward the top token; above 1 it flattens it toward the tail; at 0 it becomes greedy decoding.</p>
+<p>The effect is easy to underestimate per token and hard to miss at scale: on the same four candidates, raising <em>T</em> from 0.2 to 1.5 takes the chance that a hundred users see the wrong answer at least once from zero to 99.5%. Match the temperature to whether the task has one right answer or many.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Temperature in LLMs"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T09:50","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Temperature divides the logits before the softmax. On the same four candidates, T = 0.2 gives the wrong answer a 0.0% chance and T = 1.5 gives it 5.2% — which across 100 users means nobody sees it, or 99.5% of the time somebody does."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/temperature-in-llms.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/n-gram-speculation/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"N-gram speculation"}]]}],["$","$Lf",null,{"href":"/blog/recursive-self-improvement/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Recursive self-improvement"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"what-the-division-does","text":"What the division does","level":2},{"id":"the-number-that-matters-at-scale","text":"The number that matters: at scale","level":2},{"id":"choosing-a-temperature","text":"Choosing a temperature","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Temperature in LLMs · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Temperature divides the logits before the softmax. On the same four candidates, T = 0.2 gives the wrong answer a 0.0% chance and T = 1.5 gives it 5.2% — which across 100 users means nobody sees it, or 99.5% of the time somebody does."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"sampling,temperature,softmax,decoding,llm"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/temperature-in-llms/"}],["$","meta","6",{"property":"og:title","content":"Temperature in LLMs"}],["$","meta","7",{"property":"og:description","content":"Temperature divides the logits before the softmax. On the same four candidates, T = 0.2 gives the wrong answer a 0.0% chance and T = 1.5 gives it 5.2% — which across 100 users means nobody sees it, or 99.5% of the time somebody does."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/temperature-in-llms/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T09:50"}],["$","meta","11",{"property":"article:tag","content":"sampling"}],["$","meta","12",{"property":"article:tag","content":"temperature"}],["$","meta","13",{"property":"article:tag","content":"softmax"}],["$","meta","14",{"property":"article:tag","content":"decoding"}],["$","meta","15",{"property":"article:tag","content":"llm"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Temperature in LLMs"}],["$","meta","18",{"name":"twitter:description","content":"Temperature divides the logits before the softmax. On the same four candidates, T = 0.2 gives the wrong answer a 0.0% chance and T = 1.5 gives it 5.2% — which across 100 users means nobody sees it, or 99.5% of the time somebody does."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]

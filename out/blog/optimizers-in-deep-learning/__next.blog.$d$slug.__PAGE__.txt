@@ -1,0 +1,108 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/optimizers-in-deep-learning.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T2112,<p>Training computes a gradient — which way each weight should move to reduce the loss — and an <strong>optimizer</strong> decides how far to actually move. The simplest rule is to step against the gradient by a fixed fraction, the learning rate. Every other optimizer in common use is a fix for one particular way that simple rule goes wrong.</p>
+<h2 id="the-problem-valleys"><a class="heading-anchor" href="#the-problem-valleys">The problem: valleys</a></h2>
+<p>Loss surfaces are rarely round bowls. More often they are long, narrow valleys: very steep across, very gentle along. That shape breaks plain gradient descent.</p>
+<p>Take the simplest valley there is:</p>
+<p><code>f(x, y) = ½ (x² + 50 y²)</code></p>
+<p>It is 50 times steeper in <em>y</em> than in <em>x</em>. Start at (10, 1), and count the steps each optimizer needs to bring the loss below 0.001, trying a range of learning rates for each:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>optimizer</th><th>best learning rate tried</th><th>steps</th><th>what limited it</th></tr></thead><tbody><tr><td>SGD</td><td>0.039</td><td>137</td><td>diverges at 0.041</td></tr><tr><td>SGD, "safe" setting</td><td>0.02</td><td>268</td><td></td></tr><tr><td>SGD + momentum</td><td>0.02</td><td><strong>83</strong></td><td></td></tr><tr><td>RMSProp</td><td>0.01</td><td>1,036</td><td>oscillates at larger rates</td></tr><tr><td>Adam</td><td>0.5</td><td><strong>80</strong></td><td></td></tr></tbody></table>
+<h2 id="why-plain-sgd-is-stuck"><a class="heading-anchor" href="#why-plain-sgd-is-stuck">Why plain SGD is stuck</a></h2>
+<p>In the steep direction, each step multiplies <em>y</em> by <code>1 − 50 × lr</code>. If the learning rate exceeds 2/50 = <strong>0.04</strong>, that factor's magnitude exceeds 1 and <em>y</em> bounces back and forth with growing amplitude: divergence. In the run above, 0.039 converges and 0.041 does not.</p>
+<p>So the steep direction caps the learning rate. But in the gentle direction, each step multiplies <em>x</em> by <code>1 − lr</code>, which at 0.039 shrinks it by only 3.9% per step. The steep direction sets the speed limit; the gentle direction is where all the distance is. In real networks with millions of directions of wildly different steepness, this is the central difficulty.</p>
+<h2 id="momentum-remember-the-direction"><a class="heading-anchor" href="#momentum-remember-the-direction">Momentum: remember the direction</a></h2>
+<p>Momentum keeps a running sum of recent gradients and steps along that instead of the latest gradient alone:</p>
+<p><code>v ← 0.9 v + gradient</code>
+<code>weights ← weights − lr × v</code></p>
+<p>In the steep direction the gradient flips sign every step, so the running sum cancels out and the bouncing is damped. In the gentle direction it points the same way every step, so the sum builds up to about ten times the single gradient and the model accelerates down the valley. <strong>83 steps</strong> instead of 137 — and stable over a much wider range of learning rates.</p>
+<h2 id="rmsprop-a-learning-rate-per-direction"><a class="heading-anchor" href="#rmsprop-a-learning-rate-per-direction">RMSProp: a learning rate per direction</a></h2>
+<p>RMSProp tracks, for each weight separately, a running average of the squared gradient, and divides each step by its square root. Directions with large gradients get small steps; directions with small gradients get large ones. In the valley that equalises the two directions, which is exactly the right idea.</p>
+<p>On its own, though, it has no memory of direction, and its normalised steps stay roughly the size of the learning rate even near the minimum. In this test, larger learning rates left it hovering around the bottom without settling below the threshold; only 0.01 got there, in 1,036 steps. In practice it is used with a decaying learning rate.</p>
+<h2 id="adam-both"><a class="heading-anchor" href="#adam-both">Adam: both</a></h2>
+<p>Adam combines the two: momentum's running average of the gradient (the first moment) and RMSProp's running average of its square (the second moment), with a correction for their bias in the first few steps:</p>
+<p><code>m ← 0.9 m + 0.1 g</code>
+<code>s ← 0.999 s + 0.001 g²</code>
+<code>weights ← weights − lr × m̂ / (√ŝ + ε)</code></p>
+<p>Per-direction scaling handles the different steepness; momentum handles the zig-zag and carries it to the bottom. <strong>80 steps</strong>, and it worked across a wide range of learning rates — 0.3, 0.5 and 1.0 all finished within 86 steps. That robustness to the learning rate is a large part of why Adam is the default.</p>
+<figure>
+<svg viewBox="0 0 560 270" width="560" role="img" aria-label="Contour ellipses of a narrow valley with three paths from the same start: SGD zig-zagging across the valley, momentum curving smoothly, Adam heading almost directly to the centre." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">ONE VALLEY, THREE ROUTES</text>
+<g fill="none" stroke="var(--muted-foreground)" stroke-opacity="0.3">
+<ellipse cx="280" cy="120" rx="240" ry="34"></ellipse><ellipse cx="280" cy="120" rx="170" ry="24"></ellipse><ellipse cx="280" cy="120" rx="100" ry="14"></ellipse><ellipse cx="280" cy="120" rx="40" ry="6"></ellipse>
+</g>
+<circle cx="280" cy="120" r="3" fill="var(--primary)"></circle>
+<path d="M60 96 L72 144 L84 98 L96 142 L108 100 L120 140 L134 102 L148 138 L164 104 L180 136 L198 106 L218 134 L240 108 L262 130 L280 120" stroke="var(--muted-foreground)" stroke-width="1.6" fill="none"></path>
+<path d="M60 96 C110 150 190 132 280 120" stroke="var(--primary)" stroke-opacity="0.55" stroke-width="2" fill="none"></path>
+<path d="M60 96 C140 110 210 118 280 120" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<circle cx="60" cy="96" r="4" fill="var(--muted-foreground)"></circle>
+<text class="l" x="30" y="86">start</text>
+<text class="l" x="20" y="186">SGD — zig-zags across, crawls along · 137 steps at best</text>
+<text class="b" x="20" y="206">momentum — damps the zig-zag, builds speed · 83</text>
+<text class="b" x="20" y="226">Adam — per-direction step size plus momentum · 80</text>
+<path d="M20 240 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="l" x="20" y="260">f = ½(x² + 50y²) from (10, 1) to loss &#x3C; 0.001; paths schematic</text>
+</svg>
+<figcaption>The steep direction caps a single learning rate; the gentle direction is where the distance is.</figcaption>
+</figure>
+<h2 id="variants-worth-knowing"><a class="heading-anchor" href="#variants-worth-knowing">Variants worth knowing</a></h2>
+<p><strong>AdamW</strong> separates weight decay from the gradient update, which matters because Adam's per-direction scaling distorts ordinary L2 regularisation. It is the standard optimizer for training transformers.</p>
+<p><strong>Learning rate schedules</strong> — a warm-up from near zero over the first steps, then a gradual decay — are used with almost every optimizer. Warm-up keeps Adam's early moment estimates from producing huge steps; decay lets training settle into a minimum.</p>
+<p><strong>SGD with momentum</strong> remains competitive for some vision models and is sometimes reported to generalise slightly better when well tuned.</p>
+<p><strong>Memory-efficient optimizers</strong> exist because Adam stores two extra numbers per parameter — for a 70B-parameter model, that is 140 billion additional values held during training.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>Plain gradient descent uses one learning rate for every direction, so the steepest direction caps it (diverging above 0.04 in a 50:1 valley) and the gentlest direction makes it crawl. Momentum averages gradients over time to damp oscillation and build speed; RMSProp scales each direction by its own gradient size; Adam does both.</p>
+<p>In the test valley SGD needed 137 steps at best, momentum 83, Adam 80 — and Adam got there across a wide range of learning rates, which is why AdamW with warm-up and decay is the default for training large models.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Optimizers: SGD, momentum, RMSProp and Adam"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T18:10","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"On a bowl 50 times steeper one way than the other, plain SGD must keep its step under 0.04 or diverge, and then crawls: 137 steps at best. Momentum gets there in 83, Adam in 80. Every popular optimizer is a fix for the same problem — one learning rate for directions that need different ones."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/optimizers-in-deep-learning.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/half-duplex-vs-full-duplex-voice-agents/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Half-duplex vs full-duplex voice agents"}]]}],["$","$L2",null,{"href":"/blog/random-weight-initialization/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Why weights are initialised randomly"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-problem-valleys","text":"The problem: valleys","level":2},{"id":"why-plain-sgd-is-stuck","text":"Why plain SGD is stuck","level":2},{"id":"momentum-remember-the-direction","text":"Momentum: remember the direction","level":2},{"id":"rmsprop-a-learning-rate-per-direction","text":"RMSProp: a learning rate per direction","level":2},{"id":"adam-both","text":"Adam: both","level":2},{"id":"variants-worth-knowing","text":"Variants worth knowing","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

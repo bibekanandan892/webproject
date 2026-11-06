@@ -1,0 +1,116 @@
+1:"$Sreact.fragment"
+2:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+3:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+4:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+a:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+b:I[9927,[],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/blog/cuda-kernels.svg","image"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+5:T2388,<p>Every operation a neural network runs on a GPU — each matrix multiply, each activation, each normalisation — is a <strong>kernel</strong>: a function the CPU launches, which the GPU then runs across thousands of threads in parallel. A forward pass through a large model is a sequence of hundreds of kernel launches.</p>
+<p>Most people never write one. But the reasons some operations are fast and others are slow, why "fused" kernels exist, and why Flash Attention was such a large improvement all come from how kernels work.</p>
+<h2 id="the-shape-of-a-kernel"><a class="heading-anchor" href="#the-shape-of-a-kernel">The shape of a kernel</a></h2>
+<p>A kernel is written from the point of view of a single thread. The programmer says what one thread does, and launches a grid of them:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="cuda" data-theme="github-light github-dark-default"><code data-language="cuda" data-theme="github-light github-dark-default" style="display: grid;"><span data-line=""><span>__global__ void add(const half* x, const half* y, half* out, int n) {</span></span>
+<span data-line=""><span>    int i = blockIdx.x * blockDim.x + threadIdx.x;   // which element am I?</span></span>
+<span data-line=""><span>    if (i &#x3C; n) out[i] = x[i] + y[i];</span></span>
+<span data-line=""><span>}</span></span>
+<span data-line=""> </span>
+<span data-line=""><span>// launch: enough blocks of 256 threads to cover n elements</span></span>
+<span data-line=""><span>add&#x3C;&#x3C;&#x3C;(n + 255) / 256, 256>>>(x, y, out, n);</span></span></code></pre></figure>
+<p>The hierarchy has three levels:</p>
+<ul>
+<li><strong>Threads</strong> each handle a small piece of the work — here, one element.</li>
+<li><strong>Blocks</strong> group threads (here 256) that run on the same streaming multiprocessor and can share a small, very fast on-chip memory.</li>
+<li>The <strong>grid</strong> is all the blocks needed to cover the problem.</li>
+</ul>
+<p>The hardware runs threads in groups of 32 called <strong>warps</strong>, which execute the same instruction in lockstep. Threads in a warp that take different branches run one branch after the other, so divergent code is slower.</p>
+<h2 id="the-one-ratio-that-decides-speed"><a class="heading-anchor" href="#the-one-ratio-that-decides-speed">The one ratio that decides speed</a></h2>
+<p>A GPU has two limits: how fast it can compute and how fast it can move data from its main memory. For an H100, roughly 989 trillion 16-bit operations per second against 3.35 TB per second of memory bandwidth.</p>
+<p>Divide one by the other: <strong>295 operations per byte.</strong> A kernel that does fewer than 295 operations for every byte it reads or writes cannot keep the arithmetic units busy — it is waiting on memory. This ratio is a kernel's <strong>arithmetic intensity</strong>, and it predicts performance better than anything else.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>kernel</th><th>operations per byte</th><th>bound by</th><th>share of peak compute</th></tr></thead><tbody><tr><td>element-wise add (fp16)</td><td>0.17</td><td>memory</td><td><strong>0.056%</strong></td></tr><tr><td>matrix multiply, 4,096 × 4,096</td><td>1,365</td><td>compute</td><td>up to ~100%</td></tr></tbody></table>
+<p>The add reads two 2-byte numbers, writes one, and does one addition: 1 operation per 6 bytes. It uses about one two-thousandth of the chip's arithmetic. Nothing about the code can fix that; the kernel is waiting on memory by construction.</p>
+<p>The matrix multiply does <code>2n³</code> operations on <code>3n²</code> numbers. At n = 4,096 that is 1,365 operations per byte, well past the 295 needed. The arithmetic takes about 139 µs and the memory traffic only 30 µs. This is why GPUs are built around matrix multiplication — it is the operation that can actually feed them.</p>
+<figure>
+<svg viewBox="0 0 560 280" width="560" role="img" aria-label="Roofline chart: achievable performance rises with arithmetic intensity until the ridge at 295 operations per byte, then flattens at peak; an element-wise add sits far down the slope and a matrix multiply sits on the flat roof." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">THE ROOFLINE</text>
+<path d="M60 36 V200 H520" stroke="var(--muted-foreground)" stroke-opacity="0.35"></path>
+<path d="M60 200 L340 60 H520" stroke="var(--primary)" stroke-width="2.4" fill="none"></path>
+<path d="M340 60 V200" stroke="var(--muted-foreground)" stroke-dasharray="3 3"></path>
+<text class="l" x="344" y="196">295 ops/byte</text>
+<text class="l" x="160" y="120" transform="rotate(-26 160 120)">memory-bound</text>
+<text class="l" x="400" y="54">compute-bound — 989 TFLOPS</text>
+<circle cx="80" cy="190" r="5" fill="var(--muted-foreground)"></circle>
+<text class="l" x="90" y="186">add — 0.17</text>
+<circle cx="470" cy="60" r="5" fill="var(--primary)"></circle>
+<text class="b" x="438" y="80">matmul — 1,365</text>
+<text class="l" x="60" y="216">operations per byte moved (log scale) →</text>
+<path d="M20 232 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="254">left of the ridge, speed is bandwidth × intensity; right of it, speed is peak</text>
+<text class="l" x="20" y="272">fusion and tiling move kernels rightward by moving fewer bytes</text>
+</svg>
+<figcaption>Most of a model's kernels sit on the sloped part. The work of kernel engineering is moving them right.</figcaption>
+</figure>
+<h2 id="fusion-stop-moving-the-same-data"><a class="heading-anchor" href="#fusion-stop-moving-the-same-data">Fusion: stop moving the same data</a></h2>
+<p>A transformer layer contains many memory-bound operations in a row: add a bias, apply an activation, multiply by a scale, add the residual. Done as separate kernels, each one reads the whole tensor from memory and writes it back:</p>
+<p><code>x → [kernel 1] → memory → [kernel 2] → memory → [kernel 3] → out</code></p>
+<p>A fused kernel does all three on each element while it is in registers, reading <code>x</code> once and writing <code>out</code> once. For three element-wise operations on a 64-million-element tensor:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>memory traffic</th><th>time</th></tr></thead><tbody><tr><td>three kernels</td><td>3 reads + 3 writes</td><td>240 µs</td></tr><tr><td>one fused kernel</td><td>1 read + 1 write</td><td><strong>80 µs</strong></td></tr></tbody></table>
+<p>Exactly 3× faster, with the same arithmetic. Compilers like <code>torch.compile</code> and XLA find these fusions automatically; hand-written fused kernels exist for the combinations that matter most.</p>
+<h2 id="tiling-reuse-what-you-loaded"><a class="heading-anchor" href="#tiling-reuse-what-you-loaded">Tiling: reuse what you loaded</a></h2>
+<p>Fusion avoids writing intermediate results. Tiling avoids reading the same input repeatedly. A matrix multiply loads a tile of each input into the block's shared memory once, and every thread in the block reuses it many times. That reuse is what pushes the intensity to 1,365.</p>
+<p>Flash Attention is this idea applied to attention. The naive version writes the full sequence-by-sequence score matrix to main memory and reads it back for the softmax and again for the weighted sum. Flash Attention computes attention in tiles that stay in on-chip memory, never materialising the full matrix. The arithmetic is unchanged; the memory traffic collapses.</p>
+<h2 id="launch-overhead"><a class="heading-anchor" href="#launch-overhead">Launch overhead</a></h2>
+<p>Each kernel launch costs a few microseconds on the CPU side. For large tensors this is negligible. For small ones it dominates: adding two million-element vectors moves 6 MB, which takes about 1.8 µs — less than the ~5 µs it takes to launch the kernel. During decoding, where each step touches small tensors through hundreds of kernels, launch overhead can be a fifth of the step. CUDA graphs fix this by recording the whole sequence of launches once and replaying it as a single unit.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>A CUDA kernel is a function written for one thread and run across thousands. Its speed is governed by arithmetic intensity: below about 295 operations per byte on an H100 it waits on memory, above it it uses the compute. An element-wise add reaches 0.056% of peak; a large matrix multiply can reach nearly all of it.</p>
+<p>The main tools for making kernels faster all reduce bytes moved, not operations: fusing chains of element-wise work (3× for three ops), tiling to reuse data in on-chip memory (the idea behind Flash Attention), and graph capture to amortise launch costs.</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L2",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L4",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"CUDA kernels"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T11:00","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[5," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"A kernel is a function run by thousands of GPU threads at once. Whether it is fast depends on one ratio — arithmetic per byte moved. An element-wise add reaches 0.056% of an H100's peak; a 4,096-square matrix multiply can use nearly all of it. Fusing three element-wise ops is a free 3×."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/cuda-kernels.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}],"$L7"]}]]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pAoRND46aF4f3iUSreXHC"}
+6:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$L2",null,{"href":"/blog/future-of-software-development/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L3",null,{"iconNode":"$0:rsc:props:children:0:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"The future of software development"}]]}],["$","$L2",null,{"href":"/blog/tokenization-in-llms/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L3",null,{"iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Tokenization in LLMs"}]]}]]}]
+7:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$La",null,{"headings":[{"id":"the-shape-of-a-kernel","text":"The shape of a kernel","level":2},{"id":"the-one-ratio-that-decides-speed","text":"The one ratio that decides speed","level":2},{"id":"fusion-stop-moving-the-same-data","text":"Fusion: stop moving the same data","level":2},{"id":"tiling-reuse-what-you-loaded","text":"Tiling: reuse what you loaded","level":2},{"id":"launch-overhead","text":"Launch overhead","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next"}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

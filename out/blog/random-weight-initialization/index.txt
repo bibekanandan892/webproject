@@ -1,0 +1,108 @@
+1:"$Sreact.fragment"
+2:I[1470,[],""]
+3:I[7524,[],""]
+5:I[9927,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[9927,[],"ViewportBoundary"]
+b:I[9927,[],"MetadataBoundary"]
+d:I[5766,[],"default",1]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/110cbef534704ef8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c0c2bcbaa4149ca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/43060c265a4dd412.css","style"]
+:HL["/_next/static/css/14c3451a030fd05e.css","style"]
+0:{"P":null,"c":["","blog","random-weight-initialization",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","random-weight-initialization","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43060c265a4dd412.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_cf84ab __variable_c1e5b8 h-full","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"id":"theme-bootstrap","dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}"}}]}],["$","body",null,{"className":"min-h-full","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14c3451a030fd05e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$d",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pAoRND46aF4f3iUSreXHC"}
+e:[]
+8:"$We"
+f:I[4464,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],""]
+10:I[6452,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"default"]
+11:I[3821,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"ThemeToggle"]
+:HL["/blog/random-weight-initialization.svg","image"]
+12:T2129,<p>Before a neural network trains, its weights need starting values. Zero seems natural — a blank slate. Or any constant. It is one of the few choices in deep learning that is simply wrong, and the reason is worth understanding.</p>
+<h2 id="the-symmetry-problem"><a class="heading-anchor" href="#the-symmetry-problem">The symmetry problem</a></h2>
+<p>Consider a hidden layer of four neurons, each connected to the same inputs. If all their weights start equal, then:</p>
+<ol>
+<li><strong>Forward pass:</strong> every neuron computes the same weighted sum of the same inputs, so every neuron outputs the same value.</li>
+<li><strong>Backward pass:</strong> every neuron's outgoing weight is the same too, so every neuron receives the same gradient.</li>
+<li><strong>Update:</strong> the same gradient, applied to the same weights, gives the same new weights.</li>
+</ol>
+<p>After the update the neurons are still identical. And so after the next one, and every one after that. Training cannot break the tie, because nothing in the process treats the neurons differently. Four neurons behave as one neuron copied four times.</p>
+<h2 id="seeing-it-happen"><a class="heading-anchor" href="#seeing-it-happen">Seeing it happen</a></h2>
+<p>I trained the same small network twice on XOR — 2 inputs, 4 sigmoid hidden neurons, 1 output, 5,000 steps, identical in every respect except the starting weights.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>starting weights</th><th>final loss</th><th>outputs for (0,0) (0,1) (1,0) (1,1)</th><th>difference between hidden neurons</th></tr></thead><tbody><tr><td>all 0.5</td><td>0.1674</td><td>0.018 · 0.653 · 0.653 · <strong>0.655</strong></td><td><strong>0.0</strong></td></tr><tr><td>random in [−1, 1]</td><td><strong>0.0001</strong></td><td>0.010 · 0.990 · 0.990 · 0.013</td><td>9.73</td></tr></tbody></table>
+<p>With constant weights, the four hidden neurons ended training <em>exactly</em> identical — a measured difference of zero. The network behaves as if it had a single hidden neuron, and a single neuron cannot represent XOR: it outputs 0.655 for (1, 1), where the answer is 0, and only 0.653 where the answer is 1. Training made what progress one neuron can make and stopped.</p>
+<p>With random weights, each neuron started slightly different, received different gradients, and moved in different directions. They specialised — each learning a different boundary — and together solved the problem to two decimal places.</p>
+<figure>
+<svg viewBox="0 0 560 260" width="560" role="img" aria-label="Two small networks after training: on the left all four hidden neurons drawn identically with identical connection weights; on the right four distinct neurons with different connection strengths." xmlns="http://www.w3.org/2000/svg">
+<style>.hd{font:600 11px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary);letter-spacing:.07em}.b{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--primary)}.l{font:500 10px var(--font-geist-mono),ui-monospace,monospace;fill:var(--muted-foreground)}</style>
+<text class="hd" x="20" y="18">SAME START, SAME FATE</text>
+<g stroke="var(--muted-foreground)" stroke-opacity="0.6" stroke-width="2">
+<path d="M50 80 L130 50 M50 80 L130 90 M50 80 L130 130 M50 80 L130 170 M50 140 L130 50 M50 140 L130 90 M50 140 L130 130 M50 140 L130 170"></path>
+<path d="M130 50 L210 110 M130 90 L210 110 M130 130 L210 110 M130 170 L210 110"></path>
+</g>
+<g fill="var(--background)" stroke="var(--muted-foreground)" stroke-width="1.6"><circle cx="50" cy="80" r="9"></circle><circle cx="50" cy="140" r="9"></circle><circle cx="130" cy="50" r="9"></circle><circle cx="130" cy="90" r="9"></circle><circle cx="130" cy="130" r="9"></circle><circle cx="130" cy="170" r="9"></circle><circle cx="210" cy="110" r="9"></circle></g>
+<text class="l" x="20" y="200">constant 0.5: neurons identical</text>
+<text class="l" x="20" y="216">difference 0.0 · loss 0.1674</text>
+<g stroke="var(--primary)">
+<path d="M330 80 L410 50" stroke-width="3.5"></path><path d="M330 80 L410 90" stroke-width="0.8"></path><path d="M330 80 L410 130" stroke-width="2.5"></path><path d="M330 80 L410 170" stroke-width="1.2"></path>
+<path d="M330 140 L410 50" stroke-width="1"></path><path d="M330 140 L410 90" stroke-width="3.2"></path><path d="M330 140 L410 130" stroke-width="2"></path><path d="M330 140 L410 170" stroke-width="0.6"></path>
+<path d="M410 50 L490 110" stroke-width="2.8"></path><path d="M410 90 L490 110" stroke-width="3.4"></path><path d="M410 130 L490 110" stroke-width="0.9"></path><path d="M410 170 L490 110" stroke-width="1.8"></path>
+</g>
+<g fill="var(--background)" stroke="var(--primary)" stroke-width="1.6"><circle cx="330" cy="80" r="9"></circle><circle cx="330" cy="140" r="9"></circle><circle cx="410" cy="50" r="9"></circle><circle cx="410" cy="90" r="9"></circle><circle cx="410" cy="130" r="9"></circle><circle cx="410" cy="170" r="9"></circle><circle cx="490" cy="110" r="9"></circle></g>
+<text class="b" x="300" y="200">random: neurons specialise</text>
+<text class="b" x="300" y="216">difference 9.73 · loss 0.0001</text>
+<path d="M20 230 H540" stroke="var(--muted-foreground)" stroke-opacity="0.25"></path>
+<text class="b" x="20" y="250">identical inputs, identical gradients, identical updates — forever</text>
+</svg>
+<figcaption>Left: four neurons that are really one. Right: four neurons that learned four different things.</figcaption>
+</figure>
+<h2 id="zero-is-worse-than-any-other-constant"><a class="heading-anchor" href="#zero-is-worse-than-any-other-constant">Zero is worse than any other constant</a></h2>
+<p>With all weights at zero, it is even worse. Hidden neurons all output the same value (zero with ReLU, 0.5 with sigmoid), and the gradients flowing back through zero outgoing weights are themselves zero for the earlier layers. Depending on the architecture, parts of the network do not learn at all.</p>
+<p>Biases are the exception. Starting biases at zero is normal and harmless, because the random weights already break the symmetry.</p>
+<h2 id="random-but-not-any-random"><a class="heading-anchor" href="#random-but-not-any-random">Random, but not any random</a></h2>
+<p>Randomness breaks symmetry. The <em>scale</em> of the randomness decides whether signals survive the trip through many layers. Too small and activations shrink layer by layer until they vanish; too large and they grow until they overflow — and gradients do the same on the way back.</p>
+<p>The standard schemes choose the scale from the layer's size so that each layer roughly preserves the variance of its input:</p>
+<ul>
+<li><strong>Xavier / Glorot:</strong> standard deviation about √(1 / fan-in), or √(2 / (fan-in + fan-out)). Designed for tanh and sigmoid.</li>
+<li><strong>He / Kaiming:</strong> standard deviation √(2 / fan-in). The factor of 2 compensates for ReLU zeroing out half its inputs. The default for ReLU networks.</li>
+</ul>
+<p>Transformers often use small, fixed-scale normal initialisations with extra down-scaling of the layers that feed residual connections, so that adding many blocks together does not grow the signal.</p>
+<h2 id="randomness-has-consequences"><a class="heading-anchor" href="#randomness-has-consequences">Randomness has consequences</a></h2>
+<p>Because initialisation is random, two training runs with different random seeds produce different networks — different weights, often slightly different accuracy. Good practice is to report results over several seeds, and to fix the seed when exact reproducibility matters.</p>
+<p>Some techniques exploit this. <strong>Ensembles</strong> train the same architecture from several random starts and average their predictions, which is usually more accurate than any single run, precisely because the random starts lead them to different solutions.</p>
+<h2 id="what-to-take-away"><a class="heading-anchor" href="#what-to-take-away">What to take away</a></h2>
+<p>If all weights start equal, every neuron in a layer computes the same output, receives the same gradient and makes the same update, so they stay identical for ever. A 4-neuron XOR network started at 0.5 finished with its hidden neurons exactly equal and the problem unsolved; started randomly, it solved it.</p>
+<p>Random initialisation breaks that symmetry so neurons can specialise. Its scale — Xavier for tanh, He for ReLU — keeps signals and gradients from vanishing or exploding as they pass through many layers.</p>4:["$","div",null,{"className":"mx-auto max-w-6xl px-6 py-16 md:py-24","children":[["$","div",null,{"className":"flex items-center justify-between","children":[["$","$Lf",null,{"href":"/blog/","className":"inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}]," All posts"]}],["$","$L11",null,{}]]}],["$","div",null,{"className":"mt-10 gap-12 xl:flex xl:items-start","children":[["$","article",null,{"className":"min-w-0 flex-1 xl:max-w-3xl","children":[["$","header",null,{"className":"flex flex-col gap-4 border-b border-border pb-8","children":[["$","h1",null,{"className":"text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl","children":"Why weights are initialised randomly"}],["$","p",null,{"className":"flex flex-wrap items-center gap-2 font-sans text-base tracking-wide text-muted-foreground","children":[["$","time",null,{"dateTime":"2026-11-06T18:20","children":"Nov 6, 2026"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":"AI"}],["$","span",null,{"className":"text-border","children":"/"}],["$","span",null,{"children":[4," min read"]}]]}],["$","p",null,{"className":"text-base leading-relaxed text-muted-foreground","children":"Start every weight at the same value and every hidden neuron computes the same thing, gets the same update, and stays identical forever. A 4-neuron XOR network started at 0.5 ends 5,000 steps later with all four neurons still exactly equal and the problem unsolved; started randomly, it solves it."}]]}],["$","div",null,{"className":"mt-10 aspect-[16/9] w-full overflow-hidden rounded-card border border-border bg-card","children":["$","img",null,{"src":"/blog/random-weight-initialization.svg","alt":"","aria-hidden":"true","className":"h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"}]}],["$","div",null,{"className":"prose-post mt-10","dangerouslySetInnerHTML":{"__html":"$12"}}],"$L13"]}],"$L14"]}]]}]
+15:I[7540,["961","static/chunks/961-7ae58f121379e8aa.js","953","static/chunks/app/blog/%5Bslug%5D/page-86334dc282c63052.js"],"TableOfContents"]
+13:["$","nav",null,{"aria-label":"More posts","className":"mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row","children":[["$","$Lf",null,{"href":"/blog/optimizers-in-deep-learning/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-start text-left","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[["$","$L10",null,{"ref":"$undefined","iconNode":"$4:props:children:0:props:children:0:props:children:0:props:iconNode","className":"lucide-arrow-left h-3 w-3"}],"Older",false]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"Optimizers: SGD, momentum, RMSProp and Adam"}]]}],["$","$Lf",null,{"href":"/blog/bias-variance-tradeoff/","className":"group flex flex-1 flex-col gap-2 rounded-card border border-border bg-card p-5 transition-all hover:border-border-hover hover:bg-secondary items-end text-right","children":[["$","span",null,{"className":"flex items-center gap-1.5 text-sm text-muted-foreground","children":[false,"Newer",["$","$L10",null,{"ref":"$undefined","iconNode":[["path",{"d":"M5 12h14","key":"1ays0h"}],["path",{"d":"m12 5 7 7-7 7","key":"xquz4c"}]],"className":"lucide-arrow-right h-3 w-3"}]]}],["$","span",null,{"className":"text-sm font-medium text-foreground group-hover:underline","children":"The bias-variance tradeoff"}]]}]]}]
+14:["$","aside",null,{"className":"sticky top-24 hidden w-60 shrink-0 xl:block","children":["$","$L15",null,{"headings":[{"id":"the-symmetry-problem","text":"The symmetry problem","level":2},{"id":"seeing-it-happen","text":"Seeing it happen","level":2},{"id":"zero-is-worse-than-any-other-constant","text":"Zero is worse than any other constant","level":2},{"id":"random-but-not-any-random","text":"Random, but not any random","level":2},{"id":"randomness-has-consequences","text":"Randomness has consequences","level":2},{"id":"what-to-take-away","text":"What to take away","level":2}]}]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:I[1577,[],"IconMark"]
+7:null
+c:[["$","title","0",{"children":"Why weights are initialised randomly · Bibekananda Nayak"}],["$","meta","1",{"name":"description","content":"Start every weight at the same value and every hidden neuron computes the same thing, gets the same update, and stays identical forever. A 4-neuron XOR network started at 0.5 ends 5,000 steps later with all four neurons still exactly equal and the problem unsolved; started randomly, it solves it."}],["$","meta","2",{"name":"author","content":"Bibekananda Nayak"}],["$","meta","3",{"name":"keywords","content":"initialisation,neural-networks,symmetry,training,fundamentals"}],["$","meta","4",{"name":"creator","content":"Bibekananda Nayak"}],["$","link","5",{"rel":"canonical","href":"https://bibekananda.in/blog/random-weight-initialization/"}],["$","meta","6",{"property":"og:title","content":"Why weights are initialised randomly"}],["$","meta","7",{"property":"og:description","content":"Start every weight at the same value and every hidden neuron computes the same thing, gets the same update, and stays identical forever. A 4-neuron XOR network started at 0.5 ends 5,000 steps later with all four neurons still exactly equal and the problem unsolved; started randomly, it solves it."}],["$","meta","8",{"property":"og:url","content":"https://bibekananda.in/blog/random-weight-initialization/"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-11-06T18:20"}],["$","meta","11",{"property":"article:tag","content":"initialisation"}],["$","meta","12",{"property":"article:tag","content":"neural-networks"}],["$","meta","13",{"property":"article:tag","content":"symmetry"}],["$","meta","14",{"property":"article:tag","content":"training"}],["$","meta","15",{"property":"article:tag","content":"fundamentals"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Why weights are initialised randomly"}],["$","meta","18",{"name":"twitter:description","content":"Start every weight at the same value and every hidden neuron computes the same thing, gets the same update, and stays identical forever. A 4-neuron XOR network started at 0.5 ends 5,000 steps later with all four neurons still exactly equal and the problem unsolved; started randomly, it solves it."}],["$","link","19",{"rel":"icon","href":"/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","link","20",{"rel":"icon","href":"/favicon.ico"}],["$","$L16","21",{}]]
