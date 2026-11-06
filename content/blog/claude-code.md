@@ -1,6 +1,6 @@
 ---
 title: "Claude Code"
-date: "2026-09-11T21:40"
+date: "2026-06-15T15:35"
 category: "AI"
 tags: ["claude-code", "coding-agents", "tools", "verification", "context"]
 summary: "A coding agent is a model plus tools plus a loop. The two things that make it work are searching instead of reading — a 700× reduction in what enters the context — and being able to check its own answer, which turns 55% into 96%."

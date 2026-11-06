@@ -1,6 +1,6 @@
 ---
 title: "Tokenization in LLMs"
-date: "2026-11-06T11:10"
+date: "2026-08-23T18:50"
 category: "AI"
 tags: ["tokenization", "tokens", "vocabulary", "multilingual", "llm"]
 summary: "A model never sees text, only token IDs, and the split decides what it costs and what it can do. At 1.3 tokens per word a 128k window holds 100,824 words; at 4 tokens per word — common for languages the tokenizer under-trained on — it holds 32,768, at 3.08× the price."

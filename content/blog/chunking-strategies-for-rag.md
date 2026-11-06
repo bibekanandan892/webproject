@@ -1,6 +1,6 @@
 ---
 title: "Chunking strategies for RAG"
-date: "2026-11-06T09:00"
+date: "2026-08-02T11:10"
 category: "AI"
 tags: ["rag", "chunking", "retrieval", "embeddings", "overlap"]
 summary: "Chunk size is a trade between two failure rates that both scale as L/C: a 60-token fact is cut in half 23% of the time at 256-token chunks, and makes up only 23% of the chunk when it survives. Overlap is how you stop paying both."

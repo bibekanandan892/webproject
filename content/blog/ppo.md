@@ -1,6 +1,6 @@
 ---
 title: "PPO"
-date: "2026-09-10T17:40"
+date: "2026-03-22T18:55"
 category: "AI"
 tags: ["ppo", "reinforcement-learning", "clipping", "policy", "training"]
 summary: "PPO improves a policy while refusing to move it far in one step. The clipping that enforces this is not symmetric, and the asymmetry is the part worth understanding."

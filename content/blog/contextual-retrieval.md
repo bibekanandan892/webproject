@@ -1,6 +1,6 @@
 ---
 title: "Contextual retrieval"
-date: "2026-11-06T11:40"
+date: "2026-08-26T20:25"
 category: "AI"
 tags: ["rag", "retrieval", "bm25", "embeddings", "prompt-caching"]
 summary: "A chunk that says \"revenue grew 3%\" does not say whose revenue or when. Contextual retrieval has a model write that missing context onto each chunk before indexing. Anthropic measured a 49% cut in retrieval failures — and prompt caching makes the preprocessing 6.2× cheaper."

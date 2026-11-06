@@ -1,6 +1,6 @@
 ---
 title: "Agent Skills"
-date: "2026-09-12T00:00"
+date: "2026-06-27T15:20"
 category: "AI"
 tags: ["agent-skills", "context", "progressive-disclosure", "agents", "tooling"]
 summary: "Loading fifty procedures eagerly costs 210,000 tokens and does not fit. Loading their descriptions costs 4,750, which makes the whole thing work — and turns the real problem into a fifty-way choice made from twenty words."

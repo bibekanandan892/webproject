@@ -1,6 +1,6 @@
 ---
 title: "Model Quantization"
-date: "2026-09-11T21:00"
+date: "2026-06-12T10:10"
 category: "AI"
 tags: ["quantization", "int8", "outliers", "inference", "precision"]
 summary: "Fewer bits per number is the easy part. What decides whether it works is how many numbers share a scale — and in one measured case the average error looked fine at 5% while the ordinary features were off by 42%."

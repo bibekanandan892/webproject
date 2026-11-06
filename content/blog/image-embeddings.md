@@ -1,6 +1,6 @@
 ---
 title: "Image Embeddings"
-date: "2026-09-11T16:20"
+date: "2026-05-20T14:55"
 category: "AI"
 tags: ["image-embeddings", "computer-vision", "similarity", "cosine", "retrieval"]
 summary: "Comparing images by their pixels fails badly — the same object moved twelve pixels can look less like itself than a different object does. An embedding is a representation trained so that stops happening."

@@ -1,6 +1,6 @@
 ---
 title: "Speculative generation in voice agents"
-date: "2026-11-06T14:30"
+date: "2026-09-23T20:20"
 category: "AI"
 tags: ["voice-agents", "latency", "speculation", "endpointing", "llm"]
 summary: "Start writing the reply when the user merely seems to have finished, and throw it away if they keep talking. Starting at 150 ms of silence instead of 500 saves 350 ms on every turn it guesses right — at the cost of about half again as many generated tokens."

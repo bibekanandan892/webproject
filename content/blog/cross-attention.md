@@ -1,6 +1,6 @@
 ---
 title: "Cross attention"
-date: "2026-09-11T09:00"
+date: "2026-04-12T16:35"
 category: "AI"
 tags: ["attention", "transformers", "encoder-decoder", "multimodal", "alignment"]
 summary: "One sequence asks the questions and a different sequence answers them. Two useful things follow from that split: the attention matrix stops being square, and the answering side is computed once."

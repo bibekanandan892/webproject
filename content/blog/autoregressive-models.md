@@ -1,6 +1,6 @@
 ---
 title: "Autoregressive models"
-date: "2026-09-10T16:20"
+date: "2026-03-15T15:15"
 category: "AI"
 tags: ["autoregressive", "generation", "chain-rule", "sampling", "perplexity"]
 summary: "Generate one token, append it to what you have, and use that to generate the next. The whole design follows from one identity in probability, and so does its main weakness."

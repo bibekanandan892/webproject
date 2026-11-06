@@ -1,6 +1,6 @@
 ---
 title: "The math behind cross-entropy loss"
-date: "2026-09-10T09:40"
+date: "2026-02-14T09:05"
 category: "AI"
 tags: ["cross-entropy", "loss", "softmax", "training", "perplexity"]
 summary: "Cross-entropy turns a set of predicted probabilities into one number saying how wrong they were. It is built so that being confidently wrong costs far more than being unsure."

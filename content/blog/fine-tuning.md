@@ -1,6 +1,6 @@
 ---
 title: "Fine-tuning"
-date: "2026-09-11T23:20"
+date: "2026-06-24T14:30"
 category: "AI"
 tags: ["fine-tuning", "lora", "training", "prompting", "cost"]
 summary: "Fine-tuning is good at changing how a model behaves and bad at teaching it facts. It also has a break-even point — about 6,750 requests in one worked case, and ten times that if the prompt it replaces was being cached."

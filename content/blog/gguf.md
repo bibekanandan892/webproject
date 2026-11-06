@@ -1,6 +1,6 @@
 ---
 title: "GGUF"
-date: "2026-09-11T13:20"
+date: "2026-05-04T21:30"
 category: "AI"
 tags: ["gguf", "quantization", "local-inference", "mmap", "file-format"]
 summary: "GGUF is one file holding the weights, the tokenizer and everything needed to run a model — laid out so the runtime can map it into memory instead of parsing it, and quantized in small blocks so 4 bits per weight is actually usable."

@@ -1,6 +1,6 @@
 ---
 title: "How a vision-language model works"
-date: "2026-11-06T16:50"
+date: "2026-10-14T08:35"
 category: "AI"
 tags: ["vlm", "multimodal", "vision-transformer", "image-tokens", "llm"]
 summary: "A VLM cuts an image into 14-pixel patches, encodes them, and feeds them to a language model as if they were words. A 336-pixel image becomes 576 tokens — about as much context as 443 words — and a minute of video at one frame a second is 34,560."

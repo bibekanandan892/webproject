@@ -1,6 +1,6 @@
 ---
 title: "Dropout"
-date: "2026-09-11T11:00"
+date: "2026-04-22T19:20"
 category: "AI"
 tags: ["dropout", "regularisation", "overfitting", "training", "ensembles"]
 summary: "Switch off a random half of the neurons at every training step. It stops the network relying on any particular one, and the scaling factor that makes it work is more interesting than it looks."

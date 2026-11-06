@@ -1,6 +1,6 @@
 ---
 title: "Computer-Use Agents"
-date: "2026-09-11T16:00"
+date: "2026-05-18T09:30"
 category: "AI"
 tags: ["computer-use", "agents", "vision", "automation", "reliability"]
 summary: "An agent that drives a screen with a mouse and keyboard needs no integration at all, which is its whole appeal. It also has to be right at every single step, and that requirement is much harsher than it sounds."

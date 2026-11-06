@@ -1,6 +1,6 @@
 ---
 title: "Small language models"
-date: "2026-09-10T15:40"
+date: "2026-03-12T16:25"
 category: "AI"
 tags: ["slm", "quantisation", "on-device", "inference", "memory"]
 summary: "Under about ten billion parameters, a model stops needing a datacentre. What actually decides where it can run is not the parameter count but how many gigabytes it occupies."

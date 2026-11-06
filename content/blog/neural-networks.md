@@ -1,6 +1,6 @@
 ---
 title: "What a neural network is"
-date: "2026-11-06T13:00"
+date: "2026-09-08T15:55"
 category: "AI"
 tags: ["neural-networks", "deep-learning", "backpropagation", "fundamentals", "xor"]
 summary: "Layers of weighted sums, each followed by a bend. A network with 17 parameters learns XOR — something no single neuron can — going from outputs stuck near 0.41 to 0.01 / 0.99 / 0.99 / 0.013 in 5,000 steps. Every large model is the same idea with more of everything."

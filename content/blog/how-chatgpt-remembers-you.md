@@ -1,6 +1,6 @@
 ---
 title: "How ChatGPT remembers you"
-date: "2026-11-06T12:20"
+date: "2026-09-02T17:45"
 category: "AI"
 tags: ["memory", "chatgpt", "personalisation", "retrieval", "context"]
 summary: "The model itself remembers nothing between conversations. What feels like memory is text placed into the prompt: a list of saved facts, and snippets retrieved from past chats. A 1,000-token memory block rides along with every message — 30,000 tokens a day for a moderate user."

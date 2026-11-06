@@ -1,6 +1,6 @@
 ---
 title: "Embedding Cache"
-date: "2026-09-11T15:00"
+date: "2026-05-13T21:05"
 category: "AI"
 tags: ["embeddings", "caching", "rag", "retrieval", "cost"]
 summary: "The same text embeds to the same vector every time, so recomputing it is pure waste. What makes the cache worth building is that query traffic is wildly lopsided — a few megabytes of memory removes most of the calls."

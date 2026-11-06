@@ -1,6 +1,6 @@
 ---
 title: "llama.cpp"
-date: "2026-09-11T21:20"
+date: "2026-06-14T18:25"
 category: "AI"
 tags: ["llama-cpp", "local-inference", "cpu", "gpu-offload", "memory-bandwidth"]
 summary: "Running a model on a laptop CPU is a memory-bandwidth problem, not an arithmetic one — which sets a hard ceiling of about 12 tokens a second. It also explains why offloading half the layers to a GPU barely helps."

@@ -1,6 +1,6 @@
 ---
 title: "Knowledge Distillation"
-date: "2026-09-11T13:00"
+date: "2026-05-03T19:35"
 category: "AI"
 tags: ["knowledge-distillation", "training", "softmax", "temperature", "model-compression"]
 summary: "A trained model knows more than the answer it gives — it knows how close the wrong answers were. Distillation trains a small model on that whole distribution instead of the single correct label, which is a far richer target."

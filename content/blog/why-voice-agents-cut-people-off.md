@@ -1,6 +1,6 @@
 ---
 title: "Why voice agents cut people off"
-date: "2026-11-06T17:40"
+date: "2026-10-20T10:30"
 category: "AI"
 tags: ["voice-agents", "turn-taking", "endpointing", "debugging", "ux"]
 summary: "A 5% chance of interrupting on any single turn sounds tolerable. Over a 12-turn call it means 46.0% of callers are cut off at least once; at 10% it is 71.8%. Cut-offs have half a dozen distinct causes, and each needs its own fix."

@@ -1,6 +1,6 @@
 ---
 title: "Deep RL from Human Preferences"
-date: "2026-09-12T03:20"
+date: "2026-07-11T08:20"
 category: "AI"
 tags: ["rlhf", "reward-modelling", "reinforcement-learning", "preferences", "credit-assignment"]
 summary: "Nine hundred comparisons — one hour of someone's attention — taught a simulated robot to backflip. That is 11,111× fewer human decisions than scoring every step, and the trick is what the comparison is asked about."

@@ -1,6 +1,6 @@
 ---
 title: "Optimizers: SGD, momentum, RMSProp and Adam"
-date: "2026-11-06T18:10"
+date: "2026-10-24T19:15"
 category: "AI"
 tags: ["optimizers", "adam", "sgd", "momentum", "training"]
 summary: "On a bowl 50 times steeper one way than the other, plain SGD must keep its step under 0.04 or diverge, and then crawls: 137 steps at best. Momentum gets there in 83, Adam in 80. Every popular optimizer is a fix for the same problem — one learning rate for directions that need different ones."

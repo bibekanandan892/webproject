@@ -1,6 +1,6 @@
 ---
 title: "MCP"
-date: "2026-09-11T23:40"
+date: "2026-06-25T11:30"
 category: "AI"
 tags: ["mcp", "protocol", "agents", "integrations", "security"]
 summary: "A protocol turns an N×M integration problem into N+M, which is 8.6× less work at a dozen apps and thirty systems. The part that needs more attention is that a server's own text reaches the model's context."

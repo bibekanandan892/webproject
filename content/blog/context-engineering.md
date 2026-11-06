@@ -1,6 +1,6 @@
 ---
 title: "Context engineering"
-date: "2026-09-10T14:40"
+date: "2026-03-08T12:25"
 category: "AI"
 tags: ["context", "prompting", "rag", "agents", "token-budget"]
 summary: "Everything a model knows about your task is in one window, and the pieces compete for space. Deciding what goes in, in what order, and what gets dropped is most of the work."

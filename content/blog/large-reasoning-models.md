@@ -1,6 +1,6 @@
 ---
 title: "Large reasoning models"
-date: "2026-09-10T17:00"
+date: "2026-03-19T19:50"
 category: "AI"
 tags: ["reasoning", "test-time-compute", "rlvr", "thinking-tokens", "cost"]
 summary: "A reasoning model spends thousands of tokens working before it answers. Those tokens are billed, they set the latency, and they are the reason it gets harder problems right."

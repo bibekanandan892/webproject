@@ -1,6 +1,6 @@
 ---
 title: "How a large language model works"
-date: "2026-11-06T16:00"
+date: "2026-10-07T14:00"
 category: "AI"
 tags: ["llm", "transformer", "pretraining", "inference", "fundamentals"]
 summary: "An LLM does one thing — predict the next token — and repeats it. Learning to do that well on 15 trillion tokens takes about 6.3 × 10²⁴ operations for a 70B model, roughly 18 days on 10,000 GPUs; answering one question with what it learned takes 70 trillion."

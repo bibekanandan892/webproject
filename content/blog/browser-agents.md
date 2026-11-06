@@ -1,6 +1,6 @@
 ---
 title: "How browser agents work"
-date: "2026-11-06T12:10"
+date: "2026-08-31T19:40"
 category: "AI"
 tags: ["agents", "browser", "computer-use", "reliability", "web"]
 summary: "A browser agent looks at a page, decides on one click or keystroke, and looks again. At 98% reliability per action a 20-step task finishes 66.8% of the time and a 50-step one 36.4% — which is why the design is mostly about taking fewer, surer steps."

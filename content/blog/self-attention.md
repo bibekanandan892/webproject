@@ -1,6 +1,6 @@
 ---
 title: "Self attention"
-date: "2026-09-10T22:00"
+date: "2026-04-10T21:35"
 category: "AI"
 tags: ["attention", "transformers", "context", "embeddings", "qkv"]
 summary: "The word self means the queries, keys and values all come from the same sequence. The consequence is that a word's representation is built from its neighbours, so the same word comes out different in different sentences."

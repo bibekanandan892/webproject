@@ -1,6 +1,6 @@
 ---
 title: "Decoding InstructGPT"
-date: "2026-09-12T03:00"
+date: "2026-07-10T15:05"
 category: "AI"
 tags: ["instructgpt", "rlhf", "alignment", "reward-model", "ppo"]
 summary: "Thirteen thousand written examples is 0.002% of the pretraining text, and the whole alignment run was 1.6% of the compute. It made a 1.3-billion-parameter model preferred over a 175-billion one."

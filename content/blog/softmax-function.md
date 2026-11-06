@@ -1,6 +1,6 @@
 ---
 title: "The softmax function"
-date: "2026-11-06T15:50"
+date: "2026-10-06T13:35"
 category: "AI"
 tags: ["softmax", "probability", "logits", "numerical-stability", "fundamentals"]
 summary: "Softmax turns any list of scores into probabilities that sum to 1: [3, 1, 0.2] becomes [0.836, 0.113, 0.051]. Adding 100 to every score changes nothing — which is the trick that stops it overflowing, since a float16 exponential breaks above 11.09 and float32 above 88.7."

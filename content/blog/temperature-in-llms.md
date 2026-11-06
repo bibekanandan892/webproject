@@ -1,6 +1,6 @@
 ---
 title: "Temperature in LLMs"
-date: "2026-11-06T09:50"
+date: "2026-08-11T15:45"
 category: "AI"
 tags: ["sampling", "temperature", "softmax", "decoding", "llm"]
 summary: "Temperature divides the logits before the softmax. On the same four candidates, T = 0.2 gives the wrong answer a 0.0% chance and T = 1.5 gives it 5.2% — which across 100 users means nobody sees it, or 99.5% of the time somebody does."

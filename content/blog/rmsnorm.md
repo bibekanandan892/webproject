@@ -1,6 +1,6 @@
 ---
 title: "RMSNorm"
-date: "2026-09-10T11:00"
+date: "2026-02-20T20:25"
 category: "AI"
 tags: ["rmsnorm", "layernorm", "normalisation", "transformers", "training"]
 summary: "Layer normalisation does two things: it recentres values and it rescales them. RMSNorm drops the recentring, keeps the rescaling, and modern language models have almost all switched to it."

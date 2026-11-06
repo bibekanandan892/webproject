@@ -1,6 +1,6 @@
 ---
 title: "Unfinished input in voice agents"
-date: "2026-11-06T17:10"
+date: "2026-10-16T11:35"
 category: "AI"
 tags: ["voice-agents", "endpointing", "structured-input", "phone-numbers", "turn-detection"]
 summary: "People read phone numbers in groups — 415, pause, 555, pause, 0134. If those pauses run a median 450 ms, a 500 ms endpointer cuts 66.0% of phone numbers in half and 80.1% of card numbers. Knowing how many digits are expected fixes it; a longer timer barely does."

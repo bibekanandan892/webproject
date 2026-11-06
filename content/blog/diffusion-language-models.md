@@ -1,6 +1,6 @@
 ---
 title: "Diffusion Language Models"
-date: "2026-09-11T15:20"
+date: "2026-05-15T14:15"
 category: "AI"
 tags: ["diffusion", "language-models", "parallel-decoding", "generation", "sampling"]
 summary: "Instead of writing left to right, a diffusion language model starts from an all-masked sequence and fills it in over a few rounds. The speedup is real, and so is the reason it cannot be pushed as far as it looks."

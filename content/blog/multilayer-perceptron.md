@@ -1,6 +1,6 @@
 ---
 title: "The multilayer perceptron"
-date: "2026-11-06T14:40"
+date: "2026-09-25T11:05"
 category: "AI"
 tags: ["mlp", "neural-networks", "relu", "fundamentals", "transformer"]
 summary: "Stack layers of neurons with a bend between them and you can approximate any reasonable function. Each ReLU adds one kink: 4 of them fit a sine wave to within 0.21, 32 to within 0.0048. Inside every transformer, an MLP holds two-thirds of each layer's parameters."

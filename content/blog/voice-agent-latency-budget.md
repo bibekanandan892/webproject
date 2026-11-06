@@ -1,6 +1,6 @@
 ---
 title: "A latency budget for voice agents"
-date: "2026-11-06T13:20"
+date: "2026-09-12T08:50"
 category: "AI"
 tags: ["voice-agents", "latency", "percentiles", "performance", "budget"]
 summary: "Seven stages with medians adding up to 820 ms do not give an 820 ms agent. Simulated with realistic spread, the median turn takes 891 ms, the 95th percentile 1,407 ms, and a third of all replies take over a second. Adding up per-stage p95s would have predicted 1,890."

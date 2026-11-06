@@ -1,6 +1,6 @@
 ---
 title: "Query rewriting and multi-query retrieval"
-date: "2026-11-06T12:00"
+date: "2026-08-29T14:10"
 category: "AI"
 tags: ["rag", "retrieval", "query-rewriting", "rrf", "search"]
 summary: "Users write bad search queries, and a retriever can only find what the query resembles. Rewriting the question three ways lifts recall from 60% to 93.6% if the rewrites fail independently — 76.8% if they fail together half the time — and reciprocal rank fusion decides which results win."

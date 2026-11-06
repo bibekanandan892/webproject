@@ -1,6 +1,6 @@
 ---
 title: "Google TPU"
-date: "2026-09-11T16:40"
+date: "2026-05-21T20:45"
 category: "AI"
 tags: ["tpu", "systolic-array", "hardware", "matrix-multiplication", "accelerator"]
 summary: "A TPU is built around a grid of multipliers that pass values to each other instead of fetching them. That one decision is where its speed and its power efficiency come from — and also where its awkwardness comes from."

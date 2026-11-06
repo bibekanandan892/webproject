@@ -1,6 +1,6 @@
 ---
 title: "Dynamic endpointing"
-date: "2026-11-06T15:40"
+date: "2026-10-05T11:05"
 category: "AI"
 tags: ["voice-agents", "endpointing", "turn-detection", "adaptation", "latency"]
 summary: "A fixed 500 ms silence rule is a different rule for every speaker: it cuts off 13.7% of a quick talker's turns and 39.0% of a slow one's. Scaling the wait to each person's own pauses — 350 ms for one, 800 ms for the other — gives both the same 21.7%, and the quick talker faster replies."

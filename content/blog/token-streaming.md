@@ -1,6 +1,6 @@
 ---
 title: "Token Streaming"
-date: "2026-09-11T12:40"
+date: "2026-05-01T09:55"
 category: "AI"
 tags: ["token-streaming", "sse", "llm-inference", "latency", "http"]
 summary: "A model produces its answer one token at a time, so the answer exists in pieces long before it is finished. Streaming is the decision to send those pieces instead of holding them, and it works because reading is far slower than generating."

@@ -1,6 +1,6 @@
 ---
 title: "LLM routing"
-date: "2026-09-10T15:00"
+date: "2026-03-09T17:20"
 category: "AI"
 tags: ["routing", "cost", "inference", "serving", "models"]
 summary: "Sending every request to the largest model means paying premium prices for questions a small model answers perfectly. Routing picks a model per request — and it tolerates being wrong far more than you would expect."

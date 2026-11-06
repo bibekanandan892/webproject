@@ -1,6 +1,6 @@
 ---
 title: "Log probabilities (logprobs) in LLMs"
-date: "2026-11-06T19:10"
+date: "2026-10-31T11:20"
 category: "AI"
 tags: ["logprobs", "llm", "uncertainty", "perplexity", "classification"]
 summary: "Logprobs are the model's own probability for each token it wrote, on a log scale. Four tokens at 0.9, 0.6, 0.95 and 0.05 sum to −3.663 — a sequence probability of 2.6% — and the single −2.996 is where to look for a guess. They turn a fluent answer back into a measure of how sure the model was."

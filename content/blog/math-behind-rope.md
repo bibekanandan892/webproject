@@ -1,6 +1,6 @@
 ---
 title: "The math behind RoPE"
-date: "2026-09-10T10:20"
+date: "2026-02-17T19:30"
 category: "AI"
 tags: ["rope", "position-embedding", "attention", "transformers", "rotation"]
 summary: "RoPE gives a transformer position information by rotating query and key vectors instead of adding anything to them. The rotation cancels in the dot product, leaving only the gap between two tokens."

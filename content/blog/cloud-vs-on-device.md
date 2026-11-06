@@ -1,6 +1,6 @@
 ---
 title: "Cloud vs On-device"
-date: "2026-09-12T02:00"
+date: "2026-07-06T17:20"
 category: "AI"
 tags: ["deployment", "on-device", "latency", "cost", "privacy"]
 summary: "In the cloud the data travels to the model; on a device the model travels to the data. Three numbers decide which: the latency budget, the crossover request count, and the fraction of users who never take your update."

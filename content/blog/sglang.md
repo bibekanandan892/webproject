@@ -1,6 +1,6 @@
 ---
 title: "SGLang"
-date: "2026-09-11T17:20"
+date: "2026-05-25T11:40"
 category: "AI"
 tags: ["sglang", "radix-tree", "serving", "constrained-decoding", "kv-cache"]
 summary: "SGLang keeps every in-flight request's attention cache in one prefix tree, so any overlap between any two requests is reused automatically — including overlaps nobody declared. Its second trick is not calling the model for output that was never in doubt."

@@ -1,6 +1,6 @@
 ---
 title: "Cursor"
-date: "2026-09-11T22:20"
+date: "2026-06-19T12:45"
 category: "AI"
 tags: ["cursor", "code-editors", "latency", "embeddings", "coding-agents"]
 summary: "Three different models do three different jobs, and the reason is a latency budget. A completion has about 210 ms of model time before it feels late, and a large model needs six times that."

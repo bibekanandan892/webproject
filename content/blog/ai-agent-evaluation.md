@@ -1,6 +1,6 @@
 ---
 title: "AI agent evaluation"
-date: "2026-09-10T20:00"
+date: "2026-04-02T12:30"
 category: "AI"
 tags: ["agents", "evaluation", "trajectory", "reliability", "testing"]
 summary: "Judging an agent by whether it finished is not enough, because per-step reliability compounds. A 95%-per-step agent completes a twenty-step task about a third of the time."

@@ -1,6 +1,6 @@
 ---
 title: "Chain-of-Thought Prompting"
-date: "2026-09-11T20:40"
+date: "2026-06-10T19:00"
 category: "AI"
 tags: ["chain-of-thought", "prompting", "reasoning", "llm", "inference"]
 summary: "A model has no scratchpad except the tokens it has already written, and each token gets one fixed pass through the network. Asking for the steps is asking for more computation — sixty tokens of working is sixty times as much."

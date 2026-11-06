@@ -1,6 +1,6 @@
 ---
 title: "The evolution of LLM architecture"
-date: "2026-11-06T10:40"
+date: "2026-08-19T08:50"
 category: "AI"
 tags: ["transformer", "architecture", "gqa", "moe", "rope"]
 summary: "The 2017 transformer block is still recognisable in every frontier model, but nearly every part of it has been replaced. Most of the replacements are about one thing: a GPT-3-style cache needs 4.72 MB per token, which at 128k tokens is 618 GB for a single conversation."

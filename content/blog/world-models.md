@@ -1,6 +1,6 @@
 ---
 title: "World Models"
-date: "2026-09-11T14:40"
+date: "2026-05-12T10:05"
 category: "AI"
 tags: ["world-models", "reinforcement-learning", "planning", "latent-space", "robotics"]
 summary: "A world model is a learned simulator an agent can practise inside. The whole design question is how many steps it can imagine before its own small errors compound into fiction."

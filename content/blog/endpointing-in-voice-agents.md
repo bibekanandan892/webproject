@@ -1,6 +1,6 @@
 ---
 title: "Endpointing in voice agents"
-date: "2026-11-06T15:00"
+date: "2026-09-28T13:20"
 category: "AI"
 tags: ["voice-agents", "endpointing", "vad", "turn-detection", "evaluation"]
 summary: "Endpointing is a classifier that fires on every pause and must say \"finished\" or \"still talking\". Over 1,000 real endings and 3,000 mid-sentence pauses, a 300 ms silence rule is right only 67.5% of the times it fires; 1,200 ms reaches 94.2% — and makes every reply 1.2 s late."

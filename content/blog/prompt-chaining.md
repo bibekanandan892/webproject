@@ -1,6 +1,6 @@
 ---
 title: "Prompt Chaining"
-date: "2026-09-11T20:20"
+date: "2026-06-08T12:40"
 category: "AI"
 tags: ["prompt-chaining", "prompting", "reliability", "workflows", "llm"]
 summary: "Splitting a task across several prompts makes each step more reliable and makes more steps that all have to work. Those pull against each other, and the result is an optimal chain length that is shorter than most people assume."

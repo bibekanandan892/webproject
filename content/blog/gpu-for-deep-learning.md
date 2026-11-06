@@ -1,6 +1,6 @@
 ---
 title: "GPU for Deep Learning"
-date: "2026-09-11T18:20"
+date: "2026-05-30T13:40"
 category: "AI"
 tags: ["gpu", "vram", "training", "mixed-precision", "cuda"]
 summary: "A GPU is thousands of simple cores, which suits the arithmetic of a neural network perfectly. What actually decides what you can build on one is not the cores — it is that training a model needs eight times the memory of running it."

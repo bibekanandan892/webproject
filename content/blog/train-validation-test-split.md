@@ -1,6 +1,6 @@
 ---
 title: "Train, validation and test sets"
-date: "2026-11-06T15:30"
+date: "2026-10-03T11:20"
 category: "AI"
 tags: ["machine-learning", "evaluation", "overfitting", "validation", "fundamentals"]
 summary: "Three slices of data, three jobs: learn, choose, and report. Skip the middle one and tune on the test set, and the best of 20 equally good models scores 91.71% on a 1,000-example test that all of them would really score 90% on — an improvement that does not exist."

@@ -1,6 +1,6 @@
 ---
 title: "DPO"
-date: "2026-09-10T18:00"
+date: "2026-03-24T13:25"
 category: "AI"
 tags: ["dpo", "alignment", "preferences", "fine-tuning", "reward"]
 summary: "DPO removes the reward model by noticing that a language model already contains one. What it optimises is a difference, and that turns out to matter more than it sounds."

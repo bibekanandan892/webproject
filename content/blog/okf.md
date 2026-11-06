@@ -1,6 +1,6 @@
 ---
 title: "OKF"
-date: "2026-09-11T23:00"
+date: "2026-06-22T21:45"
 category: "AI"
 tags: ["okf", "metadata", "agents", "data-context", "markdown"]
 summary: "An agent can work out a column's type by looking. It cannot work out that status 'H' means excluded from revenue, because that fact is in someone's head — and four rules out of five are like that."

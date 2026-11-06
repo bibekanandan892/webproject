@@ -1,6 +1,6 @@
 ---
 title: "LLM Guardrails"
-date: "2026-09-12T02:20"
+date: "2026-07-07T17:10"
 category: "AI"
 tags: ["guardrails", "safety", "false-positives", "moderation", "llm"]
 summary: "A guardrail catching 90% of harmful requests with a 1% false-positive rate blocks 1,267 requests a day, of which 997 are legitimate. The visible effect of most guardrails is refusing real users."

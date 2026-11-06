@@ -1,6 +1,6 @@
 ---
 title: "Diffusion models"
-date: "2026-09-11T09:40"
+date: "2026-04-15T15:30"
 category: "AI"
 tags: ["diffusion", "generative", "noise-schedule", "unet", "image-generation"]
 summary: "Destroy an image with noise in a thousand small steps, then train a network to undo one step at a time. Each individual step is easy, which is the entire reason the method works."

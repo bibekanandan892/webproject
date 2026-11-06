@@ -1,6 +1,6 @@
 ---
 title: "Speculative decoding"
-date: "2026-09-10T14:00"
+date: "2026-03-05T17:15"
 category: "AI"
 tags: ["inference", "speculative-decoding", "latency", "sampling", "throughput"]
 summary: "A small model guesses the next few tokens and a large one checks them all in a single pass. Done properly the output is not an approximation of the large model — it is exactly what the large model would have produced."

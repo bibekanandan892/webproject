@@ -1,6 +1,6 @@
 ---
 title: "Function Calling in LLMs"
-date: "2026-09-11T13:40"
+date: "2026-05-06T12:20"
 category: "AI"
 tags: ["function-calling", "tools", "json-schema", "llm", "agents"]
 summary: "The model never runs anything. It writes a structured request and stops, and your code decides whether to honour it — which is both why function calling is safe and where every mistake with it comes from."

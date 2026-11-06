@@ -1,6 +1,6 @@
 ---
 title: "Silence-based vs model-based turn detection"
-date: "2026-11-06T15:10"
+date: "2026-09-30T19:25"
 category: "AI"
 tags: ["voice-agents", "turn-detection", "endpointing", "vad", "latency"]
 summary: "A fixed 500 ms silence rule answers every turn after 500 ms and cuts off 21.7% of turns. A model that reads the words can answer clear endings after 150 ms and wait a full second on doubtful ones — 405 ms on average, with turns cut off 12.9% of the time. Faster and politer at once."

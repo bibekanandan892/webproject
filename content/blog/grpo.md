@@ -1,6 +1,6 @@
 ---
 title: "GRPO"
-date: "2026-09-10T18:20"
+date: "2026-03-25T10:50"
 category: "AI"
 tags: ["grpo", "reinforcement-learning", "baseline", "reasoning", "training"]
 summary: "Generate several answers to the same question, and score each one against how the others did. The group's own average replaces a whole second network — and it fails in a way that is easy to measure."

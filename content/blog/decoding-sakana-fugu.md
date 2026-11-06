@@ -1,6 +1,6 @@
 ---
 title: "Decoding Sakana Fugu"
-date: "2026-09-11T15:40"
+date: "2026-05-17T17:25"
 category: "AI"
 tags: ["orchestration", "routing", "multi-model", "sakana", "agents"]
 summary: "Fugu does not answer questions. It decides which frontier model should, and in its larger form how several of them should divide the work — which makes the interesting question how much capability is actually available to be routed to."

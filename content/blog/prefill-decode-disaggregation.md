@@ -1,6 +1,6 @@
 ---
 title: "Prefill-decode disaggregation"
-date: "2026-11-06T09:30"
+date: "2026-08-07T15:40"
 category: "AI"
 tags: ["inference", "serving", "prefill", "decode", "latency"]
 summary: "One 32k-token prompt arriving on a shared server freezes every running conversation for 1.16 seconds — 178 decode steps. Splitting prefill and decode onto separate machines removes the freeze, at the price of shipping a 10.74 GB cache across the network."

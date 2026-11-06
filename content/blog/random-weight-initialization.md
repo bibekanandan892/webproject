@@ -1,6 +1,6 @@
 ---
 title: "Why weights are initialised randomly"
-date: "2026-11-06T18:20"
+date: "2026-10-25T20:40"
 category: "AI"
 tags: ["initialisation", "neural-networks", "symmetry", "training", "fundamentals"]
 summary: "Start every weight at the same value and every hidden neuron computes the same thing, gets the same update, and stays identical forever. A 4-neuron XOR network started at 0.5 ends 5,000 steps later with all four neurons still exactly equal and the problem unsolved; started randomly, it solves it."

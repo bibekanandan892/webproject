@@ -1,6 +1,6 @@
 ---
 title: "Matrix multiplication in neural networks"
-date: "2026-11-06T13:30"
+date: "2026-09-13T11:25"
 category: "AI"
 tags: ["matrix-multiplication", "linear-algebra", "gpu", "batching", "fundamentals"]
 summary: "Almost all the arithmetic in a neural network is one operation: multiply a matrix of inputs by a matrix of weights. A 70B model does about 140 GFLOPs of it per token — and serving one user at a time uses 0.34% of a GPU's compute, because a matrix times a single vector reuses nothing."

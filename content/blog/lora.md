@@ -1,6 +1,6 @@
 ---
 title: "LoRA"
-date: "2026-09-10T10:40"
+date: "2026-02-18T09:05"
 category: "AI"
 tags: ["lora", "fine-tuning", "adapters", "low-rank", "training"]
 summary: "Fine-tuning normally means updating every weight in the model. LoRA freezes them all and learns a pair of thin matrices alongside, which turns out to be enough."

@@ -1,6 +1,6 @@
 ---
 title: "How AI agents communicate"
-date: "2026-09-10T21:20"
+date: "2026-04-07T12:05"
 category: "AI"
 tags: ["agents", "messaging", "protocols", "topology", "multi-agent"]
 summary: "Once several agents work on one task, they have to pass things to each other. The shape of who-talks-to-whom is the decision that matters, and the arithmetic makes it for you."

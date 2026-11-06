@@ -1,6 +1,6 @@
 ---
 title: "Encoder vs Decoder"
-date: "2026-09-12T01:40"
+date: "2026-07-04T09:05"
 category: "AI"
 tags: ["transformers", "encoder", "decoder", "attention-mask", "training"]
 summary: "One mask setting separates the two, and it decides two things that look unrelated: how much training signal a corpus yields, and whether generation can be made incremental. Both favour the decoder by a wide margin."

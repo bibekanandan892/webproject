@@ -1,6 +1,6 @@
 ---
 title: "Decoding DeepSeek-V4"
-date: "2026-09-10T12:00"
+date: "2026-02-24T17:05"
 category: "AI"
 tags: ["deepseek", "moe", "attention", "long-context", "architecture"]
 summary: "A million tokens of context is unaffordable with ordinary attention. DeepSeek-V4 gets there by summarising the distant past into far fewer entries and attending to those instead."

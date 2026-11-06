@@ -1,6 +1,6 @@
 ---
 title: "Decoding Medusa"
-date: "2026-09-12T06:00"
+date: "2026-07-23T12:25"
 category: "AI"
 tags: ["medusa", "speculative-decoding", "inference", "tree-attention", "throughput"]
 summary: "Extra prediction heads on the same model replace a separate draft model — 134 MB instead of 2 GB. The acceptance chain multiplies, so the fourth head adds 0.044 tokens and the sixth adds 0.001."

@@ -1,6 +1,6 @@
 ---
 title: "Plan-and-execute agents"
-date: "2026-09-10T13:20"
+date: "2026-03-02T10:55"
 category: "AI"
 tags: ["agents", "planning", "execution", "replanning", "orchestration"]
 summary: "Instead of deciding one step at a time, the agent writes the whole plan first and then works through it. Cheaper and steadier when the path is knowable, and useless when it is not."

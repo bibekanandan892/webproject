@@ -1,6 +1,6 @@
 ---
 title: "Telling an interruption from a cough"
-date: "2026-11-06T18:40"
+date: "2026-10-28T11:55"
 category: "AI"
 tags: ["voice-agents", "barge-in", "vad", "backchannels", "classification"]
 summary: "While a voice agent speaks, the user's microphone picks up interruptions, coughs, \"mm-hmm\"s and the TV. Stop after 150 ms of sound and the agent halts for 98.3% of backchannels and 84.7% of coughs; wait 700 ms and those fall to 4.2% and 2.0% — but every real interruption takes 700 ms to obey."

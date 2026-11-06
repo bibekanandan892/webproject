@@ -1,6 +1,6 @@
 ---
 title: "Data augmentation"
-date: "2026-11-06T17:50"
+date: "2026-10-21T16:30"
 category: "AI"
 tags: ["data-augmentation", "training", "overfitting", "computer-vision", "regularisation"]
 summary: "Teach a model what should not matter by showing it the same example changed in ways that keep the label. Random 4-pixel shifts and a horizontal flip turn each 32×32 image into 162 variants — 8.1 million from 50,000 — but flip the wrong thing and a 6 becomes a 9."

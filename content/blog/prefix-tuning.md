@@ -1,6 +1,6 @@
 ---
 title: "Prefix Tuning"
-date: "2026-09-12T05:00"
+date: "2026-07-18T16:15"
 category: "AI"
 tags: ["prefix-tuning", "peft", "attention", "adapters", "fine-tuning"]
 summary: "Prefix tuning trains 48× more parameters than prompt tuning, and that factor is exactly twice the layer count. What the extra numbers buy is influence at every depth rather than only at the input."

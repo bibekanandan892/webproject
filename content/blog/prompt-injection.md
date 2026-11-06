@@ -1,6 +1,6 @@
 ---
 title: "Prompt Injection in LLMs"
-date: "2026-09-12T01:00"
+date: "2026-07-02T11:10"
 category: "AI"
 tags: ["prompt-injection", "security", "agents", "guardrails", "least-privilege"]
 summary: "A filter that blocks 95% of attempts sounds strong and falls to a coin flip in fourteen tries. Which is why the defences that work are the ones enforced in code, where the number is 100% by construction."

@@ -1,6 +1,6 @@
 ---
 title: "Decoding EAGLE"
-date: "2026-09-12T06:20"
+date: "2026-07-25T13:00"
 category: "AI"
 tags: ["eagle", "speculative-decoding", "inference", "hidden-states", "throughput"]
 summary: "Guessing the model's next hidden state instead of its next token removes the sampling noise from the guess. Going from 2.5 to 3.5 accepted tokens per pass is only an 11-point accept-rate gain, and a 40% speedup."

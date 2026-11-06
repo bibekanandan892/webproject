@@ -1,6 +1,6 @@
 ---
 title: "Why LLMs hallucinate: the token-level view"
-date: "2026-11-06T12:30"
+date: "2026-09-03T11:45"
 category: "AI"
 tags: ["hallucination", "llm", "sampling", "calibration", "reliability"]
 summary: "A model does not look facts up; it picks the next token from a distribution. When it is unsure, that distribution is spread over plausible wrong answers, and one gets written with the same fluency as the truth. A 25-token citation right at 97% per token is fully right 46.7% of the time."

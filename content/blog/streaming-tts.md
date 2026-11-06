@@ -1,6 +1,6 @@
 ---
 title: "Streaming TTS"
-date: "2026-11-06T14:10"
+date: "2026-09-19T21:25"
 category: "AI"
 tags: ["voice-agents", "tts", "streaming", "latency", "speech-synthesis"]
 summary: "A batch TTS engine synthesises a whole sentence before you hear any of it: 7.2 s of speech at 10× real time is a 0.72 s wait. A streaming engine starts speaking after a few words — but it has to commit to intonation before it knows how the sentence ends."

@@ -1,6 +1,6 @@
 ---
 title: "Multi-agent systems"
-date: "2026-09-10T12:20"
+date: "2026-02-25T18:20"
 category: "AI"
 tags: ["agents", "multi-agent", "orchestration", "coordination", "critic"]
 summary: "Splitting a job across several specialised agents buys parallelism and focus, and costs latency, tokens and the ability to debug easily. It is worth it less often than it looks."

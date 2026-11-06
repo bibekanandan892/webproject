@@ -1,6 +1,6 @@
 ---
 title: "Variational autoencoders"
-date: "2026-09-11T10:00"
+date: "2026-04-17T18:00"
 category: "AI"
 tags: ["vae", "latent-space", "generative", "kl-divergence", "reparameterisation"]
 summary: "An ordinary autoencoder compresses well and generates nothing, because its latent space is full of holes. A VAE fills the holes by encoding to regions instead of points — and pays for it with a second loss term."

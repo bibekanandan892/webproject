@@ -1,6 +1,6 @@
 ---
 title: "Attention Sinks"
-date: "2026-09-12T07:40"
+date: "2026-07-31T15:10"
 category: "AI"
 tags: ["attention-sinks", "softmax", "streaming", "kv-cache", "long-context"]
 summary: "Attention weights must sum to exactly one, so \"nothing here is relevant\" cannot be expressed. The first token becomes where the surplus goes — and dropping it makes every remaining weight 2.63× sharper than the model intended."

@@ -1,6 +1,6 @@
 ---
 title: "Approximate Nearest Neighbour Search"
-date: "2026-09-11T17:00"
+date: "2026-05-23T09:10"
 category: "AI"
 tags: ["ann", "vector-search", "hnsw", "ivf", "retrieval"]
 summary: "Giving up the guarantee of finding the true nearest vector buys enormous speed for almost no accuracy. In a measured run, scanning 3.4% of the data found the exact answer 99.8% of the time."

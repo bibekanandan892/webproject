@@ -1,6 +1,6 @@
 ---
 title: "Cosine similarity"
-date: "2026-11-06T17:00"
+date: "2026-10-15T13:00"
 category: "AI"
 tags: ["cosine-similarity", "embeddings", "vector-search", "rag", "fundamentals"]
 summary: "Cosine similarity compares the direction of two vectors and ignores their length: (3, 4) and (6, 8) score exactly 1. In high dimensions, unrelated vectors score near 0 — random 768-dimensional vectors land within about ±0.037 — which is what makes a score of 0.4 meaningful."

@@ -1,6 +1,6 @@
 ---
 title: "The future of software development"
-date: "2026-11-06T10:50"
+date: "2026-08-20T20:10"
 category: "AI"
 tags: ["software-engineering", "ai-coding", "agents", "productivity", "verification"]
 summary: "If writing code is 30% of the job, making it ten times faster makes the job 1.37× faster — and infinitely faster only 1.43×. The work that is left is deciding what to build and proving it works, and that is where the profession is heading."

@@ -1,6 +1,6 @@
 ---
 title: "AI agent observability"
-date: "2026-09-10T21:40"
+date: "2026-04-09T14:35"
 category: "AI"
 tags: ["observability", "agents", "tracing", "sampling", "monitoring"]
 summary: "An agent's answer is the smallest part of what it did. Recording the rest produces far more data than ordinary logging — around seventy times more — which makes what you keep a real decision."

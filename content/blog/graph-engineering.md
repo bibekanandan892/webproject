@@ -1,6 +1,6 @@
 ---
 title: "Graph Engineering"
-date: "2026-09-12T04:40"
+date: "2026-07-17T11:05"
 category: "AI"
 tags: ["graphs", "agents", "testing", "workflows", "state"]
 summary: "A graph with one three-way decision and a cycle capped at three has fifteen possible paths. The same work as a free loop with six tools and twelve steps has 2.61 billion. Only one of those numbers can be tested."

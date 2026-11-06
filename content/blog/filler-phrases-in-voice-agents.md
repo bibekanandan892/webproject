@@ -1,6 +1,6 @@
 ---
 title: "Filler phrases in voice agents"
-date: "2026-11-06T14:20"
+date: "2026-09-21T13:50"
 category: "AI"
 tags: ["voice-agents", "latency", "fillers", "tool-calls", "ux"]
 summary: "\"Let me check that for you\" is not politeness; it is latency engineering. If a lookup takes a median 800 ms with a 2.5 s tail, a 0.6 s filler covers it 33.9% of the time, a 1.2 s filler 72.2%, and a 2 s one 90.8% — and the remaining silences are the ones users notice."

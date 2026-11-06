@@ -1,6 +1,6 @@
 ---
 title: "Long pauses in voice agents"
-date: "2026-11-06T16:10"
+date: "2026-10-08T11:40"
 category: "AI"
 tags: ["voice-agents", "turn-taking", "endpointing", "ux", "pauses"]
 summary: "Ask \"what's your policy number?\" and the caller goes looking for it. If their thinking pauses run a median 2.5 s, a 2-second ceiling interrupts 61.0% of them and even 4 seconds interrupts 27.8%. The fix is not a longer timer but recognising that the user is still holding the turn."
