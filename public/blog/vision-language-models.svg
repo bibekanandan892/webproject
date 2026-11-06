@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Vision-language model: a picture cut into a grid of patches, the patches lining up in a row with word tokens.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="60" width="200" height="200" fill="#5E5D59" fill-opacity="0.2"/>
+<path d="M80 230 L140 140 L180 190 L210 160 L250 230 Z" fill="#141413" fill-opacity="0.45"/>
+<circle cx="210" cy="105" r="18" fill="#141413" fill-opacity="0.35"/>
+<g stroke="#F0EEE6" stroke-width="3"><path d="M110 60 V260 M160 60 V260 M210 60 V260 M60 110 H260 M60 160 H260 M60 210 H260"/></g>
+<g stroke="#141413" stroke-opacity="0.5" stroke-width="2.5"><path d="M280 160 H340"/><path d="M328 152 L342 160 L328 168" fill="none"/></g>
+<g fill="#141413" fill-opacity="0.6"><rect x="360" y="140" width="34" height="40" rx="5"/><rect x="400" y="140" width="34" height="40" rx="5"/><rect x="440" y="140" width="34" height="40" rx="5"/><rect x="480" y="140" width="34" height="40" rx="5"/></g>
+<g fill="#5E5D59" fill-opacity="0.3"><rect x="540" y="140" width="34" height="40" rx="5"/><rect x="580" y="140" width="34" height="40" rx="5"/><rect x="620" y="140" width="34" height="40" rx="5"/><rect x="660" y="140" width="34" height="40" rx="5"/></g>
+<text x="360" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#141413">image tokens</text>
+<text x="550" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#5E5D59">text tokens</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">336 px → 576 tokens ≈ 443 words</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">vision-language models</text>
+</svg>

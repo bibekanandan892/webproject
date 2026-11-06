@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Cosine similarity: two arrows from a common origin with the angle between them marked by an arc.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M120 310 H740 M120 330 V50" stroke="#141413" stroke-opacity="0.2" stroke-width="2"/>
+<path d="M120 310 L560 90" stroke="#141413" stroke-width="6" stroke-linecap="round"/>
+<path d="M120 310 L420 180" stroke="#5E5D59" stroke-width="6" stroke-linecap="round"/>
+<path d="M544 88 L562 89 L552 104" fill="none" stroke="#141413" stroke-width="5"/>
+<path d="M404 174 L422 179 L410 193" fill="none" stroke="#5E5D59" stroke-width="5"/>
+<path d="M248.5 254.4 A140 140 0 0 0 245.2 247.3" stroke="#141413" stroke-width="4" fill="none"/>
+<text x="258" y="250" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#141413">θ</text>
+<text x="60" y="380" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">a · b / (|a| |b|) — direction only</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">cosine similarity</text>
+</svg>

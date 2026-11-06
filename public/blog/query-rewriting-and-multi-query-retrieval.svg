@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Query rewriting: one question splitting into three rewritten queries that converge again on a single merged result list.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="160" width="120" height="50" rx="10" fill="#FFFFFF" stroke="#141413" stroke-width="2.5"/>
+<text x="120" y="192" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#141413" text-anchor="middle">?</text>
+<g stroke="#5E5D59" stroke-opacity="0.45" stroke-width="2.5" fill="none">
+<path d="M180 185 C230 185 240 100 300 100"/><path d="M180 185 H300"/><path d="M180 185 C230 185 240 270 300 270"/>
+<path d="M500 100 C560 100 570 185 620 185"/><path d="M500 185 H620"/><path d="M500 270 C560 270 570 185 620 185"/>
+</g>
+<g fill="#5E5D59" fill-opacity="0.25" stroke="rgba(20,20,19,0.25)" stroke-width="1.5">
+<rect x="300" y="80" width="200" height="40" rx="8"/><rect x="300" y="165" width="200" height="40" rx="8"/><rect x="300" y="250" width="200" height="40" rx="8"/>
+</g>
+<rect x="620" y="140" width="120" height="90" rx="10" fill="#FFFFFF" stroke="#141413" stroke-width="2.5"/>
+<g fill="#141413"><rect x="636" y="156" width="88" height="12" rx="2" fill-opacity="0.8"/><rect x="636" y="178" width="70" height="12" rx="2" fill-opacity="0.5"/><rect x="636" y="200" width="54" height="12" rx="2" fill-opacity="0.3"/></g>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">recall 60% → 93.6%, at best</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">query rewriting</text>
+</svg>

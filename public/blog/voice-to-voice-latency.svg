@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Voice-to-voice latency: two audio channels, user above and agent below, with a measured gap between the end of the user's speech and the start of the agent's.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 130 l10 -25 l10 40 l10 -30 l10 20 l10 -35 l10 40 l10 -25 l10 15 l10 -30 l10 40 l10 -30 l10 20 l10 -20 l10 25 l10 -15 l10 10 l10 -5 l10 0" fill="none" stroke="#5E5D59" stroke-width="3"/>
+<path d="M440 250 l10 -30 l10 45 l10 -35 l10 25 l10 -40 l10 45 l10 -30 l10 20 l10 -35 l10 45 l10 -30 l10 20 l10 -25 l10 30 l10 -20 l10 15 l10 -25 l10 30 l10 -15 l10 10 l10 -5 l10 0 l10 0 l10 0 l10 0 l10 0 l10 0 l10 0 l10 0" fill="none" stroke="#141413" stroke-width="3"/>
+<g stroke="#141413" stroke-width="2" stroke-dasharray="6 5"><path d="M240 80 V290"/><path d="M440 80 V290"/></g>
+<path d="M248 190 H432" stroke="#141413" stroke-width="3"/>
+<path d="M256 182 L246 190 L256 198 M424 182 L434 190 L424 198" fill="none" stroke="#141413" stroke-width="3"/>
+<text x="340" y="178" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#141413" text-anchor="middle">heard gap</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">server says 620 ms, the caller hears 1,020</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">voice-to-voice latency</text>
+</svg>

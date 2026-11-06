@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Silence vs model-based turn detection: a stopwatch beside a speech bubble being read for meaning.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<circle cx="180" cy="180" r="90" fill="none" stroke="#5E5D59" stroke-opacity="0.6" stroke-width="5"/>
+<rect x="166" y="72" width="28" height="16" rx="3" fill="#5E5D59" fill-opacity="0.6"/>
+<path d="M180 180 L180 112" stroke="#5E5D59" stroke-width="5" stroke-linecap="round"/>
+<path d="M180 180 L232 206" stroke="#5E5D59" stroke-width="4" stroke-linecap="round"/>
+<text x="180" y="310" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#5E5D59" text-anchor="middle">wait 500 ms</text>
+<text x="390" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#5E5D59">vs</text>
+<rect x="460" y="110" width="280" height="110" rx="16" fill="#FFFFFF" stroke="#141413" stroke-width="2.5"/>
+<text x="484" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#141413">"that's everything,</text>
+<text x="484" y="184" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#141413"> thanks."</text>
+<text x="600" y="310" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#141413" text-anchor="middle">done → 150 ms</text>
+<text x="60" y="380" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">405 ms and 12.9% vs 500 ms and 21.7%</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">silence vs model turn detection</text>
+</svg>

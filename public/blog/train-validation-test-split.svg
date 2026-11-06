@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Train, validation and test split: a dataset bar divided into three labelled segments, the test segment set apart.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="140" width="440" height="80" rx="10" fill="#5E5D59" fill-opacity="0.3"/>
+<rect x="510" y="140" width="94" height="80" rx="10" fill="#5E5D59" fill-opacity="0.55"/>
+<rect x="646" y="140" width="94" height="80" rx="10" fill="#141413" fill-opacity="0.8"/>
+<path d="M625 120 V240" stroke="#141413" stroke-width="2.5" stroke-dasharray="6 5"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" text-anchor="middle">
+<text x="280" y="186" fill="#5E5D59">train</text><text x="557" y="186" fill="#F0EEE6">val</text><text x="693" y="186" fill="#F0EEE6">test</text>
+</g>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#5E5D59" text-anchor="middle">
+<text x="280" y="250">learn</text><text x="557" y="250">choose</text><text x="693" y="250">report, once</text>
+</g>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">tune on test: 90% models report 91.71%</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">train · validation · test</text>
+</svg>

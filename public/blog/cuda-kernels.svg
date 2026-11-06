@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="CUDA kernels: a grid of blocks, each block a grid of threads, with one block highlighted.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="threads" width="14" height="14" patternUnits="userSpaceOnUse">
+    <circle cx="7" cy="7" r="3" fill="#5E5D59" fill-opacity="0.45"/>
+  </pattern>
+  <pattern id="threadsOn" width="14" height="14" patternUnits="userSpaceOnUse">
+    <circle cx="7" cy="7" r="3.4" fill="#141413" fill-opacity="0.8"/>
+  </pattern>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g stroke="rgba(20,20,19,0.25)" stroke-width="1.5" fill="url(#threads)">
+<rect x="60" y="70" width="154" height="112" rx="8"/><rect x="230" y="70" width="154" height="112" rx="8"/><rect x="570" y="70" width="154" height="112" rx="8"/>
+<rect x="60" y="198" width="154" height="112" rx="8"/><rect x="230" y="198" width="154" height="112" rx="8"/><rect x="400" y="198" width="154" height="112" rx="8"/><rect x="570" y="198" width="154" height="112" rx="8"/>
+</g>
+<rect x="400" y="70" width="154" height="112" rx="8" fill="url(#threadsOn)" stroke="#141413" stroke-width="3"/>
+<text x="60" y="352" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">grid → blocks → threads, 32 at a time</text>
+<text x="60" y="380" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">fast if it does ≥ 295 ops per byte</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">cuda kernels</text>
+</svg>

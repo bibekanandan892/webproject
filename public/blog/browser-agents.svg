@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Browser agents: a browser window with a highlighted button and a cursor, beside an observe, decide, act loop.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<rect x="60" y="60" width="440" height="270" rx="12" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.6" stroke-width="2.5"/>
+<path d="M60 96 H500" stroke="#141413" stroke-opacity="0.3" stroke-width="2"/>
+<g fill="#5E5D59" fill-opacity="0.5"><circle cx="82" cy="78" r="6"/><circle cx="102" cy="78" r="6"/><circle cx="122" cy="78" r="6"/></g>
+<rect x="150" y="70" width="320" height="16" rx="8" fill="#5E5D59" fill-opacity="0.2"/>
+<g fill="#5E5D59" fill-opacity="0.22"><rect x="90" y="120" width="220" height="16" rx="3"/><rect x="90" y="148" width="320" height="12" rx="3"/><rect x="90" y="170" width="280" height="12" rx="3"/><rect x="90" y="206" width="200" height="30" rx="5"/></g>
+<rect x="90" y="262" width="140" height="40" rx="8" fill="#141413" fill-opacity="0.8"/>
+<rect x="84" y="256" width="152" height="52" rx="11" fill="none" stroke="#141413" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M210 290 L210 318 L218 310 L226 324 L232 321 L224 307 L235 307 Z" fill="#F0EEE6" stroke="#141413" stroke-width="2"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">
+<text x="560" y="140" fill="#141413">observe</text>
+<text x="560" y="190" fill="#141413">decide</text>
+<text x="560" y="240" fill="#141413">act</text>
+</g>
+<path d="M545 126 C525 160 525 220 545 250 M690 250 C720 210 720 160 690 126" stroke="#5E5D59" stroke-opacity="0.5" stroke-width="2.5" fill="none"/>
+<text x="60" y="380" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">98% per step, 50 steps: 36.4%</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">browser agents</text>
+</svg>

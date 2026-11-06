@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Activation functions: an S-shaped sigmoid curve and a bent ReLU line drawn on the same axes.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 230 H740 M400 60 V310" stroke="#141413" stroke-opacity="0.25" stroke-width="2"/>
+<path d="M60 226 C240 224 320 210 400 170 C480 130 560 116 740 114" stroke="#5E5D59" stroke-width="5" fill="none"/>
+<path d="M60 230 H400 L600 70" stroke="#141413" stroke-width="5" fill="none" stroke-linejoin="round"/>
+<text x="610" y="78" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">ReLU</text>
+<text x="620" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">sigmoid</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">slope 0.25 vs slope 1</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">activation functions</text>
+</svg>

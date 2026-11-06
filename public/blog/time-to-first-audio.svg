@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Time to first audio: a short gap followed by a long stretch of speech waveform, with the gap highlighted.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<path d="M60 190 H740" stroke="#141413" stroke-opacity="0.2" stroke-width="2"/>
+<rect x="60" y="130" width="90" height="120" rx="8" fill="#141413" fill-opacity="0.12" stroke="#141413" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="105" y="280" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#141413" text-anchor="middle">silence</text>
+<path d="M160 190 l8 -30 l8 50 l8 -40 l8 30 l8 -50 l8 60 l8 -40 l8 20 l8 -30 l8 40 l8 -50 l8 40 l8 -20 l8 30 l8 -40 l8 50 l8 -30 l8 20 l8 -20 l8 40 l8 -50 l8 30 l8 -20 l8 40 l8 -30 l8 20 l8 -40 l8 50 l8 -30 l8 20 l8 -30 l8 40 l8 -50 l8 30 l8 -20 l8 40 l8 -40 l8 30 l8 -20 l8 30 l8 -30 l8 40 l8 -50 l8 30 l8 -20 l8 40 l8 -30 l8 20 l8 -40 l8 50 l8 -30 l8 20 l8 -30 l8 40 l8 -50 l8 30 l8 -20 l8 40 l8 -40 l8 30 l8 -20 l8 20 l8 -10 l8 10" fill="none" stroke="#5E5D59" stroke-width="2.5"/>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">4.21 s of silence, or under one</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">time to first audio</text>
+</svg>
