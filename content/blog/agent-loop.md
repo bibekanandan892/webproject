@@ -1,6 +1,6 @@
 ---
 title: "The agent loop"
-date: "2026-09-10T20:40"
+date: "2026-04-04T15:55"
 category: "AI"
 tags: ["agents", "loop", "cost", "context", "budgets"]
 summary: "The loop is about twenty lines of ordinary code. Its cost is not ordinary — because the whole history is re-sent every turn, tokens grow with the square of the turn count."

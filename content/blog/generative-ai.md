@@ -1,6 +1,6 @@
 ---
 title: "Generative AI"
-date: "2026-09-12T01:20"
+date: "2026-07-03T15:10"
 category: "AI"
 tags: ["generative-ai", "llm", "autoregression", "sampling", "hallucination"]
 summary: "A classifier picks one of a handful of labels. A generator picks one of 10^470 possible answers, which is why it cannot work by choosing from a list — and why its characteristic failure is being fluent and wrong."

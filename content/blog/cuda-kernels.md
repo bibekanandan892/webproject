@@ -1,6 +1,6 @@
 ---
 title: "CUDA kernels"
-date: "2026-11-06T11:00"
+date: "2026-08-22T19:40"
 category: "AI"
 tags: ["cuda", "gpu", "kernels", "fusion", "performance"]
 summary: "A kernel is a function run by thousands of GPU threads at once. Whether it is fast depends on one ratio — arithmetic per byte moved. An element-wise add reaches 0.056% of an H100's peak; a 4,096-square matrix multiply can use nearly all of it. Fusing three element-wise ops is a free 3×."

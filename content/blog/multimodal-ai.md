@@ -1,6 +1,6 @@
 ---
 title: "Multimodal AI"
-date: "2026-09-10T15:20"
+date: "2026-03-11T11:40"
 category: "AI"
 tags: ["multimodal", "embeddings", "vision", "alignment", "clip"]
 summary: "A picture and the sentence describing it are completely different kinds of data. Multimodal models work by turning both into vectors that land in the same place."

@@ -1,6 +1,6 @@
 ---
 title: "Context Compaction"
-date: "2026-09-11T22:00"
+date: "2026-06-17T14:55"
 category: "AI"
 tags: ["context-compaction", "summarisation", "agents", "context-window", "memory"]
 summary: "Replacing old turns with a summary buys room, and each summary is lossy. Summarise a summary eight times and 43% of the original detail is left — which is why the facts that matter must never be summarised twice."

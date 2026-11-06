@@ -1,6 +1,6 @@
 ---
 title: "Logits"
-date: "2026-11-06T16:20"
+date: "2026-10-10T09:35"
 category: "AI"
 tags: ["logits", "softmax", "classification", "llm", "fundamentals"]
 summary: "Logits are a model's raw scores before they become probabilities. A logit of 0 is a coin flip, 2.2 is 90% and 4.6 is 99% — every 2.3 is another factor of ten in the odds. A language model produces 128,000 of them per token, and editing them directly is how constrained decoding works."

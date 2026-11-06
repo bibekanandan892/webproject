@@ -1,6 +1,6 @@
 ---
 title: "AI agents"
-date: "2026-09-10T11:20"
+date: "2026-02-21T15:50"
 category: "AI"
 tags: ["agents", "tools", "llm", "loop", "automation"]
 summary: "An agent is a language model wrapped in a loop that lets it call tools and see what happened. The loop is the whole difference between answering a question and doing a job."

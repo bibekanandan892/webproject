@@ -1,6 +1,6 @@
 ---
 title: "GANs"
-date: "2026-09-11T10:40"
+date: "2026-04-20T13:05"
 category: "AI"
 tags: ["gan", "generative", "adversarial", "training", "mode-collapse"]
 summary: "Two networks trained against each other, one making fakes and one catching them. Because each is graded by the other, the loss numbers stop meaning what loss numbers usually mean."

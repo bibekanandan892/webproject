@@ -1,6 +1,6 @@
 ---
 title: "GraphRAG"
-date: "2026-09-10T13:40"
+date: "2026-03-03T15:35"
 category: "AI"
 tags: ["rag", "knowledge-graph", "retrieval", "multi-hop", "entities"]
 summary: "Chunk search finds passages that look like the question. When the answer is a chain running through documents that mention none of the question's words, that is not enough."

@@ -1,6 +1,6 @@
 ---
 title: "JEPA"
-date: "2026-09-11T12:00"
+date: "2026-04-27T15:15"
 category: "AI"
 tags: ["jepa", "self-supervised", "representation", "collapse", "world-models"]
 summary: "Predict what a hidden part of an image means rather than what it looks like. The objective that makes that work has a perfect and useless solution, and the architecture exists to keep it out of reach."

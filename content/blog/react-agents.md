@@ -1,6 +1,6 @@
 ---
 title: "ReAct agents"
-date: "2026-09-10T12:40"
+date: "2026-02-26T19:55"
 category: "AI"
 tags: ["agents", "react", "reasoning", "tools", "trace"]
 summary: "ReAct makes an agent write down its reasoning before every action. The thought is not decoration — it is what the model reads back on the next step, and it is the only place you can see why anything happened."

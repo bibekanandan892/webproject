@@ -1,6 +1,6 @@
 ---
 title: "Vanishing and exploding gradients"
-date: "2026-11-06T16:40"
+date: "2026-10-13T18:10"
 category: "AI"
 tags: ["gradients", "deep-learning", "initialisation", "residual-connections", "training"]
 summary: "Backpropagation multiplies a gradient by one factor per layer. At 0.9 per layer, 50 layers leave 0.5% of it; at 1.1, it grows 117-fold. In a simulated 50-layer ReLU network, weights drawn slightly too small shrink the signal to 2.7 × 10⁻¹³, slightly too large grow it to 5.65 million, and He initialisation keeps it near 0.5."

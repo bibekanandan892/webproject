@@ -1,6 +1,6 @@
 ---
 title: "PyTorch"
-date: "2026-09-11T20:00"
+date: "2026-06-07T19:45"
 category: "AI"
 tags: ["pytorch", "autograd", "tensors", "gradients", "training"]
 summary: "PyTorch builds the computation graph by running your code, which is why ordinary Python control flow works inside a model. The same decision explains its two most common bugs."

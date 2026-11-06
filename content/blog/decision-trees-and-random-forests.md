@@ -1,6 +1,6 @@
 ---
 title: "Decision trees and random forests"
-date: "2026-11-06T19:40"
+date: "2026-11-04T17:25"
 category: "AI"
 tags: ["decision-trees", "random-forests", "ensembles", "gini", "machine-learning"]
 summary: "A decision tree asks one yes/no question at a time, choosing each by how much purer it makes the groups: splitting 10/10 into 8/2 and 2/8 cuts Gini impurity from 0.5 to 0.32. A forest averages hundreds of deliberately different trees — 100 trees with correlation 0.3 keep only 30.7% of one tree's variance."

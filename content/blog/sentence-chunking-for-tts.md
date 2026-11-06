@@ -1,6 +1,6 @@
 ---
 title: "Sentence chunking for TTS"
-date: "2026-11-06T14:00"
+date: "2026-09-18T16:35"
 category: "AI"
 tags: ["voice-agents", "tts", "streaming", "chunking", "latency"]
 summary: "Between the LLM's token stream and the voice sits a small piece of code deciding when there is enough text to speak. Waiting for a full 18-word sentence costs 0.47 s; speaking at the first comma costs 0.18 s; four words, 0.10 s — each cut trading a little naturalness for speed."

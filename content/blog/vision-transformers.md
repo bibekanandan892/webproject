@@ -1,6 +1,6 @@
 ---
 title: "Vision transformers"
-date: "2026-09-10T09:00"
+date: "2026-02-10T18:35"
 category: "AI"
 tags: ["vit", "transformers", "computer-vision", "patches", "attention"]
 summary: "A vision transformer runs an image through the same machinery a language model runs text through. Almost all of the work is in turning a picture into something shaped like a sentence."

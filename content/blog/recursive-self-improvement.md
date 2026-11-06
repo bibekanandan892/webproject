@@ -1,6 +1,6 @@
 ---
 title: "Recursive self-improvement"
-date: "2026-11-06T10:00"
+date: "2026-08-13T18:25"
 category: "AI"
 tags: ["rsi", "self-improvement", "evaluation", "agents", "safety"]
 summary: "A system that improves the thing that improves it. Ten cycles at a steady 10% compound to 2.59×; with returns halving each cycle the ceiling is 1.21×. And on a 500-question benchmark, a change that makes the model 1% worse passes as an improvement 36.5% of the time."

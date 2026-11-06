@@ -1,6 +1,6 @@
 ---
 title: "How Ollama works"
-date: "2026-11-06T11:30"
+date: "2026-08-25T17:20"
 category: "AI"
 tags: ["ollama", "local-llm", "gguf", "quantization", "inference"]
 summary: "Ollama packages a quantized model, an inference engine and an HTTP server behind one command. On a laptop, the speed you get is set by one division: memory bandwidth over model size — 20.6 tokens a second for an 8B model at 100 GB/s, 2.4 for a 70B."

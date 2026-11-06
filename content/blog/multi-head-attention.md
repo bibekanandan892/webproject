@@ -1,6 +1,6 @@
 ---
 title: "Multi-head attention"
-date: "2026-09-11T09:20"
+date: "2026-04-14T19:20"
 category: "AI"
 tags: ["attention", "transformers", "heads", "parameters", "architecture"]
 summary: "Running several attention operations side by side costs nothing extra — the parameters and the cache are identical to one big head. What you actually spend is the width each head gets to work in."

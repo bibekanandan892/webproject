@@ -1,6 +1,6 @@
 ---
 title: "RLHF"
-date: "2026-09-10T16:40"
+date: "2026-03-17T09:45"
 category: "AI"
 tags: ["rlhf", "alignment", "reward-model", "ppo", "preferences"]
 summary: "People cannot score an answer out of ten consistently, but they can say which of two is better. RLHF is the machinery for turning a pile of those comparisons into a model that behaves."

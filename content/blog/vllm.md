@@ -1,6 +1,6 @@
 ---
 title: "vLLM"
-date: "2026-09-11T14:20"
+date: "2026-05-10T08:05"
 category: "AI"
 tags: ["vllm", "paged-attention", "serving", "gpu-memory", "throughput"]
 summary: "vLLM's central idea is to stop giving each request a contiguous slab of GPU memory and instead hand it small blocks through a lookup table — which removes the waste, and as a side effect makes sharing memory between requests almost free."

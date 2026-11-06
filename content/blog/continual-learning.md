@@ -1,6 +1,6 @@
 ---
 title: "Continual learning in LLMs"
-date: "2026-09-11T10:20"
+date: "2026-04-19T11:25"
 category: "AI"
 tags: ["continual-learning", "forgetting", "fine-tuning", "adapters", "replay"]
 summary: "Teaching a trained model something new tends to erase what it already knew. Every fix for that is a different way of deciding which weights are allowed to move."

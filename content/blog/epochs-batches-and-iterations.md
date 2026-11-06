@@ -1,6 +1,6 @@
 ---
 title: "Epochs, batches and iterations"
-date: "2026-11-06T17:20"
+date: "2026-10-18T19:30"
 category: "AI"
 tags: ["training", "batch-size", "epochs", "sgd", "fundamentals"]
 summary: "50,000 examples in batches of 32 is 1,563 iterations per epoch; ten epochs is 15,630 weight updates. Batches of 512 need only 980 updates for the same ten epochs and give gradients a quarter as noisy. A large language model, by contrast, sees most of its data less than once — 3.75 million steps, under one epoch."

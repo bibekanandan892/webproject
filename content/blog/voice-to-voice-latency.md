@@ -1,6 +1,6 @@
 ---
 title: "Measuring voice-to-voice latency"
-date: "2026-11-06T13:50"
+date: "2026-09-16T16:25"
 category: "AI"
 tags: ["voice-agents", "latency", "measurement", "percentiles", "telephony"]
 summary: "Voice-to-voice latency is the gap a person actually hears. A server that logs 620 ms is delivering about 800 ms over WebRTC and 1,020 ms over a phone line — and estimating the 95th percentile from 50 calls can land anywhere from 1,154 to 1,578 ms."

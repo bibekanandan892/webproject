@@ -1,6 +1,6 @@
 ---
 title: "Tree of Thoughts"
-date: "2026-11-06T11:50"
+date: "2026-08-27T16:50"
 category: "AI"
 tags: ["reasoning", "prompting", "search", "tree-of-thoughts", "agents"]
 summary: "Chain-of-thought commits to one line of reasoning; Tree of Thoughts explores several and keeps the best. A three-step problem solved 21.6% of the time in one chain becomes 97.0% with five candidates per step and a perfect judge — and 49.6% with a judge that is right 80% of the time."

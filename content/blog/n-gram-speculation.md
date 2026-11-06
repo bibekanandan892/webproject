@@ -1,6 +1,6 @@
 ---
 title: "N-gram speculation"
-date: "2026-11-06T09:40"
+date: "2026-08-09T12:00"
 category: "AI"
 tags: ["inference", "speculative-decoding", "prompt-lookup", "latency", "decoding"]
 summary: "Speculative decoding without a draft model: guess the next tokens by finding the last few tokens earlier in the context and copying what followed. On a code edit that is 4.59 tokens per step; in open chat it is 1.10 — and it never makes anything slower."

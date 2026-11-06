@@ -1,6 +1,6 @@
 ---
 title: "AI agent memory"
-date: "2026-09-10T11:40"
+date: "2026-02-22T09:30"
 category: "AI"
 tags: ["agents", "memory", "context-window", "retrieval", "personalisation"]
 summary: "A language model remembers nothing between calls. Everything that looks like memory is machinery around it deciding what to write down and what to put back in front of the model."

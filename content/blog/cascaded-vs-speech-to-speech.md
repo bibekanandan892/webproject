@@ -1,6 +1,6 @@
 ---
 title: "Cascaded vs speech-to-speech voice agents"
-date: "2026-11-06T13:10"
+date: "2026-09-10T12:35"
 category: "AI"
 tags: ["voice-agents", "speech-to-speech", "stt", "tts", "architecture"]
 summary: "A cascade chains speech-to-text, a text LLM and text-to-speech; a speech-to-speech model hears audio and speaks audio. The second keeps tone and cuts hand-offs, but a 10-minute call at 25 audio tokens a second is about 30,000 tokens of context against roughly 1,950 as text."

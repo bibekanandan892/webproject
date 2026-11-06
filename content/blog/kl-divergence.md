@@ -1,6 +1,6 @@
 ---
 title: "KL divergence, step by step"
-date: "2026-11-06T18:50"
+date: "2026-10-29T13:50"
 category: "AI"
 tags: ["kl-divergence", "information-theory", "cross-entropy", "rlhf", "math"]
 summary: "KL divergence measures the extra bits you pay for using the wrong distribution. For P = [0.5, 0.3, 0.2] and Q = [0.4, 0.4, 0.2] it is 0.0365 bits one way and 0.0372 the other — not a distance — and if Q gives an outcome that P considers likely just one in a million, it jumps to 3.30."

@@ -1,6 +1,6 @@
 ---
 title: "Precision vs Recall"
-date: "2026-09-12T00:40"
+date: "2026-06-30T19:35"
 category: "AI"
 tags: ["precision", "recall", "base-rate", "evaluation", "classification"]
 summary: "The trade-off everyone describes is real and it is not the main problem. When positives are rare, a 98%-accurate classifier produces alerts that are wrong 91% of the time — and the fix is not a better model."

@@ -1,6 +1,6 @@
 ---
 title: "AI orchestration"
-date: "2026-09-10T20:20"
+date: "2026-04-03T09:05"
 category: "AI"
 tags: ["orchestration", "workflows", "latency", "cost", "patterns"]
 summary: "Wiring several model calls and tools into one workflow. The shape you choose is not a style preference — it decides latency, cost, and how much you can debug."

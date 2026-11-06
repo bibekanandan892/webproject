@@ -1,6 +1,6 @@
 ---
 title: "The bias-variance tradeoff"
-date: "2026-11-06T18:30"
+date: "2026-10-27T09:45"
 category: "AI"
 tags: ["bias-variance", "overfitting", "underfitting", "generalisation", "fundamentals"]
 summary: "Fit 15 noisy points with a straight line and it is wrong in the same way every time (bias). Fit them with a degree-12 polynomial and it is wrong in a different way every time (variance). Across 400 simulated datasets the line scores 0.304 on new data, degree 12 scores 0.587 despite the lowest training error, and degree 3 wins at 0.116."

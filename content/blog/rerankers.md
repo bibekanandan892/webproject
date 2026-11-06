@@ -1,6 +1,6 @@
 ---
 title: "Rerankers"
-date: "2026-09-11T11:40"
+date: "2026-04-26T12:40"
 category: "AI"
 tags: ["reranking", "retrieval", "rag", "cross-encoder", "search"]
 summary: "Retrieval is fast because it never reads the question and the document together. A reranker does read them together, which is why it is better and why it can only be used on a shortlist."

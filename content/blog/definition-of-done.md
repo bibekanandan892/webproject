@@ -1,6 +1,6 @@
 ---
 title: "Definition of Done"
-date: "2026-09-12T05:20"
+date: "2026-07-20T21:45"
 category: "AI"
 tags: ["verification", "agents", "evaluation", "specification", "testing"]
 summary: "A loop stops when its checker passes, so the checker sets a ceiling on quality that no number of attempts can lift. Tightening the checker buys more than improving the model does."

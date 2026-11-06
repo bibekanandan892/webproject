@@ -1,6 +1,6 @@
 ---
 title: "Stop tokens in LLMs"
-date: "2026-11-06T11:20"
+date: "2026-08-24T20:50"
 category: "AI"
 tags: ["stop-tokens", "eos", "decoding", "streaming", "llm"]
 summary: "A model keeps generating until something tells it to stop. When that fails, a 200-token answer runs to the 4,096-token cap — 20.5× the cost and 82 seconds instead of 4. With a 1% miss rate, that is ten runaways in every thousand replies."

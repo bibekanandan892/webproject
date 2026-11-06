@@ -1,6 +1,6 @@
 ---
 title: "Mixture of experts in LLMs"
-date: "2026-09-08T01:10"
+date: "2026-02-04T13:30"
 category: "AI"
 tags: ["llm", "moe", "router", "sparse", "architecture"]
 summary: "A mixture-of-experts layer holds many small networks and sends each token through only two of them. The model gets to be large without every token paying for all of it."

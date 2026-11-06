@@ -1,6 +1,6 @@
 ---
 title: "Contrastive learning"
-date: "2026-09-10T19:00"
+date: "2026-03-28T18:40"
 category: "AI"
 tags: ["contrastive", "embeddings", "self-supervised", "infonce", "temperature"]
 summary: "Teach a model what things mean by showing it what is the same and what is different. Almost all the learning signal comes from the few negatives it nearly got wrong."

@@ -1,6 +1,6 @@
 ---
 title: "Agentic RAG"
-date: "2026-09-10T13:00"
+date: "2026-02-28T09:15"
 category: "AI"
 tags: ["rag", "retrieval", "agents", "multi-hop", "vector-search"]
 summary: "Ordinary retrieval searches once and hopes the result was good. Agentic RAG puts an agent in charge of searching, so it can judge what came back, rewrite the query, and go again."

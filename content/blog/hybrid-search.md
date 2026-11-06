@@ -1,6 +1,6 @@
 ---
 title: "Hybrid Search"
-date: "2026-09-11T19:20"
+date: "2026-06-04T09:20"
 category: "AI"
 tags: ["hybrid-search", "bm25", "rrf", "retrieval", "ranking"]
 summary: "Keyword and vector search fail on opposite queries, so run both. The hard part is combining two ranked lists whose scores are not on the same scale — and the constant in the standard fix quietly decides your ordering."

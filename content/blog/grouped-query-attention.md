@@ -1,6 +1,6 @@
 ---
 title: "Grouped query attention"
-date: "2026-09-10T10:00"
+date: "2026-02-15T08:45"
 category: "AI"
 tags: ["attention", "gqa", "kv-cache", "inference", "memory"]
 summary: "Every attention head keeping its own keys and values makes the cache enormous. Grouped query attention has heads share them in small groups, cutting the memory by the size of the group."

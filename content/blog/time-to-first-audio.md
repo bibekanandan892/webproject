@@ -1,6 +1,6 @@
 ---
 title: "Time to first audio"
-date: "2026-11-06T13:40"
+date: "2026-09-15T19:50"
 category: "AI"
 tags: ["voice-agents", "latency", "streaming", "tts", "ttfa"]
 summary: "A 60-word spoken reply lasts 24 seconds. Generating it takes 1.56 s and synthesising it 2.4 s — so a non-streaming agent stays silent for 4.21 s, while a streaming one can start talking in under one. Users judge the silence, not the total."

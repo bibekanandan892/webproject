@@ -1,6 +1,6 @@
 ---
 title: "Stopping speech the instant the user interrupts"
-date: "2026-11-06T20:00"
+date: "2026-11-06T18:00"
 category: "AI"
 tags: ["voice-agents", "barge-in", "streaming", "audio", "latency"]
 summary: "Deciding to stop is only half of barge-in; the audio already on its way keeps playing. A server that pushed 3 s of speech ahead talks over the user for 3.2 s after it decides to stop. Pace the stream and flush the client and it is 280 ms; mute on the device itself and it is about 210."

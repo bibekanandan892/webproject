@@ -1,6 +1,6 @@
 ---
 title: "How the context window works"
-date: "2026-11-06T19:00"
+date: "2026-10-30T10:20"
 category: "AI"
 tags: ["context-window", "llm", "kv-cache", "attention", "tokens"]
 summary: "The context window is everything a model can see at once — about 100,825 words, or 306 pages, at 128k tokens. Filling it costs 256 times the attention arithmetic of an 8k context and 42.9 GB of cache on a 70B model, and a 20-turn chat re-sends 105,000 tokens to hold a 10,000-token conversation."

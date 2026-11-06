@@ -1,6 +1,6 @@
 ---
 title: "Reflection agents"
-date: "2026-09-10T14:20"
+date: "2026-03-06T14:20"
 category: "AI"
 tags: ["agents", "reflection", "critic", "revision", "quality"]
 summary: "The agent writes something, criticises its own draft, and rewrites. It works because judging is an easier job than writing — and it fails in a specific way when the critic asks for facts it cannot check."

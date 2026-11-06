@@ -1,6 +1,6 @@
 ---
 title: "Decoding ColBERT"
-date: "2026-09-12T02:40"
+date: "2026-07-08T14:25"
 category: "AI"
 tags: ["colbert", "late-interaction", "maxsim", "retrieval", "ranking"]
 summary: "Keeping one vector per token instead of one per passage lets every query term find its own best match. On a worked example that widened the gap between the right document and a plausible wrong one from 64% to 113%."

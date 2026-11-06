@@ -1,6 +1,6 @@
 ---
 title: "BatchNorm vs LayerNorm"
-date: "2026-09-10T17:20"
+date: "2026-03-21T08:05"
 category: "AI"
 tags: ["normalisation", "batchnorm", "layernorm", "training", "transformers"]
 summary: "Same formula, different axis. One averages a feature across the examples in a batch, the other averages all the features within one example — and that choice decides which architectures each one suits."

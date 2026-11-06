@@ -1,6 +1,6 @@
 ---
 title: "Prompt Caching"
-date: "2026-09-11T12:20"
+date: "2026-04-29T18:00"
 category: "AI"
 tags: ["prompt-caching", "kv-cache", "llm-inference", "cost", "latency"]
 summary: "Most of a long prompt is the same on every request. Prompt caching stores the work already done on that unchanging opening so the model never has to redo it — but only if the opening really is unchanged, character for character."

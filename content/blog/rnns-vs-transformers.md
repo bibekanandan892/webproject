@@ -1,6 +1,6 @@
 ---
 title: "RNNs vs Transformers"
-date: "2026-09-12T05:40"
+date: "2026-07-21T12:55"
 category: "AI"
 tags: ["rnn", "transformers", "attention", "complexity", "training"]
 summary: "Attention costs n²d and recurrence costs nd², so they cross exactly at n = d — 768 tokens for a typical model. Transformers won on training parallelism, and pay for it past that crossover."

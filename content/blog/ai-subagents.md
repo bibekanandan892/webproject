@@ -1,6 +1,6 @@
 ---
 title: "AI subagents"
-date: "2026-09-10T21:00"
+date: "2026-04-06T10:35"
 category: "AI"
 tags: ["agents", "subagents", "context", "delegation", "cost"]
 summary: "A subagent is an agent called like a function: it runs its own loop, returns a value, and throws its working away. That discarded working is the entire point."

@@ -1,6 +1,6 @@
 ---
 title: "How model serving works"
-date: "2026-11-06T17:30"
+date: "2026-10-19T17:20"
 category: "AI"
 tags: ["serving", "inference", "batching", "latency", "cost"]
 summary: "Serving turns a trained model into an API that answers within a deadline at an affordable price. The same $2-an-hour GPU costs $11.11 per million tokens serving one request at a time and $0.28 when batching — and pushing it from 50% to 95% busy multiplies queueing delay nineteen-fold."

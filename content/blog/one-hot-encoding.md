@@ -1,6 +1,6 @@
 ---
 title: "One-hot encoding"
-date: "2026-11-06T16:30"
+date: "2026-10-12T13:50"
 category: "AI"
 tags: ["one-hot", "encoding", "embeddings", "features", "fundamentals"]
 summary: "One-hot encoding turns a category into a vector of zeros with a single 1. It makes no false claims about order or similarity — and that is also its limit: every pair of categories is equally unrelated, and a 50,000-word one-hot is 195 KB to say what a 4-byte index says."

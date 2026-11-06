@@ -1,6 +1,6 @@
 ---
 title: "Hiding slow tool calls in voice agents"
-date: "2026-11-06T14:50"
+date: "2026-09-27T21:30"
 category: "AI"
 tags: ["voice-agents", "tool-calls", "latency", "parallelism", "ux"]
 summary: "Three lookups at a median 600 ms each take a median 1,984 ms one after another and 948 ms in parallel; the 95th percentile drops from 3,456 ms to 1,954. Parallelism, prefetching, fillers and honest timeouts are how a voice agent stays conversational while the backend is slow."

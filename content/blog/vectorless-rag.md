@@ -1,6 +1,6 @@
 ---
 title: "Vectorless RAG"
-date: "2026-11-06T09:10"
+date: "2026-08-04T20:25"
 category: "AI"
 tags: ["rag", "retrieval", "reasoning", "document-tree", "long-documents"]
 summary: "Instead of embedding chunks, give the model a table of contents and let it navigate. A 300-page report is answered by reading 2,320 tokens instead of 150,000 — but every level of the tree is a chance to take the wrong branch, and 95% per step is 85.7% after three."

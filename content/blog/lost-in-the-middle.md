@@ -1,6 +1,6 @@
 ---
 title: "Lost in the Middle"
-date: "2026-09-12T04:00"
+date: "2026-07-13T10:10"
 category: "AI"
 tags: ["long-context", "rag", "retrieval", "reranking", "evaluation"]
 summary: "Accuracy follows a U-shape across a long input, which means the order you pass chunks in is worth real points. Ten chunks arranged well beat twenty in rank order, using half the tokens."

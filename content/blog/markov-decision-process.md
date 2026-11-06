@@ -1,6 +1,6 @@
 ---
 title: "Markov decision processes"
-date: "2026-11-06T19:50"
+date: "2026-11-05T10:15"
 category: "AI"
 tags: ["mdp", "reinforcement-learning", "value-iteration", "bellman", "fundamentals"]
 summary: "An MDP is the mathematical frame for decisions whose effects ripple forward. In a tiny machine that earns 2 for running fast but overheats if pushed when warm, always-slow is worth 10, always-fast −4.55 — and value iteration finds the policy \"fast when cool, slow when warm\" worth 15.5."

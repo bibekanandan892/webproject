@@ -1,6 +1,6 @@
 ---
 title: "Semantic Search"
-date: "2026-09-11T22:40"
+date: "2026-06-21T18:15"
 category: "AI"
 tags: ["semantic-search", "embeddings", "cosine-similarity", "chunking", "retrieval"]
 summary: "Matching by meaning solves the vocabulary problem and creates a new one: one vector per chunk averages everything together, so a single distinguishing term contributes about 1/√n of the direction. At 200 tokens that is 7%."

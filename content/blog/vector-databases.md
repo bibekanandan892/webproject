@@ -1,6 +1,6 @@
 ---
 title: "Vector databases"
-date: "2026-09-11T11:20"
+date: "2026-04-24T11:15"
 category: "AI"
 tags: ["vector-database", "ann", "embeddings", "search", "quantisation"]
 summary: "Storing meaning as coordinates is the easy half. The hard half is finding the nearest ones among a hundred million without reading all of them — which is why the answer is allowed to be slightly wrong."

@@ -1,6 +1,6 @@
 ---
 title: "Designing a real-time voice agent"
-date: "2026-11-06T10:10"
+date: "2026-08-14T20:20"
 category: "AI"
 tags: ["voice-agents", "system-design", "latency", "stt", "tts"]
 summary: "A voice agent is five components in a pipeline with a deadline. Assembled naively, the gap after the user stops speaking is 1,100 ms; people expect about 200. The design is mostly the work of taking those 900 milliseconds back."

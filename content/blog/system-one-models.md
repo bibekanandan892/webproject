@@ -1,6 +1,6 @@
 ---
 title: "System One models"
-date: "2026-11-06T10:20"
+date: "2026-08-16T15:50"
 category: "AI"
 tags: ["classification", "calibration", "decisions", "llm", "routing"]
 summary: "Using a 70B language model to route a support ticket spends 241 times the arithmetic a small decision model needs — and returns a string that might not be one of the five queues. A System One model returns a typed answer with a calibrated probability instead."

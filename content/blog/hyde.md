@@ -1,6 +1,6 @@
 ---
 title: "HyDE in RAG"
-date: "2026-09-11T19:00"
+date: "2026-06-02T09:00"
 category: "AI"
 tags: ["hyde", "rag", "retrieval", "embeddings", "search"]
 summary: "A question and its answer barely resemble each other, which is a problem when retrieval works by resemblance. HyDE has the model write a fake answer first and searches with that instead."

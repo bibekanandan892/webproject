@@ -1,6 +1,6 @@
 ---
 title: "Backchannels in voice agents"
-date: "2026-11-06T19:30"
+date: "2026-11-02T12:50"
 category: "AI"
 tags: ["voice-agents", "backchannels", "barge-in", "turn-taking", "conversation"]
 summary: "\"Mm-hmm\" means keep going. Over four minutes of agent speech a caller might say it 24 times; a barge-in rule that stops for any 300 ms of sound halts the agent about 15.6 times in that call. Recognising backchannels as words brings it to about 1.2 — and a good agent says them too."

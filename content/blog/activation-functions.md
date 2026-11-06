@@ -1,6 +1,6 @@
 ---
 title: "Activation functions"
-date: "2026-11-06T15:20"
+date: "2026-10-02T15:40"
 category: "AI"
 tags: ["activation-functions", "relu", "sigmoid", "softmax", "deep-learning"]
 summary: "Without a bend between layers, a deep network is one linear layer in disguise. Which bend matters too: a sigmoid's slope is at most 0.25, so ten sigmoid layers can shrink a gradient by a factor of a million — 9.54 × 10⁻⁷. ReLU's slope is 1, which is most of why deep networks became trainable."

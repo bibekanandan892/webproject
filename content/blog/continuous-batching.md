@@ -1,6 +1,6 @@
 ---
 title: "Continuous batching"
-date: "2026-09-10T16:00"
+date: "2026-03-14T08:55"
 category: "AI"
 tags: ["inference", "batching", "throughput", "serving", "gpu"]
 summary: "Waiting for every request in a batch to finish leaves most of the GPU's slots idle most of the time. Refilling each slot the moment it empties is a scheduling change, and it roughly doubles what the same hardware serves."

@@ -1,6 +1,6 @@
 ---
 title: "Top-k and top-p sampling"
-date: "2026-11-06T10:30"
+date: "2026-08-18T09:25"
 category: "AI"
 tags: ["sampling", "top-k", "top-p", "decoding", "llm"]
 summary: "Both cut off the long tail of unlikely tokens before sampling, and each fails where the other works. On a confident step, top-p at 0.9 keeps 4 tokens where top-k keeps 40; on a flat one it keeps 15,996 where top-k keeps 40 — and leaves 62.5% of the probability out."

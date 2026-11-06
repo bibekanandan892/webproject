@@ -1,6 +1,6 @@
 ---
 title: "LLM Inference Optimization"
-date: "2026-09-11T14:00"
+date: "2026-05-08T17:25"
 category: "AI"
 tags: ["inference", "gpu", "memory-bandwidth", "batching", "kv-cache"]
 summary: "Generating a token barely uses the GPU's arithmetic — it spends almost all its time moving weights from memory. Once you see that, every serving optimization sorts itself into one of three piles."

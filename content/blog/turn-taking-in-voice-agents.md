@@ -1,6 +1,6 @@
 ---
 title: "Turn-taking in voice agents"
-date: "2026-11-06T12:40"
+date: "2026-09-04T14:55"
 category: "AI"
 tags: ["voice-agents", "turn-taking", "endpointing", "barge-in", "conversation"]
 summary: "Humans swap turns in about 200 ms without talking over each other. A voice agent that waits for silence has to pick a threshold — and in a simple model of real pauses, 300 ms cuts off 40.9% of turns while 1,200 ms still cuts 6.0% and adds over a second of dead air."

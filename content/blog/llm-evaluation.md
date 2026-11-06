@@ -1,6 +1,6 @@
 ---
 title: "LLM evaluation"
-date: "2026-09-10T19:40"
+date: "2026-03-31T10:15"
 category: "AI"
 tags: ["evaluation", "benchmarks", "metrics", "contamination", "testing"]
 summary: "There is no formula for whether an answer was any good, so evaluation becomes a choice about what to trade away. The costs differ by two orders of magnitude, which is what decides the shape of a real setup."

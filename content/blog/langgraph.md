@@ -1,6 +1,6 @@
 ---
 title: "LangGraph"
-date: "2026-09-11T18:00"
+date: "2026-05-28T10:35"
 category: "AI"
 tags: ["langgraph", "agents", "state-machines", "checkpointing", "workflows"]
 summary: "The point is not that graphs are more flexible than lines. It is that the graph's position is stored alongside its data, so a run can be paused, resumed after a crash, or held for a human — none of which a straight-line pipeline can do."

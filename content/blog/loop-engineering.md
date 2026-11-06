@@ -1,6 +1,6 @@
 ---
 title: "Loop Engineering"
-date: "2026-09-12T04:20"
+date: "2026-07-15T13:50"
 category: "AI"
 tags: ["agents", "loops", "context", "cost", "verification"]
 summary: "An agent's cost grows with the square of its step budget, so doubling the budget nearly quadruples the bill. In one accounting the last six of twelve turns served 12% of runs and carried 71% of the tokens."

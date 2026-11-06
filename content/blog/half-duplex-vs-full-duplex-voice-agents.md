@@ -1,6 +1,6 @@
 ---
 title: "Half-duplex vs full-duplex voice agents"
-date: "2026-11-06T18:00"
+date: "2026-10-23T13:55"
 category: "AI"
 tags: ["voice-agents", "full-duplex", "turn-taking", "speech-to-speech", "architecture"]
 summary: "A half-duplex agent takes turns: it listens, then speaks. A full-duplex one listens and speaks at once, deciding every 80 ms whether to talk. That makes overlap, backchannels and instant yielding natural — and means running the model 7,500 times in a 10-minute call instead of about 936."

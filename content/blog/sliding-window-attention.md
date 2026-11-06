@@ -1,6 +1,6 @@
 ---
 title: "Sliding Window Attention"
-date: "2026-09-12T07:20"
+date: "2026-07-29T16:55"
 category: "AI"
 tags: ["attention", "long-context", "kv-cache", "receptive-field", "efficiency"]
 summary: "Limiting each token to a 4,096-position window cuts the attention cost 32× at 131k tokens — and cuts the memory a sequence holds from 17.18 GB to a fixed 537 MB, which is 3 concurrent requests becoming 122."

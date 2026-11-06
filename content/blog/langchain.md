@@ -1,6 +1,6 @@
 ---
 title: "LangChain"
-date: "2026-09-11T17:40"
+date: "2026-05-27T18:25"
 category: "AI"
 tags: ["langchain", "llm", "composition", "streaming", "rag"]
 summary: "The framework's actual content is one interface that every piece implements. That is what makes the pipe operator work, what makes batching and streaming propagate through a chain you assembled — and what makes a broken prompt hard to find."

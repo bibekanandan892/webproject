@@ -1,6 +1,6 @@
 ---
 title: "KV cache compression"
-date: "2026-11-06T09:20"
+date: "2026-08-06T15:20"
 category: "AI"
 tags: ["kv-cache", "inference", "quantization", "eviction", "memory"]
 summary: "A 70B-class model stores 320 KB of keys and values per token — 10.74 GB for one 32k-token conversation, so 40 GB of free memory serves three. Quantizing and evicting the cache together takes that to 66, and the three methods that get there fail in different ways."

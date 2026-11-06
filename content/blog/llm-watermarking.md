@@ -1,6 +1,6 @@
 ---
 title: "LLM Watermarking"
-date: "2026-09-12T03:40"
+date: "2026-07-12T18:20"
 category: "AI"
 tags: ["watermarking", "detection", "statistics", "provenance", "llm"]
 summary: "Detecting a watermark is a coin-flip test. At full strength 64 tokens is enough; every halving of the signal quadruples the text you need, which is exactly why paraphrasing defeats it."

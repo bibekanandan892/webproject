@@ -1,6 +1,6 @@
 ---
 title: "Embeddings"
-date: "2026-09-12T00:20"
+date: "2026-06-28T15:30"
 category: "AI"
 tags: ["embeddings", "vectors", "cosine-similarity", "dimensions", "meaning"]
 summary: "Two numbers can hold two distinguishable concepts. Sixteen can hold twenty-one. That measured curve is the reason real embeddings have hundreds of dimensions, and it is rarely the explanation given."

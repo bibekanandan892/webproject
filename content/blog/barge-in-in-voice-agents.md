@@ -1,6 +1,6 @@
 ---
 title: "Barge-in in voice agents"
-date: "2026-11-06T12:50"
+date: "2026-09-06T19:35"
 category: "AI"
 tags: ["voice-agents", "barge-in", "interruptions", "tts", "echo-cancellation"]
 summary: "Barge-in is the user talking over the agent and the agent yielding. Detection takes ~200 ms; whatever audio is already buffered keeps playing — 500 ms of buffer means 700 ms of both talking at once. And the agent must forget the 85 words it planned but never said."

@@ -1,6 +1,6 @@
 ---
 title: "LLM as a judge"
-date: "2026-09-10T19:20"
+date: "2026-03-29T08:10"
 category: "AI"
 tags: ["evaluation", "judge", "bias", "rubric", "testing"]
 summary: "Using one model to grade another scales in a way human review cannot. It also brings biases that are measurable — and at least one of them cancels exactly if you run the comparison twice."

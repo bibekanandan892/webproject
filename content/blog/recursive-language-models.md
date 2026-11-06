@@ -1,6 +1,6 @@
 ---
 title: "Recursive language models"
-date: "2026-09-10T18:40"
+date: "2026-03-26T19:40"
 category: "AI"
 tags: ["long-context", "recursion", "agents", "code-execution", "cost"]
 summary: "Rather than reading a huge input, the model writes code that reads it — calling other models on the pieces and seeing only what comes back. What that buys is not fewer tokens."

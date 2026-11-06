@@ -1,6 +1,6 @@
 ---
 title: "Jailbreaking in LLMs"
-date: "2026-11-06T19:20"
+date: "2026-11-01T18:00"
 category: "AI"
 tags: ["jailbreaking", "llm-safety", "guardrails", "red-teaming", "security"]
 summary: "A jailbreak is an input crafted to get a model to do what its training told it not to. Attackers get unlimited retries: a trick that works 2% of the time succeeds within 100 attempts 86.7% of the time. That is why defence is layered — three independent filters that each miss 10% let through 0.1%."

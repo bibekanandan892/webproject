@@ -1,6 +1,6 @@
 ---
 title: "The math behind gradient descent"
-date: "2026-09-10T09:20"
+date: "2026-02-12T21:10"
 category: "AI"
 tags: ["gradient-descent", "training", "learning-rate", "optimisation", "loss"]
 summary: "Training a model means finding the weights that make the error smallest. Gradient descent does it by repeatedly stepping downhill, and the size of those steps decides whether it works at all."

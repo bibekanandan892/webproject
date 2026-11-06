@@ -1,6 +1,6 @@
 ---
 title: "Prefill vs Decode"
-date: "2026-09-11T18:40"
+date: "2026-05-31T10:40"
 category: "AI"
 tags: ["prefill", "decode", "latency", "ttft", "serving"]
 summary: "Serving a model is two workloads wearing one name, and their metrics pull against each other. Time to first token is 1.5% of a long answer's duration and almost all of how responsive it feels."

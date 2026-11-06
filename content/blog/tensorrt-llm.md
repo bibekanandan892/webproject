@@ -1,6 +1,6 @@
 ---
 title: "TensorRT-LLM"
-date: "2026-09-12T07:00"
+date: "2026-07-27T13:35"
 category: "AI"
 tags: ["tensorrt-llm", "inference", "cuda-graphs", "kernel-fusion", "serving"]
 summary: "A decode step launches 384 tiny kernels and spends 1.92 ms of CPU time just asking for them. Replaying the whole step as one recorded graph makes that 5 microseconds, which is 1.27× more tokens per second for no change in arithmetic."

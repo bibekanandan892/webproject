@@ -1,6 +1,6 @@
 ---
 title: "Semantic Caching"
-date: "2026-09-11T19:40"
+date: "2026-06-06T20:30"
 category: "AI"
 tags: ["semantic-caching", "embeddings", "similarity", "llm", "cost"]
 summary: "An exact cache is never wrong. A semantic cache answers a question nobody asked, which makes the similarity threshold a decision about how often you are willing to be confidently incorrect."

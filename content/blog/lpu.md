@@ -1,6 +1,6 @@
 ---
 title: "LPU"
-date: "2026-09-12T06:40"
+date: "2026-07-26T20:25"
 category: "AI"
 tags: ["lpu", "inference", "sram", "latency", "hardware"]
 summary: "Putting the weights in on-chip SRAM makes a single stream 27× faster and costs 732× the throughput per chip. That one exchange rate explains every design decision in the architecture."
