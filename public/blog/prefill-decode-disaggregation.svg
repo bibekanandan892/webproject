@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Prefill-decode disaggregation: a prefill pool on the left passing a cache across to a decode pool on the right.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<text x="60" y="92" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#5E5D59">prefill pool</text>
+<text x="470" y="92" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413">decode pool</text>
+<g fill="#5E5D59" fill-opacity="0.3" stroke="rgba(20,20,19,0.3)" stroke-width="1.5">
+<rect x="60" y="112" width="220" height="56" rx="8"/>
+<rect x="60" y="180" width="220" height="56" rx="8"/>
+</g>
+<g fill="#FFFFFF" stroke="#141413" stroke-width="2">
+<rect x="470" y="112" width="270" height="36" rx="8"/>
+<rect x="470" y="156" width="270" height="36" rx="8"/>
+<rect x="470" y="200" width="270" height="36" rx="8"/>
+</g>
+<g fill="#141413" fill-opacity="0.55">
+<rect x="484" y="124" width="10" height="12"/><rect x="498" y="124" width="10" height="12"/><rect x="512" y="124" width="10" height="12"/><rect x="526" y="124" width="10" height="12"/><rect x="540" y="124" width="10" height="12"/><rect x="554" y="124" width="10" height="12"/>
+<rect x="484" y="168" width="10" height="12"/><rect x="498" y="168" width="10" height="12"/><rect x="512" y="168" width="10" height="12"/><rect x="526" y="168" width="10" height="12"/>
+<rect x="484" y="212" width="10" height="12"/><rect x="498" y="212" width="10" height="12"/><rect x="512" y="212" width="10" height="12"/><rect x="526" y="212" width="10" height="12"/><rect x="540" y="212" width="10" height="12"/>
+</g>
+<path d="M290 174 H452" stroke="#141413" stroke-width="4"/>
+<path d="M440 164 L456 174 L440 184" fill="none" stroke="#141413" stroke-width="4"/>
+<text x="300" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#141413">kv cache</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">no more 1.16 s stalls for everyone else</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">prefill-decode disaggregation</text>
+</svg>
