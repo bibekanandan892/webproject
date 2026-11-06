@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Logprobs: a row of word tokens, each with a bar hanging below it, one bar much longer than the rest.">
+<defs>
+  <radialGradient id="glow" cx="50%" cy="14%" r="80%">
+    <stop offset="0%" stop-color="#141413" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="450" fill="#F0EEE6"/>
+<rect width="800" height="450" fill="url(#glow)"/>
+<g fill="#FFFFFF" stroke="#141413" stroke-width="2"><rect x="60" y="80" width="130" height="50" rx="8"/><rect x="220" y="80" width="150" height="50" rx="8"/><rect x="400" y="80" width="90" height="50" rx="8"/><rect x="520" y="80" width="190" height="50" rx="8"/></g>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#141413" text-anchor="middle"><text x="125" y="112">The</text><text x="295" y="112">meeting</text><text x="445" y="112">is</text><text x="615" y="112">Thursday</text></g>
+<g fill="#5E5D59" fill-opacity="0.45"><rect x="105" y="140" width="40" height="10"/><rect x="275" y="140" width="40" height="30"/><rect x="425" y="140" width="40" height="5"/></g>
+<rect x="595" y="140" width="40" height="170" fill="#141413" fill-opacity="0.8"/>
+<text x="650" y="300" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#141413">−2.996</text>
+<text x="60" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" fill="#5E5D59">how sure the model was, token by token</text>
+<text x="52" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="600" letter-spacing="2" fill="#141413" fill-opacity="0.9">logprobs</text>
+</svg>
